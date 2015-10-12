@@ -2279,6 +2279,10 @@ GtkPrintUnixDialog .dialog-vbox {
   &:selected {
     @extend %selected_items;
   }
+
+  & GtkImage {
+    padding: 0px 4px;
+  }
 }
 
 // Places sidebar is a special case, since the view here have to look like chrome not content, so we override text color

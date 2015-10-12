@@ -32,7 +32,7 @@ $error_color: #cc0000;
 $success_color: #73d216;
 $destructive_color: #ef2929;
 
-$sidebar_bg_color: lighten($bg_color,5%);
+$sidebar_bg_color: $base_color;
 
 $tooltip_borders_color: black;
 
