@@ -2462,8 +2462,11 @@ GtkColorSwatch {
 //make colors in buttons look more dumb/XP-like
 .button GtkColorSwatch {
   box-shadow: none;
-  border: 1px solid black;
-  &.overlay { border: none;}
+  border: none;
+  &.overlay {
+    border: 1px solid black;
+    box-shadow: none;
+  }
 }
 
 //make color selectors look dumber/more XP-like
