@@ -1,7 +1,7 @@
 ##CinnXP
 make Cinnamon look and feel like the venerable Windows XP interface
 
-Current version: 0.1
+Current version: 0.2
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
@@ -14,7 +14,7 @@ based on Mint-XP (fmcgorenc) and Adwaita
 
 ####Requirements:
 * Cinnamon 2.6
-* Gtk 3.16
+* Gtk 3.18
 * Pixmap and Adwaita gtk2 engines
 * Ruby Sass (for building css from source)
 
