@@ -2440,10 +2440,12 @@ GtkColorSwatch {
   &.color-dark {
     color: white;
     outline-color: white;
+    background-color: transparent;
   }
   &.color-light {
     color: black;
     outline-color: black;
+    background-color: transparent;
   }
 
   // border color
