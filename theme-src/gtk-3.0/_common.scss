@@ -972,7 +972,7 @@ GtkComboBox {
   padding: 3px;
   border-radius: 0px;
 }
-.search-bar, .location-bar {
+.search-bar, .location-bar, EvAnnotationsToolbar.toolbar.inline-toolbar {
   @extend .toolbar;
   //@extend %inset-bar;
   border-width: 0px 0px 1px;
