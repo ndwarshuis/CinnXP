@@ -622,12 +622,14 @@ $_dot_color: $selected_bg_color;
 
 // all the following is for the +|- buttons on inline toolbars, that way
 // should really be deprecated...
-.inline-toolbar GtkToolButton > .button { // redefining the button look is
+.inline-toolbar GtkToolButton > .button.flat { // redefining the button look is
                                           // needed since those are flat...
   @include button(normal);
   &:hover { @include button(hover); }
   &:active,
-  &:checked{ @include button(active); }
+  &:active:hover,
+  &:checked,
+  &:checked:hover { @include button(active); }
   &:insensitive { @include button(insensitive); }
   //&:insensitive:active,
   //&:insensitive:checked { @include button(insensitive-active); }
