@@ -971,8 +971,10 @@ GtkComboBox {
 }
 .search-bar, .location-bar {
   @extend .toolbar;
-  @extend %inset-bar;
-  border-width: 0 0 1px;
+  //@extend %inset-bar;
+  border-width: 0px 0px 1px;
+  box-shadow: inset 0px 2px 3px -1px mix(black, $bg_color, 60%),
+              _widget_edge();
   padding: 3px;
 }
 
