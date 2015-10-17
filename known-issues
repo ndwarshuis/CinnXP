@@ -1,8 +1,5 @@
 gtk3:
-need dark border around menus
-file chooser: treeview needs better spacing, pathbar has first/middle/last child mixup
-blue border under titlebar in evince needs to go away
-nemo pathbar has first/middle/last child issues
+pathbars are messed up (might be gtk thing :( )
 
 cinnamon:
 sometimes notifications show weird inset border around text when in applet popup
