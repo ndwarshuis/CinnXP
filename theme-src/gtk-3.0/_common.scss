@@ -366,7 +366,10 @@ $_dot_color: $selected_bg_color;
   &.flat {
     @include button(undecorated);
     &:hover { @include button(osd-hover); }
-    &:active { @include button(active); }
+    &:active {
+      @include button(active);
+      & .label { color: white; }
+    }
   }
   &.default {
     @include button(default);

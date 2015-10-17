@@ -470,7 +470,7 @@
     icon-shadow: none;
   }
   @else if $t==toolbar-pressed {
-    color: white;
+    color: $fg_color;
     border-color: #9d9d92;
     background-color: transparent;
     background-image: linear-gradient(to right,
