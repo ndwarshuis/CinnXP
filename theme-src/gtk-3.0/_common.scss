@@ -259,6 +259,13 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
     }
   }
 
+  //Most pointless code ever...this is required to make the pathbar look ok
+  //apparently "changing" the colors makes the border radius not do weird stuff
+  //thank you gnome for the wonderful theme parser
+  .linked:not(.vertical) > &:focus + .button {
+    border-left-color: $button_borders;
+  }
+
   &.error { // FIXME: dark variant love needed
     color: $error_color;
     background-color: $base_color;
@@ -659,7 +666,6 @@ $_dot_color: $selected_bg_color;
 }
 
 %linked {
-  @extend %linked_middle;
   &:first-child {
     border-radius: 3px 0px 0px 3px;
     border-left-style: solid;
@@ -672,6 +678,7 @@ $_dot_color: $selected_bg_color;
     border-radius: 3px;
     border-style: solid;
   }
+  @extend %linked_middle;
 }
 
 %linked_vertical_middle {
