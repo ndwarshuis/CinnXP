@@ -1,8 +1,8 @@
 #! /bin/bash
 
-pkg_dir="pkg"/CinnXP
-icon_dir="$PWD"/"$pkg_dir"/usr/share/icons/CinnXP
-theme_dir="$PWD"/"$pkg_dir"/usr/share/themes/CinnXP
+pkg_dir="pkg"
+icon_dir="$PWD"/"$pkg_dir"/icons
+theme_dir="$PWD"/"$pkg_dir"/themes
 theme_src="$PWD"/theme-src
 
 ######################
@@ -139,5 +139,5 @@ echo '@import url("resource:///org/gnome/CinnXP/gtk-contained.css");' > "$theme_
 
 #~ rm "$xml_path"
 
-#copy everything else
-cp -r "$theme_src"/{gtk-2.0,metacity-1,index.theme,cinnamon} "$theme_dir"
+#link everything else
+ln -s "$theme_src"/{gtk-2.0,metacity-1,index.theme,cinnamon} "$theme_dir"
