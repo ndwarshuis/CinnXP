@@ -1,7 +1,7 @@
 ##CinnXP
 make Cinnamon look and feel like the venerable Windows XP interface
 
-Current version: 0.2
+Current version: 1.0
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
@@ -13,7 +13,7 @@ based on Mint-XP (fmcgorenc) and Adwaita
 * cursor
 
 ####Requirements:
-* Cinnamon 2.6
+* Cinnamon 2.8
 * Gtk 3.18
 * Pixmap and Adwaita gtk2 engines
 * Ruby Sass (for building css from source)
@@ -21,7 +21,7 @@ based on Mint-XP (fmcgorenc) and Adwaita
 ####Install instructions:
 
 1. Run ./compile-theme in top-level directory. The result will be a file called "pkg"
-2. Copy CinnXP directories for icons/themes into system wide directories (/usr/share/icons and /usr/share/themes) or user-wide directories (~/.icons and ~/.themes). Create directories as necessary
+2. Copy directories for icons/themes into system wide directories (/usr/share/icons and /usr/share/themes) or user-wide directories (~/.icons and ~/.themes). Create directories as necessary
 3. In ~/.icons, make symbolic link called "default" and point it to the CinnXP cursor directory (this is required for QT apps and probably other stuff)
 4. move menu applet to the first position on the panel and open configuration; point icon to CinnXP/cinnamon/menu.png and change text to "start"
 
