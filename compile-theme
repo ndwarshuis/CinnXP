@@ -1,8 +1,13 @@
 #! /bin/bash
 
-pkg_dir="pkg"
-icon_dir="$PWD"/"$pkg_dir"/icons/CinnXP
-theme_dir="$PWD"/"$pkg_dir"/themes/CinnXP
+if [ $# -eq 0 ]; then
+	pkg_dir="pkg"
+else
+	pkg_dir="$1"
+fi
+
+icon_dir="$PWD"/"$pkg_dir"/usr/share/icons/CinnXP
+theme_dir="$PWD"/"$pkg_dir"/usr/share/themes/CinnXP
 theme_src="$PWD"/theme-src
 
 ######################
@@ -108,7 +113,10 @@ fi
 cd "$theme_src"/gtk-3.0
 
 #ensure gtk-contained is up to date
-rm gtk-contained.css
+if [ -e "gtk-contained.css" ]; then
+	rm gtk-contained.css
+fi
+
 ./parse-sass.sh
 
 #change compiled files here (currently uses all png images and css files in gtk-3.0)
