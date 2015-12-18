@@ -1902,13 +1902,12 @@ GtkProgressBar {
   -GtkProgressBar-min-vertical-bar-width: 22;
   font-size: smaller;
   color: transparentize($fg_color, 0.6);
-  
   &.osd {
     -GtkProgressBar-xspacing: 0;
     -GtkProgressBar-yspacing: 0;
     -GtkProgressBar-min-horizontal-bar-height: 3;
   }
-  &.trough {
+  &.trough {  // background
 	@include progressbar_trough(horizontal);
 	&.vertical { @include progressbar_trough(vertical); }
     &.osd {
@@ -1919,6 +1918,7 @@ GtkProgressBar {
   }
 }
 
+// moving bit
 .progressbar {
   @include progressbar_fill;
   border: none;
@@ -1931,7 +1931,7 @@ GtkProgressBar {
     background-image: none;
     background-color: $selected_bg_color;
     border-style: none;
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
