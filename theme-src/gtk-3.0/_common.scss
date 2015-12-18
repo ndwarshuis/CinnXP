@@ -248,22 +248,16 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
     box-shadow: none;
   }
 
-  .linked > & { //FIXME: use same buttons linking logic and template
-    border-radius: 0px;
-    &:first-child {
-      &:dir(rtl) { border-right-style: none;}
-    }
-    &:last-child {
-      border-left-style: none;
-      &:dir(rtl) { border-left-style: solid; }
-    }
+  .linked > & {
+    border-right-style: none; 
+    &:last-child,
+    &:only-child { border-style: solid; }
   }
 
   .linked.vertical > & {
-    border-style: none solid solid solid;
-    &:first-child {
-      border-top-style: solid;
-    }
+    border-style: solid solid none solid;
+    &:last-child,
+    &:only-child { border-style: solid; }
   }
 
   .linked:not(.vertical) > &:focus + .entry,
@@ -635,53 +629,48 @@ $_dot_color: $selected_bg_color;
 // More inline toolbar buttons
 .inline-toolbar.toolbar GtkToolButton {
   & > .button.flat { @extend %linked_middle; }
-  &:dir(rtl) > .button.flat { @extend %linked_middle:dir(rtl); }
   &:first-child > .button.flat { @extend %linked:first-child; }
   &:last-child > .button.flat { @extend %linked:last-child; }
-  &:last-child:dir(rtl) > .button.flat { @extend %linked:last-child:dir(rtl); }
   &:only-child > .button.flat { @extend %linked:only-child; }
 }
 
 %linked_middle {
   border-radius: 0;
-  border-left-style: none;
-  &:dir(rtl) {
-    border-radius: 0px; // needed when including %linked_middle:dir(rtl)
-    border-right-style: none;
-    border-left-style: solid
-  }
+  border-right-style: none;
 }
 
 %linked {
+  @extend %linked_middle;
   &:first-child {
-    border-radius: 3px 0px 0px 3px;
-    border-left-style: solid;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
   &:last-child {
-    border-radius: 0px 3px 3px 0px;
-    &:dir(rtl) { border-right-style: solid; }
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-right-style: solid;
   }
   &:only-child {
     border-radius: 3px;
     border-style: solid;
   }
-  @extend %linked_middle;
 }
 
 %linked_vertical_middle {
-  border-left-style: solid;
-  border-top-style: none;
-  border-radius: 0px;
+  border-style: solid solid none solid;
+  border-radius: 0;
 }
 
 %linked_vertical{
   @extend %linked_vertical_middle;
   &:first-child {
-    border-style: solid;
-    border-radius: 3px 3px 0px 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
   }
   &:last-child {
-    border-radius: 0px 0px 3px 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-style: solid;
   }
   &:only-child {
     border-radius: 3px;
@@ -706,6 +695,7 @@ $_dot_color: $selected_bg_color;
   &:hover { background-color: mix($fg_color, $bg_color, 10%); }
   &:selected { @extend %selected_items; }
 }
+
 
 GtkColorButton.button {
   padding: 5px; // Uniform padding on the GtkColorButton
@@ -914,7 +904,6 @@ GtkComboBox {
   // work, special case needed. See
   // https://bugzilla.gnome.org/show_bug.cgi?id=733979
   &:dir(ltr) { @extend %linked_middle; } // specificity bump
-  &:dir(rtl) { @extend %linked_middle:dir(rtl); }
 }
 .linked > GtkComboBox:first-child > .button {
   @extend %linked:first-child;
