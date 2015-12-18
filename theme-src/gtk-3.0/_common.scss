@@ -1940,11 +1940,6 @@ GtkProgressBar {
  * Level Bar *
  *************/
 
-.level-bar.vertical {
-  -GtkLevelBar-min-block-width: 5;
-  -GtkLevelBar-min-block-height: 34;
-}
-
 .level-bar {
   box-shadow: _widget_edge(); // needs to be set here to avoid clipping
   -GtkLevelBar-min-block-width: 34;
@@ -1962,11 +1957,11 @@ GtkProgressBar {
     // :nth-child working on discrete indicators
     border: 1px solid darken($selected_bg_color,10%);
     background-color: $selected_bg_color;
-    box-shadow: 0px 1px transparentize(black, 0.9);
+    box-shadow: 0 1px transparentize(black, 0.9);
     border-radius: 1px;
     &.indicator-discrete {
-      &.horizontal { margin: 0px 1px; }
-      &.vertical { margin: 1px 0px; }
+      &.horizontal { margin: 0 1px; }
+      &.vertical { margin: 1px 0; }
     }
     &.level-high {
       border-color: darken($success_color,10%);
@@ -1983,6 +1978,7 @@ GtkProgressBar {
     }
   }
 }
+
 
 /**********
  * Frames *
