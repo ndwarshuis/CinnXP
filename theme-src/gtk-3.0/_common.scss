@@ -2076,7 +2076,6 @@ GtkScrolledWindow {
 .app-notification.frame {
   @extend %osd;
   padding: 10px;
-  //border: none;
   border: 1px solid $menu_borders;
   border-top-width: 0px;
   border-radius: 0px;
