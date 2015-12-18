@@ -765,33 +765,33 @@ GtkColorButton.button {
       @include entry_button(active, '', true);
     }
   }
-  .osd & {
-  //  .button {
-  //    @include button(undecorated);
-  //    color: $osd_fg_color;
-  //    border-style: none none none solid;
-  //    border-color: transparentize($osd_borders_color, 0.3);
-  //    border-radius: 0px;
-  //    box-shadow: none;
-  //    &:dir(rtl) { border-style: none solid none none; }
-  //    &:hover {
-  //      @include button(undecorated);
-  //      color: $osd_fg_color;
-  //      border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
-  //      background-color: transparentize($osd_fg_color, 0.9);
-  //      box-shadow: none;
-  //    }
-  //    &:insensitive {
-  //      @include button(undecorated);
-  //      color: $osd_insensitive_fg_color;
-  //      border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
-  //      icon-shadow: none;
-  //      box-shadow: none;
-  //    }
-  //    &:last-child { border-radius: 0px 3px 3px 0px; }
-  //    &:dir(rtl):first-child { border-radius: 3px 0px 0px 3px; }
-  //  }
-  }
+//  .osd & {
+//    .button {
+//      @include button(undecorated);
+//      color: $osd_fg_color;
+//      border-style: none none none solid;
+//      border-color: transparentize($osd_borders_color, 0.3);
+//      border-radius: 0;
+//      box-shadow: none;
+//      &:dir(rtl) { border-style: none solid none none; }
+//      &:hover {
+//        @include button(undecorated);
+//        color: $osd_fg_color;
+//        border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+//        background-color: transparentize($osd_fg_color, 0.9);
+//        box-shadow: none;
+//      }
+//      &:insensitive {
+//        @include button(undecorated);
+//        color: $osd_insensitive_fg_color;
+//        border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+//        icon-shadow: none;
+//        box-shadow: none;
+//      }
+//      &:last-child { border-radius: 0 3px 3px 0; }
+//      &:dir(rtl):first-child { border-radius: 3px 0 0 3px; }
+//    }
+//  }
   &.vertical, &.vertical:dir(rtl) { //FIXME: try using linking templates for vertically linked stuff
     .button {
       border-image: none;
@@ -834,7 +834,7 @@ GtkColorButton.button {
     &.entry {
       // we should remove the bottom edge hilight here, but seems
       // like buttons are on top of it so it doesn't show up
-      border-radius: 0px;
+      border-radius: 0;
       padding-left: 3px;
       padding-right: 3px;
     }
@@ -843,11 +843,11 @@ GtkColorButton.button {
       &:insensitive { border-color: $insensitive_borders_color; }
     }
     %top_button {
-      border-radius: 3px 3px 0px 0px;
+      border-radius: 3px 3px 0 0;
       border-style: solid solid none solid;
     }
     %bottom_button {
-      border-radius: 0px 0px 3px 3px;
+      border-radius: 0 0 3px 3px;
       border-style: none solid solid solid;
     }
   }
@@ -856,7 +856,7 @@ GtkColorButton.button {
       padding: 1px;
       border-width: 1px 0;
       border-color: $selected_bg_color;
-      border-radius: 0px;
+      border-radius: 0;
       box-shadow: none;
     }
   }
