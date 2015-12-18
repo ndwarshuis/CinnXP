@@ -259,27 +259,27 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
     }
   }
 
-  //Most pointless code ever...this is required to make the pathbar look ok
-  //apparently "changing" the colors makes the border radius not do weird stuff
-  //thank you gnome for the wonderful theme parser
-  .linked:not(.vertical) > &:focus + .button {
-    border-left-color: $button_borders;
-  }
-
-  &.error { // FIXME: dark variant love needed
-    color: $error_color;
-    background-color: $base_color;
-    border-color: $error_color;
-    &:selected, &:selected:focus {
-      background-color: $error_color;
+  .linked.vertical > & {
+    border-style: none solid solid solid;
+    &:first-child {
+      border-top-style: solid;
     }
   }
 
-  &.warning { // FIXME: dark variant love needed
-    color: $warning_color;
-    border-color: $warning_color;
-    &:selected, &:selected:focus {
-      background-color: $warning_color;
+  .linked:not(.vertical) > &:focus + .entry,
+  .linked:not(.vertical) > &:focus + .button,
+  .linked:not(.vertical) > &:focus + GtkComboBox > .the-button-in-the-combobox,
+  .linked:not(.vertical) > &:focus + GtkComboBoxText > .the-button-in-the-combobox {
+    border-left-color: $button_borders;
+  }
+
+  // entry error and warning style
+  @each $e_type, $e_color in (error, $error_color),
+                             (warning, $warning_color) {
+    &.#{$e_type} {
+      color: $e_color;
+      border-color: $e_color;
+      &:selected, &:selected:focus { background-color: $e_color; }
     }
   }
 
@@ -289,56 +289,53 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
     &:active { color: $selected_bg_color; }
   }
 
-  .linked.vertical > & { //FIXME comment stuff and make the whole thing smarter.
-    //@include entry(normal, $edge: none);
-    //background-image: linear-gradient(to bottom, $base_color);
-    //border-bottom-color: mix($borders_color, $base_color, 30%);
-    //box-shadow: none;
-    @extend %linked_vertical;
-    //&:focus {
-    //  border-color: entry_focus_border($selected_bg_color);
-    //  box-shadow: entry_focus_glow($selected_bg_color),
-    //              0 -1px 0 0 entry_focus_border($selected_bg_color);
-    //  @extend %linked_vertical;
-    //}
-    &:insensitive {
-      //@include entry(insensitive, $edge: none);
-      //border-bottom-color: mix($borders_color, $base_color, 30%);
-      @extend %linked_vertical;
-    }
-    &:first-child {
-      //@include entry(normal, $edge: none);
-      //border-bottom-color: mix($borders_color, $base_color, 30%);
-      //&:focus { @include entry(focus, $edge: none); }
-      &:insensitive {
-        //@include entry(insensitive, $edge: none);
-        //border-bottom-color: mix($backdrop_borders_color, $backdrop_base_color, 30%);
-        //@extend %linked_vertical:first-child;
-      }
-    }
-    &:last-child {
-      //@include entry(normal);
-      //background-image: linear-gradient(to bottom, $base_color);
-      //box-shadow: _widget_edge();
-      //&:focus {
-      //  border-color: entry_focus_border($selected_bg_color);
-      //  box-shadow: entry_focus_glow($selected_bg_color),
-      //              0 -1px 0 0 entry_focus_border($selected_bg_color),
-      //              _widget_edge();
-      //  @extend %linked_vertical:last-child;
-      //}
-      &:insensitive {
-        //@include entry(insensitive);
-        @extend %linked_vertical:last-child;
-      }
-    }
-  }
-  .osd & {
-  //  @include entry(osd);
-  //  &:focus { @include entry(osd-focus); }
-  //  &:insensitive { @include entry(osd-insensitive); }
-  }
+//  .osd & {
+//    @include entry(osd);
+//    &:focus { @include entry(osd-focus); }
+//    &:insensitive { @include entry(osd-insensitive); }
+//  }
 }
+
+// Vertically linked entries
+// FIXME: take care of "colored" entries
+//.linked.vertical {
+//  > .entry { @extend %linked_vertical; }
+
+//  // remove the edge hilight and the focus shadow (unfortunatelly)
+//  > .entry:not(:last-child) { box-shadow: none; }
+//  // add back the focus shadow
+//  > .entry:focus:not(:last-child) { box-shadow: entry_focus_shadow(); }
+
+//  // brighter border between linked entries
+//  > .entry:not(:insensitive) + .entry:not(:insensitive) {
+//    border-top-color: mix($borders_color, $base_color, 30%);
+//    background-image: linear-gradient(to bottom, $base_color);
+//    &:backdrop {
+//      border-top-color: mix($backdrop_borders_color, $backdrop_base_color, 30%);
+//      background-image: linear-gradient(to bottom, $backdrop_base_color);
+//    }
+//  }
+
+//  // color back the top border of a linked focused entry following another entry and add back the focus shadow.
+//  > .entry + .entry:focus:not(:last-child) {
+//    border-top-color: entry_focus_border();
+//    box-shadow: entry_focus_shadow();
+//  }
+//  // just recolor the top border on the last focused entry, since we don't reset the shadow here letting that be
+//  // inherited by the entry styling.
+//  > .entry + .entry:focus:last-child {
+//    border-top-color: entry_focus_border();
+//  }
+
+//  // this takes care of coloring the top border of the focused entry subsequent widget.
+//  // :not(:only-child) is a specificity bump hack.
+//  > .entry:focus:not(:only-child) + .entry,
+//  > .entry:focus:not(:only-child) + .button,
+//  > .entry:focus:not(:only-child) + GtkComboBox > .the-button-in-the-combobox,
+//  > .entry:focus:not(:only-child) + GtkComboBoxText > .the-button-in-the-combobox { border-top-color: entry_focus_border(); }
+//}
+
+
 
 /***********
  * Buttons *
