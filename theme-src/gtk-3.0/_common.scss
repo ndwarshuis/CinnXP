@@ -370,13 +370,7 @@ $_dot_color: $selected_bg_color;
   &.flat {
     @include button(undecorated);
     &:hover { @include button(osd-hover); }
-    &:active {
-      @include button(active);
-      & .label { color: white; }
-    }
-  }
-  &.default {
-    @include button(default);
+    &:active { @include button(active); }
   }
   &:hover {
     @include button(hover);
@@ -386,6 +380,9 @@ $_dot_color: $selected_bg_color;
   }
   &.flat:insensitive {
     @include button(undecorated);
+  }
+  &.default {
+    @include button(default);
   }
   &:insensitive {
     @include button(insensitive);
