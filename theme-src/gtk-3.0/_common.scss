@@ -2026,42 +2026,20 @@ GtkScrolledWindow {
  * Lists *
  *********/
 
-.list, .list-row {
+.list {
   background-color: $base_color;
   border-color: $borders_color;
-  outline-radius: 0px;
 }
 
 .list-row,
 .grid-child {
   padding: 2px;
+  outline-radius: 0px;
 }
 
-.list-row.button,
-.list-row.button:insensitive:active,
-.list-row.button:insensitive:checked {
-  // reset button inherited stuff
-  @extend %undecorated_button;
-  background-color: transparentize($base_color,1); // for the transition
-  border-style: none; // I need no borders here
-  border-radius: 0px;   // and no rounded corners
-  box-shadow: none;   // and no box-shadow
-}
-
-.list-row.button {
+.list-row.activatable {
   // let's take care of background colors
-  &:hover {
-    background-color: mix($fg_color, $base_color, 5%);
-  }
-  &:active {
-    box-shadow: inset 0px 2px 2px -2px transparentize(black, 0.8);
-  }
-  &:selected {
-    &:active { box-shadow: inset 0px 2px 3px -1px transparentize(black, 0.5); }
-    &:hover {
-      background-color: mix($fg_color, $selected_bg_color, 10%);
-    }
-  }
+  &:selected { @extend %selected_items; }
 }
 
 .list-row:selected {
@@ -2084,7 +2062,6 @@ GtkScrolledWindow {
     &:insensitive {
       @include button(insensitive, $edge:none);
       border-color: $selected_borders_color;
-      //&:active, &:checked { @include button(insensitive-active, $edge:none); }
     }
     //FIXME: make placeholder with buttons w/o edge to be extended around
     //       istead of repeating everytime this stuff.
@@ -2279,32 +2256,45 @@ GtkPrintUnixDialog .dialog-vbox {
   &:selected {
     @extend %selected_items;
   }
+}
 
-  & GtkImage {
-    padding: 0px 4px;
+GtkSidebarRow {
+  // Needs overriding of the GtkListBoxRow padding
+  &.list-row {
+    padding: 0px;
+  }
+  // Using margins/padding directly in the SidebarRow
+  // will make the animation of the new bookmark row jump
+  .sidebar-revealer {
+    padding: 2px 7px 2px 9px;
+  }
+  .sidebar-icon {
+    &:dir(ltr) { padding-right: 8px; }
+    &:dir(rtl) { padding-left: 8px; }
+  }
+  .sidebar-label {
+    &:dir(ltr) { padding-right: 2px; }
+    &:dir(rtl) { padding-left: 2px; }
   }
 }
 
-// Places sidebar is a special case, since the view here have to look like chrome not content, so we override text color
-GtkPlacesSidebar.sidebar .view {
-
-  color: $fg_color;
-  background-color: transparent;
-
-  .separator { @extend .separator; }
-
-  .image { // icons color
-    color: transparentize($fg_color, 0.3);
-
-    &:selected { color: $selected_fg_color; }
-
-    &:insensitive { color: mix($insensitive_fg_color, $sidebar_bg_color, 70%); }
+GtkPlacesSidebar.sidebar {
+  .sidebar-placeholder-row {
+    border: solid 1px $selected_bg_color;
   }
 
-  &:insensitive { color: $insensitive_fg_color; }
+  .sidebar-new-bookmark-row {
+    color: $selected_bg_color;
+  }
 
-  &:selected {
-    @extend %selected_items;
+  @at-root .sidebar-button.button { // @at-root needded to not change the specificity making button styling inheritance broken
+                                    // so istead of "GtkPlacesSidebar.sidebar .sidebar-button.button" [specificity 0,0,3,1]
+                                    // the extended selector ".sidebar-button.button" [specificity 0,0,2,0]
+
+    &.image-button { padding: 5px; }
+
+    border-radius: 100%;
+    outline-radius: 100%;
   }
 }
 
@@ -2319,7 +2309,6 @@ GtkPlacesSidebar.sidebar .view {
     background-size: 6px 6px, 0 0;
   }
 }
-
 
 /*********
  * Paned *
