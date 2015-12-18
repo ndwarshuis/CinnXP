@@ -740,6 +740,9 @@ GtkColorButton.button {
     @extend %undecorated_button;
     text-shadow: none;
   }
+  & > .label {
+    text-decoration-line: underline;
+  }
 }
 
 /*****************
@@ -883,7 +886,6 @@ GtkComboBox {
     -GtkWidget-wide-separators: true;
   }
   &.combobox-entry .entry {
-    //@extend %linked;
     border-right-style: none;
   }
   &.combobox-entry .button {
