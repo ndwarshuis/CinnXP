@@ -236,7 +236,10 @@
                                  );
 
   $_hilight_color: transparentize(white, 0.95);
-  $_button_edge: 0px 1px transparentize(white, 0.40),
+
+  //ugly hack to "switch" bottom edge on/off to integrate with adwaita code
+  $_bottom_edge_transparency: if($edge==none, 1.0, 0.4);
+  $_button_edge: 0px 1px transparentize(white, $_bottom_edge_transparency),
                  1px 0px transparentize(white, 0.80),
 				 0px -1px transparentize(black, 0.96),
 				-1px 0px transparentize(black, 0.97);
