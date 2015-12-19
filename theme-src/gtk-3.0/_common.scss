@@ -2411,7 +2411,7 @@ GtkInfoBar {
 .error {
   background-color: $selected_bg_color;
   color: $selected_fg_color;
-  text-shadow: 0px 1px darken($selected_bg_color, 10%);
+  text-shadow: 0 1px darken($selected_bg_color, 10%);
   border-color: darken($selected_bg_color, 10%);
   .button {
     // FIXME: extend selection mode buttons
