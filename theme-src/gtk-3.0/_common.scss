@@ -359,6 +359,7 @@ $_dot_color: $selected_bg_color;
 .button {
   border: 1px solid;
   border-radius: 3.5px;
+  outline-radius: 3px;
   padding: 5px 8px 6px;
   @include button(normal);
   &.flat {
