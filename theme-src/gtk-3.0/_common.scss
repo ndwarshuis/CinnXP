@@ -636,6 +636,7 @@ $_dot_color: $selected_bg_color;
 
 %linked_middle {
   border-radius: 0;
+  outline-radius: 0;
   border-right-style: none;
 }
 
@@ -644,14 +645,19 @@ $_dot_color: $selected_bg_color;
   &:first-child {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+    outline-top-left-radius: 3px;
+    outline-bottom-left-radius: 3px;
   }
   &:last-child {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    outline-top-right-radius: 3px;
+    outline-bottom-right-radius: 3px;
     border-right-style: solid;
   }
   &:only-child {
     border-radius: 3px;
+    outline-radius: 3px;
     border-style: solid;
   }
 }
@@ -659,6 +665,7 @@ $_dot_color: $selected_bg_color;
 %linked_vertical_middle {
   border-style: solid solid none solid;
   border-radius: 0;
+  outline-radius: 0;
 }
 
 %linked_vertical{
@@ -666,14 +673,19 @@ $_dot_color: $selected_bg_color;
   &:first-child {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    outline-top-left-radius: 3px;
+    outline-top-right-radius: 3px;
   }
   &:last-child {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    outline-bottom-left-radius: 3px;
+    outline-bottom-right-radius: 3px;
     border-style: solid;
   }
   &:only-child {
     border-radius: 3px;
+    outline-radius: 3px;
     border-style: solid;
   }
 }
