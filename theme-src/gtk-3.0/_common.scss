@@ -1128,6 +1128,8 @@ GtkTreeView.view {
   border-left-color: mix($fg_color, $base_color, 50%); // this is actually the tree lines color,
   border-top-color: $bg_color;                         // while this is the grid lines color, better then nothing
 
+  &.rubberband { @extend .rubberband; } // to avoid borders being overridden by the previously set props
+
   &:selected {
     border-radius: 0px;
     border-left-color: mix($selected_fg_color, $selected_bg_color, 50%);
@@ -1209,8 +1211,8 @@ column-header {
 
 column-header.button.dnd { // for treeview-like derive widgets
   color: $selected_bg_color;
-  box-shadow: inset 1px 1px 0px 1px $selected_bg_color,
-              inset -1px 0px 0px 1px $selected_bg_color,
+  box-shadow: inset 1px 1px 0 1px $selected_bg_color,
+              inset -1px 0 0 1px $selected_bg_color,
               inset 1px 1px $base_color, inset -1px 0 $base_color;;
   &:active { @extend column-header.button.dnd; }
   &:selected { @extend column-header.button.dnd; }
@@ -1220,7 +1222,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 %column_header_button {
   color: $text_color;
   padding: 3px 6px;
-  border-radius: 0px;
+  border-radius: 0;
   background-image: none;
   border-image-repeat: stretch;
   text-shadow: none;
