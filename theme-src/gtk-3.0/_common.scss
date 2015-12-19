@@ -1543,7 +1543,7 @@ $_notebook_bg_b: #f4f3ee;
 
   .button {
     border: none;
-    color: transparent;
+    color: transparent; //hack to use our own arrows :)
     box-shadow: none;
   }
 
@@ -1556,10 +1556,10 @@ $_notebook_bg_b: #f4f3ee;
       -GtkRange-slider-width: 4px;
 
       .slider {
-        background-clip: padding-box;
         background-image: none;
 	    border: 1px solid white;
 	    background-color: $selected_bg_color;
+        background-clip: padding-box;
       }
 
       .trough {
