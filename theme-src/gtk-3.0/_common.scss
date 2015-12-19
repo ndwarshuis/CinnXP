@@ -2524,6 +2524,12 @@ GtkColorSelection .frame { @include frame_inset; }
  * Misc *
  ********/
 
+//content view (grid/list)
+.content-view {
+  background-color: darken($bg_color,7%);
+  &.rubberband { @extend .rubberband; }
+}
+
 .scale-popup .button { // +/- buttons on GtkVolumeButton popup
   padding: 6px;
   &:hover {
