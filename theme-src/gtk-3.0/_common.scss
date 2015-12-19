@@ -1787,6 +1787,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
 .scale,
 .scale.scale-has-marks-above.scale-has-marks-below,
 .scale.vertical.scale-has-marks-above.scale-has-marks-below {
+  // FIXME: rationalize
   -GtkScale-slider-length: 20;
   -GtkRange-slider-width: 20;
   -GtkRange-trough-border: 2;
@@ -1859,6 +1860,8 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
       -GtkRange-slider-width: 21;
       -GtkRange-trough-border: 2;
 
+      color: gtkalpha(currentColor, 0.5); // marks color
+
       @extend %#{$we}_#{$dn};
 
       @each $s,$as in ('',''),
@@ -1868,7 +1871,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
         &.slider#{$s} {
           $_url: 'Range/slider-#{$dn}-#{$w}#{$as}';
           border-style: none;
-          border-radius: 0px;
+          border-radius: 0;
           background-color: transparent;
           background-image: -gtk-scaled(url('#{$_url}.png'));
           background-repeat: no-repeat;
