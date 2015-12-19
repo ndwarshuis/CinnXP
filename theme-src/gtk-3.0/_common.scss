@@ -1276,7 +1276,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   &.button { // overlow buttons
     @extend %undecorated_button;
     border-style: none;
-    border-radius: 0px;
+    border-radius: 0;
     &.top { border-bottom: 1px solid mix($fg_color, $base_color, 10%); }
     &.bottom { border-top: 1px solid mix($fg_color, $base_color, 10%); }
     &:hover { background-color: mix($fg_color, $base_color, 10%); }
