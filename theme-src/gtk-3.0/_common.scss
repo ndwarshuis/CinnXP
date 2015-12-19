@@ -1316,17 +1316,6 @@ column-header.button.dnd { // for treeview-like derive widgets
   &.osd { @extend %osd; }
 }
 
-//touch selection handlebars for the Popover.osd above
-.entry.cursor-handle,
-.cursor-handle {
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-  border-style: none;
-  &.top { -gtk-icon-source: -gtk-icontheme('selection-start-symbolic'); }
-  &.bottom { -gtk-icon-source: -gtk-icontheme('selection-end-symbolic'); }
-}
-
 /*****************
  * Notebooks and *
  * Tabs          *
@@ -2642,14 +2631,19 @@ GtkVolumeButton.button { padding: 8px; }
   }
 }
 
-/* Decouple the font of context menus from their entry/textview */
-.touch-selection,
-.context-menu {
-  font: initial;
-}
-
 .monospace {
   font: Monospace;
+}
+
+/**********************
+ * Touch Copy & Paste *
+ *********************/
+
+//kidding...XP and touchscreens don't mix
+
+/* Decouple the font of context menus from their entry/textview */
+.context-menu {
+  font: initial;
 }
 
 .overshoot,
