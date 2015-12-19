@@ -264,7 +264,7 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   .linked:not(.vertical) > &:focus + .button,
   .linked:not(.vertical) > &:focus + GtkComboBox > .the-button-in-the-combobox,
   .linked:not(.vertical) > &:focus + GtkComboBoxText > .the-button-in-the-combobox {
-    border-left-color: $button_borders;
+    border-top-left-radius: 0;
   }
 
   // entry error and warning style
