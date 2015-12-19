@@ -973,8 +973,7 @@ GtkComboBox {
 }
 .search-bar, .location-bar, EvAnnotationsToolbar.toolbar.inline-toolbar {
   @extend .toolbar;
-  //@extend %inset-bar;
-  border-width: 0px 0px 1px;
+  border-width: 0 0 1px;
   box-shadow: inset 0px 2px 3px -1px mix(black, $bg_color, 60%);
   padding: 3px;
 }
@@ -982,7 +981,6 @@ GtkComboBox {
 %inset-bar {
   border-style: solid;
   border-color: $borders_color;
-  //$_bg: mix($bg_color, $borders_color, 70%);
   background-color: $bg_color;
   box-shadow: inset 0px 2px 3px -1px mix(black, $bg_color, 60%);
 }
