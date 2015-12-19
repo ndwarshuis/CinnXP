@@ -904,6 +904,7 @@ GtkComboBox {
     color: #4d6185;
     border-radius: 0px;
     outline-radius: 0px;
+    outline-offset: -1px;
     &:insensitive { color: #c9c9c2; }
     &:dir(ltr) {
       border-left-style: none;
