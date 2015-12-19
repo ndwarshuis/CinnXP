@@ -53,7 +53,7 @@ $inset_shadow: inset 2px 2px #716f64,
   // to the adwaita engine: using real CSS properties is faster,
   // and we don't use any outlines for now.
 
-  outline-color: transparentize($fg_color, 0.7);
+  outline-color: transparentize($fg_color, 0.5);
   outline-style: dashed;
   outline-offset: -2px;
   outline-width: 1px;
