@@ -1715,8 +1715,7 @@ GtkSwitch {
   .menu .menuitem.#{$w} {
     -gtk-icon-source: none;
     icon-shadow: none;
-    
-    &:active, &:checked {
+     &:active, &:checked {
       -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked.png"));
 
       &:hover {
@@ -1727,7 +1726,6 @@ GtkSwitch {
         -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked-insensitive.png"));
       }
     }
-    
     &:inconsistent {
       -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed.png"));
 
@@ -1747,12 +1745,6 @@ GtkSwitch {
 .list-row .check, list-row .radio {
   icon-shadow: none;
   &:selected, &:hover { icon-shadow: none; }
-}
-
-//content view (grid/list)
-
-.content-view {
-  background-color: darken($bg_color,7%);
 }
 
 //selection-mode
