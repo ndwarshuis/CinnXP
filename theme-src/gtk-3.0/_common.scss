@@ -994,7 +994,7 @@ GtkComboBox {
 .titlebar,
 .header-bar {
   padding: 6px;
-  border-radius: 0px;
+  border-radius: 0;
   @include toolbar_bg;
 
   .title {
@@ -1022,13 +1022,13 @@ GtkComboBox {
     $_hc: mix($top_hilight,$selected_bg_color, 50%); // hilight color
 
     color: $selected_fg_color;
-    text-shadow: 0px -1px transparentize(black, 0.5);
+    text-shadow: 0 -1px transparentize(black, 0.5);
     border-color: $selected_borders_color;
     background-image: linear-gradient(to bottom,
                                       lighten($selected_bg_color,5%),
                                       $selected_bg_color);
-    box-shadow: inset 0px -1px mix($selected_borders_color, $selected_bg_color, 35%), //bottom shade
-                inset 0px 1px $_hc;
+    box-shadow: inset 0 -1px mix($selected_borders_color, $selected_bg_color, 35%), //bottom shade
+                inset 0 1px $_hc;
 
     .subtitle:link { @extend *:link:selected;  }
 
@@ -1047,8 +1047,6 @@ GtkComboBox {
 
       &:insensitive {
         @include button(insensitive, $selected_bg_color, $selected_fg_color, $_hc);
-
-        //&:active, &:checked { @include button(insensitive-active, $selected_bg_color, $selected_fg_color, $_hc); }
       }
 
       &.suggested-action {
