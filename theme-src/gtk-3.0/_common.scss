@@ -2179,6 +2179,8 @@ GtkScrolledWindow {
 GtkCalendar {
   color: $text_color;
   @include frame_inset;
+  outline-radius: 0px;
+  outline-offset: -1px;
 
   $_light_blue: #d8e4f8;
   
