@@ -221,7 +221,7 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   &.flat, &.flat:focus {
     padding: 2px;
     border: none;
-    border-radius: 0px;
+    border-radius: 0;
   }
 
   &:insensitive {
@@ -239,7 +239,7 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
 
   &.progressbar {
     margin: 1px;
-    border-radius: 0px;
+    border-radius: 0;
     border-width: 0 0 2px;
     border-color: $selected_bg_color;
     border-style: solid;
