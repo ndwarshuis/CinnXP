@@ -28,7 +28,7 @@ Frame Dimensions and stuff
   <distance name="button_width" value="21"/>
   <distance name="button_height" value="21"/>
   <distance name="title_vertical_pad" value="10"/>
-  <border name="title_border" left="0" right="0" top="4" bottom="1"/>
+  <border name="title_border" left="0" right="0" top="0" bottom="1"/>
   <border name="button_border" left="0" right="2" top="6" bottom="3"/>
 </frame_geometry>
 
@@ -47,9 +47,9 @@ Frame Dimensions and stuff
   <distance name="bottom_height" value="0"/>
   <distance name="left_titlebar_edge" value="2"/>
   <distance name="right_titlebar_edge" value="0"/>
-  <distance name="title_vertical_pad" value="10"/>
-  <border name="title_border" left="0" right="0" top="1" bottom="0"/>
-  <border name="button_border" left="0" right="2" top="2" bottom="2"/>
+  <distance name="title_vertical_pad" value="6"/>
+  <border name="title_border" left="0" right="0" top="0" bottom="0"/>
+  <border name="button_border" left="0" right="2" top="2" bottom="3"/>
 </frame_geometry>
 
 <frame_geometry name="tiled_left" parent="maximized">
