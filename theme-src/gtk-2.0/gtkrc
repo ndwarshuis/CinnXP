@@ -2083,7 +2083,7 @@ style "notebook"
 		{
 			function	= BOX
 			file		= "Tabs/notebook.png"
-			border		= {4,4,4,4}
+			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
 
