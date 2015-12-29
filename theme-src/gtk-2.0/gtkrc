@@ -2343,6 +2343,14 @@ style "treeview_header"
 			border     	= {3,3,2,2}
 			stretch   	= TRUE
 		}
+		image 
+      	{
+        	function	= BOX
+			file       	= "Others/tree_header.png"
+			state		= INSENSITIVE
+			border     	= {1,1,1,3}
+			stretch   	= TRUE
+		}
     }
 }
 
