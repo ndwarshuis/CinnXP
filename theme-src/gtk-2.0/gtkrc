@@ -2828,6 +2828,38 @@ style "null"
         }
  	}
 }
+
+#Gedit/Eclipse (for those who use older versions)
+style "gedit-frame" 
+{
+    engine "pixmap"
+    {
+        image
+        {
+            function = SHADOW
+        }
+    }
+}
+
+style "gedit-notebook"
+{
+    xthickness = 1
+    ythickness = 1
+}
+
+style "gedit-scrolled"
+{
+    engine "pixmap"
+	{
+        image
+        {
+			function	= SHADOW
+			file		= "Others/null.png"				
+			border		= {0,0,0,0}
+			stretch		= TRUE
+        }
+	}
+}
 	
 class "GtkWidget"				style "default"
 class "GtkScrollbar"       		style "scrollbar"
@@ -2902,6 +2934,17 @@ widget_class "<GtkEntry>"                            	style "standalone_entry"
 # Eclipse/SWT
 widget "gtk-tooltips*" 			style "eclipse-tooltips"
 widget "*swt-toolbar-flat"		style "null"
+
+#Old Gedit
+# Removes the ugly frame around statusbar buttons
+widget_class "*Pluma*.<GtkFrame>*" style "gedit-frame"
+widget_class "*Gedit*.<GtkFrame>*" style "gedit-frame"
+
+# Removes double borders around notebooks
+widget_class "*Pluma*.<GeditNotebook>" style "gedit-notebook"
+widget_class "*Gedit*.<GeditNotebook>" style "gedit-notebook"
+widget_class "*Pluma*.<GtkScrolledWindow>" style "gedit-scrolled"
+widget_class "*Gedit*.<GtkScrolledWindow>" style "gedit-scrolled"
 
 # Openoffice, Libreoffice
 class "GtkWindow"                             				style "toplevel_hack"
