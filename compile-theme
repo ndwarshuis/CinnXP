@@ -154,7 +154,7 @@ glib-compile-resources --target="$theme_dir"/gtk-3.0/gtk.gresource /tmp/gresourc
 
 echo '@import url("resource:///org/gnome/CinnXP/gtk-contained.css");' > "$theme_dir"/gtk-3.0/gtk.css
 
-#~ rm "$xml_path"
+rm "$xml_path"
 
 #link everything else
 cp -r "$theme_src"/{gtk-2.0,metacity-1,index.theme,cinnamon} "$theme_dir"
