@@ -128,7 +128,7 @@ fi
 
 ./parse-sass.sh
 
-#change compiled files here (currently uses all png images and css files in gtk-3.0)
+#change compiled files here (currently uses all png images and gtk-contained.css files in gtk-3.0)
 files=$(find . -type  f \( -name "*.png" -or -name "*gtk-contained.css" \))
 
 #build xml file for gtk.gresource
@@ -156,5 +156,5 @@ echo '@import url("resource:///org/gnome/CinnXP/gtk-contained.css");' > "$theme_
 
 rm "$xml_path"
 
-#link everything else
+#copy everything else
 cp -r "$theme_src"/{gtk-2.0,metacity-1,index.theme,cinnamon} "$theme_dir"
