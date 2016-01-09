@@ -112,6 +112,15 @@ fi
 
 cd "$theme_src"/gtk-3.0
 
+#remove these things in case they cause ruby version trouble :(
+if [ -e "Gemfile.lock" ]; then
+	rm Gemfile.lock
+fi
+
+if [ -d ".sass-cache" ]; then
+	rm -r .sass-cache
+fi
+
 #ensure gtk-contained is up to date
 if [ -e "gtk-contained.css" ]; then
 	rm gtk-contained.css
