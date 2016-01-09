@@ -1,0 +1,135 @@
+/********
+ * Nemo *
+ ********/
+NemoTrashBar.info,
+NemoXContentBar.info,
+NemoQueryEditor.toolbar.primary-toolbar {
+	background-color: @theme_bg_color;
+	background-image: none;
+	color: @theme_fg_color;
+	text-shadow: none;
+	border: none;
+	box-shadow: inset 1px 1px alpha(white, 0.6),
+	            inset -1px -1px alpha(black, 0.2);
+}
+
+NemoSearchBar.info {
+  color: white;
+  background-color: #d6dff7;
+  border: 1px solid @borders_color;
+  border-width: 0px 0px 1px 0px;
+}
+
+NemoWindow .sidebar .view {
+    -GtkWidget-focus-padding: 0;
+    -GtkWidget-focus-line-width: 1;
+    -GtkTreeView-vertical-separator: 0;
+}
+
+NemoWindow .sidebar .expander:selected {
+    border: none;
+    color: @theme_selected_fg_color;
+}
+
+NemoPlacesTreeView {
+	-NemoPlacesTreeView-disk-full-bg-color: @theme_bg_color;
+	-NemoPlacesTreeView-disk-full-fg-color: mix(@theme_selected_bg_color, @theme_bg_color, 0.3);
+	-NemoPlacesTreeView-disk-full-bar-width: 2px;
+	-NemoPlacesTreeView-disk-full-bar-radius: 1px;
+	-NemoPlacesTreeView-disk-full-bottom-padding: 1px;
+	-NemoPlacesTreeView-disk-full-max-length: 70px;
+}
+
+NemoWindow > GtkGrid > .pane-separator {
+    background-color: transparent;
+}
+
+.nemo-canvas-item {
+    border-radius: 0;
+}
+
+.nemo-desktop.nemo-canvas-item {
+    color: @desktop_item_fg;
+    text-shadow: 1px 1px @desktop_item_text_shadow;
+}
+
+.nemo-desktop.nemo-canvas-item:selected {
+    background-color: @theme_selected_bg_color;
+    background-image: none;
+    color: @theme_selected_fg_color;
+    text-shadow: none;
+}
+
+/* notebook */
+
+NemoView.frame,
+NemoNotebook.notebook {
+    border: solid;
+    border-width: 1px 0 0 1px;
+    border-width: 1px 0 0 1px;
+    border-color: @notebook_borders_color;
+}
+
+NemoNotebook.notebook tab,
+NemoNotebook.notebook tab:active {
+}
+
+/* inactive pane */
+
+.nemo-inactive-pane .view {
+    background-color: shade(@theme_base_color, 0.93);
+    color: shade(@theme_fg_color, 1.2);
+}
+
+.nemo-inactive-pane .view:selected,
+.nemo-inactive-pane .nautilus-canvas-item:selected {
+    background-color: alpha(@theme_selected_bg_color, 0.85);
+    color: @theme_selected_fg_color;
+}
+
+/* small buttons on the nemo status bar */
+
+NemoWindow GtkStatusbar {
+    padding: 0;
+}
+
+NemoWindow .toolbar .button.image-button {
+    -GtkWidget-focus-line-width: 0;
+    -GtkWidget-focus-padding: 0;
+    padding: 10px;
+}
+
+/* the fix above for the statusbar buttons also affects the primary toolbar so we need to reset the
+    padding for those buttons */
+
+NemoWindow .primary-toolbar.toolbar .button.image-button {
+    padding: 4px 7px 5px;
+}
+
+NemoWindow .sidebar row:hover {
+	color: #000080;
+}
+
+NemoWindow .sidebar row:selected {
+	color: @theme_selected_fg_color;
+}
+
+NemoWindow .sidebar .frame {
+	border-width: 0px;
+}
+
+/*********************
+ * Cinnamon Settings *
+ *********************/
+
+.section-bg {
+    background-color: @notebook_bg;
+    box-shadow: inset -1px 0 @notebook_borders_color,
+                inset 1px 0 @notebook_borders_color,
+                inset 0 1px @notebook_borders_color,
+                inset 0 -1px @notebook_borders_color;
+}
+
+.cs-header {
+	/* see backgrounds under toolbars */
+}
