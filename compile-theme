@@ -3,7 +3,7 @@
 if [ $# -eq 0 ]; then
 	pkg_dir="$PWD"/"pkg"
 else
-	pkg_dir="$1"
+	pkg_dir="$PWD"/"$1"
 fi
 
 icon_dir="$pkg_dir"/usr/share/icons/CinnXP
