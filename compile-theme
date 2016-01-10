@@ -8,7 +8,7 @@ compile CinnXP cursor, gtk, metacity, and cinnamon themes
 
 OPTIONS:
    -h      	this...
-   -c		compile for Linux Mint (gtk3=3.10)
+   -m		compile for Linux Mint (gtk3=3.10)
    -n       Alternative root name for output file (default is "pkg")
 
 EOF
