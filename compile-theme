@@ -35,6 +35,7 @@ build_cursor_theme() {
 	done
 
 	cp cursor.theme "$icon_dir"
+	cp thumbnail.png "$icon_dir"/cursors
 
 	cd "$icon_dir"/cursors
 
@@ -117,6 +118,9 @@ build_gtk3_theme() {
 	if [ ! -d "$1" ]; then
 		mkdir -p "$1"/gtk-3.0
 	fi
+	
+	#copy thumbnail
+	cp "$2"/thumbnail-gtk.png "$1"/gtk-3.0/thumbnail.png
 
 	cd "$2"/gtk-3."$3"
 
