@@ -1,0 +1,44 @@
+#!/bin/bash
+
+help() {
+cat << EOF
+help: $0 options
+
+Creates a test directory for gtk, cinnamon, and metacity themes.
+
+The dir will be called "Cinn_Theme_Testing" and will contain symlinks to the proper files
+
+Move this to ~/.themes or /usr/share/themes to do live testing; this will bypass the need to compile everything for small changes to these components
+
+OPTIONS:
+   -h      	this...
+   -m		compile for Linux Mint (gtk3=3.10)
+
+EOF
+}
+
+test_dir="CinnXP_Theme_Testing"
+gtk3_minor_revision=18
+
+while getopts “hmn:” OPTION
+do
+	case $OPTION in
+		h)
+			help
+			exit 1
+			;;
+		m)
+			gtk3_minor_revision=10
+			;;
+		*)
+			break
+			;;
+	esac
+done
+
+mkdir "$test_dir"
+
+ln -s "$PWD"/theme-src/cinnamon "$test_dir"/cinnamon
+ln -s "$PWD"/theme-src/gtk-2.0 "$test_dir"/gtk-2.0
+ln -s "$PWD"/theme-src/gtk-3."$gtk3_minor_revision" "$test_dir"/gtk-3.0
+ln -s "$PWD"/theme-src/metacity-1 "$test_dir"/metacity-1
