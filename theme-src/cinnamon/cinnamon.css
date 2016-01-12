@@ -77,8 +77,8 @@ StScrollBar StButton#vhandle:hover {
  * ===================================================================*/
 
 .popup-menu-boxpointer {
-    -arrow-border-radius: 6px;
-    -boxpointer-gap: -1px;
+    -arrow-border-radius: 24px;
+    -boxpointer-gap: -1.5px;
     -arrow-base: 40px; /* for some reason this makes the menu go closer to the edge */
 }
 
@@ -1021,9 +1021,9 @@ StScrollView .notification-icon-button:active {
 }
 
 .menu-background {
-	border-image: url("menu-bg.png") 67 6 41 6;
+	border-image: url("menu-bg.png") 12 12 67 42;
 	box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-	padding: 69px 1px 18px 1px;
+	padding: 55px 1px 0px 1px;
 }
 
 .menu-favorites-button {
@@ -1070,6 +1070,7 @@ StScrollView .notification-icon-button:active {
     border-right-width: 0px;
     border-bottom-width: 0px;
 }
+
 
 .menu-applications-box StBin#trough {
 	background: none;
@@ -1136,7 +1137,7 @@ StScrollView .notification-icon-button:active {
  * This appears on the bottom right hand corner of the menu*/
  
 .menu-selected-app-box {
-	padding-top: 15px;
+	padding-top: 6px;
     padding-right: 30px;
     padding-left: 28px;
     text-align: right;
