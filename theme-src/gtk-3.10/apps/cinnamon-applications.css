@@ -1,3 +1,5 @@
+@define-color places_bg #687FD9;
+
 /********
  * Nemo *
  ********/
@@ -32,12 +34,17 @@ NemoWindow .sidebar .expander:selected {
 }
 
 NemoPlacesTreeView {
-	-NemoPlacesTreeView-disk-full-bg-color: @theme_bg_color;
-	-NemoPlacesTreeView-disk-full-fg-color: mix(@theme_selected_bg_color, @theme_bg_color, 0.3);
+	-NemoPlacesTreeView-disk-full-bg-color: mix(white, @places_bg, 0.55);
+	-NemoPlacesTreeView-disk-full-fg-color: mix(white, @places_bg, 0.10);
 	-NemoPlacesTreeView-disk-full-bar-width: 2px;
 	-NemoPlacesTreeView-disk-full-bar-radius: 1px;
 	-NemoPlacesTreeView-disk-full-bottom-padding: 1px;
 	-NemoPlacesTreeView-disk-full-max-length: 70px;
+}
+
+NemoPlacesTreeView:selected {
+	-NemoPlacesTreeView-disk-full-bg-color: mix(white, @places_bg, 0.45);
+	-NemoPlacesTreeView-disk-full-fg-color: mix(white, @places_bg, 0.00);
 }
 
 NemoWindow > GtkGrid > .pane-separator {
@@ -116,6 +123,17 @@ NemoWindow .sidebar row:selected {
 
 NemoWindow .sidebar .frame {
 	border-width: 0px;
+}
+
+NemoWindow .sidebar .vertical .view {
+	background-color: @places_bg;
+	color: white;
+}
+
+NemoWindow .sidebar .vertical .view row:selected,
+NemoWindow .sidebar .vertical .view row:selected:backdrop {
+	background-image: linear-gradient(to bottom, mix(white, @places_bg, 0.75));
+	color: white;
 }
 
 /*********************
