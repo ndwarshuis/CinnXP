@@ -2807,18 +2807,17 @@ NemoSearchBar.info {
  * Disc indicators and expanders
  */
 
-$_places_bg_a: #7ba2e7;
-$_places_bg_b: #6375d6;
+$_places_bg: #687FD9;
  
 NemoPlacesTreeView {
-	-NemoPlacesTreeView-disk-full-bg-color: #CCCCCC;
+	-NemoPlacesTreeView-disk-full-bg-color: mix(white, $_places_bg, 45%);
 	-NemoPlacesTreeView-disk-full-fg-color: white;
 	-NemoPlacesTreeView-disk-full-bar-width: 2px;
 	-NemoPlacesTreeView-disk-full-bar-radius: 1px;
 	-NemoPlacesTreeView-disk-full-bottom-padding: 1px;
 	-NemoPlacesTreeView-disk-full-max-length: 70px;
 
-	&:selected { -NemoPlacesTreeView-disk-full-bg-color: #D9D9D9; }
+	&:selected { -NemoPlacesTreeView-disk-full-bg-color: mix(white, $_places_bg, 55%); }
 
 	&.view.expander {
       &:hover { color: $fg_color; }
@@ -2850,15 +2849,12 @@ NemoWindow {
 
       //this only affects the places half of the sidebar
       & .vertical {
-        background-image: linear-gradient(to bottom,
-                                          $_places_bg_a,
-                                          $_places_bg_b
-                                          );
-        background-color: transparent;
+        background-image: none;
+        background-color: $_places_bg;
         & row {
           color: white;
           &:selected,
-          &:selected:backdrop { background-color: transparentize(white, 0.75); }
+          &:selected:backdrop { background-color: mix(white, $_places_bg, 25%); }
 		}
         & .view {
           background: none;
