@@ -1169,6 +1169,7 @@ GtkTreeView.view {
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
     color: $fg_color;
     &:selected { color: $selected_fg_color; }
+    &:selected:backdrop { color: $fg_color; }
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   }
 
