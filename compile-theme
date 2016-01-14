@@ -180,7 +180,7 @@ build_gtk3_theme() {
 pkg_dir="$PWD"/"pkg"
 gtk3_minor_revision=18
 
-theme_dir="$pkg_dir"/usr/share/themes/CinnXP
+
 theme_src="$PWD"/theme-src
 
 while getopts “hmn:” OPTION
@@ -201,6 +201,8 @@ do
 			;;
 	esac
 done
+
+theme_dir="$pkg_dir"/usr/share/themes/CinnXP
 
 build_cursor_theme "$pkg_dir"
 build_gtk3_theme "$theme_dir" "$theme_src" "$gtk3_minor_revision"
