@@ -2,14 +2,6 @@
   @return unquote("alpha(#{$c},#{$a})");
 }
 
-$menubar_shadow: inset 0px 1px transparentize(white, 0.4),
-                 inset 0px -1px transparentize(black, 0.8);
-
-$inset_shadow: inset 2px 2px #716f64,
-               inset -2px -2px #f1efe2,
-               inset 1px 1px #aca899,
-               inset -1px -1px white;
-
 * {
   padding: 0;
   -GtkToolButton-icon-spacing: 4;
@@ -227,8 +219,8 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   &:insensitive {
     //@include entry(insensitive);
     background-color: $bg_color;
-    box-shadow: inset 0px 0px 0px 2px #f5f4ea;
-    border-color: $insensitive_borders_color;
+    box-shadow: inset 0px 0px 0px 2px $insensitive_entry_edge_color;
+    border-color: $insensitive_entry_border_color;
     color: $insensitive_fg_color;
   }
 
@@ -358,7 +350,7 @@ $_dot_color: $selected_bg_color;
 
 .button {
   border: 1px solid;
-  border-radius: 3.5px;
+  border-radius: $button_radius;
   outline-radius: 3px;
   padding: 5px 8px 6px;
   @include button(normal);
@@ -366,6 +358,9 @@ $_dot_color: $selected_bg_color;
     @include button(undecorated);
     &:hover { @include button(osd-hover); }
     &:active { @include button(active); }
+  }
+  &.default {
+    @include button(default);
   }
   &:hover {
     @include button(hover);
@@ -764,14 +759,14 @@ GtkColorButton.button {
 
 .spinbutton {
   .button {
-    color: #4d6185;
+    color: $arrow;
     padding: 3px;
     @include entry_button(normal, '', true);
     &:hover {
       @include entry_button(hover, '', true);
     }
     &:insensitive {
-      color: #c9c9c2;
+      color: $arrow_insensitive;
       @include entry_button(insensitive, '', true);
     }
     &:active {
@@ -885,7 +880,7 @@ GtkComboBox {
   -GtkComboBox-arrow-scaling: 0.5;
   -GtkComboBox-shadow-type: none;
 
-  @include _button_text_shadow;
+  //@include _button_text_shadow;
 
   &:insensitive {
     color: $insensitive_fg_color;
@@ -902,11 +897,11 @@ GtkComboBox {
     &:dir(rtl) { border-left-style: none;  }
   }
   &.combobox-entry .button {
-    color: #4d6185;
+    color: $arrow;
     border-radius: 0px;
     outline-radius: 0px;
     outline-offset: -1px;
-    &:insensitive { color: #c9c9c2; }
+    &:insensitive { color: $arrow_insensitive; }
     &:dir(ltr) {
       border-left-style: none;
       @include entry_button(normal, ltr);
@@ -972,9 +967,10 @@ GtkComboBox {
     border: none;
     background: none;
     background-color: $bg_color;
-    box-shadow: $menubar_shadow,
-                inset 1px 0px transparentize(white, 0.4),
-                inset -1px 0px transparentize(black, 0.8);
+    box-shadow: inset 0px 1px $menubar_top_edge,
+                inset 0px -1px $menubar_bottom_edge,
+                inset 1px 0px $menubar_top_edge,
+                inset -1px 0px $menubar_bottom_edge;
   }
 }
 
@@ -1199,19 +1195,19 @@ GtkTreeView.view {
 column-header {
   .button {
     @extend %column_header_button;
-    background-color: $bg_color;
+    background-color: $tree_header_bg;
     border: 3px solid transparent;
     border-image: url("Treeview/tree_header.png");
     border-image-slice: 3 3 3 3;
     &:hover {
       @extend %column_header_button;
-      background-color: #faf9f4;
+      background-color: $tree_header_hover_bg;
       border-image: url("Treeview/tree_header-hover.png");
       border-image-slice: 3 3 3 3;
     }
     &:active {
       @extend %column_header_button;
-      background-color: #dedfd8;
+      background-color: $tree_header_active_bg;
       border-image: url("Treeview/tree_header-active.png");
       border-image-slice: 3 3 3 3;
     }
@@ -1251,7 +1247,8 @@ column-header.button.dnd { // for treeview-like derive widgets
   -GtkWidget-window-dragging: true;
   padding: 0px;
   background-color: $bg_color;
-  box-shadow: $menubar_shadow;
+  box-shadow: inset 0px 1px $menubar_top_edge,
+              inset 0px -1px $menubar_bottom_edge;
   & > .menuitem {
     padding: 4px 8px;
     &:hover { //Seems like it :hover even with keyboard focus
@@ -1334,11 +1331,6 @@ column-header.button.dnd { // for treeview-like derive widgets
  * Tabs          *
  *****************/
 
-$_notebook_bg: #fafaf9;
-
-$_notebook_bg_a: #fcfcfe;
-$_notebook_bg_b: #f4f3ee;
-
 .notebook {
   // Through me you go to the grief wracked city;
   // Through me you go to everlasting pain;
@@ -1346,7 +1338,7 @@ $_notebook_bg_b: #f4f3ee;
   // ...
   // Abandon all hope — Ye Who Enter Here
   padding: 0;
-  background-color: $_notebook_bg;
+  background-color: $notebook_bg;
   -GtkNotebook-initial-gap: 0;
   -GtkNotebook-arrow-spacing: 2;
   -GtkNotebook-tab-curvature: 0;
@@ -1356,34 +1348,34 @@ $_notebook_bg_b: #f4f3ee;
   -GtkWidget-focus-line-width: 0;
   
   &.top {
-    box-shadow: inset 1px 0px $_notebook_bg_a,
-                inset -1px 0px $_notebook_bg_a,
-                inset 0px -1px $_notebook_bg_a;
+    box-shadow: inset 1px 0px $notebook_bg_a,
+                inset -1px 0px $notebook_bg_a,
+                inset 0px -1px $notebook_bg_a;
   }
   &.bottom {
-    box-shadow: inset 1px 0px $_notebook_bg_a,
-                inset -1px 0px $_notebook_bg_a,
-                inset 0px 1px $_notebook_bg_a;
+    box-shadow: inset 1px 0px $notebook_bg_a,
+                inset -1px 0px $notebook_bg_a,
+                inset 0px 1px $notebook_bg_a;
   }
   &.right {
-    box-shadow: inset 1px 0px $_notebook_bg_a,
-                inset 0px 1px $_notebook_bg_a,
-                inset 0px -1px $_notebook_bg_a;
+    box-shadow: inset 1px 0px $notebook_bg_a,
+                inset 0px 1px $notebook_bg_a,
+                inset 0px -1px $notebook_bg_a;
   }
   &.left {
-    box-shadow: inset -1px 0px $_notebook_bg_a,
-                inset 0px 1px $_notebook_bg_a,
-                inset 0px -1px $_notebook_bg_a;
+    box-shadow: inset -1px 0px $notebook_bg_a,
+                inset 0px 1px $notebook_bg_a,
+                inset 0px -1px $notebook_bg_a;
   }
 
   &.top,
-  &.bottom { background-image: linear-gradient(to bottom, $_notebook_bg_a, $_notebook_bg_b);}
+  &.bottom { background-image: linear-gradient(to bottom, $notebook_bg_a, $notebook_bg_b);}
   
   &.right,
-  &.left { background-image: linear-gradient(to right, $_notebook_bg_a, $_notebook_bg_b); }
+  &.left { background-image: linear-gradient(to right, $notebook_bg_a, $notebook_bg_b); }
   
   &.frame {
-    border: 1px solid $notebook_borders_color;
+    border: 1px solid $notebook_borders;
     // FIXME doesn't work
     &.top { border-top-width: 0; }
     &.bottom { border-bottom-width: 0; }
@@ -1521,10 +1513,12 @@ $_notebook_bg_b: #f4f3ee;
         border-image: url("Tabs/tab-#{$_tab}.png");
 		border-image-slice: $_slice;
 		border-image-repeat: stretch;
-		background-image: linear-gradient(to bottom, #f6f6f3, #f0f0ea);
+		background-image: url("Tabs/tab-#{$_tab}-bg.png");
+		background-size: contain;
         &:hover, &.prelight-page {
           border-image: url("Tabs/tab-#{$_tab}-hover.png");
           border-image-slice: $_slice;
+          background-image: url("Tabs/tab-#{$_tab}-bg-hover.png");
         }
         &:active, &.active-page {
           border-image: url("Tabs/tab-#{$_tab}-active.png");
@@ -1538,14 +1532,14 @@ $_notebook_bg_b: #f4f3ee;
     &.left,
     &.reorderable-page.top,
     &.reorderable-page.left {
-      &:active, &.active-page { background-color: $_notebook_bg_a; }
+      &:active, &.active-page { background-color: $notebook_bg_a; }
     }
     
     &.right,
     &.bottom,
     &.reorderable-page.right,
     &.reorderable-page.bottom {
-      &:active, &.active-page { background-color: $_notebook_bg_b; }
+      &:active, &.active-page { background-color: $notebook_bg_b; }
     }
     
     .label { //tab text
@@ -1621,10 +1615,6 @@ $_notebook_bg_b: #f4f3ee;
 
   $_slider_fine_tune_margin: 1px;
 
-  $_slider_bg: #c2d5fc;
-  $_slider_bg_hover: #dae9ff;
-  $_slider_bg_active: #a5befc;
-
   .button {
     border: none;
     color: transparent; //hack to use our own arrows :)
@@ -1678,38 +1668,27 @@ $_notebook_bg_b: #f4f3ee;
 	}
 	  
 	.slider.#{$w} {
-	  border: 3px solid transparent;
+	  border: 5px solid transparent;
 	  border-image: url("Scrollbars/slider-#{$a}.png");
-	  border-image-slice: 3 3 3 3;
+	  border-image-slice: 5 5 5 5;
 	  border-image-repeat: stretch;
 	  background: url("Scrollbars/handle-#{$a}.png") no-repeat center center,
-		linear-gradient(#{$g},
-		$_slider_bg,
-		$_slider_bg 70%,
-		shade($_slider_bg, 0.99) 75%,
-		shade($_slider_bg, 0.97));
+	    url("Scrollbars/slider-background-#{$a}.png");
 
 	  &:hover {
 		border-image: url("Scrollbars/slider-#{$a}-prelight.png");
-		border-image-slice: 3 3 3 3;
+		border-image-slice: 5 5 5 5;
 		border-image-repeat: stretch;
 		background: url("Scrollbars/handle-#{$a}-prelight.png") no-repeat center center,
-		linear-gradient(#{$g},
-		  $_slider_bg_hover,
-		  shade($_slider_bg_hover, 0.995) 70%,
-		  shade($_slider_bg_hover, 0.985) 75%,
-		  shade($_slider_bg_hover, 0.975));
-		}
+	      url("Scrollbars/slider-background-#{$a}-prelight.png");
+      }
 
       &:prelight:active {
 		border-image: url("Scrollbars/slider-#{$a}-active.png");
-		border-width: 4px 4px 4px 4px;
-		border-image-slice: 4 4 4 4;
+		border-image-slice: 5 5 5 5;
 		border-image-repeat: stretch;
 		background: url("Scrollbars/handle-#{$a}-active.png") no-repeat center center,
-		linear-gradient(#{$g},
-		  shade($_slider_bg_active, 1.02),
-		  shade($_slider_bg_active, 0.98));
+	      url("Scrollbars/slider-background-#{$a}-active.png");
 	  }
 	}
   }
@@ -2197,15 +2176,13 @@ GtkCalendar {
   outline-radius: 0px;
   outline-offset: -1px;
 
-  $_light_blue: #d8e4f8;
-  
   &:selected {
     @extend .view:selected;
   }
 
   &.header {
-    color: $_light_blue;
-    background-color: #7a96df;
+    color: $calendar_header_fg_color;
+    background-color: $calendar_header_bg_color;
     background-clip: content-box;
     border: 2px solid transparent;
     border-radius: 0;
@@ -2213,7 +2190,7 @@ GtkCalendar {
 
   &.button {
     @extend %undecorated_button;
-    color: $_light_blue;
+    color: $calendar_header_fg_color;
 
     &:hover {
       @extend %undecorated_button;
@@ -2305,7 +2282,8 @@ GtkFileChooserDialog {
   .search-bar {
     background-color: $bg_color;
     border: none;
-    box-shadow: $menubar_shadow;
+    box-shadow: inset 0px 1px $menubar_top_edge,
+                inset 0px -1px $menubar_bottom_edge;
   }
   .dialog-action-box {
     border-top: 1px solid $separator_color;
@@ -2316,7 +2294,7 @@ GtkFileChooserDialog {
 
 GtkPrintUnixDialog .dialog-vbox {
   background-color: $bg_color;
-  & > .vertical { box-shadow: 0px 1px $notebook_borders_color; }
+  & > .vertical { box-shadow: 0px 1px $notebook_borders; }
 }
 
 /***********
@@ -2456,14 +2434,14 @@ GtkInfoBar {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    background-color: #FFFFE2;
+    background-color: $tooltip_bg_color;
     background-clip: padding-box;
     border: 1px solid $tooltip_borders_color; // this suble border is meant to
                                               // not make the tooltip melt with
                                               // very dark backgrounds
   }
 
-  color: black;
+  color: $tooltip_fg_color;
   padding: 4px; /* not working */
   border-radius: 0px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
@@ -2642,17 +2620,17 @@ GtkVolumeButton.button {
   //@include _button_text_shadow;
 }
 
-.header-bar.selection-mode .button.titlebutton,
-.titlebar.selection-mode .button.titlebutton {
-  @include _button_text_shadow(white, $selected_bg_color);
-}
+//.header-bar.selection-mode .button.titlebutton,
+//.titlebar.selection-mode .button.titlebutton {
+//  @include _button_text_shadow(white, $selected_bg_color);
+//}
 
 // catch all extend :)
 
 %selected_items {
   background-color: $selected_bg_color;
   color: $selected_fg_color;
-  outline-color: #ffab1c;
+  outline-color: $selected_outline_color;
   &:backdrop {
     color: $fg_color;
     background-color: $bg_color;
@@ -2685,7 +2663,7 @@ GtkVolumeButton.button {
  * ========================================================================================== */
 
 .gedit-headerbar-paned {
-  border-right-color: #bab8a9;
+  border-right-color: $separator_color;
 }
 
 .gedit-document-panel {
@@ -2787,12 +2765,13 @@ NemoQueryEditor.info {
   background-color: $bg_color;
   color: $fg_color;
   text-shadow: none;
-  box-shadow: $menubar_shadow;
+  box-shadow: inset 0px 1px $menubar_top_edge,
+              inset 0px -1px $menubar_bottom_edge;
 }
 
 NemoSearchBar.info {
   color: white;
-  background-color: #d6dff7;
+  background-color: $nemo_searchbar_bg_color;
   border: 1px solid $borders_color;
   border-width: 0px 0px 1px 0px;
 }
@@ -2807,17 +2786,15 @@ NemoSearchBar.info {
  * Disc indicators and expanders
  */
 
-$_places_bg: #687FD9;
- 
 NemoPlacesTreeView {
-	-NemoPlacesTreeView-disk-full-bg-color: mix(white, $_places_bg, 45%);
+	-NemoPlacesTreeView-disk-full-bg-color: mix(white, $nemo_places_bg_color, 45%);
 	-NemoPlacesTreeView-disk-full-fg-color: white;
 	-NemoPlacesTreeView-disk-full-bar-width: 2px;
 	-NemoPlacesTreeView-disk-full-bar-radius: 1px;
 	-NemoPlacesTreeView-disk-full-bottom-padding: 1px;
 	-NemoPlacesTreeView-disk-full-max-length: 70px;
 
-	&:selected { -NemoPlacesTreeView-disk-full-bg-color: mix(white, $_places_bg, 55%); }
+	&:selected { -NemoPlacesTreeView-disk-full-bg-color: mix(white, $nemo_places_bg_color, 55%); }
 
 	&.view.expander {
       &:hover { color: $fg_color; }
@@ -2838,7 +2815,7 @@ NemoWindow GtkEventBox .toolbar {
 NemoWindow {
   & .sidebar {
     & row:hover {
-      color: #000080;
+      color: $nemo_sidebar_hover_color;
 	}
     & row:selected {
       color: $selected_fg_color;
@@ -2850,11 +2827,11 @@ NemoWindow {
       //this only affects the places half of the sidebar
       & .vertical {
         background-image: none;
-        background-color: $_places_bg;
+        background-color: $nemo_places_bg_color;
         & row {
           color: white;
           &:selected,
-          &:selected:backdrop { background-color: mix(white, $_places_bg, 25%); }
+          &:selected:backdrop { background-color: mix(white, $nemo_places_bg_color, 25%); }
 		}
         & .view {
           background: none;
