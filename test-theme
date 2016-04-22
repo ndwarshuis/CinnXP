@@ -11,16 +11,17 @@ The dir will be called "Cinn_Theme_Testing" and will contain symlinks to the pro
 Move this to ~/.themes or /usr/share/themes to do live testing; this will bypass the need to compile everything for small changes to these components
 
 OPTIONS:
-   -h      	this...
-   -m		compile for Linux Mint (gtk3=3.10)
+   -h      		this...
+   -r			test the royale theme (luna is default)
+   -m=version	compile for Linux Mint, version defaults to 17.x
 
 EOF
 }
 
-test_dir="CinnXP_Theme_Testing"
 gtk3_minor_revision=18
+flavor="luna"
 
-while getopts “hmn:” OPTION
+while getopts “hmr” OPTION
 do
 	case $OPTION in
 		h)
@@ -30,15 +31,20 @@ do
 		m)
 			gtk3_minor_revision=10
 			;;
+		r)
+			flavor="royale"
+			;;
 		*)
 			break
 			;;
 	esac
 done
 
+test_dir="cinnxp_""$flavor""_testing"
+
 mkdir "$test_dir"
 
-ln -s "$PWD"/theme-src/cinnamon "$test_dir"/cinnamon
-ln -s "$PWD"/theme-src/gtk-2.0 "$test_dir"/gtk-2.0
-ln -s "$PWD"/theme-src/gtk-3."$gtk3_minor_revision" "$test_dir"/gtk-3.0
-ln -s "$PWD"/theme-src/metacity-1 "$test_dir"/metacity-1
+ln -s "$PWD/theme-src/$flavor/cinnamon" "$test_dir/cinnamon"
+ln -s "$PWD/theme-src/$flavor/gtk-2.0" "$test_dir/gtk-2.0"
+ln -s "$PWD/theme-src/$flavor/gtk-3.$gtk3_minor_revision" "$test_dir/gtk-3.0"
+ln -s "$PWD/theme-src/$flavor/metacity-1" "$test_dir/metacity-1"

@@ -122,26 +122,32 @@ build_gtk3_theme() {
 	#copy thumbnail
 	cp "$2"/thumbnail-gtk.png "$1"/gtk-3.0/thumbnail.png
 
-	cd "$2"/gtk-3."$3"
+	#copy gtk3 to tmp working directory (resolve symlinks)
+	build_path="/tmp/gtk-3.0"
+	cp -rL "$2"/gtk-3."$3" "$build_path"
+	cd "$build_path"
 
 	if [ -z ${no_scss+x} ]; then
 		#remove these things in case they cause ruby version trouble :(
 		if [ -e "Gemfile.lock" ]; then
+			echo "WARNING: source dir not clean (FOUND Gemfile.lock)"
 			rm Gemfile.lock
 		fi
 
 		if [ -d ".sass-cache" ]; then
+			echo "WARNING: source dir not clean (FOUND .sass-cache)"
 			rm -r .sass-cache
 		fi
 		#ensure gtk-contained is up to date
 		if [ -e "gtk-contained.css" ]; then
+			echo "WARNING: source dir not clean (FOUND gtk-contained.css)"
 			rm gtk-contained.css
 		fi
 
 		./parse-sass.sh
 
 		#change compiled files here (currently uses all png images and gtk-contained.css files)
-		files=$(find . -type  f \( -name "*.png" -or -name "*gtk-contained.css" \))
+		files=$(find . -type  f \( -name "*.png" ! -name "thumbnail.png" -or -name "*gtk-contained.css" \))
 
 		resource_file="gtk-contained.css"
 	else
@@ -174,16 +180,15 @@ build_gtk3_theme() {
 	echo "@import url(\"resource://$resource_path/$resource_file\");" > "$1"/gtk-3.0/gtk.css
 
 	rm "$xml_path"
+	rm -r "$build_path"
 }
 
 #default values
 pkg_dir="$PWD"/"pkg"
 gtk3_minor_revision=18
+flavor="luna"
 
-
-theme_src="$PWD"/theme-src
-
-while getopts “hmn:” OPTION
+while getopts “hmrn:” OPTION
 do
 	case $OPTION in
 		h)
@@ -196,12 +201,16 @@ do
         n)
             pkg_dir="$PWD"/$OPTARG
             ;;
+		r)
+			flavor="royale"
+			;;
 		*)
 			break
 			;;
 	esac
 done
 
+theme_src="$PWD"/theme-src/"$flavor"
 theme_dir="$pkg_dir"/usr/share/themes/CinnXP
 
 build_cursor_theme "$pkg_dir"
@@ -211,4 +220,5 @@ build_gtk3_theme "$theme_dir" "$theme_src" "$gtk3_minor_revision"
 echo "Now copying gtk2, metacity, and cinnamon themes
 "
 
-cp -r "$theme_src"/{gtk-2.0,metacity-1,index.theme,cinnamon} "$theme_dir"
+cp -rL "$theme_src"/{gtk-2.0,index.theme,cinnamon} "$theme_dir"
+cp -r "$theme_src"/metacity-1 "$theme_dir"

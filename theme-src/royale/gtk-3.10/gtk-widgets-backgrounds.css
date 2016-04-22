@@ -1,0 +1,943 @@
+/**********
+ * button *
+ **********/
+.button,
+.button:hover,
+.toolbar .button.raised,
+.toolbar .raised .button,
+.toolbar .button.raised:hover,
+.toolbar .raised .button:hover,
+.primary-toolbar .raised .button,
+.primary-toolbar .button.raised,
+.primary-toolbar .raised .button:hover,
+.primary-toolbar .button.raised:hover,
+.toolbar GtkComboBox .button,
+.toolbar GtkComboBox .button:hover,
+.spinbutton.vertical .button,
+.spinbutton.vertical .button:hover,
+GtkSwitch.slider,
+GtkSwitch.slider:active {
+    background-color: transparent;
+    background-image: linear-gradient(to top,
+                                      #90a8cd 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to right,
+                                      rgba(147, 175, 209, 0.75),
+                                      rgba(147, 175, 209, 0.75) 2px,
+                                      rgba(249, 251, 253, 0.45) 2px,
+                                      rgba(249, 251, 253, 0.45) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to left,
+                                      rgba(147, 175, 209, 0.75),
+                                      rgba(147, 175, 209, 0.75) 2px,
+                                      rgba(249, 251, 253, 0.45) 2px,
+                                      rgba(249, 251, 253, 0.45) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #d4deec 2px,
+                                      #f9fdff 2px,
+                                      #f9fdff 3px,
+                                      #f3f8ff 3px,
+                                      #f3f8ff 4px,
+                                      transparent 4px
+                                      ),
+                      linear-gradient(to top,
+                                      #a6b8cf 2px,
+                                      #d0dceb 40%,
+                                      #e3ebf3 45%,
+                                      #e9f1f5 50%,
+                                      #f1f8f9 60%,
+                                      #fdfefe 88%
+                                      );
+}
+
+.button:active,
+.button:active:hover,
+.toolbar .button.raised:active,
+.toolbar .raised .button:active,
+.toolbar .button.raised:active:hover,
+.toolbar .raised .button:active:hover,
+.primary-toolbar .button.raised:active,
+.primary-toolbar .button.raised:active:hover,
+.primary-toolbar .raised .button:active,
+.primary-toolbar .raised .button:active:hover,
+.toolbar GtkComboBox .button:active,
+.toolbar GtkComboBox .button:active:hover,
+.spinbutton.vertical .button:active,
+.spinbutton.vertical .button:active:hover,
+GtkSwitch.trough,
+GtkSwitch.trough:active,
+GtkLinkButton.button:active,
+GtkLinkButton.button:active:hover,
+GtkScaleButton.button:active,
+GtkScaleButton.button:active:hover,
+.notebook tab .button:active,
+.notebook tab .button:active:hover,
+.floating-bar .button:active,
+.floating-bar .button:active:hover,
+#gtk-scalebutton-popup-window .button:active,
+#gtk-scalebutton-popup-window .button:active:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      #d4deec 2px,
+                                      #7792ba 2px,
+                                      #7792ba 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to right,
+                                      #7792ba 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to left,
+                                      #7792ba 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to top,
+                                      #f9fdff 2px,
+                                      #f3f8ff 2px,
+                                      #f3f8ff 3px,
+                                      #fdfefe 3px,
+                                      #e3ebf3 48%,
+                                      #d0dceb 55%,
+                                      #a6b8cf 95%
+                                      );
+}
+
+.button:insensitive,
+.button:insensitive:active,
+.toolbar .button.raised:insensitive,
+.toolbar .button.raised:insensitive:active,
+.toolbar .raised .button:insensitive,
+.toolbar .raised .button:insensitive:active,
+.toolbar GtkComboBox .button:insensitive,
+.toolbar GtkComboBox .button:insensitive:active,
+.spinbutton.vertical .button:insensitive,
+.spinbutton.vertical .button:insensitive:active,
+GtkSwitch.trough:insensitive,
+GtkSwitch.trough:insensitive:active,
+GtkSwitch.slider:insensitive,
+GtkSwitch.slider:insensitive:active,
+GtkLinkButton.button:insensitive,
+GtkLinkButton.button:insensitive:active,
+GtkScaleButton.button:insensitive,
+GtkScaleButton.button:insensitive:active,
+.notebook tab .button:insensitive,
+.notebook tab .button:insensitive:active,
+.floating-bar .button:insensitive,
+.floating-bar .button:insensitive:active,
+#gtk-scalebutton-popup-window .button:insensitive,
+#gtk-scalebutton-popup-window .button:insensitive:active {
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+/***********
+* Toolbars *
+************/
+
+.inline-toolbar.toolbar,
+.inline-toolbar .toolbar {
+    border: 1px solid @borders_color;
+    border-radius: 0;
+    box-shadow: inset 0px 2px 3px -1px mix(black, @theme_bg_color, 0.6);
+	background-color: transparent;
+    background-image: linear-gradient(to bottom, @theme_bg_color);
+}
+
+.inline-toolbar.toolbar:last-child,
+.inline-toolbar .toolbar:last-child {
+    border-width: 0 1px 1px;
+}
+
+.inline-toolbar.toolbar.vertical:last-child,
+.inline-toolbar .toolbar.vertical:last-child {
+    border-width: 1px 1px 1px 0;
+}
+
+.titlebar,
+.header-bar,
+.cs-header,
+.primary-toolbar .toolbar,
+.primary-toolbar.toolbar {
+	border-radius: 0;
+	border-style: solid;
+	border-width: 1px 0px 1px 0px;
+	border-top-color: white;
+	border-bottom-color: @separator_color;
+	background-color: @theme_bg_color;
+}
+
+/**************************
+* Primary toolbar buttons *
+**************************/
+.primary-toolbar .button,
+.primary-toolbar .button:insensitive,
+.primary-toolbar .button:insensitive:active,
+GtkHandleBox.dock .toolbar .button,
+GtkHandleBox.dock .toolbar .button:insensitive,
+GtkHandleBox.dock .toolbar .button:insensitive:active {
+    background-color: transparent;
+    background-image: none;
+}
+
+.primary-toolbar .button:hover,
+GtkHandleBox.dock .toolbar .button:hover {
+	background-color: transparent;
+    background-image: linear-gradient(to left,
+                                      alpha(black, 0.045) 2px,
+                                      alpha(black, 0.007) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to right,
+                                      alpha(white, 0.35) 2px,
+                                      alpha(white, 0.3) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to top,
+                                      #d2d1d5 2px,
+                                      #e0dfe3 2px,
+                                      #e0dfe3 3px,
+                                      #ecebef 3px,
+                                      #ecebef 4px,
+                                      transparent 4px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #fefeff 2px,
+                                      #fdfdff 2px,
+                                      #fdfdff 3px,
+                                      #fbfafe 3px,
+                                      #fbfafe 4px,
+                                      #f9f8fc 4px,
+                                      #f0eff3
+                                      );
+}
+
+.primary-toolbar .button:active,
+.primary-toolbar .button:active:hover,
+GtkHandleBox.dock .toolbar .button:active,
+GtkHandleBox.dock .toolbar .button:active:hover {
+	background-color: transparent;
+	background-image: linear-gradient(to right,
+                                      alpha(black, 0.06),
+                                      transparent 4px
+                                      ),
+                      linear-gradient(to top,
+                                      #eae9ed 2px,
+                                      #e4e3e7 2px,
+                                      #e4e3e7 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #dad9dd 2px,
+                                      #e1e0e4 2px,
+                                      #e1e0e4 3px,
+                                      #e4e3e7 3px,
+                                      #e0dfe3
+                                      );
+}
+
+/****************
+ * Flat Buttons *
+ ****************/
+GtkLinkButton.button,
+GtkScaleButton.button,
+.notebook tab .button,
+.floating-bar .button,
+#gtk-scalebutton-popup-window .button {
+	background: none;
+}
+
+GtkLinkButton.button:hover,
+GtkScaleButton.button:hover,
+.notebook tab .button:hover,
+.floating-bar .button:hover,
+#gtk-scalebutton-popup-window .button:hover {
+    background-image: linear-gradient(to bottom, shade(alpha(@button_bg, 0.7), 1.08));
+    background-clip: padding-box;
+}
+GtkLinkButton.button:active,
+GtkLinkButton.button:active:hover,
+GtkScaleButton.button:active,
+GtkScaleButton.button:active:hover,
+.notebook tab .button:active,
+.notebook tab .button:active:hover,
+.floating-bar .button:active,
+.floating-bar .button:active:hover,
+#gtk-scalebutton-popup-window .button:active,
+#gtk-scalebutton-popup-window .button:active:hover {
+    background-image: linear-gradient(to bottom,
+                                      #d4deec 1px,
+                                      #7792ba 1px,
+                                      #7792ba 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to right,
+                                      #7792ba 1px,
+                                      transparent 1px
+                                      ),
+                      linear-gradient(to left,
+                                      #7792ba 1px,
+                                      transparent 1px
+                                      ),
+                      linear-gradient(to top,
+                                      #f9fdff 2px,
+                                      #f3f8ff 2px,
+                                      #f3f8ff 3px,
+                                      #fdfefe 3px,
+                                      #e3ebf3 48%,
+                                      #d0dceb 55%,
+                                      #a6b8cf 95%
+                                      );
+	background-clip: padding-box;
+}
+
+/*****************
+ * column-header *
+ *****************/
+column-header .button,
+column-header.button,
+column-header .button:insensitive,
+column-header.button:insensitive {
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+column-header .button:hover,
+column-header.button:hover {
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+column-header .button:active,
+column-header.button:active,
+column-header .button:active:hover,
+column-header.button:active:hover {
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+/*********
+ * entry *
+ *********/
+
+.entry,
+.spinbutton.vertical.entry {
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+.entry:insensitive,
+.spinbutton.vertical.entry:insensitive {
+    background-color: @theme_bg_color;
+    box-shadow: inset 0px 0px 0px 2px @insensitive_inner_box;
+    background-image: none;
+}
+
+/************
+ * notebook *
+ ************/
+
+.notebook tab {
+	background-clip: padding-box;
+}
+
+.notebook tab.top {
+    background-image: linear-gradient(to bottom,
+                                      #eaf3ff 47%,
+                                      #e1eeff 53%,
+                                      #e1eeff 59%,
+                                      #d8e9ff 65%,
+                                      #d0e4fc 71%,
+                                      #cde1f9 77%,
+                                      #c7dbf3 82%,
+                                      #bed2ea 88%,
+                                      #b9cde5 94%
+                                      );
+}
+
+.notebook tab.bottom {
+    background-image: linear-gradient(to bottom,
+                                      #ffffff 19%,
+                                      #f7faff 25%,
+                                      #eff6ff 30%,
+                                      #eaf3ff 37%,
+                                      #e1eeff 43%,
+                                      #e1eeff 50%,
+                                      #d8e9ff 57%,
+                                      #d0e4fc 63%,
+                                      #cde1f9 70%
+                                      );
+}
+
+.notebook tab.left,
+.notebook tab.right {
+    background-image: linear-gradient(to bottom,
+                                      #f7faff 33%,
+                                      #f1f7ff 39%,
+                                      #eaf3ff 44%,
+                                      #e1eeff 50%,
+                                      #e1eeff 56%,
+                                      #d8e9ff 61%,
+                                      #d0e4fc 67%,
+                                      #cde1f9 72%,
+                                      #c7dbf3 78%
+                                      );
+}
+
+.notebook tab:active {
+    background-color: @notebook_bg;
+    background-image: none;
+}
+
+/***************
+ * progressbar *
+ ***************/
+
+.progressbar {
+    background-image: linear-gradient(to right,
+                                      white 1px,
+                                      transparent 1px,
+                                      transparent
+                                      ),
+                      linear-gradient(to top,
+                                      #16834e 4px,
+                                      #15e81e 4px,
+                                      #18d927 50%,
+                                      transparent 50%
+                                      ),
+                      linear-gradient(to bottom,
+                                      #16834e 4px,
+                                      #a7d4ae 4px,
+                                      #a7d4ae 5px,
+                                      #7cc383 5px,
+                                      #5dbe62 50%
+                                      );
+    background-size: 7px 100%, auto;
+}
+
+.progressbar.vertical {
+    background-image: linear-gradient(to bottom,
+                                      white 1px,
+                                      transparent 1px,
+                                      transparent
+                                      ),
+                      linear-gradient(to left,
+                                      #16834e 4px,
+                                      #15e81e 4px,
+                                      #18d927 50%,
+                                      transparent 50%
+                                      ),
+                      linear-gradient(to right,
+                                      #16834e 4px,
+                                      #a7d4ae 4px,
+                                      #a7d4ae 5px,
+                                      #7cc383 5px,
+                                      #5dbe62 50%
+                                      );
+	background-size: 100% 7px, auto;
+}
+
+.progressbar row,
+.progressbar row:hover {
+    background-image: linear-gradient(to right,
+                                      white 1px,
+                                      transparent 1px,
+                                      transparent
+                                      ),
+                      linear-gradient(to top,
+                                      #16834e 1px,
+                                      #15e81e 1px,
+                                      #18d927 50%,
+                                      transparent 50%
+                                      ),
+                      linear-gradient(to bottom,
+                                      #16834e 1px,
+                                      #a7d4ae 1px,
+                                      #a7d4ae 2px,
+                                      #7cc383 2px,
+                                      #5dbe62 50%
+                                      );
+}
+
+.progressbar row:selected,
+.progressbar row:selected:focus {
+    background-image: linear-gradient(to right,
+                                      mix(@theme_selected_bg_color, white, 0.95) 1px,
+                                      transparent 1px,
+                                      transparent
+                                      ),
+                      linear-gradient(to top,
+                                      mix(@theme_selected_bg_color, #16834e, 0.95) 1px,
+                                      mix(@theme_selected_bg_color, #15e81e, 0.95) 1px,
+                                      mix(@theme_selected_bg_color, #18d927, 0.95) 50%,
+                                      transparent 50%
+                                      ),
+                      linear-gradient(to bottom,
+                                      mix(@theme_selected_bg_color, #16834e, 0.95) 1px,
+                                      mix(@theme_selected_bg_color, #a7d4ae, 0.95) 1px,
+                                      mix(@theme_selected_bg_color, #a7d4ae, 0.95) 2px,
+                                      mix(@theme_selected_bg_color, #7cc383, 0.95) 2px,
+                                      mix(@theme_selected_bg_color, #5dbe62, 0.95) 50%
+                                      );
+}
+
+.trough,
+.trough.vertical,
+.trough row {
+    background-color: @theme_base_color;
+}
+
+.trough row:selected,
+.trough row:selected:focus {
+	background-image: linear-gradient(to top, alpha(@theme_selected_fg_color, 0.3));
+}
+
+/*************
+ * scrollbar *
+ *************/
+
+.scrollbar.slider,
+.scrollbar.slider:hover,
+.scrollbar.slider:active {
+    background: none;
+}
+
+.scrollbar.slider,
+.scrollbar.slider.vertical {
+	background: url("Scrollbars/handle-vert.png") no-repeat center center,
+	            linear-gradient(to right,
+		                        #f2f7ff 1px,
+		                        #e2efff 1px,
+		                        #e2efff 3px,
+		                        #dcebff 3px,
+		                        #dcebff 5px,
+		                        #d2e6fe 5px,
+		                        #d2e6fe 6px,
+		                        #cce0f8 6px,
+		                        #cce0f8 7px,
+		                        #cbdff7 7px,
+		                        #cbdff7 8px,
+		                        #c5d9f1 8px,
+		                        #c5d9f1 9px,
+		                        #bfd3eb 9px,
+		                        #bfd3eb 10px,
+		                        #bdd1e9 10px
+		                        );
+}
+
+.scrollbar.slider:hover,
+.scrollbar.slider.vertical:hover {
+	background: url("Scrollbars/handle-vert-prelight.png") no-repeat center center,
+	            linear-gradient(to right,
+		                        #fefeff 1px,
+		                        #eff6ff 1px,
+		                        #eff6ff 2px,
+		                        #e9f2ff 2px,
+		                        #e9f2ff 3px,
+		                        #e2efff 3px,
+		                        #e2efff 5px,
+		                        #d7e8ff 5px,
+		                        #d7e8ff 6px,
+		                        #cce0f8 6px,
+		                        #cce0f8 8px,
+		                        #c4d8f0 8px,
+		                        #c4d8f0 9px,
+		                        #bed2ea 9px,
+		                        #bed2ea 10px,
+		                        #bbcfe7 10px
+		                        );
+}
+
+.scrollbar.slider:active,
+.scrollbar.slider.vertical:active {
+	background: url("Scrollbars/handle-vert-active.png") no-repeat center center,
+	            linear-gradient(to right,
+		                        #b7cbe3 1px,
+		                        #bcd0e8 1px,
+		                        #bcd0e8 2px,
+		                        #bdd1e9 2px,
+		                        #bdd1e9 3px,
+		                        #c4d8f0 3px,
+		                        #c4d8f0 5px,
+		                        #d0e4fc 5px,
+		                        #d0e4fc 6px,
+		                        #dfedff 6px,
+		                        #dfedff 8px,
+		                        #e9f2ff 8px,
+		                        #e9f2ff 9px,
+		                        #f1f7ff 9px,
+		                        #f1f7ff 10px,
+		                        #fcfdff 10px
+		                        );
+}
+
+.scrollbar.slider.horizontal {
+	background: url("Scrollbars/handle-horiz.png") no-repeat center center,
+	            linear-gradient(to bottom,
+		                        #f2f7ff 1px,
+		                        #e2efff 1px,
+		                        #e2efff 3px,
+		                        #dcebff 3px,
+		                        #dcebff 5px,
+		                        #d2e6fe 5px,
+		                        #d2e6fe 6px,
+		                        #cce0f8 6px,
+		                        #cce0f8 7px,
+		                        #cbdff7 7px,
+		                        #cbdff7 8px,
+		                        #c5d9f1 8px,
+		                        #c5d9f1 9px,
+		                        #bfd3eb 9px,
+		                        #bfd3eb 10px,
+		                        #bdd1e9 10px
+		                        );
+}
+
+.scrollbar.slider.horizontal:hover {
+	background: url("Scrollbars/handle-horiz-prelight.png") no-repeat center center,
+	            linear-gradient(to bottom,
+		                        #fefeff 1px,
+		                        #eff6ff 1px,
+		                        #eff6ff 2px,
+		                        #e9f2ff 2px,
+		                        #e9f2ff 3px,
+		                        #e2efff 3px,
+		                        #e2efff 5px,
+		                        #d7e8ff 5px,
+		                        #d7e8ff 6px,
+		                        #cce0f8 6px,
+		                        #cce0f8 8px,
+		                        #c4d8f0 8px,
+		                        #c4d8f0 9px,
+		                        #bed2ea 9px,
+		                        #bed2ea 10px,
+		                        #bbcfe7 10px
+		                        );
+}
+
+.scrollbar.slider.horizontal:active {
+	background: url("Scrollbars/handle-horiz-active.png") no-repeat center center,
+	            linear-gradient(to bottom,
+		                        #b7cbe3 1px,
+		                        #bcd0e8 1px,
+		                        #bcd0e8 2px,
+		                        #bdd1e9 2px,
+		                        #bdd1e9 3px,
+		                        #c4d8f0 3px,
+		                        #c4d8f0 5px,
+		                        #d0e4fc 5px,
+		                        #d0e4fc 6px,
+		                        #dfedff 6px,
+		                        #dfedff 8px,
+		                        #e9f2ff 8px,
+		                        #e9f2ff 9px,
+		                        #f1f7ff 9px,
+		                        #f1f7ff 10px,
+		                        #fcfdff 10px
+		                        );
+}
+
+/*******************************************
+ * Linked Button Backgrounds - Normal/Hover *
+ *******************************************/
+ 
+.linked .button,
+.linked .button:hover,
+.linked .button:last-child,
+.linked .button:last-child:hover,
+.toolbar .button.raised.linked,
+.toolbar .raised.linked .button,
+.toolbar .button.raised.linked:hover,
+.toolbar .raised.linked .button:hover,
+.toolbar .button.raised.linked:last-child,
+.toolbar .raised.linked .button:last-child,
+.toolbar .button.raised.linked:last-child:hover,
+.toolbar .raised.linked .button:last-child:hover,
+.primary-toolbar .linked .button,
+.primary-toolbar .linked .button:hover,
+.primary-toolbar .linked .button:last-child,
+.primary-toolbar .linked .button:last-child:hover,
+.primary-toolbar .raised .linked .button,
+.primary-toolbar .raised .linked .button:hover,
+.primary-toolbar .raised .linked .button:last-child,
+.primary-toolbar .raised .linked .button:last-child:hover,
+.primary-toolbar .button.raised.linked,
+.primary-toolbar .raised.linked .button,
+.primary-toolbar .button.raised.linked:hover,
+.primary-toolbar .raised.linked .button:hover,
+.primary-toolbar .button.raised.linked:last-child,
+.primary-toolbar .raised.linked .button:last-child,
+.primary-toolbar .button.raised.linked:last-child:hover,
+.primary-toolbar .raised.linked .button:last-child:hover,
+.inline-toolbar.toolbar .button,
+.inline-toolbar.toolbar .button:hover,
+.inline-toolbar.toolbar .button:last-child,
+.inline-toolbar.toolbar .button:hover:last-child,
+.inline-toolbar.toolbar GtkToolButton > .button,
+.inline-toolbar.toolbar GtkToolButton > .button:hover,
+.inline-toolbar.toolbar GtkToolButton:last-child > .button,
+.inline-toolbar.toolbar GtkToolButton:last-child > .button:hover {
+    background-image: linear-gradient(to top,
+                                      #90a8cd 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to right,
+                                      rgba(147, 175, 209, 0.75),
+                                      rgba(147, 175, 209, 0.75) 1px,
+                                      rgba(249, 251, 253, 0.45) 1px,
+                                      rgba(249, 251, 253, 0.45) 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to left,
+                                      rgba(147, 175, 209, 0.75),
+                                      rgba(147, 175, 209, 0.75) 2px,
+                                      rgba(249, 251, 253, 0.45) 2px,
+                                      rgba(249, 251, 253, 0.45) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #d4deec 2px,
+                                      #f9fdff 2px,
+                                      #f9fdff 3px,
+                                      #f3f8ff 3px,
+                                      #f3f8ff 4px,
+                                      transparent 4px
+                                      ),
+                      linear-gradient(to top,
+                                      #a6b8cf 2px,
+                                      #d0dceb 40%,
+                                      #e3ebf3 45%,
+                                      #e9f1f5 50%,
+                                      #f1f8f9 60%,
+                                      #fdfefe 88%
+                                      );
+}
+
+.linked .button:first-child,
+.linked .button:first-child:hover,
+.toolbar .button.raised.linked:first-child,
+.toolbar .raised.linked .button:first-child,
+.toolbar .button.raised.linked:first-child:hover,
+.toolbar .raised.linked .button:first-child:hover,
+.primary-toolbar .linked .button:first-child,
+.primary-toolbar .linked .button:first-child:hover,
+.primary-toolbar .raised .linked .button:first-child,
+.primary-toolbar .raised .linked .button:first-child:hover,
+.primary-toolbar .button.raised.linked:first-child,
+.primary-toolbar .raised.linked .button:first-child,
+.primary-toolbar .button.raised.linked:first-child:hover,
+.primary-toolbar .raised.linked .button:first-child:hover,
+.inline-toolbar.toolbar .button:first-child,
+.inline-toolbar.toolbar .button:hover:first-child,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button:hover {
+    background-image: linear-gradient(to top,
+                                      #90a8cd 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to right,
+                                      rgba(147, 175, 209, 0.75),
+                                      rgba(147, 175, 209, 0.75) 2px,
+                                      rgba(249, 251, 253, 0.45) 2px,
+                                      rgba(249, 251, 253, 0.45) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to left,
+                                      rgba(147, 175, 209, 0.75),
+                                      rgba(147, 175, 209, 0.75) 2px,
+                                      rgba(249, 251, 253, 0.45) 2px,
+                                      rgba(249, 251, 253, 0.45) 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #d4deec 2px,
+                                      #f9fdff 2px,
+                                      #f9fdff 3px,
+                                      #f3f8ff 3px,
+                                      #f3f8ff 4px,
+                                      transparent 4px
+                                      ),
+                      linear-gradient(to top,
+                                      #a6b8cf 2px,
+                                      #d0dceb 40%,
+                                      #e3ebf3 45%,
+                                      #e9f1f5 50%,
+                                      #f1f8f9 60%,
+                                      #fdfefe 88%
+                                      );
+}
+
+/*************************************
+* Linked Button Backgrounds - Active *
+**************************************/
+
+.linked .button:active,
+.linked .button:active:hover,
+.linked .button:last-child:active,
+.linked .button:last-child:active:hover,
+.toolbar .button.raised.linked:active,
+.toolbar .raised.linked .button:active,
+.toolbar .button.raised.linked:active:hover,
+.toolbar .raised.linked .button:active:hover,
+.toolbar .button.raised.linked:last-child:active,
+.toolbar .raised.linked .button:last-child:active,
+.toolbar .button.raised.linked:last-child:active:hover,
+.toolbar .raised.linked .button:last-child:active:hover,
+.primary-toolbar .linked .button:active,
+.primary-toolbar .linked .button:active:hover,
+.primary-toolbar .linked .button:last-child:active,
+.primary-toolbar .linked .button:last-child:active:hover,
+.primary-toolbar .raised .linked .button:active,
+.primary-toolbar .raised .linked .button:active:hover,
+.primary-toolbar .raised .linked .button:last-child:active,
+.primary-toolbar .raised .linked .button:last-child:active:hover,
+.primary-toolbar .button.raised.linked:active,
+.primary-toolbar .raised.linked .button:active,
+.primary-toolbar .button.raised.linked:active:hover,
+.primary-toolbar .raised.linked .button:active:hover,
+.primary-toolbar .button.raised.linked:last-child:active,
+.primary-toolbar .raised.linked .button:last-child:active,
+.primary-toolbar .button.raised.linked:last-child:active:hover,
+.primary-toolbar .raised.linked .button:last-child:active:hover,
+.inline-toolbar.toolbar .button:active,
+.inline-toolbar.toolbar .button:active:hover,
+.inline-toolbar.toolbar .button:last-child:active,
+.inline-toolbar.toolbar .button:last-child:active:hover,
+.inline-toolbar.toolbar GtkToolButton > .button:active,
+.inline-toolbar.toolbar GtkToolButton > .button:active:hover,
+.inline-toolbar.toolbar GtkToolButton:last-child > .button:active,
+.inline-toolbar.toolbar GtkToolButton:last-child > .button:active:hover {
+    background-image: linear-gradient(to bottom,
+                                      #d4deec 2px,
+                                      #7792ba 2px,
+                                      #7792ba 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to right,
+                                      #7792ba 1px,
+                                      transparent 1px
+                                      ),
+                      linear-gradient(to left,
+                                      #7792ba 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to top,
+                                      #f9fdff 2px,
+                                      #f3f8ff 2px,
+                                      #f3f8ff 3px,
+                                      #fdfefe 3px,
+                                      #e3ebf3 48%,
+                                      #d0dceb 55%,
+                                      #a6b8cf 95%
+                                      );
+}
+
+.linked .button:first-child:active,
+.linked .button:first-child:active:hover,
+.toolbar .button.raised.linked:first-child:active,
+.toolbar .raised.linked .button:first-child:active,
+.toolbar .button.raised.linked:first-child:active:hover,
+.toolbar .raised.linked .button:first-child:active:hover,
+.primary-toolbar .linked .button:first-child:active,
+.primary-toolbar .linked .button:first-child:active:hover,
+.primary-toolbar .raised .linked .button:first-child:active,
+.primary-toolbar .raised .linked .button:first-child:active:hover,
+.primary-toolbar .button.raised.linked:first-child:active,
+.primary-toolbar .raised.linked .button:first-child:active,
+.primary-toolbar .button.raised.linked:first-child:active:hover,
+.primary-toolbar .raised.linked .button:first-child:active:hover,
+.inline-toolbar.toolbar .button:first-child:active,
+.inline-toolbar.toolbar .button:first-child:active:hover,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button:active,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button:active:hover {
+    background-image: linear-gradient(to bottom,
+                                      #d4deec 2px,
+                                      #7792ba 2px,
+                                      #7792ba 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to right,
+                                      #7792ba 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to left,
+                                      #7792ba 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to top,
+                                      #f9fdff 2px,
+                                      #f3f8ff 2px,
+                                      #f3f8ff 3px,
+                                      #fdfefe 3px,
+                                      #e3ebf3 48%,
+                                      #d0dceb 55%,
+                                      #a6b8cf 95%
+                                      );
+}
+
+/*******************************************
+ * Linked Button Backgrounds - Insensitive *
+ *******************************************/
+
+.linked .button:insensitive,
+.linked .button:insensitive:hover,
+.linked .button:first-child:insensitive,
+.linked .button:first-child:insensitive:hover,
+.linked .button:last-child:insensitive,
+.linked .button:last-child:insensitive:hover,
+.toolbar .button.raised.linked:insensitive,
+.toolbar .raised.linked .button:insensitive,
+.toolbar .button.raised.linked:insensitive:hover,
+.toolbar .raised.linked .button:insensitive:hover,
+.toolbar .button.raised.linked:first-child:insensitive,
+.toolbar .raised.linked .button:first-child:insensitive,
+.toolbar .button.raised.linked:first-child:insensitive:hover,
+.toolbar .raised.linked .button:first-child:insensitive:hover,
+.toolbar .button.raised.linked:last-child:insensitive,
+.toolbar .raised.linked .button:last-child:insensitive,
+.toolbar .button.raised.linked:last-child:insensitive:hover,
+.toolbar .raised.linked .button:last-child:insensitive:hover,
+.primary-toolbar .linked .button:insensitive,
+.primary-toolbar .linked .button:insensitive:hover,
+.primary-toolbar .linked .button:first-child:insensitive,
+.primary-toolbar .linked .button:first-child:insensitive:hover,
+.primary-toolbar .linked .button:last-child:insensitive,
+.primary-toolbar .linked .button:last-child:insensitive:hover,
+.primary-toolbar .raised .linked .button:insensitive,
+.primary-toolbar .raised .linked .button:insensitive:hover,
+.primary-toolbar .raised .linked .button:first-child:insensitive,
+.primary-toolbar .raised .linked .button:first-child:insensitive:hover,
+.primary-toolbar .raised .linked .button:last-child:insensitive,
+.primary-toolbar .raised .linked .button:last-child:insensitive:hover,
+.primary-toolbar .button.raised.linked:insensitive,
+.primary-toolbar .raised.linked .button:insensitive,
+.primary-toolbar .button.raised.linked:insensitive:hover,
+.primary-toolbar .raised.linked .button:insensitive:hover,
+.primary-toolbar .button.raised.linked:first-child:insensitive,
+.primary-toolbar .raised.linked .button:first-child:insensitive,
+.primary-toolbar .button.raised.linked:first-child:insensitive:hover,
+.primary-toolbar .raised.linked .button:first-child:insensitive:hover,
+.primary-toolbar .button.raised.linked:last-child:insensitive,
+.primary-toolbar .raised.linked .button:last-child:insensitive,
+.primary-toolbar .button.raised.linked:last-child:insensitive:hover,
+.primary-toolbar .raised.linked .button:last-child:insensitive:hover,
+.inline-toolbar.toolbar .button:insensitive,
+.inline-toolbar.toolbar .button:insensitive:hover,
+.inline-toolbar.toolbar .button:first-child:insensitive,
+.inline-toolbar.toolbar .button:first-child:insensitive:hover,
+.inline-toolbar.toolbar .button:last-child:insensitive,
+.inline-toolbar.toolbar .button:last-child:insensitive:hover,
+.inline-toolbar.toolbar GtkToolButton > .button:insensitive,
+.inline-toolbar.toolbar GtkToolButton > .button:insensitive:hover,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button:insensitive,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button:insensitive:hover,
+.inline-toolbar.toolbar GtkToolButton:last-child > .button:insensitive,
+.inline-toolbar.toolbar GtkToolButton:last-child > .button:insensitive:hover {
+	background-color: @insensitive_inner_box;
+    background-image: none;
+}
+
+/* and this is why scss exists :( */
