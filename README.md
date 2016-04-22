@@ -6,20 +6,12 @@ Current version: 1.0.2
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
-####Theme contents:
+####Theme contents
 * cinnamon
 * gtk-2.0
 * gtk-3.0
 * metacity-1
 * cursor
-
-##### Luna
-
-![Luna flavor](luna.png?raw=true)
-
-##### Royale
-
-![Royale flavor](royale.png?raw=true)
 
 ##Requirements
 
