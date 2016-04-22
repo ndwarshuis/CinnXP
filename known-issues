@@ -1,5 +1,0 @@
-gtk3:
-first/last buttons on pathbars don't always show outside borders/radius
-
-cinnamon:
-sometimes notifications show weird inset border around text when in applet popup
