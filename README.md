@@ -46,7 +46,8 @@ Run `./test-theme` in the top-level directory to generate a directory of links t
 * LibreOffice 5.0 and above may use gtk3 by default (sorta)...to get the gtk2 theme add "export SAL\_USE_VCLPLUGIN=gtk" to `~/.bashrc` 
 * Do anything else to make it look more XP-like. Disable effects, disable hinting and antialiasing, change wallpaper to serene green field, etc
 
-##Todo List
+##ToDo List
 * Bug fixes
 * Full Icon Theme
 * Upgrade to gtk-3.20
+* New flavors (Zune, Embedded, Royale Noir, Classic)
