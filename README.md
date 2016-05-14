@@ -49,5 +49,4 @@ Run `./test-theme` in the top-level directory to generate a directory of links t
 ##ToDo List
 * Bug fixes
 * Full Icon Theme
-* Upgrade to gtk-3.20
 * New flavors (Zune, Embedded, Royale Noir, Classic)
