@@ -1,0 +1,488 @@
+// Drawing mixins
+
+// generic drawing of more complex things
+
+@function _widget_edge($c:$borders_edge) {
+// outer highlight "used" on most widgets
+  @return 0px 1px $c;
+}
+
+@mixin _shadows($shadow1, $shadow2:none, $shadow3:none, $shadow4:none) {
+//
+// Helper function to stack up to 4 box-shadows;
+//
+  @if $shadow4!=none { box-shadow: $shadow1, $shadow2, $shadow3, $shadow4; }
+  @else if $shadow3!=none { box-shadow: $shadow1, $shadow2, $shadow3; }
+  @else if $shadow2!=none { box-shadow: $shadow1, $shadow2; }
+  @else { box-shadow: $shadow1; }
+}
+
+// entries
+
+@mixin entry_button($t, $dir:'', $bor:'') {
+
+  $_border: 2px 2px 2px 2px;
+  $_slice: 2 2 2 2;
+
+  @if $bor=='' {
+    @if $dir==rtl {
+      $_slice: 3 2 3 3;
+      $_border: 3px 2px 3px 3px;
+	} @else if $dir==ltr {
+      $_slice: 3 3 3 2;
+      $_border: 3px 3px 3px 2px;
+	} @else {
+      $_slice: 3 2 3 2;
+      $_border: 3px 2px 3px 2px;
+	}
+  }
+
+  $d: if($dir=='','',"-#{$dir}");
+  $b: if($bor=='','',"-borderless");
+
+  border-width: $_border;
+  border-style: solid;
+  border-color: transparent;
+  
+  box-shadow: none;
+
+  @if $t==normal {
+    border-image: url("Button/entry-button#{$b}#{$d}.png");
+    background-image: url("Button/entry-button-bg.png");
+  }
+  @if $t==hover {
+    border-image: url("Button/entry-button#{$b}#{$d}-hover.png");
+    background-image: url("Button/entry-button-bg-hover.png");
+  }
+  @if $t==active {
+    border-image: url("Button/entry-button#{$b}#{$d}-active.png");
+    background-image: url("Button/entry-button-bg-active.png");
+  }
+  @if $t==insensitive {
+    border-image: url("Button/entry-button#{$b}#{$d}-insensitive.png");
+    background-image: url("Button/entry-button-bg-insensitive.png");
+  }
+
+  border-image-slice: $_slice;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+// buttons
+
+$button_radius: 2px;
+
+@function _border_color ($c) { @return darken($c,25%); } // colored buttons want
+                                                         // the border form the
+                                                         // base color
+
+@function _text_shadow_color ($tc:$fg_color, $bg:$bg_color) {
+//
+// calculate the color of text shadows
+//
+// $tc is the text color
+// $bg is the background color
+//
+  $_lbg: lightness($bg)/100%;
+  @if lightness($tc)<50% { @return transparentize(white,1-$_lbg/($_lbg*1.3)); }
+  @else { @return transparentize(black,$_lbg*0.8); }
+}
+
+@mixin button($t, $c:$button_color, $tc:$fg_color, $edge: $borders_edge) {
+//
+// Button drawing function
+//
+// $t:    button type,
+// $c:    base button color for colored* types
+// $tc:   optional text color for colored* types
+// $edge: set to none to not draw the bottom edge or specify a color to not
+//        use the default one
+//
+// possible $t values:
+// normal, hover, active, insensitive, insensitive-active,
+// backdrop, backdrop-active, backdrop-insensitive, backdrop-insensitive-active,
+// osd, osd-hover, osd-active, osd-insensitive, osd-backdrop, undecorated
+//
+
+  //ugly hack to "switch" bottom edge on/off to integrate with adwaita code
+  $_bottom_edge_transparency: if($edge==none, 1.0, 0.4);
+  $_button_edge: 0px 1px transparentize(white, $_bottom_edge_transparency),
+                 1px 0px transparentize(white, 0.80),
+				 0px -1px transparentize(black, 0.96),
+				-1px 0px transparentize(black, 0.97);
+
+  $_button_inner_edge: transparentize(darken($c, 17%), 0.25),
+                       transparentize(darken($c, 17%), 0.25) 1px,
+                       transparentize(lighten($c, 11.5%), 0.55) 1px,
+                       transparentize(lighten($c, 11.5%), 0.55) 2px,
+                       transparent 2px;
+                       		
+  $_button_bg: linear-gradient(to top,
+                               darken($c, 18%),
+                               darken($c, 18%) 1px,
+                               transparent 1px
+                               ),
+               linear-gradient(to right,
+                               $_button_inner_edge
+                               ),
+               linear-gradient(to left,
+                               $_button_inner_edge
+                               ),
+               linear-gradient(to bottom,
+                               lighten($c, 1.25%) 1px,
+                               lighten($c, 11.5%) 1px,
+                               lighten($c, 11.5%) 2px,
+                               lighten($c, 9.75%) 2px,
+                               lighten($c, 9.75%) 3px,
+                               transparent 3px
+                               ),
+               linear-gradient(to top,
+                               darken($c, 17.5%) 1px,
+                               $c 40%,
+                               lighten($c, 5.25%) 45%,
+                               lighten($c, 7%) 50%,
+                               lighten($c, 9.3%) 60%,
+                               lighten($c, 12.5%)
+                               );
+               
+  $_button_bg_active: linear-gradient(to bottom,
+                                      lighten($c, 1.25%) 1px,
+                                      darken($c, 27%) 1px,
+                                      darken($c, 27%) 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to right,
+                                      darken($c, 27%) 1px,
+                                      transparent 1px
+                                      ),
+                      linear-gradient(to left,
+                                      darken($c, 27%) 1px,
+                                      transparent 1px
+                                      ),
+                      linear-gradient(to top,
+                                      lighten($c, 11.5%) 1px,
+                                      lighten($c, 9.75%) 1px,
+                                      lighten($c, 9.75%) 2px,
+                                      lighten($c, 12.5%) 2px,
+                                      lighten($c, 5.25%) 50%,
+                                      darken($c, 17.5%) 95%
+                                      );
+                               
+  $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
+
+  -gtk-icon-shadow: none;
+
+  @if $t==normal {
+  //
+  // normal button
+  //
+    color: $tc;
+    outline-color: transparentize($tc, 0.5);
+    border-color: $button_borders;
+    background-image: $_button_bg;
+    box-shadow: $_button_edge;
+  }
+
+  @else if $t==default {
+  //
+  // default button
+  //
+    color: $tc;
+    outline-color: transparentize($tc, 0.5);
+    border-color: $button_borders;
+    background-image: $_button_bg;
+    box-shadow: $_button_edge,
+                inset 0px 0px 1px 2px transparentize(#0058CC, 0.55),
+                inset 0px 1px #8bc0ea,
+                inset 0px -1px #3f6db1;
+  }
+
+  @else if $t==hover {
+  //
+  // hovered button
+  //
+    color: $tc;
+    outline-color: transparentize($tc, 0.5);
+    border-color: $button_borders;
+    background-image: $_button_bg;
+    box-shadow: $_button_edge,
+                inset 0px 0px 1px 2px transparentize(#FA9600, 0.5),
+                inset 0px 1px #f5e8a1,
+                inset 0px -1px #da7926;
+  }
+
+  @else if $t==active {
+  //
+  // pushed button
+  //
+    color: $tc;
+    outline-color: transparentize($tc, 0.5);
+    border-color: $button_borders;
+    background-image: $_button_bg_active;
+    box-shadow: $_button_edge;
+  }
+  @else if $t==insensitive {
+  //
+  // insensitive button
+  //
+    color: $insensitive_fg_color;
+    border-color: $insensitive_borders_color;
+    background-image: none;
+    background-color: $base_color;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    box-shadow: none;
+  }
+
+  @else if $t==osd {
+  //
+  // normal osd button
+  //
+    $_bg: if($c!=$bg_color, transparentize($c, 0.5),
+                            $osd_bg_color);
+
+    color: $osd_fg_color;
+    border-color: $button_borders;
+    background-image: linear-gradient(to bottom, $_bg);
+    background-clip: padding-box;
+    box-shadow: inset 0 1px transparentize(white, 0.9);
+    outline-color: transparentize($osd_fg_color, 0.5);
+  }
+  @else if $t==osd-hover {
+  //
+  // active osd button
+  //
+    $_bg: if($c!=$bg_color, transparentize(lighten($c, 8%), 0.3), lighten($osd_bg_color, 12%));
+
+    //color: white;
+    border-color: $button_borders;
+    background-image: linear-gradient(to bottom, $_bg);
+    background-clip: padding-box;
+    box-shadow: inset 0 1px transparentize(white, 0.9);
+    outline-color: transparentize($osd_fg_color, 0.5);
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==osd-active {
+  //
+  // active osd button
+  //
+    $_bg: if($c!=$bg_color, $c, $osd_borders_color);
+
+    //color: white;
+    border-color: $button_borders;
+    background-image: linear-gradient(to bottom, $_bg);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    outline-color: transparentize($osd_fg_color, 0.5);
+  }
+  @else if $t==osd-insensitive {
+  //
+  // insensitive osd button
+  //
+    color: $osd_insensitive_fg_color;
+    border-color: $insensitive_borders_color;
+    background-image: linear-gradient(to bottom, $osd_insensitive_bg_color);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==osd-backdrop {
+  //
+  // backdrop osd button
+  //
+    $_bg: if($c!=$bg_color, transparentize($c, 0.5),
+                            $osd_bg_color);
+
+    color: $osd_fg_color;
+    border-color: $osd_borders_color;
+    background-image: linear-gradient(to bottom, $_bg);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==undecorated {
+  //
+  // reset
+  //
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+
+    @include _shadows(inset 0 1px transparentize(white, 1),
+                      $_blank_edge);
+
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==toolbar-hover {
+    border-color: #cdccd0;
+    background-color: transparent;
+    background-image: linear-gradient(to left,
+                                      transparentize(black, 0.955) 1px,
+                                      transparentize(black, 0.993) 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to right,
+                                      transparentize(white, 0.65) 1px,
+                                      transparentize(white, 0.7) 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to top,
+                                      #d2d1d5,
+                                      #d2d1d5 1px,
+                                      #e0dfe3 1px,
+                                      #e0dfe3 2px,
+                                      #ecebef 2px,
+                                      #ecebef 3px,
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #fefeff,
+                                      #fefeff 1px,
+                                      #fdfdff 1px,
+                                      #fdfdff 2px,
+                                      #fbfafe 2px,
+                                      #fbfafe 3px,
+                                      #f9f8fc 3px,
+                                      #f0eff3
+                                      );
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==toolbar-active {
+    color: $fg_color;
+    border-color: #7a98af;
+    background-color: white;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==toolbar-pressed {
+    color: $fg_color;
+    border-color: #9c9b9f;
+    background-color: transparent;
+    background-image: linear-gradient(to right,
+                                      transparentize(black, 0.94),
+                                      transparent 3px
+                                      ),
+                      linear-gradient(to top,
+                                      #eae9ed,
+                                      #eae9ed 1px,
+                                      #e4e3e7 1px,
+                                      #e4e3e7 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to bottom,
+                                      #dad9dd,
+                                      #dad9dd 1px,
+                                      #e1e0e4 1px,
+                                      #e1e0e4 2px,
+                                      #e4e3e7 2px,
+                                      #e0dfe3
+                                      );
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @else if $t==toolbar-active-hover {
+    color: $fg_color;
+    border-color: #929195;
+    background-color: white;
+    background-image: linear-gradient(to left,
+                                      transparentize(black, 0.955) 1px,
+                                      transparentize(black, 0.993) 2px,
+                                      transparent 2px
+                                      ),
+                      linear-gradient(to top,
+                                      #dfdee2,
+                                      #dfdee2 1px,
+                                      #edecf0 1px,
+                                      #edecf0 2px,
+                                      #faf9fd 2px,
+                                      #faf9fd 3px,
+                                      #fefeff 60%,
+                                      white
+                                      );
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+}
+
+@mixin progressbar_fill($d:horizontal, $selected:false) {
+  $top_dir: if($d==vertical,right,bottom);
+  $bottom_dir: if($d==vertical,left,top);
+  $white_dir: if($d==vertical,top,left);
+  $size: if($d==vertical,100% 7px,7px 100%);
+  
+  $edge: #16834e;
+  $edge_shadow: #a7d4ae;
+  $green_a: #7cc383;
+  $green_b: #5dbe62;
+  $green_c: #18d927;
+  $green_d: #15e81e;
+
+  $edge: if($selected==true, mix($selected_bg_color, $edge, 5%), $edge);
+  $edge_shadow: if($selected==true, mix($selected_bg_color, $edge_shadow, 5%), $edge_shadow);
+  
+  $green_a: if($selected==true, mix($selected_bg_color, $green_a, 5%), $green_a);
+  $green_b: if($selected==true, mix($selected_bg_color, $green_b, 5%), $green_b);
+  $green_c: if($selected==true, mix($selected_bg_color, $green_c, 5%), $green_c);
+  $green_d: if($selected==true, mix($selected_bg_color, $green_d, 5%), $green_d);
+
+  $whitespace: if($selected==true, mix($selected_bg_color, white, 5%), white);
+  
+  background-image: linear-gradient(to $white_dir,
+                                    $whitespace ,
+                                    $whitespace 1px,
+                                    transparent 1px,
+                                    transparent
+                                    ),
+                    linear-gradient(to $bottom_dir,
+                                    $edge,
+                                    $edge 1px,
+                                    $green_d 1px,
+                                    $green_c 50%,
+                                    transparent 50%
+                                    ),
+                    linear-gradient(to $top_dir,
+                                    $edge,
+                                    $edge 1px,
+                                    $edge_shadow 1px,
+                                    $edge_shadow 2px,
+                                    $green_a 2px,
+                                    $green_b 50%
+                                    );
+  background-size: $size, auto;
+    
+}
+
+@mixin progressbar_trough ($d:horizontal) {
+    border: 1px solid #686868;
+    border-radius: 3px;
+    background-color: $base_color;
+    box-shadow: inset 0.5px 0.5px 0px 1.5px #efefef, inset 1px 1px #bebebe;
+    @if $d==horizontal { padding: 3px 4px}
+    @else if $d==vertical { padding: 4px 3px; }
+}
+
+@mixin frame_inset {
+  border: 2px solid transparent;
+  border-image: url("Shadows/frame-inset.png");
+  border-image-slice: 2 2 2 2;
+  border-image-repeat: stretch;
+}
+
+@mixin toolbar_bg {
+  border-style: solid;
+  border-width: 1px 0px 1px 0px;
+  border-top-color: white;
+  border-bottom-color: $separator_color;
+  background: $bg_color;
+}

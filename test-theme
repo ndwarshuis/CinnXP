@@ -18,7 +18,7 @@ OPTIONS:
 EOF
 }
 
-gtk3_minor_revision=18
+gtk3_minor_revision=20
 flavor="luna"
 
 while getopts “hmr” OPTION

@@ -185,7 +185,7 @@ build_gtk3_theme() {
 
 #default values
 pkg_dir="$PWD"/"pkg"
-gtk3_minor_revision=18
+gtk3_minor_revision=20
 flavor="luna"
 
 while getopts “hmrn:” OPTION
