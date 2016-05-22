@@ -681,7 +681,8 @@ StScrollView .notification-button, StScrollView .notification-icon-button {
   padding: 10px;
   border-radius: 0; }
   .menu-favorites-button:hover {
-    background-color: #335ea8; }
+    background-color: #335ea8;
+    color: #fff; }
 
 .menu-places-box {
   margin: auto;
@@ -691,14 +692,13 @@ StScrollView .notification-button, StScrollView .notification-icon-button {
 .menu-places-button {
   padding: 10px; }
 
-.menu-applications-inner-box {
-  padding: 5px;
-  background-color: #5373bf; }
-
 .menu-applications-box {
   padding: 10px 0 0 10px;
   background-color: transparent;
   border: none; }
+  .menu-applications-box .menu-applications-inner-box {
+    padding: 5px;
+    background-color: #5373bf; }
   .menu-applications-box StScrollBar {
     padding: 0; }
   .menu-applications-box StScrollView {
@@ -1131,6 +1131,53 @@ StScrollView .notification-button, StScrollView .notification-icon-button {
   color: #000;
   font-size: 14px;
   margin: 6px; }
+
+/* ===================================================================
+ * CinnXPStarkMenu 
+ * ===================================================================*/
+.starkmenu-background {
+  padding: 50px 0 27px 0; }
+  .starkmenu-background .menu-favorites-box {
+    color: #fff;
+    background-color: transparent;
+    border: 0 solid #000; }
+    .starkmenu-background .menu-favorites-box StBin {
+      min-height: 421px; }
+    .starkmenu-background .menu-favorites-box .popup-separator-menu-item {
+      background: #3d5b95; }
+    .starkmenu-background .menu-favorites-box > CinnamonGenericContainer {
+      padding: 0 6px; }
+  .starkmenu-background .right-buttons-box {
+    color: #fff;
+    background-color: #5373bf;
+    padding: 8px;
+    border: 0 solid #305496;
+    border-left-width: 1px; }
+    .starkmenu-background .right-buttons-box .hover-label {
+      color: #fff; }
+    .starkmenu-background .right-buttons-box .hover-user-icon {
+      border-color: #bcc1d4; }
+    .starkmenu-background .right-buttons-box .popup-separator-menu-item {
+      height: 1px;
+      border: 4px solid #5373bf;
+      border-right-width: 0;
+      border-left-width: 0;
+      background-clip: content-box;
+      background-color: #6287d6; }
+  .starkmenu-background .menu-selected-app-box {
+    color: #fff;
+    padding: 3px 3px 7px 3px; }
+  .starkmenu-background .menu-applications-box {
+    padding: 0; }
+    .starkmenu-background .menu-applications-box .menu-categories-box {
+      padding: 0; }
+      .starkmenu-background .menu-applications-box .menu-categories-box .menu-category-button {
+        color: #fff; }
+    .starkmenu-background .menu-applications-box StScrollView {
+      background-color: #5373bf;
+      border-width: 1px; }
+      .starkmenu-background .menu-applications-box StScrollView:last-child {
+        border-left-width: 0; }
 
 /* ===================================================================
  * Catch all extend
