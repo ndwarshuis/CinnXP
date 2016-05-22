@@ -1,0 +1,41 @@
+$base_color: #fff;
+$bg_color: #ece9d8;
+$fg_color: #000;
+
+$insensitive_fg_color: #a7a6aa;
+
+$tooltip_bg_color: #ffffe2;
+$tooltip_fg_color: $fg_color;
+$tooltip_borders_color: #000;
+
+$selected_fg_color: #fff;
+$selected_bg_color: #335ea8;
+
+$panel_left_fg_color: #fff;
+$panel_right_fg_color: #000;
+
+$notification_bg: $tooltip_bg_color;
+$notification_button: #aa9c87;
+$notification_button_hover: white;
+$notification_button_active: white;
+
+$start_menu_icon_color: #fff;
+$start_menu_insensitive_fg_color: $insensitive_fg_color;
+$start_menu_fg_color: #fff;
+
+$start_menu_box_bg_color: #5373bf;
+$start_menu_box_fg_color: #fff;
+$start_menu_box_selected_bg_color: $selected_bg_color;
+$start_menu_box_selected_fg_color: $selected_fg_color;
+$start_menu_box_borders_color: #305496;
+
+$borders_color: $insensitive_fg_color;
+$menu_borders: $insensitive_fg_color;
+
+$separator_color: #d6d5d9;
+
+$window_list_color: #fff;
+
+$desklet_color: #fff;
+
+$link_color: lighten($selected_bg_color,20%);
