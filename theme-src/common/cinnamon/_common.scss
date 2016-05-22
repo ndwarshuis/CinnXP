@@ -26,11 +26,7 @@ StScrollBar {
   
   StBin#trough { background-color: rgba(0,0,0,0.2); }
 
-  StButton {
-	&#hhandle, &#vhandle {
-      &, &:hover { border-image: url('Shadows/outset-shadow.png') 3; }
-	}
-  }
+  StButton { &#hhandle, &#vhandle { &, &:hover { border-image: url('Shadows/outset-shadow.png') 3; } } }
 }
 
 .separator {
@@ -244,9 +240,7 @@ $panel_slice: 3 0 1 1;
 .panel-button {
   #appMenuIcon { app-icon-bottom-clip: 1px; }
 
-  &:active, &:checked, &:focus {
-    & #appMenuIcon { app-icon-bottom-clip: 2px; }
-  }
+  &:active, &:checked, &:focus { & #appMenuIcon { app-icon-bottom-clip: 2px; } }
 }
 
 /* ===================================================================
@@ -439,9 +433,7 @@ $panel_slice: 3 0 1 1;
   background-color: $notification_bg;
 
   /* hacky thing to cover up inset border... */
-  &, &.multi-line-notification {
-    StLabel { background-color: $notification_bg; }
-  }
+  &, &.multi-line-notification { StLabel { background-color: $notification_bg; } }
 
   &.multi-line-notification { padding-bottom: 8px; }
 
@@ -577,9 +569,7 @@ $panel_slice: 3 0 1 1;
   margin-right: 10px;
   padding: 3px 22px 3px;
 
-  &:hover {
-    &, &:focus { border-image: url("Buttons/button-hover.png") 5; }
-  }
+  &:hover { &, &:focus { border-image: url("Buttons/button-hover.png") 5; } }
 
   &:focus { border-image: url("Buttons/button-focus.png") 5; }
 
@@ -884,6 +874,8 @@ $panel_slice: 3 0 1 1;
     &:ltr { padding-left: 5px; }
     &:rtl { padding-right: 5px; }
   }
+
+  &, &-selected { &:highlighted { font-weight: bold; } }
 }
 
 .menu-categories-box { padding: 10px; }
