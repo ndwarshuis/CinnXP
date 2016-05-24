@@ -105,6 +105,7 @@ build_cursor_theme() {
 	cd ..
 }
 
+#ToDo...prompt for root permission here
 test_ruby() {
 	#is ruby installed?
 	ruby -v >> /dev/null
@@ -115,7 +116,7 @@ test_ruby() {
 	fi
 
 	#is Bundler Gem installed?
-	if (( $(gem list bundler -i) != "true" )); then
+	if [[ $(gem list bundler -i) != "true" ]]; then
 		echo "Bundler Ruby gem not found. Attempting to install"
 		gem install bundler
 		
@@ -132,7 +133,7 @@ test_ruby() {
 		echo "SASS Ruby gem not found. Attempting to install"
 		install_sass=1
 	#is SASS Gem up to date?
-	elif (( $(gem list sass | grep -o -P '(?<=\.)[0-9]*(?=\.)') < 4 )); then
+	elif  [[ $(gem list sass | grep -o -P '(?<=\.)[0-9]*(?=\.)') < 4 ]]; then
 		echo "SASS Ruby gem is outdated. Attempting to update"
 		install_sass=1
 	fi
