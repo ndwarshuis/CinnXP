@@ -105,13 +105,74 @@ build_cursor_theme() {
 	cd ..
 }
 
+test_ruby() {
+	#is ruby installed?
+	ruby -v >> /dev/null
+
+	if [[ $? -ne 0 ]]; then
+		echo "Ruby not found. Please install latest version from distribution repo"
+		return 1
+	fi
+
+	#is Bundler Gem installed?
+	if (( $(gem list bundler -i) != "true" )); then
+		echo "Bundler Ruby gem not found. Attempting to install"
+		gem install bundler
+		
+		if [[ $? -ne 0 ]]; then
+			echo "Could not install bundler. Aborting"
+			exit 1
+		fi
+	fi
+
+	install_sass=0
+
+	#is SASS Gem installed?
+	if (( $(gem list sass -i) != "true" )); then
+		echo "SASS Ruby gem not found. Attempting to install"
+		install_sass=1
+	#is SASS Gem up to date?
+	elif (( $(gem list sass | grep -o -P '(?<=\.)[0-9]*(?=\.)') < 4 )); then
+		echo "SASS Ruby gem is outdated. Attempting to update"
+		install_sass=1
+	fi
+
+	if [ $install_sass == 1 ]; then
+		bundle install
+
+		if [[ $? -ne 0 ]]; then
+			echo "Could not install SASS. Aborting"
+			exit 1
+		fi
+	fi
+
+	return 0
+}
+
+clean_ruby() {
+	#remove these things in case they cause ruby version trouble :(
+	if [ -e "$1/Gemfile.lock" ]; then
+		echo "WARNING: source dir not clean (FOUND Gemfile.lock)"
+		rm "$1"/Gemfile.lock
+	fi
+
+	if [ -d "$1/.sass-cache" ]; then
+		echo "WARNING: source dir not clean (FOUND .sass-cache)"
+		rm -r "$1"/.sass-cache
+	fi
+}
+
 build_gtk3_theme() {
 
 	echo "Now building gtk3 theme
 	"
-	
+
 	if [ "$3" -lt 16 ]; then
 		no_scss=0
+	fi
+
+	if [ -z ${no_scss+x} ]; then
+		clean_ruby "$2"/gtk-"$3"
 	fi
 	
 	# make new gtk-3.0 dir in target dir
@@ -119,31 +180,12 @@ build_gtk3_theme() {
 		mkdir -p "$1"/gtk-3.0
 	fi
 	
-	#copy thumbnail
-	cp "$2"/thumbnail-gtk.png "$1"/gtk-3.0/thumbnail.png
-
 	#copy gtk3 to tmp working directory (resolve symlinks)
 	build_path="/tmp/gtk-3.0"
 	cp -rL "$2"/gtk-3."$3" "$build_path"
 	cd "$build_path"
 
 	if [ -z ${no_scss+x} ]; then
-		#remove these things in case they cause ruby version trouble :(
-		if [ -e "Gemfile.lock" ]; then
-			echo "WARNING: source dir not clean (FOUND Gemfile.lock)"
-			rm Gemfile.lock
-		fi
-
-		if [ -d ".sass-cache" ]; then
-			echo "WARNING: source dir not clean (FOUND .sass-cache)"
-			rm -r .sass-cache
-		fi
-		#ensure gtk-contained is up to date
-		if [ -e "gtk-contained.css" ]; then
-			echo "WARNING: source dir not clean (FOUND gtk-contained.css)"
-			rm gtk-contained.css
-		fi
-
 		./parse-sass.sh
 
 		#change compiled files here (currently uses all png images and gtk-contained.css files)
@@ -175,12 +217,39 @@ build_gtk3_theme() {
 
 	#build gtk3 resources file
 	glib-compile-resources --target="$1"/gtk-3.0/gtk.gresource /tmp/gresources.xml
+
+	#copy thumbnail
+	cp "$2"/thumbnail-gtk.png "$1"/gtk-3.0/thumbnail.png
 	
 	#make gtk.css to point to correct resource
 	echo "@import url(\"resource://$resource_path/$resource_file\");" > "$1"/gtk-3.0/gtk.css
 
 	rm "$xml_path"
 	rm -r "$build_path"
+}
+
+build_cinnamon_theme() {
+	
+	echo "Now building cinnamon theme
+	"
+
+	clean_ruby "$2"/cinnamon
+
+	# make new cinnamon dir in target dir
+	if [ ! -d "$1" ]; then
+		mkdir -p "$1"/cinnamon
+	fi
+
+	#copy cinnamon to tmp working directory (resolve symlinks)
+	build_path="$1"/cinnamon
+	cp -rL "$2"/cinnamon "$build_path"
+	cd "$build_path"
+
+	./parse-sass.sh
+
+	#remove building files
+	rm -r .sass-cache
+	rm Gemfile Gemfile.lock README parse-sass.sh *.scss
 }
 
 #default values
@@ -210,15 +279,18 @@ do
 	esac
 done
 
+test_ruby
+
 theme_src="$PWD"/theme-src/"$flavor"
 theme_dir="$pkg_dir"/usr/share/themes/CinnXP
 
 build_cursor_theme "$pkg_dir"
 build_gtk3_theme "$theme_dir" "$theme_src" "$gtk3_minor_revision"
+build_cinnamon_theme "$theme_dir" "$theme_src"
 
 #copy everything else
-echo "Now copying gtk2, metacity, and cinnamon themes
+echo "Now copying gtk2 and metacity themes
 "
 
-cp -rL "$theme_src"/{gtk-2.0,index.theme,cinnamon} "$theme_dir"
+cp -rL "$theme_src"/{gtk-2.0,index.theme} "$theme_dir"
 cp -r "$theme_src"/metacity-1 "$theme_dir"

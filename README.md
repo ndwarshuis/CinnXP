@@ -2,7 +2,7 @@
 
 make Cinnamon look and feel like the venerable Windows XP interface, now includes Luna and Royale flavors
 
-Current version: 1.0.2
+Current version: 1.1.0
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
@@ -15,20 +15,35 @@ based on Mint-XP (fmcgorenc) and Adwaita
 
 ##Requirements
 
-####General Users
-* Cinnamon 2.8
-* Gtk 3.18
-* Pixmap and Adwaita gtk2 engines
-* Ruby Sass (for building css from source)
+####General Users (Arch Linux and other bleeding edge distros)
+* Cinnamon 3.0
+* Gtk 3.20
 
-####Linux Mint users
+####Linux Mint 17.x users
 * Cinnamon 2.8
 * Gtk 3.10
+
+####All Users
 * Pixmap and Adwaita gtk2 engines
+
+####Make depends (all users)
+* Ruby with Bundler and SASS Gems (to build css from scss)
+* xcursorgen (to build the cursor theme)
+
+##Obtaining Ruby and Gems
+Ruby must be installed via distro repositories
+* Mint: default package should work (depreciation warning can be ignored)
+* Arch: `sudo pacman -S ruby`
+
+The gems can be installed within the script (will need root access). They can be optionally installed via the system package manager
+* Mint 17.x: Run `sudo apt-get install bundler`. Manually run `bundle install` in theme root directory
+* Arch Linux: Run `sudo pacman -S ruby-bundler`. The `ruby-sass` package is an AUR package
+
+> The `ruby-sass` package in Mint 17.x does not appear to work.
 
 ##Manual installation
 
-1. Run `./compile-theme` in top-level directory. The result will be a file called "pkg"
+1. Run `./compile-theme` in theme root directory. The result will be a file called "pkg"
   * Pass the `-r` flag to compile the royale theme
 2. Copy "CinnXP" directories in "icons" and "themes" into system wide paths (`/usr/share/icons` and `/usr/share/themes`) or user-wide paths (`~/.icons` and `~/.themes`). Create directories as necessary
 3. In `~/.icons`, make symbolic link called "default" and point it to the CinnXP cursor directory (this is required for QT apps and probably other stuff)
