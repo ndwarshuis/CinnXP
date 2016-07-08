@@ -1,0 +1,109 @@
+#! /bin/bash
+
+# build_icon_theme SRC_DIR
+
+function list_dirs ()
+{
+	echo $(find "$1" -maxdepth 1 -mindepth 1 -type d -printf '%p\n')
+}
+
+containsElement ()
+{
+  local e
+  for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+  return 1
+}
+
+declare -a all_sizes=(256 128 96 64 48 32 24 22 16) 
+
+find_size() {
+    local i=0;
+    for str in "${all_sizes[@]}"; do
+        if [ "$str" = "$1" ]; then
+            echo $i
+            return
+        else
+            ((i++))
+        fi
+    done
+    echo "-1"
+}
+
+if [ -z "$1" ]; then
+    echo "specify the icon build directory"
+    exit 0
+fi
+
+#loop through actions, apps, etc...
+for type in $(list_dirs "$(pwd)/$1"); do
+	new_type_dir=$(basename "$type")
+	mkdir "$new_type_dir"
+	for i in "${all_sizes[@]}"; do
+		mkdir "$new_type_dir/$i"
+	done
+	
+	if [[ $new_type_dir == "emblems" ]]; then
+		mkdir "$new_type_dir/8"
+	fi
+
+	mkdir "$new_type_dir/scalable"
+	
+	#loop through all folders in this folder and render images
+	for icon_folder in $(list_dirs "$type"); do
+		if test "$(ls -A "$icon_folder")"; then
+			new_icon_name=$(basename "$icon_folder")
+
+			if [[ "$new_icon_name" == ".symbolic" ]]; then
+				for icon in "$icon_folder"/*; do
+					new_file_name=$(basename "$icon")
+					cp "$icon" "$new_type_dir/scalable/$new_file_name"
+				done
+			else
+				new_file_name="$new_icon_name.png"
+				max_size=0
+				sizes_used=()
+				
+				#copy icons into proper folders
+				for icon in "$icon_folder"/*.png; do
+					size=$(identify "$icon" | cut -f 3 -d " " | sed s/x.*//)
+					if [[ "$size" -gt "$max_size" ]]; then
+						max_size="$size"
+					fi
+					sizes_used+=("$size")
+					
+					cp "$icon" "$new_type_dir/$size/$new_file_name"
+
+					#link as necessary
+					if [ -e "$icon_folder/link" ]; then
+						for link_name in $(cat "$icon_folder/link"); do
+							ln -s "$(pwd)/$new_type_dir/$size/$new_file_name" \
+								  "$(pwd)/$new_type_dir/$size/$link_name"
+						done
+					fi
+				done
+
+				#convert icons to smaller sizes as necessary
+				for smaller_size in "${all_sizes[@]:$(find_size $max_size)+1}"; do
+					containsElement "$smaller_size" "${sizes_used[@]}"
+					if [ $? == 1 ]; then
+						convert "$(pwd)/$new_type_dir/$max_size/$new_file_name" \
+								-resize "$smaller_sizex$smaller_size" \
+								"$(pwd)/$new_type_dir/$smaller_size/$new_file_name"
+						
+						#link as necessary
+						if [ -e "$icon_folder/link" ]; then
+							for link_name in $(cat "$icon_folder/link"); do
+								ln -s "$(pwd)/$new_type_dir/$smaller_size/$new_file_name" \
+									  "$(pwd)/$new_type_dir/$smaller_size/$link_name"
+							done
+						fi
+					fi
+				done
+
+				unset sizes_used
+			fi
+		else
+			echo -e "\n$icon_folder is empty\n"
+		fi
+	done
+done

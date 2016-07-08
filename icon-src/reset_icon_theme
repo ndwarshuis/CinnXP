@@ -1,0 +1,11 @@
+#! /bin/bash
+
+rm -r actions
+rm -r apps
+rm -r categories
+rm -r devices
+rm -r emblems
+rm -r emotes
+rm -r mimetypes
+rm -r places
+rm -r status

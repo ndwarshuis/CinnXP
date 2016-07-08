@@ -4,11 +4,14 @@ help() {
 cat << EOF
 help: $0 options
 
-Creates a test directory for gtk, cinnamon, and metacity themes.
+Creates a test directory for gtk, cinnamon, metacity, and icon themes to do live testing
+This will bypass the need to compile everything for small changes to these components
 
-The dir will be called "Cinn_Theme_Testing" and will contain symlinks to the proper files
+The first dir will be called "cinnxp_$flavor_testing" and will contain symlinks to the proper files
+Move this to ~/.themes or /usr/share/themes
 
-Move this to ~/.themes or /usr/share/themes to do live testing; this will bypass the need to compile everything for small changes to these components
+The second dir will be called "cinnxp_$flavor_testing_icons" and will contain links to the icon files
+Move this to ~/.icons or /usr/share/icons
 
 OPTIONS:
    -h      		this...
@@ -48,3 +51,5 @@ ln -s "$PWD/theme-src/$flavor/cinnamon" "$test_dir/cinnamon"
 ln -s "$PWD/theme-src/$flavor/gtk-2.0" "$test_dir/gtk-2.0"
 ln -s "$PWD/theme-src/$flavor/gtk-3.$gtk3_minor_revision" "$test_dir/gtk-3.0"
 ln -s "$PWD/theme-src/$flavor/metacity-1" "$test_dir/metacity-1"
+
+ln -s "$PWD/icon-src" "$test_dir"_icons
