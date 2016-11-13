@@ -1,0 +1,66 @@
+/*********
+ * Gedit *
+ *********/
+
+.gedit-headerbar-paned {
+  border-right-color: $separator_color;
+}
+
+.gedit-document-panel {
+  & .list-row .button {
+    &:hover {
+      color:  $fg_color;
+      border: 1px solid $button_borders;
+      background-image: none;
+      box-shadow: none;
+      icon-shadow: none;
+    }
+    &:active {
+	  @include button(active, $edge:none);
+    }
+  }
+  
+  & .list-row:selected .button {
+    &:hover {
+      color:  $selected_fg_color;
+      border: 1px solid white;
+      background-image: none;
+      box-shadow: none;
+      icon-shadow: none;
+    }
+    &:active {
+	  @include button(active, $selected_bg_color, $edge:none);
+	  box-shadow: none;
+    }
+  }	
+}
+
+.gedit-document-panel-dragged-row {
+  border: 1px solid black;
+  background-color: white;
+}
+
+.gedit-search-slider {
+  padding: 2px;
+  background-color: mix($bg_color, $base_color, 50%);
+  border-top-width: 0px;
+
+  & .button {
+    padding: 4px 6px;
+  }
+}
+
+.gedit-search-entry-occurrences-tag {
+  color: $insensitive_fg_color;
+  padding-left: 4px;
+}
+
+GeditStatusbar {
+  border-top-width: 1px;
+  border-color: $separator_color;
+  border-top-style: solid;
+
+  & .button.flat {
+    border-radius: 0px;
+  }
+}

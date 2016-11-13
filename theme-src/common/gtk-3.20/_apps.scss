@@ -1,0 +1,23 @@
+/*********
+ * Gedit *
+ *********/
+.gedit-search-slider {
+  padding: 5px;
+  background-color: mix($bg_color, $base_color, 50%);
+  box-shadow: inset 0 0 0 1px $separator_color;
+
+  & button {
+    padding: 4px 6px;
+  }
+}
+
+.gedit-search-entry-occurrences-tag {
+  color: $insensitive_fg_color;
+  padding-left: 4px;
+}
+
+.gedit-bottom-panel-paned + statusbar {
+  border-top-width: 1px;
+  border-color: $separator_color;
+  border-top-style: solid;
+}

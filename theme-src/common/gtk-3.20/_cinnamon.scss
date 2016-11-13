@@ -1,0 +1,87 @@
+/************
+ * Cinnamon *
+ ************/
+/*
+ * the little box in the lower-left corner that displays a loading circle
+ * when you navigate to a folder with 100000000+ items
+ */
+
+.floating-bar {
+  border: 1px solid $borders_color;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  background-color: $bg_color;
+
+  & .button {
+    @extend .button.flat;
+    border-radius: 0px;
+  }
+}
+
+.nemo-cluebar-label {
+  font-family: normal;
+  text-shadow: none;
+  color: $fg_color;
+
+  .info & { color: $selected_fg_color; }
+}
+
+.NemoSidebar {
+  &:hover { color: $nemo_sidebar_hover_color; }
+
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+}
+
+.nemo-places-sidebar {
+  background-color: $nemo_places_bg_color;
+  border: none;
+
+  & .places-treeview {
+    color: white;
+    background-color: $nemo_places_bg_color;
+
+	-NemoPlacesTreeView-disk-full-bg-color: mix(white, $nemo_places_bg_color, 45%);
+	-NemoPlacesTreeView-disk-full-fg-color: white;
+	-NemoPlacesTreeView-disk-full-bar-width: 2px;
+	-NemoPlacesTreeView-disk-full-bar-radius: 1px;
+	-NemoPlacesTreeView-disk-full-bottom-padding: 1px;
+	-NemoPlacesTreeView-disk-full-max-length: 70px;
+
+    &:selected { -NemoPlacesTreeView-disk-full-bg-color: mix(white, $nemo_places_bg_color, 55%); }
+
+    &.expander { color: white; }
+
+    &:selected {
+      &:focus, &:active, &:checked, & {
+        &:backdrop, & {
+          &:hover, & {
+            color: $selected_fg_color;
+            background-color: mix(white, $nemo_places_bg_color, 25%);
+          } 
+        }  
+      }
+    }
+  }
+}
+
+.nemo-window-pane {
+  scrolledwindow { background-color: white; }
+
+  .entry:selected { @extend %selected_items; }
+
+  notebook > stack { border-width: 1px 0 0 0; }
+
+  .toolbar {
+    background-color: $bg_color;
+    border-color: $separator_color;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+  }
+}
+
+.nemo-properties-dialog .dialog-action-box {
+  padding: 5px 6px 8px 6px;
+}
