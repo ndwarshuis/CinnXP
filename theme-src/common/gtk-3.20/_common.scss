@@ -2182,7 +2182,7 @@ radio {
     .view #{$w}#{$s}:selected,
     row:selected #{$w}#{$s} {
       -gtk-icon-source: none;
-      background-image: linear-gradient(to bottom, transparentize($selected_bg_color, 0.85)),
+      background-image: linear-gradient(to bottom, transparentize($selected_bg_color, 0.85), transparentize($selected_bg_color, 0.85)),
                         url("Check-Radio/#{$a}#{$as}.png"); //dirty hack
 
       &:backdrop { -gtk-icon-source: -gtk-scaled(url("Check-Radio/#{$a}#{$as}.png")); }
