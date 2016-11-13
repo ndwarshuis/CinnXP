@@ -663,6 +663,37 @@ button {
   .linked.vertical > &:hover,
   .linked.vertical > &:active,
   .linked.vertical > &:checked { @extend %linked_vertical; }
+  
+  &.circular { // The Bloody Circul Button
+    border-radius: 9999px;
+    -gtk-outline-radius: 9999px;
+
+    label { padding: 0; }
+
+    padding: 5px 3px 6px;
+
+    // the followind code is needed since we use a darker bottom border on buttons, which looks pretty
+    // bad with a 100% border radius (see https://bugzilla.gnome.org/show_bug.cgi?id=771205 for details),
+    // so on relevant states we an additional background-image with a gradient clipped on the border-box,
+    // so setting a transparent border would reveal it.
+    // FIXME: take care of colored circular button.
+//    $_border_bg: linear-gradient(to top, $alt-borders-color 25%, $borders-color 50%);
+
+//    &:not(.flat):not(:checked):not(:active):not(:disabled):not(:backdrop) {
+//      @include button(normal);
+//      background-image: $button_fill, $_border_bg;
+//      border-color: transparent;
+//    }
+
+//    &:hover:not(:checked):not(:active):not(:disabled):not(:backdrop) {
+//      @include button(hover);
+//      background-image: $button_fill, $_border_bg;
+//      border-color: transparent;
+//    }
+
+//    background-origin: padding-box, border-box;
+//    background-clip: padding-box, border-box;
+  }
 }
 
 %needs_attention {
@@ -3380,13 +3411,6 @@ button.titlebutton {
 //kidding...XP and touchscreens don't mix
 
 .context-menu { font: initial; } // Decouple the font of context menus from their entry/textview
-
-button.circular { // FIXME: aggregate to buttons
-  border-radius: 9999px;
-  -gtk-outline-radius: 9999px;
-
-  label { padding: 0; }
-}
 
 // shortcut window keys
 .keycap {
