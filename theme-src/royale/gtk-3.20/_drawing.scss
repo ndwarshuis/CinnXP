@@ -243,7 +243,8 @@ $button_radius: 2px;
 
     color: $osd_fg_color;
     border-color: $button_borders;
-    background-image: linear-gradient(to bottom, $_bg);
+    background-color: $_bg;
+    background-image: none;
     background-clip: padding-box;
     box-shadow: inset 0 1px transparentize(white, 0.9);
     outline-color: transparentize($osd_fg_color, 0.5);
@@ -256,7 +257,8 @@ $button_radius: 2px;
 
     //color: white;
     border-color: $button_borders;
-    background-image: linear-gradient(to bottom, $_bg);
+    background-color: $_bg;
+    background-image: none;
     background-clip: padding-box;
     box-shadow: inset 0 1px transparentize(white, 0.9);
     outline-color: transparentize($osd_fg_color, 0.5);
@@ -270,7 +272,8 @@ $button_radius: 2px;
 
     //color: white;
     border-color: $button_borders;
-    background-image: linear-gradient(to bottom, $_bg);
+    background-color: $_bg;
+    background-image: none;
     background-clip: padding-box;
     box-shadow: none;
     text-shadow: none;
@@ -283,7 +286,8 @@ $button_radius: 2px;
   //
     color: $osd_insensitive_fg_color;
     border-color: $insensitive_borders_color;
-    background-image: linear-gradient(to bottom, $osd_insensitive_bg_color);
+    background-color: $osd_insensitive_bg_color;
+    background-image: none;
     background-clip: padding-box;
     box-shadow: none;
     text-shadow: none;
@@ -298,7 +302,8 @@ $button_radius: 2px;
 
     color: $osd_fg_color;
     border-color: $osd_borders_color;
-    background-image: linear-gradient(to bottom, $_bg);
+    background-color: $_bg;
+    background-image: none;
     background-clip: padding-box;
     box-shadow: none;
     text-shadow: none;
