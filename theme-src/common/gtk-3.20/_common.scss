@@ -951,7 +951,7 @@ spinbutton {
       
       @include entry_button(normal, '', true);
 
-      &.down { margin-right: -1px; }
+      &.down { margin-right: 0px; }
 
       &:dir(rtl) { border-style: none solid none none; }
 
