@@ -3155,7 +3155,11 @@ infobar {
       &:active,
       &:checked { @include button(active, $selected_bg_color, $selected_fg_color, none); }
 
-      &:disabled { @include button(insensitive,$selected_bg_color,$selected_fg_color,none); }
+      &:disabled {
+        @include button(insensitive,$selected_bg_color, $insensitive_fg_color, none);
+
+        & label { color: $insensitive_fg_color; }
+      }
     }
 
     selection { background-color: darken($selected_bg_color, 10%); }
