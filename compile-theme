@@ -10,6 +10,7 @@ OPTIONS:
    -h      	this...
    -m		compile for Linux Mint (gtk3=3.10)
    -n       Alternative root name for output file (default is "pkg")
+   -r       Compile Royale version
 
 EOF
 }
