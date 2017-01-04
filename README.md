@@ -35,9 +35,11 @@ Ruby must be installed via distro repositories
 * Mint: default package should work (depreciation warning can be ignored)
 * Arch: `sudo pacman -S ruby`
 
-The gems can be installed within the script (will need root access). They can be optionally installed via the system package manager
+Install gems before running `compile-theme`
 * Mint 17.x: Run `sudo apt-get install bundler`. Manually run `bundle install` in theme root directory
 * Arch Linux: Run `sudo pacman -S ruby-bundler`. The `ruby-sass` package is an AUR package
+
+> The script is currently set up to automatically install the needed gems but only if `compile-theme` is run with root access. This is probably a bad idea and ruby will throw lots of warnings...but it will work if you don't feel like installing the gems beforehand.
 
 > The `ruby-sass` package in Mint 17.x does not appear to work.
 
@@ -63,5 +65,7 @@ Run `./test-theme` in the top-level directory to generate a directory of links t
 
 ##ToDo List
 * Bug fixes
+* Prompt for root access in `compile-theme`
+* Automatic installation in `compile-theme`
 * Full Icon Theme
 * New flavors (Zune, Embedded, Royale Noir, Classic)
