@@ -34,7 +34,10 @@ $menu_borders: $insensitive_fg_color;
 
 $separator_color: #cac6af;
 
-$window_list_color: #fff;
+$window_list_fg_color: #fff;
+$window_list_active_fg_color: $window_list_fg_color;
+
+$workspace_switcher_fg_color: $window_list_active_fg_color;
 
 $desklet_color: #fff;
 

@@ -73,6 +73,7 @@ StScrollBar {
   -boxpointer-gap: -1.5px;
 }
 
+.menu,
 .popup-menu {
   color: $fg_color;
   min-width: 100px;
@@ -173,7 +174,13 @@ StScrollBar {
   width: 70px;
   height: 21px;
 
-  &-us, &-intl {
+  &-us {
+    border-image: url("Switches/off.png") 4;
+	
+    &:checked { border-image: url("Switches/on.png") 4; }
+  }
+  
+  &-intl {
     border-image: url("Switches/off-intl.png") 4;
 	
     &:checked { border-image: url("Switches/on-intl.png") 4; }
@@ -776,11 +783,18 @@ $panel_slice: 3 0 1 1;
 }
 
 /* Main menu title */
+
+.applet-box .menu,
 .menu-background {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 
   @if $flavor == 'luna' {
 	border-image: url("Frames/menu-bg.png") 12 12 67 42;
+    padding: 55px 1px 0 1px;
+  }
+  
+  @if $flavor == 'luna-silver' {
+	border-image: url("Frames/menu-bg.png") 12 12 67 43;
     padding: 55px 1px 0 1px;
   }
 
@@ -838,7 +852,7 @@ $panel_slice: 3 0 1 1;
     background-color: $start_menu_box_bg_color;
     color: $start_menu_box_fg_color;
 
-    @if $flavor == 'luna' { border-bottom-width: 0; }
+    @if $flavor == 'luna' or $flavor == 'luna-silver' { border-bottom-width: 0; }
   }
 
   StBin#trough {
@@ -906,8 +920,7 @@ $panel_slice: 3 0 1 1;
  
 .menu-selected-app {
   &-box {
-    @if $flavor == 'luna' { padding: 6px 30px 0 28px; }
-
+    @if $flavor == 'luna' or $flavor == 'luna-silver' { padding: 6px 30px 0 28px; }
     @else if $flavor == 'royale' { padding: 16px 30px 0 28px; }
   
     text-align: right;
@@ -930,13 +943,13 @@ $panel_slice: 3 0 1 1;
  * Window list (windowList.js)
  * ===================================================================*/
 
-$window_list_slice: 3 3 6 5;
+$window_list_slice: 6 6 0 0;
 
-@if $flavor == 'royale' { $window_list_slice: 6 6 13 15; }
+@if $flavor == 'luna' { $window_list_slice: 18 6 0 0; }
 
 .window-list-box {
   spacing: 0;
-  padding: 4px 2px;
+  padding: 0 2px;
 }
 
 .window-list-item-label {
@@ -946,12 +959,13 @@ $window_list_slice: 3 3 6 5;
 
 .window-list-item-box {
   font-weight: normal;
-  color: $window_list_color;
+  color: $window_list_fg_color;
   border-image: url('Panel/applet-button.png') $window_list_slice;
 
   &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
 
   &:active, &:checked, &:focus {
+    color: $window_list_active_fg_color;
     border-image: url('Panel/applet-button-active.png') $window_list_slice;
 
     &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
@@ -986,7 +1000,16 @@ $window_list_slice: 3 3 6 5;
     StIcon { icon-size: 1.5em; }
   }
 
-  .slider { @extend .popup-slider-menu-item; }
+  .slider {
+    height: 0.5em;
+    -slider-height: 0.5em;
+    -slider-background-color: darken($bg_color, 45%);
+    -slider-border-color: rgba(0,0,0,0);
+    -slider-active-background-color: $selected_bg_color;
+    -slider-active-border-color: rgba(0,0,0,0);
+    -slider-border-width: 0px;
+    -slider-handle-radius: 0px;
+  }
 
   StBoxLayout { spacing: 0.5em; }
 
@@ -997,12 +1020,12 @@ $window_list_slice: 3 3 6 5;
     height: 80px;
     padding: 15px;
     spacing: 0.5em;
-    background: rgba(0,0,0,0);
+    background: rgba(0,0,0,0.7);
 
     StBoxLayout {
       padding: 3px;
-      background: #000;
-      border: 1px solid #999;
+      //background: #000;
+      //border: 1px solid #999;
       color: #fff;
     }
 
@@ -1029,7 +1052,7 @@ $window_list_slice: 3 3 6 5;
 .workspace-button {
   width: 20px;
   height: 6px;
-  color: $window_list_color;
+  color: $workspace_switcher_fg_color;
   padding: 5px 3px 3px 3px;
 
   &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
@@ -1040,7 +1063,7 @@ $window_list_slice: 3 3 6 5;
     &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
   }
 
-  @if $flavor == 'royale' {
+  @if $flavor == 'royale' or $flavor == 'luna-silver' {
     #panelRight & {
       color: $panel_right_fg_color;
       border-image: none;
@@ -1051,8 +1074,10 @@ $window_list_slice: 3 3 6 5;
       border-color: rgba(0,0,0,0);
 
       &:outlined, &:hover {
-        border-color: #2a4dab;
-        background-color: transparentize(#2a4dab,0.85);
+        $c: #666;
+        @if $flavor == 'royale' { $c: #2a4dab;	}
+        border-color: $c;
+        background-color: transparentize($c, 0.85);
       }
     }
   }
