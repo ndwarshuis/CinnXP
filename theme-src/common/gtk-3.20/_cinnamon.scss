@@ -58,7 +58,7 @@
       &:focus, &:active, &:checked, & {
         &:backdrop, & {
           &:hover, & {
-            color: $selected_fg_color;
+            color: white;
             background-color: mix(white, $nemo_places_bg_color, 25%);
           } 
         }  
@@ -101,6 +101,8 @@
     font-size: 12px;
     background-color: transparentize(white, 0.95);
 
+    & separator { background-color: transparentize(white, 0.8); }
+
     &.infopanel {
       border-width: 0 0 1px 1px;
       
@@ -130,8 +132,6 @@
           margin: -9px;
         }
       }
-
-      separator { background-color: transparentize(white, 0.8); }
 
       & .positionlabel {
         font-size: 10px;
