@@ -133,19 +133,6 @@
         }
       }
 
-      & .positionlabel {
-        font-size: 10px;
-        background-image: none;
-        background-color: transparent;
-      }
-
-      & .positionbar {
-        min-height: 14px;
-        min-width: 180px;
-        background-color: rgba(255, 255, 255, .1);
-        color: $selected_bg_color;
-      }
-
       & .trackname { font-size: 14px; }
 
       & .albumartist { font-size: 10px; }
