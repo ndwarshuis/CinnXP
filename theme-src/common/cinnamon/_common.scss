@@ -1436,27 +1436,32 @@ $desklet_slice: 6;
  * ===================================================================*/
 
 .starkmenu-background {
-  @if $flavor == 'luna' { padding: 54px 1px 29px 1px; }
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 
-  @else if $flavor == 'royale' { padding: 50px 0 27px 0; }
-
-  .menu-favorites-box {
-    color: $start_menu_fg_color;
-    background-color: rgba(0,0,0,0);
-    border: 0 solid #000;
-
-    StBin { min-height: 421px; }
-
-    .popup-separator-menu-item {
-      @if $flavor == 'luna' { background: $separator_color; }
-
-      @else if $flavor == 'royale' { background: #3d5b95; }
-    }
-
-    > CinnamonGenericContainer { padding: 0 6px; }
+  @if $flavor == 'luna' { 
+	border-image: url("Frames/menu-bg.png") 12 12 67 42;
+    padding: 54px 1px 29px 1px; 
   }
 
-  .right-buttons-box {
+  @else if $flavor == 'royale' { 
+    border-image: url("Frames/menu-bg.png") 8 8 63 41;
+    padding: 50px 0 27px 0;
+  }
+}
+
+.starkmenu-favorites-box {
+  color: $start_menu_fg_color;
+  background-color: rgba(0,0,0,0);
+  border: 0 solid #000;
+
+  .popup-separator-menu-item {
+    @if $flavor == 'luna' { background: $separator_color; }
+
+    @else if $flavor == 'royale' { background: #3d5b95; }
+  }
+}
+
+.right-buttons-box {
     color: $start_menu_box_fg_color;
     background-color: $start_menu_box_bg_color;
     padding: 8px;
@@ -1478,29 +1483,33 @@ $desklet_slice: 6;
 
       @else if $flavor == 'royale' { background-color: #6287d6; }
     }
-  }
+}
 
-  .menu-selected-app-box {
-    color: $start_menu_fg_color;
-    padding: 3px 3px 7px 3px;
-  }
+.starkmenu-selected-app-box {
+  color: $start_menu_fg_color;
+  padding: 3px 3px 7px 3px;
+}
 
-  .menu-applications-box {
-    padding: 0;
-
-    .menu-categories-box {
-      padding: 0;
-      
-      .menu-category-button { color: $start_menu_box_fg_color; }	
-	}
+.starkmenu-applications-box {
+  padding: 0;
     
-    StScrollView {
-      background-color: $start_menu_box_bg_color;;
-      border-width: 1px;
-    
-      &:last-child { border-left-width: 0; }
-    }
+  StScrollView {
+    @if $flavor == 'luna' { background-color: #ece9d8; }
+
+    @else if $flavor == 'royale' { background-color: $start_menu_box_bg_color; }
+
+    border-width: 1px;
+
+    &:last-child { border-left-width: 0; }
   }
+}
+
+.starkmenu-applications-inner-box {
+    background-color: white;
+}
+
+.starkmenu-search-box {
+   padding-bottom: 0px;
 }
 
 /* ===================================================================
