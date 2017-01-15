@@ -1,0 +1,159 @@
+/************************
+ * Cinnamon Screensaver *
+ ************************/
+
+.csstage {
+  & .clock {
+    color: white;
+    text-shadow: none;
+  }
+
+  & .toppanel {
+    border: 1px solid transparentize(white, 0.8);
+    border-radius: 0;
+    color: white;
+    text-shadow: none;
+    font-size: 12px;
+    background-color: transparentize(white, 0.95);
+
+    & separator { background-color: transparentize(white, 0.8); }
+
+    &.infopanel {
+      border-width: 0 0 1px 1px;
+      
+      & .powerwidget,
+      & .notificationwidget {
+        background-color: transparent;
+        background-image: none;
+        padding: 6px;
+      }
+    }
+
+    &.audiopanel {
+      border-width: 0 1px 1px 0;
+      
+      & .volumeslider {
+        min-height: 24px;
+        min-width: 100px;
+        background-color: rgba(255, 255, 255, .1);
+        color: $selected_bg_color;
+        padding: 3px 0px 3px 0px;
+
+        &:disabled { background-color: transparentize(white, 0.5); }
+
+        & slider {
+          min-height: 24px;
+          min-width: 4px;
+          margin: -9px;
+        }
+      }
+
+      & .trackname { font-size: 14px; }
+
+      & .albumartist { font-size: 10px; }
+    }
+
+    & GtkViewport {
+      background-color: transparent;
+      background-image: none;
+    }
+  }
+  
+  & .unlockbox {
+    color: white;
+    font-size: 20px;
+    text-shadow: none;
+
+    & .auth-message {
+      font-size: 12px;
+      color: red;
+    }
+
+    & .caps-message {
+      font-size: 12px;
+      color: orange;
+    }
+
+    & .passwordentry {
+      font-size: 12px;
+      
+      &.progressbar {
+        margin: 2px;
+        padding: 0;
+        border-radius: 0;
+        border-width: 0 0 2px;
+        border-color: transparentize($selected_bg_color, 0.3);
+
+        &:focus { background-color: transparent; }
+      }
+
+      &.image.left { padding: 0 10px 0 0; }
+    }
+  }
+
+  & .passwordentry,
+  & .transparentbutton {
+    color: $selected_fg_color;
+    -gtk-icon-style: requested;
+    border: 1px solid transparentize(white, 0.8);
+    border-image: none;
+    box-shadow: none;
+    background-image: none;
+    background-color: transparent;
+    border-radius: 0;
+    outline-color: transparent;
+    padding: 4px;
+
+    &:focus {
+      background-color: transparentize(grey, 0.7);
+      border-color: $selected_bg_color;
+    }
+
+    &:hover {
+      border-image: none;
+      background-image: none;
+      box-shadow: none;
+      border-color: transparentize(white, 0.8);
+      background-color: transparentize(grey, 0.8);
+
+      &:focus {
+        border-image: none;
+        background-image: none;
+        box-shadow: none;
+        border-color: $selected_bg_color;
+        background-color: transparentize(grey, 0.6);
+      }
+    }
+
+    &:active {
+      border-image: none;
+      background-image: none;
+      box-shadow: none;
+      border-color: $selected_bg_color;
+      background-color: transparentize(grey, 0.4);
+
+      &:focus {
+        border-image: none;
+        background-image: none;
+        box-shadow: none;
+        border-color: $selected_bg_color;
+        background-color: transparentize(grey, 0.1);
+      }
+    }
+
+    & image { color: $selected_fg_color; }
+
+    &:disabled { &, & image { color: $insensitive_fg_color; } }
+  }
+
+  & .transparentbutton { border-radius: $button_radius; }
+
+  & .framedimage {
+    border-radius: 0;
+    border: 2px solid #888;
+    background-color: transparentize(grey, 0.75);
+    background-clip: border-box;
+    box-shadow: none;
+    min-height: 150px;
+  }
+}
