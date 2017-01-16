@@ -14,27 +14,32 @@ The second dir will be called "cinnxp_$flavor_testing_icons" and will contain li
 Move this to ~/.icons or /usr/share/icons
 
 OPTIONS:
-   -h      		this...
-   -r			test the royale theme (luna is default)
-   -m=version	compile for Linux Mint, version defaults to 17.x
-
+   -h      	this...
+   
+   -g		Target gtk minor version. Default is "20" for gtk3.20 and higher
+			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
+			
+   -f       Flavor to compile (full string name) Defaults to "luna"
+			Current valid options are "luna" and "royale"
 EOF
 }
+
+# TODO: this should be consolidated with compile-theme
 
 gtk3_minor_revision=20
 flavor="luna"
 
-while getopts “hmr” OPTION
+while getopts “hg:f:” OPTION
 do
 	case $OPTION in
 		h)
 			help
 			exit 1
 			;;
-		m)
+		g)
 			gtk3_minor_revision=10
 			;;
-		r)
+		f)
 			flavor="royale"
 			;;
 		*)
@@ -42,6 +47,27 @@ do
 			;;
 	esac
 done
+
+# validate cmd line args
+case "$gtk3_minor_revision" in
+  10|18|20)
+    ;;
+  *)
+    echo "Invalid gtk versions requested."
+    help
+    exit
+    ;;
+esac
+
+case "$flavor" in
+  "luna"|"royale")
+    ;;
+  *)
+    echo "Invalid flavor requested."
+    help
+    exit
+    ;;
+esac
 
 test_dir="cinnxp_""$flavor""_testing"
 
