@@ -8,16 +8,23 @@ compile CinnXP cursor, gtk, metacity, and cinnamon themes
 
 OPTIONS:
    -h      	this...
-   -m		compile for Linux Mint (gtk3=3.10)
+   
+   -g		Target gtk minor version. Default is "20" for gtk3.20 and higher
+			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
+			
+   -f       Flavor to compile (full string name) Defaults to "luna"
+			Current valid options are "luna" and "royale"
+   
    -n       Alternative root name for output file (default is "pkg")
-   -r       Compile Royale version
-
 EOF
 }
 
+# TODO: add option to compile all themes at once
+# TODO: add option to install to either /usr/share/ or $HOME
+
 build_cursor_theme() {
 	
-	icon_dir="$1"/usr/share/icons/CinnXP
+	icon_dir="$1/usr/share/icons/$theme_folder_name"
 
 	echo "Now building cursor theme
 	"
@@ -259,32 +266,58 @@ pkg_dir="$PWD"/"pkg"
 gtk3_minor_revision=20
 flavor="luna"
 
-while getopts “hmrn:” OPTION
+while getopts “hg:f:n:” OPTION
 do
 	case $OPTION in
 		h)
 			help
 			exit 1
 			;;
-		m)
-			gtk3_minor_revision=10
+		g)
+			gtk3_minor_revision=$OPTARG
+			;;
+
+		f)
+			flavor=$OPTARG
 			;;
         n)
             pkg_dir="$PWD"/$OPTARG
             ;;
-		r)
-			flavor="royale"
-			;;
 		*)
 			break
 			;;
 	esac
 done
 
+# validate cmd line args
+case "$gtk3_minor_revision" in
+  10|18|20)
+    ;;
+  *)
+    echo "Invalid gtk versions requested."
+    help
+    exit
+    ;;
+esac
+
+case "$flavor" in
+  "luna")
+    theme_folder_name='CinnXP - Luna'
+    ;;
+  "royale")
+    theme_folder_name='CinnXP - Royale'
+    ;;
+  *)
+    echo "Invalid flavor requested."
+    help
+    exit
+    ;;
+esac
+
 test_ruby
 
-theme_src="$PWD"/theme-src/"$flavor"
-theme_dir="$pkg_dir"/usr/share/themes/CinnXP
+theme_src="$PWD/theme-src/$flavor"
+theme_dir="$pkg_dir/usr/share/themes/$theme_folder_name"
 
 build_cursor_theme "$pkg_dir"
 build_gtk3_theme "$theme_dir" "$theme_src" "$gtk3_minor_revision"
