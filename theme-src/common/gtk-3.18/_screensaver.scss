@@ -1,92 +1,11 @@
-/************
- * Cinnamon *
- ************/
-/*
- * the little box in the lower-left corner that displays a loading circle
- * when you navigate to a folder with 100000000+ items
- */
-
-.floating-bar {
-  border: 1px solid $borders_color;
-  border-bottom-width: 0px;
-  border-right-width: 0px;
-  background-color: $bg_color;
-
-  & .button {
-    @extend .button.flat;
-    border-radius: 0px;
-  }
-}
-
-.nemo-cluebar-label {
-  font-family: normal;
-  text-shadow: none;
-  color: $fg_color;
-
-  .info & { color: $selected_fg_color; }
-}
-
-.NemoSidebar {
-  &:hover { color: $nemo_sidebar_hover_color; }
-
-  &:selected {
-    color: $selected_fg_color;
-    background-color: $selected_bg_color;
-  }
-}
-
-.nemo-places-sidebar {
-  background-color: $nemo_places_bg_color;
-  border: none;
-
-  & .places-treeview {
-    color: white;
-    background-color: $nemo_places_bg_color;
-
-	-NemoPlacesTreeView-disk-full-bg-color: mix(white, $nemo_places_bg_color, 45%);
-	-NemoPlacesTreeView-disk-full-fg-color: white;
-	-NemoPlacesTreeView-disk-full-bar-width: 2px;
-	-NemoPlacesTreeView-disk-full-bar-radius: 1px;
-	-NemoPlacesTreeView-disk-full-bottom-padding: 1px;
-	-NemoPlacesTreeView-disk-full-max-length: 70px;
-
-    &:selected { -NemoPlacesTreeView-disk-full-bg-color: mix(white, $nemo_places_bg_color, 55%); }
-
-    &.expander { color: white; }
-
-    &:selected {
-      &:focus, &:active, &:checked, & {
-        &:backdrop, & {
-          &:hover, & {
-            color: white;
-            background-color: mix(white, $nemo_places_bg_color, 25%);
-          } 
-        }  
-      }
-    }
-  }
-}
-
-.nemo-window-pane {
-  scrolledwindow { background-color: white; }
-
-  .entry:selected { @extend %selected_items; }
-
-  notebook > stack { border-width: 1px 0 0 0; }
-
-  .toolbar {
-    background-color: $bg_color;
-    border-color: $separator_color;
-    border-style: solid;
-    border-width: 0 0 1px 0;
-  }
-}
-
-.nemo-properties-dialog .dialog-action-box {
-  padding: 5px 6px 8px 6px;
-}
+/************************
+ * Cinnamon Screensaver *
+ ************************/
 
 .csstage {
+  background-image: none;
+  background-color: black;
+
   & .clock {
     color: white;
     text-shadow: none;
@@ -117,8 +36,8 @@
       border-width: 0 1px 1px 0;
       
       & .volumeslider {
-        min-height: 24px;
-        min-width: 100px;
+        -GtkScale-slider-length: 4;
+        -GtkRange-slider-width: 30;
         background-color: rgba(255, 255, 255, .1);
         color: $selected_bg_color;
         padding: 3px 0px 3px 0px;
@@ -168,7 +87,7 @@
         border-width: 0 0 2px;
         border-color: transparentize($selected_bg_color, 0.3);
 
-        &:focus { background-color: transparent; }
+        &:focused { background-color: transparent; }
       }
 
       &.image.left { padding: 0 10px 0 0; }
@@ -188,19 +107,19 @@
     outline-color: transparent;
     padding: 4px;
 
-    &:focus {
+    &:focused {
       background-color: transparentize(grey, 0.7);
       border-color: $selected_bg_color;
     }
 
-    &:hover {
+    &:prelight {
       border-image: none;
       background-image: none;
       box-shadow: none;
       border-color: transparentize(white, 0.8);
       background-color: transparentize(grey, 0.8);
 
-      &:focus {
+      &:focused {
         border-image: none;
         background-image: none;
         box-shadow: none;
@@ -216,7 +135,7 @@
       border-color: $selected_bg_color;
       background-color: transparentize(grey, 0.4);
 
-      &:focus {
+      &:focused {
         border-image: none;
         background-image: none;
         box-shadow: none;
@@ -227,17 +146,30 @@
 
     & image { color: $selected_fg_color; }
 
-    &:disabled { &, & image { color: $insensitive_fg_color; } }
+    &:insensitive { &, & image { color: $insensitive_fg_color; } }
   }
 
   & .transparentbutton { border-radius: $button_radius; }
 
   & .framedimage {
-    border-radius: 0;
-    border: 2px solid #888;
-    background-color: transparentize(grey, 0.75);
-    background-clip: border-box;
-    box-shadow: none;
-    min-height: 150px;
+    &, .albumart & {
+      border-radius: 0;
+      border: 2px solid #888;
+      background-color: transparentize(grey, 0.75);
+      background-clip: border-box;
+      box-shadow: none;
+    }
+  }
+  
+  & .faceimage {
+    // substitute for min-height - replace with min-height in Gtk 3.20+
+    color: rgba(150, 0, 0, 0);
+  }
+  
+  & .albumart {
+    color: rgba(300, 0, 0, 0);
+    
+    & .framedimage { color: rgba(250, 0, 0, 0); }
   }
 }
+
