@@ -793,7 +793,7 @@ $panel_slice: 3 0 1 1;
     padding: 55px 1px 0 1px;
   }
   
-  @if $flavor == 'luna-silver' {
+  @if $flavor == 'metallic' {
 	border-image: url("Frames/menu-bg.png") 12 12 67 43;
     padding: 55px 1px 0 1px;
   }
@@ -852,7 +852,7 @@ $panel_slice: 3 0 1 1;
     background-color: $start_menu_box_bg_color;
     color: $start_menu_box_fg_color;
 
-    @if $flavor == 'luna' or $flavor == 'luna-silver' { border-bottom-width: 0; }
+    @if $flavor == 'luna' or $flavor == 'metallic' { border-bottom-width: 0; }
   }
 
   StBin#trough {
@@ -920,7 +920,7 @@ $panel_slice: 3 0 1 1;
  
 .menu-selected-app {
   &-box {
-    @if $flavor == 'luna' or $flavor == 'luna-silver' { padding: 6px 30px 0 28px; }
+    @if $flavor == 'luna' or $flavor == 'metallic' { padding: 6px 30px 0 28px; }
     @else if $flavor == 'royale' { padding: 16px 30px 0 28px; }
   
     text-align: right;
@@ -1063,7 +1063,7 @@ $window_list_slice: 6 6 0 0;
     &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
   }
 
-  @if $flavor == 'royale' or $flavor == 'luna-silver' {
+  @if $flavor == 'royale' or $flavor == 'metallic' {
     #panelRight & {
       color: $panel_right_fg_color;
       border-image: none;

@@ -20,7 +20,7 @@ OPTIONS:
 			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
 			
    -f       Flavor to compile (full string name) Defaults to "luna"
-			Current valid options are "luna" and "royale"
+			Current valid options are "luna," "royale," and "metallic"
 EOF
 }
 
@@ -60,7 +60,7 @@ case "$gtk3_minor_revision" in
 esac
 
 case "$flavor" in
-  "luna"|"royale")
+  "luna"|"royale"|"metallic")
     ;;
   *)
     echo "Invalid flavor requested."

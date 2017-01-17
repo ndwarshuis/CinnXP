@@ -13,7 +13,7 @@ OPTIONS:
 			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
 			
    -f       Flavor to compile (full string name) Defaults to "luna"
-			Current valid options are "luna" and "royale"
+			Current valid options are "luna", "royale," and "metallic"
    
    -n       Alternative root name for output file (default is "pkg")
 EOF
@@ -212,7 +212,7 @@ build_gtk3_theme() {
 	files=${files//$'\n'/'</file>'$'\n'}
 	files="$files"'</file>'$'\n'
 
-	resource_path="/org/gnome/CinnXP"
+	resource_path="/org/gnome/$theme_folder_name"
 	xml_path="/tmp/gresources.xml"
 
 	header="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -306,6 +306,9 @@ case "$flavor" in
     ;;
   "royale")
     theme_folder_name='CinnXP - Royale'
+    ;;
+  "metallic")
+    theme_folder_name='CinnXP - Metallic'
     ;;
   *)
     echo "Invalid flavor requested."

@@ -1,0 +1,67 @@
+/* Default Color Scheme */
+
+@define-color theme_bg_color #e0dfe3;
+@define-color theme_fg_color #000000;
+@define-color theme_base_color #ffffff;
+@define-color theme_text_color #000000;
+@define-color theme_selected_bg_color #b2b4bf;
+@define-color theme_selected_fg_color #000000;
+@define-color theme_tooltip_bg_color #FFFFE2;
+@define-color theme_tooltip_fg_color @theme_text_color;
+@define-color theme_tooltip_borders black;
+
+/* Misc Colors */
+
+@define-color insensitive_fg_color #a1a192;
+@define-color border shade(@theme_bg_color, 0.7);
+@define-color internal_element_color shade(@theme_fg_color, 0.7);
+@define-color internal_element_prelight shade(@theme_fg_color, 0.9);
+@define-color insensitive_borders_color #c9c7ba;
+@define-color insensitive_inner_box #f5f4ea;
+@define-color frame_color #bfb8bf;
+@define-color backdrop_text_color #aca899;
+@define-color borders_color #a5acb2;
+@define-color separator_color #bfbfc5;
+
+/* Buttons */
+
+@define-color button_bg #dedfec;
+@define-color button_fg @theme_fg_color;
+@define-color button_borders #003C74;
+
+/* Arrow */
+
+@define-color arrow #3f3d3d;
+@define-color arrow_insensitive #c9c9c2;
+
+/* Entry */
+
+@define-color entry_borders @borders_color;
+@define-color insensitive_entry_borders_color @insensitive_borders_color;
+
+/* Menus */
+
+@define-color menu_borders #9d9da1;
+@define-color menu_bg @theme_base_color;
+@define-color menu_fg @theme_fg_color;
+
+/* Notebooks */
+
+@define-color notebook_bg #fafaf9;
+@define-color notebook_bg_a #fcfcfe;
+@define-color notebook_bg_b #f4f3ee;
+@define-color notebook_borders_color #919b9c;
+
+/* Views */
+
+@define-color sidebar_bg @theme_base_color;
+
+/* Nemo */
+@define-color nemo_searchbar_bg_color #d6dff7;
+@define-color nemo_places_bg_color #8A8D99;
+
+@import url("gtk-main-common.css");
+@import url("gtk-widgets.css");
+@import url("gtk-widgets-borders.css");
+@import url("gtk-widgets-backgrounds.css");
+@import url("gtk-widgets-assets.css");

@@ -1,8 +1,6 @@
 #CinnXP
 
-make Cinnamon look and feel like the venerable Windows XP interface, now includes Luna and Royale flavors
-
-Current version: 1.1.0
+make Cinnamon look and feel like the venerable Windows XP interface
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
@@ -13,10 +11,20 @@ based on Mint-XP (fmcgorenc) and Adwaita
 * metacity-1
 * cursor
 
+####Current Flavors
+* Luna
+* Metallic
+* Royale
+
+##Tips
+* QT apps have a few unavoidable bugs. If something "less buggy" is desired, open terminal, run `qtconfig-qt4` and select "Windows" under GUI style (this will look Win98-ish but at least it won't have bugs)
+* LibreOffice 5.0 and above may use gtk3 by default (sorta)...to get the gtk2 theme add "export SAL\_USE_VCLPLUGIN=gtk" to `~/.bashrc` 
+* Do anything else to make it look more XP-like. Disable effects, disable hinting and antialiasing, change wallpaper to serene green field, etc
+
 ##Requirements
 
 ####General Users (Arch Linux and other bleeding edge distros)
-* Cinnamon 3.0+
+* Cinnamon 3.x
 * Gtk 3.20+
 
 ####Linux Mint 17.x users
@@ -25,7 +33,7 @@ based on Mint-XP (fmcgorenc) and Adwaita
 
 ####Linux Mint 18.x users
 * Cinnamon 3.x
-* Gtk 3.10
+* Gtk 3.18
 
 ####All Users
 * Pixmap and Adwaita gtk2 engines
@@ -37,11 +45,11 @@ based on Mint-XP (fmcgorenc) and Adwaita
 ##Obtaining Ruby and Gems
 Ruby must be installed via distro repositories
 * Mint: default package should work (depreciation warning can be ignored)
-* Arch: `sudo pacman -S ruby`
+* Arch et al: `sudo pacman -S ruby`
 
 Install gems before running `compile-theme`
-* Mint 17.x: Run `sudo apt-get install bundler`. Manually run `bundle install` in theme root directory
-* Arch Linux: Run `sudo pacman -S ruby-bundler`. The `ruby-sass` package is an AUR package
+* Mint: Run `sudo apt-get install bundler`. Manually run `bundle install` in theme root directory
+* Arch et al: Run `sudo pacman -S ruby-bundler`. The `ruby-sass` package is an AUR package
 
 > The script is currently set up to automatically install the needed gems but only if `compile-theme` is run with root access. This is probably a bad idea and ruby will throw lots of warnings...but it will work if you don't feel like installing the gems beforehand.
 
@@ -61,11 +69,6 @@ Install gems before running `compile-theme`
 Run `./test-theme` in the top-level directory to generate a directory of links to the appropriate gtk, cinnamon, and metacity files; the resulting file can be moved to `~/.themes` or `/usr/share/themes`. This is to allow faster/easier live testing of these components without compiling the entire package as above. Note that cursor themes will need to be compiled during testing. 
 
 > Command line args are analogous to `compile-theme`
-
-##Tips
-* QT apps have a few unavoidable bugs. If something "less buggy" is desired, open terminal, run `qtconfig-qt4` and select "Windows" under GUI style (this will look Win98-ish but at least it won't have bugs)
-* LibreOffice 5.0 and above may use gtk3 by default (sorta)...to get the gtk2 theme add "export SAL\_USE_VCLPLUGIN=gtk" to `~/.bashrc` 
-* Do anything else to make it look more XP-like. Disable effects, disable hinting and antialiasing, change wallpaper to serene green field, etc
 
 ##ToDo List
 * Bug fixes
