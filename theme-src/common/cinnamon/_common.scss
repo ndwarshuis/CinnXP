@@ -1443,6 +1443,11 @@ $desklet_slice: 6;
     padding: 54px 1px 29px 1px; 
   }
 
+  @if $flavor == 'metallic' {
+	border-image: url("Frames/menu-bg.png") 12 12 67 43;
+    padding: 52px 1px 29px 1px;
+  }
+
   @else if $flavor == 'royale' { 
     border-image: url("Frames/menu-bg.png") 8 8 63 41;
     padding: 50px 0 27px 0;
@@ -1456,6 +1461,8 @@ $desklet_slice: 6;
 
   .popup-separator-menu-item {
     @if $flavor == 'luna' { background: $separator_color; }
+
+    @if $flavor == 'metallic' { background: $separator_color; }
 
     @else if $flavor == 'royale' { background: #3d5b95; }
   }
@@ -1481,6 +1488,8 @@ $desklet_slice: 6;
 
       @if $flavor == 'luna' { background-color: $start_menu_box_borders_color; }
 
+      @if $flavor == 'metallic' { background-color: $start_menu_box_borders_color; }
+
       @else if $flavor == 'royale' { background-color: #6287d6; }
     }
 }
@@ -1494,13 +1503,18 @@ $desklet_slice: 6;
   padding: 0;
     
   StScrollView {
-    @if $flavor == 'luna' { background-color: #ece9d8; }
+    @if $flavor == 'luna' { background-color: white; }
 
-    @else if $flavor == 'royale' { background-color: $start_menu_box_bg_color; }
+    @if $flavor == 'metallic' { background-color: white; }
+
+    @else if $flavor == 'royale' { background-color: rgba(0,0,0,0); }
 
     border-width: 1px;
 
-    &:last-child { border-left-width: 0; }
+    &:first-child {
+      border-right-width: 0;
+      @if $flavor == 'royale' { border-top-width: 0; }
+    }
   }
 }
 
