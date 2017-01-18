@@ -90,7 +90,7 @@
 
   & .passwordentry,
   & .transparentbutton {
-    color: $selected_fg_color;
+    color: white;
     -gtk-icon-style: requested;
     border: 1px solid transparentize(white, 0.8);
     border-image: none;
@@ -138,7 +138,7 @@
       }
     }
 
-    & image { color: $selected_fg_color; }
+    & image { color: white; }
 
     &:insensitive { &, & image { color: $insensitive_fg_color; } }
   }
