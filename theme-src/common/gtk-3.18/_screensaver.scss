@@ -42,13 +42,7 @@
         color: $selected_bg_color;
         padding: 3px 0px 3px 0px;
 
-        &:disabled { background-color: transparentize(white, 0.5); }
-
-        & slider {
-          min-height: 24px;
-          min-width: 4px;
-          margin: -9px;
-        }
+        &:insensitive { background-color: transparentize(white, 0.5); }
       }
 
       & .trackname { font-size: 14px; }
