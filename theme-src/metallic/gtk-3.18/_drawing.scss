@@ -150,26 +150,61 @@ $button_radius: 3.5px;
                  1px 0px transparentize(white, 0.80),
 				 0px -1px transparentize(black, 0.96),
 				-1px 0px transparentize(black, 0.97);
-  $_button_bg: if($r_shadow==true, $right_shadow, ''),
-               linear-gradient(to top,
-                               transparentize(black, 0.87),
-                               transparent 3px
+
+  $_default_bg: linear-gradient(to bottom,
+                                #CEE7FF 1px,
+                                #BCD4F6 1px,
+                                #BCD4F6 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                #6982EE 1px,
+                                #89ADE4 1px,
+                                #89ADE4 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to right,
+                                transparentize(#A1BEEC, 0.1) 1px,
+                                white 1px,
+                                white 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to left,
+                                transparentize(#A1BEEC, 0.1) 1px,
+                                white 1px,
+                                white 2px,
+                                transparent 2px
+                                );
+  
+  $_button_bg: linear-gradient(to right,
+                               white,
+                               white 1px,
+                               transparent 1px
                                ),
-               linear-gradient(to bottom,
-                               lighten($c,15%),
-                               lighten($c,3.5%) 3px,
-                               lighten($c,1%) 7px,
-                               $c 50%,
-                               darken($c,2%)
+               linear-gradient(to left,
+                               white,
+                               white 1px,
+                               transparent 1px
+                               ),
+               linear-gradient(to top,
+                               darken($c, 8%) 1px,
+                               $c 40%,
+                               lighten($c, 2.5%) 50%,
+                               lighten($c, 5%) 55%,
+                               lighten($c, 8.5%) 75%,
+                               lighten($c, 9%) 75%,
+                               lighten($c, 9%) 95%,
+                               white 95%,
+                               white
                                );
-  $_button_bg_active: linear-gradient(to bottom,
-                                      transparentize(black, 0.85),
-                                      transparent 2px
-                                      ),
-                      linear-gradient(to top,
-                                      lighten($c, 1%),
-                                      darken($c, 4%) 2px,
-                                      darken($c, 6%)
+
+  $_button_bg_active: linear-gradient(to top,
+                                      white 3px,
+                                      lighten($c, 10%) 3px,
+                                      lighten($c, 8%) 25%,
+                                      darken($c, 2%) 50%,
+                                      darken(mix($c, black, 95%), 2%) 75%,
+                                      mix($c, black, 80%) 95%
                                       );
                                
   $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
@@ -192,11 +227,11 @@ $button_radius: 3.5px;
     color: $tc;
     outline-color: transparentize($tc, 0.5);
     border-color: $button_borders;
-    background-image: $_button_bg;
-    box-shadow: $_button_edge,
-                inset 0px 0px 1px 2px transparentize(#006FFF, 0.7),
-                inset 0px 1px #c8e1f8,
-                inset 0px -1px #6982ee;
+    background-image: $_button_bg, $_button_bg;
+    //box-shadow: $_button_edge,
+    //            inset 0px 0px 1px 2px transparentize(#006FFF, 0.7),
+    //            inset 0px 1px #c8e1f8,
+    //            inset 0px -1px #6982ee;
   }
 
   @else if $t==hover {
@@ -208,7 +243,7 @@ $button_radius: 3.5px;
     border-color: $button_borders;
     background-image: $_button_bg;
     box-shadow: $_button_edge,
-                inset 0px 0px 1px 2px transparentize(#fab221, 0.5),
+                inset 0px 0px 1px 2px transparentize(#FFBB00, 0.3),
                 inset 0px 1px #fff0cf,
                 inset 0px -1px #e59700;
     icon-shadow: none;
@@ -221,8 +256,9 @@ $button_radius: 3.5px;
     color: $tc;
     outline-color: transparentize($tc, 0.5);
     border-color: $button_borders;
-    background-image: if($r_shadow==true, $right_shadow, ''), $_button_bg_active;
-    box-shadow: $_button_edge;
+    background-image: $_button_bg_active;
+    box-shadow: $_button_edge,
+                inset 0px 0px 0px 1px white;
   }
   @else if $t==insensitive {
   //
@@ -421,31 +457,57 @@ $button_radius: 3.5px;
 }
 
 @mixin progressbar_fill($d:horizontal, $selected:false) {
-  $dir: if($d==vertical,right,bottom);
-  $across: if($d==vertical,bottom,right);
+  $top_dir: if($d==vertical,right,bottom);
+  $bottom_dir: if($d==vertical,left,top);
+  $white_dir: if($d==vertical,top,left);
+  $size: if($d==vertical,100% 7px,7px 100%);
   
-  $green_a: #adefad;
-  $green_b: #29d329;
-  
-  $_bg_a: if($selected==true, mix($selected_bg_color, $green_a, 5%), $green_a);
-  $_bg_b: if($selected==true, mix($selected_bg_color, $green_b, 5%), $green_b);
+  $top_edge: #95B38E;
+  $top_edge_shadow: #99C88E;
+  $top: #A4D498;
+  $top_center: #8DBC82;
+  $bottom_center: #74A66A;
+  $bottom: #83AE76;
+  $bottom_edge_shadow: #8FBC82;
+  $bottom_edge: #98C88C;
 
-  $_whitespace: if($selected==true, mix($selected_bg_color, white, 5%), white);
+  $top_edge: if($selected==true, mix($selected_bg_color, $top_edge, 5%), $top_edge);
+  $top_edge_shadow: if($selected==true, mix($selected_bg_color, $top_edge_shadow, 5%), $top_edge_shadow);
+  $top: if($selected==true, mix($selected_bg_color, $top, 5%), $top);
+  $top_center: if($selected==true, mix($selected_bg_color, $top_center, 5%), $top_center);
+  $bottom_center: if($selected==true, mix($selected_bg_color, $bottom_center, 5%), $bottom_center);
+  $bottom: if($selected==true, mix($selected_bg_color, $bottom, 5%), $bottom);
+  $bottom_edge_shadow: if($selected==true, mix($selected_bg_color, $bottom_edge_shadow, 5%), $bottom_edge_shadow);
+  $bottom_edge: if($selected==true, mix($selected_bg_color, $bottom_edge, 5%), $bottom_edge);
+
+  $whitespace: if($selected==true, mix($selected_bg_color, white, 5%), white);
   
-  background-image: linear-gradient(to $across,
-                                    transparent,
-                                    transparent 37.5%,
-                                    $_whitespace 37.5%,
-                                    $_whitespace 50%,
-                                    transparent 50%,
-                                    transparent 87.5%,
-                                    $_whitespace 87.5%,
-                                    $_whitespace 100%),
-                    linear-gradient(to $dir,
-                                    $_bg_a,
-                                    $_bg_b 60%,
-                                    $_bg_a);
-    background-size: 16px 16px, auto;
+  background-image: linear-gradient(to $white_dir,
+                                    $whitespace ,
+                                    $whitespace 1px,
+                                    transparent 1px,
+                                    transparent
+                                    ),
+                    linear-gradient(to $bottom_dir,
+                                    $bottom_edge 1px,
+                                    $bottom_edge_shadow 1px,
+                                    $bottom_edge_shadow 2px,
+                                    transparent 2px
+                                    ),
+                    linear-gradient(to $top_dir,
+                                    $top_edge 1px,
+                                    $top_edge_shadow 1px,
+                                    $top_edge_shadow 2px,
+                                    $top 2px,
+                                    $top 2px,
+                                    $top_center 40%,
+                                    $top_center 50%,
+                                    $bottom_center 50%,
+                                    $bottom_center 60%,
+                                    $bottom 60%
+                                    );
+  background-size: $size, auto;
+    
 }
 
 @mixin progressbar_trough ($d:horizontal) {
@@ -468,10 +530,6 @@ $button_radius: 3.5px;
   border-style: solid;
   border-width: 1px 0px 1px 0px;
   border-top-color: white;
-  border-bottom-color: #cdcabb;
-  background: linear-gradient(to top,
-                              #dedac3 1px,
-                              #e6e2cc 2px,
-                              #e9e6cf 3px,
-                              #efecd6);
+  border-bottom-color: $separator_color;
+  background: $bg_color;
 }
