@@ -417,7 +417,7 @@ $_dot_color: $selected_bg_color;
       border-left-style: solid
     }
     &:first-child {
-      border-radius: 3px 0 0 3px;
+      border-radius: $button_radius 0 0 $button_radius;
       border-left-style: solid;
     }
     &:last-child {
@@ -425,7 +425,7 @@ $_dot_color: $selected_bg_color;
       &:dir(rtl) { border-right-style: solid; }
     }
     &:only-child {
-      border-radius: 3px;
+      border-radius: $button_radius;
       border-style: solid;
     }
     // Workaround END
@@ -557,7 +557,7 @@ $_dot_color: $selected_bg_color;
 
   //inline-toolbar buttons
   .inline-toolbar & {
-    border-radius: 2px;
+    border-radius: $button_radius;
     border-width: 1px;
     @extend %linked;
   }
@@ -639,20 +639,20 @@ $_dot_color: $selected_bg_color;
 %linked {
   @extend %linked_middle;
   &:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-top-left-radius: $button_radius;
+    border-bottom-left-radius: $button_radius;
     outline-top-left-radius: 3px;
     outline-bottom-left-radius: 3px;
   }
   &:last-child {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-right-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
     outline-top-right-radius: 3px;
     outline-bottom-right-radius: 3px;
     border-right-style: solid;
   }
   &:only-child {
-    border-radius: 3px;
+    border-radius: $button_radius;
     outline-radius: 3px;
     border-style: solid;
   }
@@ -667,20 +667,20 @@ $_dot_color: $selected_bg_color;
 %linked_vertical{
   @extend %linked_vertical_middle;
   &:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: $button_radius;
+    border-top-right-radius: $button_radius;
     outline-top-left-radius: 3px;
     outline-top-right-radius: 3px;
   }
   &:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
     outline-bottom-left-radius: 3px;
     outline-bottom-right-radius: 3px;
     border-style: solid;
   }
   &:only-child {
-    border-radius: 3px;
+    border-radius: $button_radius;
     outline-radius: 3px;
     border-style: solid;
   }
@@ -796,8 +796,8 @@ GtkColorButton.button {
 //        icon-shadow: none;
 //        box-shadow: none;
 //      }
-//      &:last-child { border-radius: 0 3px 3px 0; }
-//      &:dir(rtl):first-child { border-radius: 3px 0 0 3px; }
+//      &:last-child { border-radius: 0 $button_radius $button_radius 0; }
+//      &:dir(rtl):first-child { border-radius: $button_radius 0 0 $button_radius; }
 //    }
 //  }
   &.vertical, &.vertical:dir(rtl) { //FIXME: try using linking templates for vertically linked stuff
@@ -851,11 +851,11 @@ GtkColorButton.button {
       &:insensitive { border-color: $insensitive_borders_color; }
     }
     %top_button {
-      border-radius: 3px 3px 0 0;
+      border-radius: $button_radius $button_radius 0 0;
       border-style: solid solid none solid;
     }
     %bottom_button {
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 $button_radius $button_radius;
       border-style: none solid solid solid;
     }
   }
@@ -1720,12 +1720,12 @@ GtkSwitch {
   &.trough {
     @include button(active);
     border: 1px solid $button_borders;
-    border-radius: 3px;
+    border-radius: $button_radius;
     &:insensitive { @include button(insensitive); }
   }
   &.slider {
     border: 1px solid;
-    border-radius: 3px;
+    border-radius: $button_radius;
     @include button(normal);
     &:insensitive { @include button(insensitive); }
   }
@@ -2495,7 +2495,7 @@ GtkColorSwatch {
   &#add-color-button {
     border-style: solid; // the borders are drawn by the overlay for standard colorswatches to have them semi
     border-width: 1px;   // translucent on the colored background, here it's not necessary so they need to be set
-    border-radius: 3px;
+    border-radius: 0;
     @include button(normal);
     &:hover { @include button(hover); }
     .overlay { @include button(undecorated); } // reset the overlay to not cover the button style underneat

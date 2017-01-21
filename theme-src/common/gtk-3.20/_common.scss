@@ -635,7 +635,7 @@ button {
 
   // inline-toolbar buttons
   .inline-toolbar & {
-    border-radius: 2px;
+    border-radius: $button_radius;
     border-width: 1px;
     @extend %linked;
   }
@@ -755,22 +755,22 @@ toolbar.inline-toolbar toolbutton {
   @extend %linked_middle;
 
   &:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    -gtk-outline-top-left-radius: 3px;
-    -gtk-outline-bottom-left-radius: 3px;
+    border-top-left-radius: $button_radius;
+    border-bottom-left-radius: $button_radius;
+    -gtk-outline-top-left-radius: 3;
+    -gtk-outline-bottom-left-radius: 3;
   }
 
   &:last-child {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    -gtk-outline-top-right-radius: 3px;
-    -gtk-outline-bottom-right-radius: 3px;
+    border-top-right-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
+    -gtk-outline-top-right-radius: 3;
+    -gtk-outline-bottom-right-radius: 3;
     border-right-style: solid;
   }
 
   &:only-child {
-    border-radius: 3px;
+    border-radius: $button_radius;
     -gtk-outline-radius: 3px;
     border-style: solid;
   }
@@ -786,22 +786,22 @@ toolbar.inline-toolbar toolbutton {
   @extend %linked_vertical_middle;
 
   &:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: $button_radius;
+    border-top-right-radius: $button_radius;
     -gtk-outline-top-left-radius: 3px;
     -gtk-outline-top-right-radius: 3px;
   }
 
   &:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
     -gtk-outline-bottom-left-radius: 3px;
     -gtk-outline-bottom-right-radius: 3px;
     border-style: solid;
   }
 
   &:only-child {
-    border-radius: 3px;
+    border-radius: $button_radius;
     -gtk-outline-radius: 3px;
     border-style: solid;
   }
@@ -823,7 +823,7 @@ modelbutton.flat,
   min-height: 26px;
   padding-left: 5px;
   padding-right: 5px;
-  border-radius: 3px;
+  border-radius: $button_radius;
   outline-offset: -1px;
 
   @extend %undecorated_button;
@@ -1001,9 +1001,9 @@ spinbutton {
 //        box-shadow: none;
 //      }
 
-//      &:dir(ltr):last-child { border-radius: 0 3px 3px 0; }
+//      &:dir(ltr):last-child { border-radius: 0 $button_radius $button_radius 0; }
 
-//      &:dir(rtl):first-child { border-radius: 3px 0 0 3px; }
+//      &:dir(rtl):first-child { border-radius: $button_radius 0 0 $button_radius; }
 //    }
 //  }
 
@@ -1044,12 +1044,12 @@ spinbutton {
     }
 
     %top_button {
-      border-radius: 3px 3px 0 0;
+      border-radius: $button_radius $button_radius 0 0;
       border-style: solid solid none solid;
     }
 
     %bottom_button {
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 $button_radius $button_radius;
       border-style: none solid solid solid;
     }
   }
@@ -2120,7 +2120,7 @@ switch {
   // similar to the .scale
   border: 1px solid $button_borders;
   color: $fg_color;
-  border-radius: 3px;
+  border-radius: $button_radius;
   @include button(active);
 
   &:disabled { @include button(insensitive); }
@@ -2130,7 +2130,7 @@ switch {
     min-width: 44px;
     min-height: 26px;
     border: 1px solid;
-    border-radius: 3px;
+    border-radius: $button_radius;
 
     @include button(normal);
   }
