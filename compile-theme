@@ -1,5 +1,10 @@
 #! /bin/bash
 
+THEME_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+declare -a VALID_GTK_VERSIONS=(10 18 20)
+declare -a VALID_FLAVORS=('luna' 'metallic' 'royale')
+
 help() {
 cat << EOF
 help: $0 options
@@ -7,47 +12,75 @@ help: $0 options
 compile CinnXP cursor, gtk, metacity, and cinnamon themes
 
 OPTIONS:
-   -h      	this...
+   -h       this...
+
+   -a       Compile all available flavors with one command.
+            Only compiles one gtk3 version at a time. Defaults for gtk
+            minor verison apply here (see below)
    
-   -g		Target gtk minor version. Default is "20" for gtk3.20 and higher
-			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
-			
+   -g       Target gtk minor version. Default is "20" for gtk3.20 and higher
+            For Linux Mint 17.x and 18.x pass "10" or "18" respectively
+
    -f       Flavor to compile (full string name) Defaults to "luna"
-			Current valid options are "luna", "royale," and "metallic"
-   
+            Current valid options are "luna", "royale," and "metallic"
+
    -n       Alternative root name for output file (default is "pkg")
+
+   -p       Package all flavors/versions in tar.xz format for distribution
 EOF
 }
 
-# TODO: add option to compile all themes at once
 # TODO: add option to install to either /usr/share/ or $HOME
 
-build_cursor_theme() {
-	
-	icon_dir="$1/usr/share/icons/$theme_folder_name"
+elementIn () {
+	local e
+	for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+	return 1
+}
 
-	echo "Now building cursor theme
+validate_flavor() {
+	if ! $(elementIn "$1" "${VALID_FLAVORS[@]}"); then
+		echo "Invalid flavor requested."
+		help
+		exit
+	fi
+}
+
+validate_gtk_minor_version() {
+	if ! $(elementIn "$1" "${VALID_GTK_VERSIONS[@]}"); then
+		echo "Invalid gtk versions requested."
+		help
+		exit
+	fi
+}
+
+build_cursor_theme() {
+	local pkg_path="$1"
+	
+	icon_dir="$pkg_path/CinnXP"
+
+	echo "Building cursor theme
 	"
 
 	if [ ! -d "$icon_dir" ]; then
-		mkdir -p "$icon_dir"/cursors
+		mkdir -p "$icon_dir/cursors"
 	fi
 
 	cd icon-src/cursor-build
 
-	#generate cursor files
+	# generate cursor files
 	for i in *.cursor
 	do
 		filename=${i%.cursor}
-		xcursorgen "$i" "$icon_dir"/cursors/"$filename"
+		xcursorgen "$i" "$icon_dir/cursors/$filename"
 	done
 
 	cp cursor.theme "$icon_dir"
-	cp thumbnail.png "$icon_dir"/cursors
+	cp thumbnail.png "$icon_dir/cursors"
 
 	cd "$icon_dir"/cursors
 
-	#link remaining cursor icons
+	# link remaining cursor icons
 	ln -s sb_v_double_arrow 00008160000006810000408080010102
 	ln -s sb_h_double_arrow 028006030e0e7ebffc7f7070c0600140
 	ln -s crossed_circle 03b6e0fcb3499374a867c041f52298f0
@@ -110,12 +143,12 @@ build_cursor_theme() {
 	ln -s crossed_circle X_cursor
 	ln -s ibeam xterm
 
-	cd ..
+	cd "$THEME_ROOT"
 }
 
 #ToDo...prompt for root permission here
 test_ruby() {
-	#is ruby installed?
+	# is ruby installed?
 	ruby -v >> /dev/null
 
 	if [[ $? -ne 0 ]]; then
@@ -123,7 +156,7 @@ test_ruby() {
 		return 1
 	fi
 
-	#is Bundler Gem installed?
+	# is Bundler Gem installed?
 	if [[ $(gem list bundler -i) != "true" ]]; then
 		echo "Bundler Ruby gem not found. Attempting to install"
 		gem install bundler
@@ -136,11 +169,11 @@ test_ruby() {
 
 	install_sass=0
 
-	#is SASS Gem installed?
+	# is SASS Gem installed?
 	if (( $(gem list sass -i) != "true" )); then
 		echo "SASS Ruby gem not found. Attempting to install"
 		install_sass=1
-	#is SASS Gem up to date?
+	# is SASS Gem up to date?
 	elif  [[ $(gem list sass | grep -o -P '(?<=\.)[0-9]*(?=\.)') < 4 ]]; then
 		echo "SASS Ruby gem is outdated. Attempting to update"
 		install_sass=1
@@ -158,46 +191,60 @@ test_ruby() {
 	return 0
 }
 
-clean_ruby() {
-	#remove these things in case they cause ruby version trouble :(
-	if [ -e "$1/Gemfile.lock" ]; then
-		echo "WARNING: source dir not clean (FOUND Gemfile.lock)"
-		rm "$1"/Gemfile.lock
-	fi
+clean_scss() {
+	local ruby_dir="$1"
 
-	if [ -d "$1/.sass-cache" ]; then
+	declare -a files_to_clean=('Gemfile.lock' 'gtk-contained.css' 'cinnamon.css')
+
+	for file in "${files_to_clean[@]}"
+	do
+		if [ -e "$ruby_dir/$file" ]; then
+			echo "WARNING: source dir not clean (FOUND $file)"
+			rm "$ruby_dir/$file"
+		fi
+	done
+
+	if [ -d "$ruby_dir/.sass-cache" ]; then
 		echo "WARNING: source dir not clean (FOUND .sass-cache)"
-		rm -r "$1"/.sass-cache
+		rm -r "$ruby_dir/.sass-cache"
 	fi
+	
 }
 
+# TODO: it's kinda strange that I forbid scss on gtk3.10...but really I don't
+# feel like converting it
 build_gtk3_theme() {
+	local theme_dest="$1"
+	local theme_src="$2"
+	local gtk3_minor_revision="$3"
 
-	echo "Now building gtk3 theme
+	echo " - now building gtk3 theme
 	"
 
-	if [ "$3" -lt 16 ]; then
-		no_scss=0
+	local scss=true
+	
+	if [ "$gtk3_minor_revision" -lt 16 ]; then
+		scss=false
 	fi
 
-	if [ -z ${no_scss+x} ]; then
-		clean_ruby "$2"/gtk-"$3"
+	if $scss; then
+		clean_scss "$theme_src/gtk-3.$gtk3_minor_revision"
 	fi
 	
 	# make new gtk-3.0 dir in target dir
-	if [ ! -d "$1" ]; then
-		mkdir -p "$1"/gtk-3.0
+	if [ ! -d "$theme_dest" ]; then
+		mkdir -p "$theme_dest/gtk-3.0"
 	fi
 	
-	#copy gtk3 to tmp working directory (resolve symlinks)
+	# copy gtk3 to tmp working directory (resolve symlinks)
 	build_path="/tmp/gtk-3.0"
-	cp -rL "$2"/gtk-3."$3" "$build_path"
+	cp -rL "$theme_src/gtk-3.$gtk3_minor_revision" "$build_path"
 	cd "$build_path"
 
-	if [ -z ${no_scss+x} ]; then
-		./parse-sass.sh
-
-		#change compiled files here (currently uses all png images and gtk-contained.css files)
+	if $scss; then
+		./parse-sass.sh > /dev/null
+		
+		# change compiled files here (currently uses all png images and gtk-contained.css files)
 		files=$(find . -type  f \( -name "*.png" ! -name "thumbnail.png" -or -name "*gtk-contained.css" \))
 
 		resource_file="gtk-contained.css"
@@ -206,7 +253,7 @@ build_gtk3_theme() {
 		resource_file="gtk.css"
 	fi
 	
-	#build xml file for gtk.gresource
+	# build xml file for gtk.gresource
 	files=${files//.$'\n'/}
 	files=${files//'./'/'    <file>'}
 	files=${files//$'\n'/'</file>'$'\n'}
@@ -224,64 +271,133 @@ build_gtk3_theme() {
 
 	echo "$header$files$footer" > "$xml_path"
 
-	#build gtk3 resources file
-	glib-compile-resources --target="$1"/gtk-3.0/gtk.gresource /tmp/gresources.xml
+	# build gtk3 resources file
+	glib-compile-resources --target="$theme_dest/gtk-3.0/gtk.gresource" "/tmp/gresources.xml"
 
-	#copy thumbnail
-	cp "$2"/thumbnail-gtk.png "$1"/gtk-3.0/thumbnail.png
+	# copy thumbnail
+	cp "$theme_src/thumbnail-gtk.png" "$theme_dest/gtk-3.0/thumbnail.png"
 	
-	#make gtk.css to point to correct resource
-	echo "@import url(\"resource://$resource_path/$resource_file\");" > "$1"/gtk-3.0/gtk.css
+	# make gtk.css to point to correct resource
+	echo "@import url(\"resource://$resource_path/$resource_file\");" > "$theme_dest/gtk-3.0/gtk.css"
 
 	rm "$xml_path"
 	rm -r "$build_path"
+	
+	cd "$THEME_ROOT"
 }
 
 build_cinnamon_theme() {
+	local theme_dir="$1"
+	local theme_src="$2"
 	
-	echo "Now building cinnamon theme
+	echo " - now building cinnamon theme
 	"
 
-	clean_ruby "$2"/cinnamon
+	clean_scss "$theme_src/cinnamon"
 
 	# make new cinnamon dir in target dir
-	if [ ! -d "$1" ]; then
-		mkdir -p "$1"/cinnamon
+	if [ ! -d "$theme_dir" ]; then
+		mkdir -p "$theme_dir/cinnamon"
 	fi
 
-	#copy cinnamon to tmp working directory (resolve symlinks)
-	build_path="$1"/cinnamon
-	cp -rL "$2"/cinnamon "$build_path"
+	# copy cinnamon to tmp working directory (resolve symlinks)
+	build_path="$theme_dir/cinnamon"
+	cp -rL "$theme_src/cinnamon" "$build_path"
 	cd "$build_path"
 
-	./parse-sass.sh
+	./parse-sass.sh > /dev/null
 
-	#remove building files
+	# remove building files
 	rm -r .sass-cache
 	rm Gemfile Gemfile.lock README parse-sass.sh *.scss
+
+	cd "$THEME_ROOT"
 }
 
-#default values
-pkg_dir="$PWD"/"pkg"
+build_flavor() {
+	local pkg_path="$1"
+	local flavor="$2"
+	local gtk3_minor_revision="$3"
+	
+	theme_folder_name="CinnXP-${flavor^}"
+	
+	theme_src="$THEME_ROOT/theme-src/$flavor"
+	theme_dest="$pkg_path/$theme_folder_name"
+
+	echo "Building flavor: $flavor (gtk3.$gtk3_minor_revision)"
+
+	build_gtk3_theme "$theme_dest" "$theme_src" "$gtk3_minor_revision"
+	build_cinnamon_theme "$theme_dest" "$theme_src"
+
+	# copy everything else
+	echo " - now copying gtk2 and metacity themes
+	"
+
+	cp -rL "$theme_src/"{gtk-2.0,index.theme} "$theme_dest"
+	cp -r "$theme_src/metacity-1" "$theme_dest"
+}
+
+build_all_flavors() {
+	local pkg_path="$1"
+	local gtk3_minor_revision="$2"
+
+	validate_gtk_minor_version "$gtk3_minor_revision"
+
+	build_cursor_theme "$pkg_path/usr/share/icons"
+	test_ruby
+
+	for flavor in "${VALID_FLAVORS[@]}"
+	do
+		build_flavor "$pkg_path/usr/share/themes" "$flavor" "$gtk3_minor_revision"
+	done
+}
+
+package_all() {
+	test_ruby
+
+	local cursor_dest="$THEME_ROOT/CinnXP_Cursors"
+	build_cursor_theme "$cursor_dest"
+	tar cJPf "$cursor_dest.tar.xz" "CinnXP_Cursors"
+	rm -r "$cursor_dest"
+
+	for version in "${VALID_GTK_VERSIONS[@]}"
+	do
+		local version_dest="$THEME_ROOT/CinnXP_themes_gtk3.$version"
+		for flavor in "${VALID_FLAVORS[@]}"
+		do
+			build_flavor "$version_dest" "$flavor" "$version"
+		done
+		tar cJPf "$version_dest.tar.xz" "CinnXP_themes_gtk3.$version"
+		rm -r "$version_dest"
+	done
+}
+
+# default values
+pkg_dir="$THEME_ROOT/pkg"
 gtk3_minor_revision=20
 flavor="luna"
 
-while getopts “hg:f:n:” OPTION
+while getopts “hapg:f:n:” OPTION
 do
 	case $OPTION in
 		h)
 			help
 			exit 1
 			;;
+		a)
+			all=0
+			;;
+		p)
+			package=0
+			;;
 		g)
 			gtk3_minor_revision=$OPTARG
 			;;
-
 		f)
 			flavor=$OPTARG
 			;;
         n)
-            pkg_dir="$PWD"/$OPTARG
+            pkg_dir="$THEME_ROOT/$OPTARG"
             ;;
 		*)
 			break
@@ -289,46 +405,19 @@ do
 	esac
 done
 
-# validate cmd line args
-case "$gtk3_minor_revision" in
-  10|18|20)
-    ;;
-  *)
-    echo "Invalid gtk versions requested."
-    help
-    exit
-    ;;
-esac
+if [ -n "$all" ] && [ -n "$package" ]; then
+	echo "ERROR: cannot set -a and -p at once"
+	exit
+fi
 
-case "$flavor" in
-  "luna")
-    theme_folder_name='CinnXP - Luna'
-    ;;
-  "royale")
-    theme_folder_name='CinnXP - Royale'
-    ;;
-  "metallic")
-    theme_folder_name='CinnXP - Metallic'
-    ;;
-  *)
-    echo "Invalid flavor requested."
-    help
-    exit
-    ;;
-esac
-
-test_ruby
-
-theme_src="$PWD/theme-src/$flavor"
-theme_dir="$pkg_dir/usr/share/themes/$theme_folder_name"
-
-build_cursor_theme "$pkg_dir"
-build_gtk3_theme "$theme_dir" "$theme_src" "$gtk3_minor_revision"
-build_cinnamon_theme "$theme_dir" "$theme_src"
-
-#copy everything else
-echo "Now copying gtk2 and metacity themes
-"
-
-cp -rL "$theme_src"/{gtk-2.0,index.theme} "$theme_dir"
-cp -r "$theme_src"/metacity-1 "$theme_dir"
+if [ -n "$all" ]; then
+	build_all_flavors "$pkg_dir" "$gtk3_minor_revision"
+elif [ -n "$package" ]; then
+	package_all
+else
+	validate_gtk_minor_version "$gtk3_minor_revision"
+	validate_flavor "$flavor"
+	build_cursor_theme "$pkg_dir/usr/share/icons"
+	test_ruby
+	build_flavor "$pkg_dir/usr/share/themes" "$flavor" "$gtk3_minor_revision"
+fi
