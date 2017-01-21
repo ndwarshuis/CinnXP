@@ -85,3 +85,10 @@
 .nemo-properties-dialog .dialog-action-box {
   padding: 5px 6px 8px 6px;
 }
+
+.nemo-window .primary-toolbar toolitem .horizontal {
+  & entry, & buttom {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
