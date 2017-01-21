@@ -2123,7 +2123,15 @@ NemoWindow .toolbar .button.image-button {
     padding for those buttons */
 
 NemoWindow .primary-toolbar.toolbar .button.image-button {
-    padding: 4px 7px 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+NemoWindow .primary-toolbar.toolbar .entry,
+NemoWindow .primary-toolbar.toolbar .button,
+NemoWindow .primary-toolbar.toolbar .button.image-button {
+    padding-top: 3px;
+    padding-bottom: 4px;
 }
 
 NemoWindow .sidebar row:hover {
