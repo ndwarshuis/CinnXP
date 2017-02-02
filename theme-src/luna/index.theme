@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=CinnXP
+Name=CinnXP-Luna
 Comment=
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=CinnXP
-MetacityTheme=CinnXP
+GtkTheme=CinnXP-Luna
+MetacityTheme=CinnXP-Luna
 IconTheme=CinnXP
 CursorTheme=default

@@ -5,7 +5,7 @@ Comment=
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=CinnXP
-MetacityTheme=CinnXP
+GtkTheme=CinnXP-Metallic
+MetacityTheme=CinnXP-Metallic
 IconTheme=CinnXP
 CursorTheme=default
