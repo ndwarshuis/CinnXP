@@ -383,69 +383,6 @@ column-header.button:active:hover {
 	background-color: alpha(@theme_selected_fg_color, 0.3);
 }
 
-/*************
- * scrollbar *
- *************/
-
-.scrollbar.slider,
-.scrollbar.slider.vertical {
-	background: url("Scrollbars/handle-vert.png") no-repeat center center,
-	            linear-gradient(to right,
-		                        #c2d5fc,
-		                        #c2d5fc 70%,
-		                        shade(#c2d5fc, 0.99) 75%,
-		                        shade(#c2d5fc, 0.97)
-		                        );
-}
-
-.scrollbar.slider:hover,
-.scrollbar.slider.vertical:hover {
-	background: url("Scrollbars/handle-vert-prelight.png") no-repeat center center,
-	            linear-gradient(to right,
-		                        #dae9ff,
-		                        shade(#dae9ff, 0.995) 70%,
-		                        shade(#dae9ff, 0.985) 75%,
-		                        shade(#dae9ff, 0.975)
-		                        );
-}
-
-.scrollbar.slider:active,
-.scrollbar.slider.vertical:active {
-	background: url("Scrollbars/handle-vert-active.png") no-repeat center center,
-	            linear-gradient(to right,
-		                        shade(#a5befc, 1.02),
-		                        shade(#a5befc, 0.98)
-		                        );
-}
-
-.scrollbar.slider.horizontal {
-	background: url("Scrollbars/handle-horiz.png") no-repeat center center,
-	            linear-gradient(to bottom,
-		                        #c2d5fc,
-		                        #c2d5fc 70%,
-		                        shade(#c2d5fc, 0.99) 75%,
-		                        shade(#c2d5fc, 0.97)
-		                        );
-}
-
-.scrollbar.slider.horizontal:hover {
-	background: url("Scrollbars/handle-horiz-prelight.png") no-repeat center center,
-	            linear-gradient(to bottom,
-		                        #dae9ff,
-		                        shade(#dae9ff, 0.995) 70%,
-		                        shade(#dae9ff, 0.985) 75%,
-		                        shade(#dae9ff, 0.975)
-		                        );
-}
-
-.scrollbar.slider.horizontal:active {
-	background: url("Scrollbars/handle-horiz-active.png") no-repeat center center,
-	            linear-gradient(to bottom,
-		                        shade(#a5befc, 1.02),
-		                        shade(#a5befc, 0.98)
-		                        );
-}
-
 /*******************************************
  * Linked Button Backgrounds - Nomal/Hover *
  *******************************************/
