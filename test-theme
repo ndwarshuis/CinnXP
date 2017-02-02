@@ -40,7 +40,7 @@ do
 			gtk3_minor_revision=10
 			;;
 		f)
-			flavor="royale"
+			flavor=$OPTARG
 			;;
 		*)
 			break

@@ -1503,7 +1503,7 @@ GtkProgressBar {
 .scrollbar.slider,
 .scrollbar.slider:hover,
 .scrollbar.slider:active {
-    border: 3px solid transparent;
+    border: 5px solid transparent;
     border-radius: 0;
     border-image-repeat: stretch;
     box-shadow: none;
@@ -1513,36 +1513,46 @@ GtkProgressBar {
 .scrollbar.slider,
 .scrollbar.slider.vertical {
 	border-image: url("Scrollbars/slider-vert.png");
-	border-image-slice: 3 3 3 3;
+	border-image-slice: 5 5 5 5;
+	background: url("Scrollbars/handle-vert.png") no-repeat center center,
+				url("Scrollbars/slider-background-vert.png");
 }
 
 .scrollbar.slider:hover,
 .scrollbar.slider.vertical:hover {
 	border-image: url("Scrollbars/slider-vert-prelight.png");
-	border-image-slice: 3 3 3 3;
+	border-image-slice: 5 5 5 5;
+	background: url("Scrollbars/handle-vert-prelight.png") no-repeat center center,
+				url("Scrollbars/slider-background-vert-prelight.png");
 }
 
 .scrollbar.slider:active,
 .scrollbar.slider.vertical:active {
 	border-image: url("Scrollbars/slider-vert-active.png");
-	border-width: 4px;
-	border-image-slice: 4 4 4 4;
+	border-image-slice: 5 5 5 5;
+	background: url("Scrollbars/handle-vert-active.png") no-repeat center center,
+				url("Scrollbars/slider-background-vert-active.png");
 }
 
 .scrollbar.slider.horizontal {
 	border-image: url("Scrollbars/slider-horiz.png");
-	border-image-slice: 3 3 3 3;
+	border-image-slice: 5 5 5 5;
+	background: url("Scrollbars/handle-horiz.png") no-repeat center center,
+				url("Scrollbars/slider-background-horiz.png");
 }
 
 .scrollbar.slider.horizontal:hover {
 	border-image: url("Scrollbars/slider-horiz-prelight.png");
-	border-image-slice: 3 3 3 3;
+	border-image-slice: 5 5 5 5;
+	background: url("Scrollbars/handle-horiz-prelight.png") no-repeat center center,
+	            url("Scrollbars/slider-background-horiz-prelight.png");
 }
 
 .scrollbar.slider.horizontal:active {
 	border-image: url("Scrollbars/slider-horiz-active.png");
-	border-width: 4px;
-	border-image-slice: 4 4 4 4;
+	border-image-slice: 5 5 5 5;
+	background: url("Scrollbars/handle-horiz-active.png") no-repeat center center,
+	            url("Scrollbars/slider-background-horiz-active.png");
 }
 
 .scrollbar.slider.fine-tune {
