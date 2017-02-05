@@ -37,7 +37,7 @@ do
 			exit 1
 			;;
 		g)
-			gtk3_minor_revision=10
+			gtk3_minor_revision=$OPTARG
 			;;
 		f)
 			flavor=$OPTARG
