@@ -459,60 +459,6 @@ $button_radius: 3.5px;
   }
 }
 
-@mixin progressbar_fill($d:horizontal, $selected:false) {
-  $top_dir: if($d==vertical,right,bottom);
-  $bottom_dir: if($d==vertical,left,top);
-  $white_dir: if($d==vertical,top,left);
-  $size: if($d==vertical,100% 7px,7px 100%);
-  
-  $top_edge: #95B38E;
-  $top_edge_shadow: #99C88E;
-  $top: #A4D498;
-  $top_center: #8DBC82;
-  $bottom_center: #74A66A;
-  $bottom: #83AE76;
-  $bottom_edge_shadow: #8FBC82;
-  $bottom_edge: #98C88C;
-
-  $top_edge: if($selected==true, mix($selected_bg_color, $top_edge, 5%), $top_edge);
-  $top_edge_shadow: if($selected==true, mix($selected_bg_color, $top_edge_shadow, 5%), $top_edge_shadow);
-  $top: if($selected==true, mix($selected_bg_color, $top, 5%), $top);
-  $top_center: if($selected==true, mix($selected_bg_color, $top_center, 5%), $top_center);
-  $bottom_center: if($selected==true, mix($selected_bg_color, $bottom_center, 5%), $bottom_center);
-  $bottom: if($selected==true, mix($selected_bg_color, $bottom, 5%), $bottom);
-  $bottom_edge_shadow: if($selected==true, mix($selected_bg_color, $bottom_edge_shadow, 5%), $bottom_edge_shadow);
-  $bottom_edge: if($selected==true, mix($selected_bg_color, $bottom_edge, 5%), $bottom_edge);
-
-  $whitespace: if($selected==true, mix($selected_bg_color, white, 5%), white);
-  
-  background-image: linear-gradient(to $white_dir,
-                                    $whitespace ,
-                                    $whitespace 1px,
-                                    transparent 1px,
-                                    transparent
-                                    ),
-                    linear-gradient(to $bottom_dir,
-                                    $bottom_edge 1px,
-                                    $bottom_edge_shadow 1px,
-                                    $bottom_edge_shadow 2px,
-                                    transparent 2px
-                                    ),
-                    linear-gradient(to $top_dir,
-                                    $top_edge 1px,
-                                    $top_edge_shadow 1px,
-                                    $top_edge_shadow 2px,
-                                    $top 2px,
-                                    $top 2px,
-                                    $top_center 40%,
-                                    $top_center 50%,
-                                    $bottom_center 50%,
-                                    $bottom_center 60%,
-                                    $bottom 60%
-                                    );
-  background-size: $size, auto;
-    
-}
-
 @mixin progressbar_trough ($d:horizontal) {
     border: 1px solid #686868;
     border-radius: 3px;

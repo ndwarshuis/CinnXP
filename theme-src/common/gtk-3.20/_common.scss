@@ -419,7 +419,7 @@ button {
 
     &:active,
     &:checked { @include button(active); }
-
+//TODO: consider using images for flat buttons
     &.flat:disabled { @include button(undecorated); }
 
     &.default {
@@ -1464,14 +1464,21 @@ treeview.view {
 
   &.progressbar { // progress bar in treeviews
     color: $fg_color;
-    @include progressbar_fill(horizontal);
+    background-image: url('Progressbar/progressbar_horizontal.png');
+	background-size: 8px 14px, auto;
     
-    &.vertical { @include progressbar_fill(vertical); }
+    &.vertical {
+      background-image: url('Progressbar/progressbar_vertical.png');
+      background-size: 14px 8px, auto;
+    }
     
     &:selected {
       &:focus, & {
         color: $fg_color;
-        @include progressbar_fill(horizontal, true);
+        background-image: cross-fade(85%
+                                     url('Progressbar/progressbar_horizontal.png'),
+                                     linear-gradient(to top, $selected_bg_color)
+                                     );
       }
     }
   }
@@ -2589,9 +2596,15 @@ progressbar {
 
   &.vertical trough { @include progressbar_trough(vertical); }
   
-  progress { @include progressbar_fill; }
+  progress {
+    background-image: url('Progressbar/progressbar_horizontal.png');
+    background-size: 8px 16px, auto;
+  }
 
-  &.vertical progress { @include progressbar_fill(vertical); }
+  &.vertical progress {
+    background-image: url('Progressbar/progressbar_vertical.png');
+    background-size: 16px 8px, auto;
+  }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
     min-width: 3px;

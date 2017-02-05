@@ -420,54 +420,6 @@ $button_radius: 2px;
   }
 }
 
-@mixin progressbar_fill($d:horizontal, $selected:false) {
-  $top_dir: if($d==vertical,right,bottom);
-  $bottom_dir: if($d==vertical,left,top);
-  $white_dir: if($d==vertical,top,left);
-  $size: if($d==vertical,100% 7px,7px 100%);
-  
-  $edge: #16834e;
-  $edge_shadow: #a7d4ae;
-  $green_a: #7cc383;
-  $green_b: #5dbe62;
-  $green_c: #18d927;
-  $green_d: #15e81e;
-
-  $edge: if($selected==true, mix($selected_bg_color, $edge, 5%), $edge);
-  $edge_shadow: if($selected==true, mix($selected_bg_color, $edge_shadow, 5%), $edge_shadow);
-  
-  $green_a: if($selected==true, mix($selected_bg_color, $green_a, 5%), $green_a);
-  $green_b: if($selected==true, mix($selected_bg_color, $green_b, 5%), $green_b);
-  $green_c: if($selected==true, mix($selected_bg_color, $green_c, 5%), $green_c);
-  $green_d: if($selected==true, mix($selected_bg_color, $green_d, 5%), $green_d);
-
-  $whitespace: if($selected==true, mix($selected_bg_color, white, 5%), white);
-  
-  background-image: linear-gradient(to $white_dir,
-                                    $whitespace ,
-                                    $whitespace 1px,
-                                    transparent 1px,
-                                    transparent
-                                    ),
-                    linear-gradient(to $bottom_dir,
-                                    $edge,
-                                    $edge 1px,
-                                    $green_d 1px,
-                                    $green_c 50%,
-                                    transparent 50%
-                                    ),
-                    linear-gradient(to $top_dir,
-                                    $edge,
-                                    $edge 1px,
-                                    $edge_shadow 1px,
-                                    $edge_shadow 2px,
-                                    $green_a 2px,
-                                    $green_b 50%
-                                    );
-  background-size: $size, auto;
-    
-}
-
 @mixin progressbar_trough ($d:horizontal) {
     border: 1px solid #686868;
     border-radius: 3px;
