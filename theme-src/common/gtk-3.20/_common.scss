@@ -1465,11 +1465,11 @@ treeview.view {
   &.progressbar { // progress bar in treeviews
     color: $fg_color;
     background-image: url('Progressbar/progressbar_horizontal.png');
-	background-size: 8px 14px, auto;
+	background-size: 8px 100%, auto;
     
     &.vertical {
       background-image: url('Progressbar/progressbar_vertical.png');
-      background-size: 14px 8px, auto;
+      background-size: 100% 8px, auto;
     }
     
     &:selected {
@@ -1477,7 +1477,7 @@ treeview.view {
         color: $fg_color;
         background-image: cross-fade(85%
                                      url('Progressbar/progressbar_horizontal.png'),
-                                     linear-gradient(to top, $selected_bg_color)
+                                     url('Progressbar/progressbar.png')
                                      );
       }
     }
@@ -2598,12 +2598,12 @@ progressbar {
   
   progress {
     background-image: url('Progressbar/progressbar_horizontal.png');
-    background-size: 8px 16px, auto;
+    background-size: 8px 100%, auto;
   }
 
   &.vertical progress {
     background-image: url('Progressbar/progressbar_vertical.png');
-    background-size: 16px 8px, auto;
+    background-size: 100% 8px, auto;
   }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
