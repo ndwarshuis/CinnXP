@@ -420,34 +420,6 @@ $button_radius: 3.5px;
   }
 }
 
-@mixin progressbar_fill($d:horizontal, $selected:false) {
-  $dir: if($d==vertical,right,bottom);
-  $across: if($d==vertical,bottom,right);
-  
-  $green_a: #adefad;
-  $green_b: #29d329;
-  
-  $_bg_a: if($selected==true, mix($selected_bg_color, $green_a, 5%), $green_a);
-  $_bg_b: if($selected==true, mix($selected_bg_color, $green_b, 5%), $green_b);
-
-  $_whitespace: if($selected==true, mix($selected_bg_color, white, 5%), white);
-  
-  background-image: linear-gradient(to $across,
-                                    transparent,
-                                    transparent 37.5%,
-                                    $_whitespace 37.5%,
-                                    $_whitespace 50%,
-                                    transparent 50%,
-                                    transparent 87.5%,
-                                    $_whitespace 87.5%,
-                                    $_whitespace 100%),
-                    linear-gradient(to $dir,
-                                    $_bg_a,
-                                    $_bg_b 60%,
-                                    $_bg_a);
-    background-size: 16px 16px, auto;
-}
-
 @mixin progressbar_trough ($d:horizontal) {
     border: 1px solid #686868;
     border-radius: 3px;

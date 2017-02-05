@@ -1170,14 +1170,28 @@ GtkTreeView.view {
   }
 
   &.progressbar {
-    color: black;
-    @include progressbar_fill(horizontal);
+    color: $fg_color;
+    background-image: url('Progressbar/progressbar_horizontal.png');
+	background-size: 8px 100%, auto;
     
-    &.vertical { @include progressbar_fill(vertical); }
+    &.vertical {
+      background-image: url('Progressbar/progressbar_vertical.png');
+      background-size: 100% 8px, auto;
+    }
     
-    &:selected { @include progressbar_fill(horizontal, true); }
-    
-    &:selected.vertical { @include progressbar_fill(vertical, true); }
+    &:selected {
+      color: $fg_color;
+      background-image: cross-fade(15%
+                                   url('Progressbar/progressbar_horizontal.png'),
+                                   url('Progressbar/progressbar.png')
+                                   );
+      &.vertical {
+        background-image: cross-fade(15%
+                                     url('Progressbar/progressbar_vertical.png'),
+                                     url('Progressbar/progressbar.png')
+                                     );
+      }
+    }
   }
 
   &.trough {
@@ -1978,12 +1992,14 @@ GtkProgressBar {
 
 // moving bit
 .progressbar {
-  @include progressbar_fill;
+  background-image: url('Progressbar/progressbar_horizontal.png');
+  background-size: 8px 100%, auto;
   border: none;
   border-radius: 0px;
   box-shadow: none; //needed for clipping
   &.vertical {
-    @include progressbar_fill(vertical);
+    background-image: url('Progressbar/progressbar_vertical.png');
+    background-size: 100% 8px, auto;
   }
   &.osd {
     background-image: none;
