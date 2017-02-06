@@ -1264,9 +1264,8 @@ GtkOverlay.osd {
 /***************
  * progressbar *
  ***************/
-
 GtkProgressBar {
-	-GtkProgressBar-min-horizontal-bar-height: 20;
+	-GtkProgressBar-min-horizontal-bar-height: 22;
 	-GtkProgressBar-min-vertical-bar-width: 22;
 	font-size: smaller;
 	color: alpha(@theme_fg_color, 0.4);
@@ -1277,13 +1276,9 @@ GtkProgressBar {
 	color: @theme_text_color;
     border-color: transparent;
     border-style: solid;
-    border-width: 3px 4px;
+    border-width: 0px 4px;
     border-radius: 0;
     box-shadow: none;
-}
-
-.progressbar.vertical {
-	border-width: 4px 3px;
 }
 
 .progressbar row,
@@ -1294,18 +1289,68 @@ GtkProgressBar {
 	border-width: 0;
 }
 
-.trough,
-.trough.vertical {
-	color: @theme_fg_color;
+.progressbar {
+	background-image: url('Progressbar/progressbar_horizontal_full.png');
 }
 
-.trough row {
+.progressbar row,
+.progressbar row:hover {
+	background-image: url('Progressbar/progressbar_horizontal.png');
+}
+
+.progressbar row:selected,
+.progressbar row:selected:focus {
+	background-image: cross-fade(15%
+	                             url('Progressbar/progressbar_horizontal.png'),
+	                             url('Progressbar/progressbar.png')
+	                             );
+}
+
+.progressbar,
+.progressbar row {
+	background-size: 8px 100%, auto;
+}
+
+.progressbar.vertical {
+	border-width: 4px 0px;
+	background-size: 100% 8px, auto;
+	background-image: url('Progressbar/progressbar_vertical_full.png');
+}
+
+.trough,
+.trough row,
+.trough.vertical {
 	color: @theme_fg_color;
+	background-color: @theme_base_color;
 }
 
 .trough row:selected,
 .trough row:selected:focus {
     color: @theme_selected_fg_color;
+    background-color: alpha(@theme_selected_fg_color, 0.3);
+}
+
+.trough,
+.trough.vertical {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 3px;
+    border-radius: 0px;
+    border-image: url('Progressbar/progressbar_trough.png');
+    border-image-slice: 3 3 3 3;
+}
+
+.trough row {
+	border: 1px solid mix(@theme_bg_color, black, 0.45);
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.trough row:selected,
+.trough row:selected:focus {
+	border: 1px solid alpha(@theme_bg_color, 0.6);
+	border-radius: 0;
+	box-shadow: none;
 }
 
 /*********
