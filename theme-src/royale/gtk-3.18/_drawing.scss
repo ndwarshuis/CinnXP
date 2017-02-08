@@ -415,22 +415,6 @@ $button_radius: 2px;
   }
 }
 
-@mixin progressbar_trough ($d:horizontal) {
-    border: 1px solid #686868;
-    border-radius: 3px;
-    background-color: $base_color;
-    box-shadow: inset 0.5px 0.5px 0px 1.5px #efefef, inset 1px 1px #bebebe;
-    @if $d==horizontal { padding: 3px 4px}
-    @else if $d==vertical { padding: 4px 3px; }
-}
-
-@mixin frame_inset {
-  border: 2px solid transparent;
-  border-image: url("Shadows/frame-inset.png");
-  border-image-slice: 2 2 2 2;
-  border-image-repeat: stretch;
-}
-
 @mixin toolbar_bg {
   border-style: solid;
   border-width: 1px 0px 1px 0px;

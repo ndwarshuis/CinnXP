@@ -425,29 +425,6 @@ $button_radius: 3.5px;
   }
 }
 
-@mixin progressbar_trough ($d:horizontal) {
-  border-style: solid;
-  border-color: transparent;
-  border-image: url('Progressbar/progressbar_trough_#{$d}.png');
-  background-color: $base_color;
-  background-clip: padding-box;
-
-  @if $d==horizontal {
-    border-width: 3px 4px;
-    border-image-slice: 3 4 3 4;
-  } @else if $d==vertical {
-    border-width: 4px 3px;
-    border-image-slice: 4 3 4 3;
-  }
-}
-
-@mixin frame_inset {
-  border: 2px solid transparent;
-  border-image: url("Shadows/frame-inset.png");
-  border-image-slice: 2 2 2 2;
-  border-image-repeat: stretch;
-}
-
 @mixin toolbar_bg {
   border-style: solid;
   border-width: 1px 0px 1px 0px;

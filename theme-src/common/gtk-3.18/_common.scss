@@ -1171,6 +1171,7 @@ GtkTreeView.view {
 
   &.progressbar {
     color: $fg_color;
+    border: none;
     background-image: url('Progressbar/progressbar_horizontal.png');
 	background-size: 8px 100%, auto;
     
@@ -1970,7 +1971,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
  *****************/
 
 GtkProgressBar {
-  -GtkProgressBar-min-horizontal-bar-height: 20;
+  -GtkProgressBar-min-horizontal-bar-height: 22;
   -GtkProgressBar-min-vertical-bar-width: 22;
   font-size: smaller;
   color: transparentize($fg_color, 0.6);
@@ -1994,12 +1995,15 @@ GtkProgressBar {
 .progressbar {
   background-image: url('Progressbar/progressbar_horizontal.png');
   background-size: 8px 100%, auto;
-  border: none;
+  border-width: 3px 4px;
+  border-color: transparent;
+  border-style: solid;
   border-radius: 0px;
   box-shadow: none; //needed for clipping
   &.vertical {
     background-image: url('Progressbar/progressbar_vertical.png');
     background-size: 100% 8px, auto;
+    border-width: 4px 3px;
   }
   &.osd {
     background-image: none;
