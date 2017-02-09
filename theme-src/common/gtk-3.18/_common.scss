@@ -1784,7 +1784,7 @@ GtkSwitch {
     }
     .view.#{$w}#{$s}:selected,
     .list-row:selected .#{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("Check-Radio/selected-#{$a}#{$as}.png"));
+      -gtk-icon-source: -gtk-scaled(cross-fade(15% url("Check-Radio/#{$a}#{$as}.png"), url("Check-Radio/selected_mask.png")));
       &:backdrop { -gtk-icon-source: -gtk-scaled(url("Check-Radio/#{$a}#{$as}.png")); }
     }
   }
