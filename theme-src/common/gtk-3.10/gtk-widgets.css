@@ -336,7 +336,7 @@ column-header .button.dnd {
 /**************
  * ComboBoxes *
  **************/
-
+/* TODO: the bg is slightly off for these :( */
 GtkComboBox {
     -GtkComboBox-arrow-scaling: 0.5;
     -GtkComboBox-shadow-type: none;
@@ -387,45 +387,45 @@ GtkComboBox.combobox-entry .button:insensitive  {
 }
 
 GtkComboBox.combobox-entry .button:last-child {
-	border-width: 3px 3px 3px 2px;
+	border-width: 4px 4px 4px 3px;
     border-image: url("Button/entry-button-ltr.png");
-    border-image-slice: 3 3 3 2;
+    border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:last-child:hover {
     border-image: url("Button/entry-button-ltr-hover.png");
-    border-image-slice: 3 3 3 2;
+    border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:last-child:active {
     border-image: url("Button/entry-button-ltr-active.png");
-    border-image-slice: 3 3 3 2;
+    border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:last-child:insensitive  {
     border-image: url("Button/entry-button-ltr-insensitive.png");
-    border-image-slice: 3 3 3 2;
+    border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:first-child {
-	border-width: 3px 2px 3px 3px;
+	border-width: 4px 3px 4px 4px;
     border-image: url("Button/entry-button-rtl.png");
-    border-image-slice: 3 2 3 3;
+    border-image-slice: 4 3 4 4;
 }
 
 GtkComboBox.combobox-entry .button:first-child:hover {
     border-image: url("Button/entry-button-rtl-hover.png");
-    border-image-slice: 3 2 3 3;
+    border-image-slice: 4 3 4 4;
 }
 
 GtkComboBox.combobox-entry .button:first-child:active {
     border-image: url("Button/entry-button-rtl-active.png");
-    border-image-slice: 3 2 3 3;
+    border-image-slice: 4 3 4 4;
 }
 
 GtkComboBox.combobox-entry .button:first-child:insensitive  {
     border-image: url("Button/entry-button-ltr-insensitive.png");
-    border-image-slice: 3 2 3 3;
+    border-image-slice: 4 3 4 4;
 }
 
 
@@ -1679,41 +1679,41 @@ GtkMenuButton .menuitem.separator {
 .spinbutton .button {
 	color: @arrow;
     padding: 3px;
-    border-width: 2px;
+    border-width: 3px;
     border-radius: 0;
     box-shadow: none;
 	border-image: url("Button/entry-button-borderless.png");
-	border-image-slice: 2 2 2 2;
+	border-image-slice: 3 3 3 3;
 	background-image: url("Button/entry-button-bg.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
 
 .spinbutton .button:hover {
-	border-width: 2px;
+	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
 	border-image: url("Button/entry-button-borderless-hover.png");
-	border-image-slice: 2 2 2 2;
+	border-image-slice: 3 3 3 3;
 	background-image: url("Button/entry-button-bg-hover.png");
 }
 
 .spinbutton .button:active {
-	border-width: 2px;
+	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
 	border-image: url("Button/entry-button-borderless-active.png");
-	border-image-slice: 2 2 2 2;
+	border-image-slice: 3 3 3 3;
 	background-image: url("Button/entry-button-bg-active.png");
 }
 
 .spinbutton .button:insensitive {
 	color: @arrow_insensitive;
-	border-width: 2px;
+	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
 	border-image: url("Button/entry-button-borderless-insensitive.png");
-	border-image-slice: 2 2 2 2;
+	border-image-slice: 3 3 3 3;
 	background-image: url("Button/entry-button-bg-insensitive.png");
 }
 
