@@ -17,57 +17,6 @@
   @else { box-shadow: $shadow1; }
 }
 
-// entries
-
-@mixin entry_button($t, $dir:'', $bor:'') {
-
-  $_border: 2px 2px 2px 2px;
-  $_slice: 2 2 2 2;
-
-  @if $bor=='' {
-    @if $dir==rtl {
-      $_slice: 3 2 3 3;
-      $_border: 3px 2px 3px 3px;
-	} @else if $dir==ltr {
-      $_slice: 3 3 3 2;
-      $_border: 3px 3px 3px 2px;
-	} @else {
-      $_slice: 3 2 3 2;
-      $_border: 3px 2px 3px 2px;
-	}
-  }
-
-  $d: if($dir=='','',"-#{$dir}");
-  $b: if($bor=='','',"-borderless");
-
-  border-width: $_border;
-  border-style: solid;
-  border-color: transparent;
-  
-  box-shadow: none;
-
-  @if $t==normal {
-    border-image: url("Button/entry-button#{$b}#{$d}.png");
-    background-image: url("Button/entry-button-bg.png");
-  }
-  @if $t==hover {
-    border-image: url("Button/entry-button#{$b}#{$d}-hover.png");
-    background-image: url("Button/entry-button-bg-hover.png");
-  }
-  @if $t==active {
-    border-image: url("Button/entry-button#{$b}#{$d}-active.png");
-    background-image: url("Button/entry-button-bg-active.png");
-  }
-  @if $t==insensitive {
-    border-image: url("Button/entry-button#{$b}#{$d}-insensitive.png");
-    background-image: url("Button/entry-button-bg-insensitive.png");
-  }
-
-  border-image-slice: $_slice;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
 // buttons
 
 $button_radius: 3.5px;

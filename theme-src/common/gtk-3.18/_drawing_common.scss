@@ -1,3 +1,52 @@
+@mixin entry_button($t, $dir:'', $bor:'') {
+
+  $_border: 3px;
+  $_slice: 3 3 3 3;
+
+  @if $bor=='' {
+    @if $dir==rtl {
+      $_slice: 4 3 4 4;
+      $_border: 4px 3px 4px 4px;
+	} @else if $dir==ltr {
+      $_slice: 4 4 4 3;
+      $_border: 4px 4px 4px 3px;
+	} @else {
+      $_slice: 4 3 4 3;
+      $_border: 4px 3px 4px 3px;
+	}
+  }
+
+  $d: if($dir=='','',"-#{$dir}");
+  $b: if($bor=='','',"-borderless");
+
+  border-width: $_border;
+  border-style: solid;
+  border-color: transparent;
+  
+  box-shadow: none;
+
+  @if $t==normal {
+    border-image: url("Button/entry-button#{$b}#{$d}.png");
+    background-image: url("Button/entry-button-bg.png");
+  }
+  @if $t==hover {
+    border-image: url("Button/entry-button#{$b}#{$d}-hover.png");
+    background-image: url("Button/entry-button-bg-hover.png");
+  }
+  @if $t==active {
+    border-image: url("Button/entry-button#{$b}#{$d}-active.png");
+    background-image: url("Button/entry-button-bg-active.png");
+  }
+  @if $t==insensitive {
+    border-image: url("Button/entry-button#{$b}#{$d}-insensitive.png");
+    background-image: url("Button/entry-button-bg-insensitive.png");
+  }
+
+  border-image-slice: $_slice;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 @mixin progressbar_trough ($d:horizontal) {
   border-style: solid;
   border-color: transparent;
