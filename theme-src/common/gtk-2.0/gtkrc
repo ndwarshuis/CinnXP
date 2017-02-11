@@ -1267,24 +1267,24 @@ style "button_toolbar"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Buttons/button-toolbar.png"
-			border		= {3,3,3,3}
+			file		= "Buttons/toolbar-button-prelight.png"
+			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
 		image
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Buttons/button-toolbar.png"
-			border		= {3,3,3,3}
+			file		= "Buttons/toolbar-button-prelight.png"
+			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
 		image
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Buttons/button-toolbar-pressed.png"
-			border		= {3,3,3,3}
+			file		= "Buttons/toolbar-button-pressed.png"
+			border		= {4,4,4,4}
 			stretch		= TRUE
 		}	
 		image 
