@@ -642,14 +642,48 @@ button {
 
   //flat toolbar buttons
   toolbar &.flat {
-    &:hover { @include button(toolbar-hover); }
+    color: $fg_color;
+    background-image: none;
+    background-clip: padding-box;
+    background-color: transparent;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+    border-image: none;
+    border: 4px solid transparent;
+    border-radius: 0px;
+    
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    
+    &:hover {
+      background-image: url('Button/button-flat-hover-bg.png');
+      border-image: url('Button/button-flat-hover.png');
+      border-image-slice: 4 4 4 4;
+    }
     
     &:active,
-    &:checked { @include button(toolbar-active); }
+    &:checked {
+      background-image: none;
+      background-color: white; //the exception because bg is solid white
+      border-image: url('Button/button-flat-checked.png');
+      border-image-slice: 4 4 4 4;
+    }
     
-    &:checked:hover { @include button(toolbar-active-hover); }
+    &:checked:hover {
+      background-image: url('Button/button-flat-checked-hover-bg.png');
+      border-image: url('Button/button-flat-checked-hover.png');
+      border-image-slice: 4 4 4 4;
+    }
     
-    &:active:hover { @include button(toolbar-pressed); }
+    &:active:hover {
+      color: white;
+      box-shadow: none;
+      background-image: url('Button/button-flat-active-hover-bg.png');
+      border-image: url('Button/button-flat-active-hover.png');
+      border-image-slice: 4 4 4 4;
+    }
   }
 
   .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
