@@ -176,6 +176,36 @@ GtkPathBar .button {
 	padding: 2px;
 }
 
+.primary-toolbar .button,
+.primary-toolbar .button:insensitive,
+.primary-toolbar .button:insensitive:active,
+GtkHandleBox.dock .toolbar .button,
+GtkHandleBox.dock .toolbar .button:insensitive,
+GtkHandleBox.dock .toolbar .button:insensitive:active {
+    border: 4px solid transparent;
+    border-radius: 0px;
+    border-image: none;
+    box-shadow: none;
+}
+
+.primary-toolbar .button:hover,
+GtkHandleBox.dock .toolbar .button:hover {
+	border: 4px solid transparent;
+	border-image: url('Button/button-flat-hover.png');
+	border-image-slice: 4 4 4 4;
+	box-shadow: none;
+}
+
+.primary-toolbar .button:active,
+.primary-toolbar .button:active:hover,
+GtkHandleBox.dock .toolbar .button:active,
+GtkHandleBox.dock .toolbar .button:active:hover {
+	border: 4px solid transparent;
+	border-image: url('Button/button-flat-active-hover.png');
+	border-image-slice: 4 4 4 4;
+	box-shadow: none;
+}
+
 /**:link,
 *:visited {
     color: @link_color;

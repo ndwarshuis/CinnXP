@@ -105,36 +105,6 @@ GtkScaleButton.button:insensitive:active,
                 inset 0px -1px #6982ee;
 }
 
-/**************************
-* Primary toolbar buttons *
-**************************/
-
-.primary-toolbar .button,
-.primary-toolbar .button:insensitive,
-.primary-toolbar .button:insensitive:active,
-GtkHandleBox.dock .toolbar .button,
-GtkHandleBox.dock .toolbar .button:insensitive,
-GtkHandleBox.dock .toolbar .button:insensitive:active {
-    border: 1px solid transparent;
-    border-radius: 3.5px;
-    border-image: none;
-    box-shadow: none;
-}
-
-.primary-toolbar .button:hover,
-GtkHandleBox.dock .toolbar .button:hover {
-    border: 1px solid #cecec3;
-    box-shadow: none;
-}
-
-.primary-toolbar .button:active,
-.primary-toolbar .button:active:hover,
-GtkHandleBox.dock .toolbar .button:active,
-GtkHandleBox.dock .toolbar .button:active:hover {
-    border: 1px solid #9d9d92;
-    box-shadow: none;
-}
-
 /****************
  * Flat Buttons *
  ****************/

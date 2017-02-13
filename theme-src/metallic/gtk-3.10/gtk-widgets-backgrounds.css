@@ -160,29 +160,9 @@ GtkHandleBox.dock .toolbar .button:insensitive:active {
 .primary-toolbar .button:hover,
 GtkHandleBox.dock .toolbar .button:hover {
 	background-color: transparent;
-    background-image: linear-gradient(to left,
-                                      alpha(black, 0.045) 2px,
-                                      alpha(black, 0.007) 3px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to top,
-                                      #d7d2c6,
-                                      #d7d2c6 2px,
-                                      #e4e1d6 2px,
-                                      #e4e1d6 3px,
-                                      #eeede5 3px,
-                                      #eeede5 4px,
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to bottom,
-                                      #fefefd,
-                                      #fefefd 2px,
-                                      #fdfdfb 2px,
-                                      #fdfdfb 3px,
-                                      #fbfbf8 3px,
-                                      #fbfbf8 4px,
-                                      #f9f9f5 4px,
-                                      #f1f1ea
+    background-image: linear-gradient(to bottom,
+                                      #f9f9f5 5px,
+                                      #f1f1ea 95%
                                       );
 }
 
@@ -191,24 +171,9 @@ GtkHandleBox.dock .toolbar .button:hover {
 GtkHandleBox.dock .toolbar .button:active,
 GtkHandleBox.dock .toolbar .button:active:hover {
 	background-color: transparent;
-	background-image: linear-gradient(to right,
-                                      alpha(black, 0.06),
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to top,
-                                      #ebeae5,
-                                      #ebeae5 2px,
-                                      #e6e5de 2px,
-                                      #e6e5de 3px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to bottom,
-                                      #dcdad1,
-                                      #dcdad1 2px,
-                                      #e3e1da 2px,
-                                      #e3e1da 3px,
-                                      #e7e6e0 3px,
-                                      #e1e0d8
+	background-image: linear-gradient(to bottom,
+                                      #e7e6e0 5px,
+                                      #e0dfd7 95%
                                       );
 }
 
