@@ -17,7 +17,7 @@
   }
 
   $d: if($dir=='','',"-#{$dir}");
-  $b: if($bor=='','',"-borderless");
+  $b: if($bor=='','',"borderless-");
 
   border-width: $_border;
   border-style: solid;
@@ -26,20 +26,20 @@
   box-shadow: none;
 
   @if $t==normal {
-    border-image: url("Button/entry-button#{$b}#{$d}.png");
-    background-image: url("Button/entry-button-bg.png");
+    border-image: url("Entry/#{$b}entry-button-border#{$d}.png");
+    background-image: url("Entry/entry-button-bg.png");
   }
   @if $t==hover {
-    border-image: url("Button/entry-button#{$b}#{$d}-hover.png");
-    background-image: url("Button/entry-button-bg-hover.png");
+    border-image: url("Entry/#{$b}entry-button-border#{$d}-hover.png");
+    background-image: url("Entry/entry-button-bg-hover.png");
   }
   @if $t==active {
-    border-image: url("Button/entry-button#{$b}#{$d}-active.png");
-    background-image: url("Button/entry-button-bg-active.png");
+    border-image: url("Entry/#{$b}entry-button-border#{$d}-active.png");
+    background-image: url("Entry/entry-button-bg-active.png");
   }
   @if $t==insensitive {
-    border-image: url("Button/entry-button#{$b}#{$d}-insensitive.png");
-    background-image: url("Button/entry-button-bg-insensitive.png");
+    border-image: url("Entry/#{$b}entry-button-border#{$d}-insensitive.png");
+    background-image: url("Entry/entry-button-bg-insensitive.png");
   }
 
   border-image-slice: $_slice;

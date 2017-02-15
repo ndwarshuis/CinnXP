@@ -1141,7 +1141,7 @@ style "button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Buttons/button-default.png"
+			file		= "Button/button-default.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
@@ -1149,7 +1149,7 @@ style "button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Buttons/button-prelight.png"
+			file		= "Button/button-prelight.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
@@ -1157,7 +1157,7 @@ style "button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Buttons/button-pressed.png"
+			file		= "Button/button-pressed.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}	
@@ -1165,7 +1165,7 @@ style "button"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Buttons/button-insensitive.png"
+			file		= "Button/button-insensitive.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
@@ -1183,7 +1183,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Buttons/pathbar-button-default.png"
+			file		= "Button/pathbar-button-default.png"
 			border		= {4,3,4,4}
 			stretch		= TRUE
 		}
@@ -1191,7 +1191,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Buttons/pathbar-button-prelight.png"
+			file		= "Button/pathbar-button-prelight.png"
 			border		= {4,3,4,4}
 			stretch		= TRUE
 		}
@@ -1199,7 +1199,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Buttons/pathbar-button-pressed.png"
+			file		= "Button/pathbar-button-pressed.png"
 			border		= {4,3,4,4}
 			stretch		= TRUE
 		}	
@@ -1207,7 +1207,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Buttons/pathbar-button-insensitive.png"
+			file		= "Button/pathbar-button-insensitive.png"
 			border		= {4,3,4,4}
 			stretch		= TRUE
 		}
@@ -1225,7 +1225,7 @@ style "pathbar_toggle_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Buttons/pathbar-toggle-button-default.png"
+			file		= "Button/pathbar-toggle-button-default.png"
 			border		= {3,3,4,4}
 			stretch		= TRUE
 		}
@@ -1233,7 +1233,7 @@ style "pathbar_toggle_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Buttons/pathbar-toggle-button-prelight.png"
+			file		= "Button/pathbar-toggle-button-prelight.png"
 			border		= {3,3,4,4}
 			stretch		= TRUE
 		}
@@ -1241,7 +1241,7 @@ style "pathbar_toggle_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Buttons/pathbar-toggle-button-pressed.png"
+			file		= "Button/pathbar-toggle-button-pressed.png"
 			border		= {3,3,4,4}
 			stretch		= TRUE
 		}	
@@ -1249,7 +1249,7 @@ style "pathbar_toggle_button"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Buttons/pathbar-toggle-button-insensitive.png"
+			file		= "Button/pathbar-toggle-button-insensitive.png"
 			border		= {3,3,4,4}
 			stretch		= TRUE
 		}
@@ -1267,7 +1267,7 @@ style "button_toolbar"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Buttons/toolbar-button-prelight.png"
+			file		= "Button/toolbar-button-prelight.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
@@ -1275,7 +1275,7 @@ style "button_toolbar"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Buttons/toolbar-button-prelight.png"
+			file		= "Button/toolbar-button-prelight.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
@@ -1283,7 +1283,7 @@ style "button_toolbar"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Buttons/toolbar-button-pressed.png"
+			file		= "Button/toolbar-button-pressed.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}	
@@ -1291,7 +1291,7 @@ style "button_toolbar"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Buttons/button-insensitive.png"
+			file		= "Button/button-insensitive.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}
@@ -2259,7 +2259,7 @@ style "progressbar"
 		{
 			function	= BOX
 			detail		= "trough"
-			file		= "ProgressBar/progressbar-trough.png"
+			file		= "Progressbar/progressbar-trough.png"
 			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
@@ -2267,7 +2267,7 @@ style "progressbar"
 		{
 			function	= BOX
 			detail		= "bar"
-			file		= "ProgressBar/progressbar.png"
+			file		= "Progressbar/progressbar.png"
 			stretch		= FALSE
 			border		= {0,0,0,0}
 		}
@@ -2551,7 +2551,7 @@ style "libreoffice_toggle_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Buttons/lo-button-default.png"
+			file		= "Button/lo-button-default.png"
 			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
@@ -2559,7 +2559,7 @@ style "libreoffice_toggle_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Buttons/lo-button-prelight.png"
+			file		= "Button/lo-button-prelight.png"
 			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
@@ -2567,7 +2567,7 @@ style "libreoffice_toggle_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Buttons/lo-button-active.png"
+			file		= "Button/lo-button-active.png"
 			border		= {1,1,1,1}
 			stretch		= TRUE
 		}	

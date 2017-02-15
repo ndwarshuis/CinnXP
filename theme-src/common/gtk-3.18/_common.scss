@@ -580,8 +580,8 @@ $_dot_color: $selected_bg_color;
     icon-shadow: none;
     
     &:hover {
-      background-image: url('Button/button-flat-hover-bg.png');
-      border-image: url('Button/button-flat-hover.png');
+      background-image: url('Buttons/flat-button-hover-bg.png');
+      border-image: url('Buttons/flat-button-hover.png');
       border-image-slice: 4 4 4 4;
     }
     
@@ -589,21 +589,21 @@ $_dot_color: $selected_bg_color;
     &:checked {
       background-image: none;
       background-color: white; //the exception because bg is solid white
-      border-image: url('Button/button-flat-checked.png');
+      border-image: url('Buttons/flat-button-checked.png');
       border-image-slice: 4 4 4 4;
     }
     
     &:checked:hover {
-      background-image: url('Button/button-flat-checked-hover-bg.png');
-      border-image: url('Button/button-flat-checked-hover.png');
+      background-image: url('Buttons/flat-button-checked-hover-bg.png');
+      border-image: url('Buttons/flat-button-checked-hover.png');
       border-image-slice: 4 4 4 4;
     }
     
     &:active:hover {
       color: white;
       box-shadow: none;
-      background-image: url('Button/button-flat-active-hover-bg.png');
-      border-image: url('Button/button-flat-active-hover.png');
+      background-image: url('Buttons/flat-button-active-hover-bg.png');
+      border-image: url('Buttons/flat-button-active-hover.png');
       border-image-slice: 4 4 4 4;
     }
   }
