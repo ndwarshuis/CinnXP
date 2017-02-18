@@ -4,6 +4,19 @@ make Cinnamon look and feel like the venerable Windows XP interface
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
+##Current Flavors
+####Luna
+
+![luna theme](luna.png?raw=true)
+
+####Metallic
+
+![metallic theme](metallic.png?raw=true)
+
+####Royale
+
+![royale theme](royale.png?raw=true)
+
 ####Theme contents
 * cinnamon
 * gtk-2.0
@@ -11,15 +24,20 @@ based on Mint-XP (fmcgorenc) and Adwaita
 * metacity-1
 * cursor
 
-####Current Flavors
-* Luna
-* Metallic
-* Royale
+##Fonts
+* Tahoma (Default, Desktop, Document)
+* Trebuchet MS Bold (Window Title)
+* Franklin Gothic Medium (Start Button)
+
+####Suggested Settings
+* Antialiasing: Greyscale
+* Hinting: Full
+
+> These are required for full XP look, but not for theme to function. Fonts must be installed seperately.
 
 ##Tips
 * QT apps have a few unavoidable bugs. If something "less buggy" is desired, open terminal, run `qtconfig-qt4` and select "Windows" under GUI style (this will look Win98-ish but at least it won't have bugs)
 * LibreOffice 5.0 and above may use gtk3 by default (sorta)...to get the gtk2 theme add "export SAL\_USE_VCLPLUGIN=gtk" to `~/.bashrc` 
-* Do anything else to make it look more XP-like. Disable effects, disable hinting and antialiasing, change wallpaper to serene green field, etc
 
 ##Requirements
 
