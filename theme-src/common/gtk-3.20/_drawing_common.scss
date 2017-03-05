@@ -1,4 +1,4 @@
-@mixin entry_button($t, $dir:'', $bor:'') {
+@mixin entry_button($state, $dir:'', $bor:'') {
 
   $_border: 3px;
   $_slice: 3 3 3 3;
@@ -25,19 +25,19 @@
   
   box-shadow: none;
 
-  @if $t==normal {
+  @if $state==normal {
     border-image: url("Entry/#{$b}entry-button-border#{$d}.png");
     background-image: url("Entry/entry-button-bg.png");
   }
-  @if $t==hover {
+  @if $state==hover {
     border-image: url("Entry/#{$b}entry-button-border#{$d}-hover.png");
     background-image: url("Entry/entry-button-bg-hover.png");
   }
-  @if $t==active {
+  @if $state==active {
     border-image: url("Entry/#{$b}entry-button-border#{$d}-active.png");
     background-image: url("Entry/entry-button-bg-active.png");
   }
-  @if $t==insensitive {
+  @if $state==insensitive {
     border-image: url("Entry/#{$b}entry-button-border#{$d}-insensitive.png");
     background-image: url("Entry/entry-button-bg-insensitive.png");
   }
