@@ -4,6 +4,7 @@
 
 .check {
     background-image: -gtk-scaled(url('Check-Radio/checkbox-unchecked.png'));
+    background-size: 100% 100%;
 }
 
 .check row:selected,
@@ -11,7 +12,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-unchecked.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check row:hover {
@@ -23,7 +24,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-unchecked-hover.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check:insensitive {
@@ -35,7 +36,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-unchecked-insensitive.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check:active {
@@ -47,7 +48,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-checked.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check row:active:hover {
@@ -59,7 +60,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-checked-hover.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check:active:insensitive {
@@ -71,7 +72,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-checked-insensitive.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check:inconsistent {
@@ -83,7 +84,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-mixed.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check row:inconsistent:hover {
@@ -95,7 +96,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-mixed-hover.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .check:inconsistent:insensitive {
@@ -107,7 +108,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/checkbox-mixed-insensitive.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio {
@@ -119,7 +120,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-unchecked.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio row:hover {
@@ -131,7 +132,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-unchecked-hover.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio:insensitive {
@@ -143,7 +144,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-unchecked-insensitive.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio:active {
@@ -155,7 +156,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-checked.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio row:active:hover {
@@ -167,7 +168,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-checked-hover.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio:active:insensitive {
@@ -179,7 +180,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-checked-insensitive.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio:inconsistent {
@@ -191,7 +192,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-mixed.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio row:inconsistent:hover {
@@ -203,7 +204,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-mixed-hover.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .radio:inconsistent:insensitive {
@@ -215,7 +216,7 @@
     background-image: -gtk-scaled(cross-fade(15%
 	                                         url('Check-Radio/radio-mixed-insensitive.png'),
 	                                         url('Check-Radio/selected_mask.png')
-	                                         );
+	                                         ));
 }
 
 .menuitem.check:active {
