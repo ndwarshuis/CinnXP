@@ -571,21 +571,21 @@ $panel_slice: 3 0 1 1;
   height: 20px;
   font-size: 10pt;
   color: $fg_color;
-  border-image: url("Button/button.png") 4;
+  border-image: url("Button/button.png") 6 6 4 4 ;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 3px 22px 3px;
+  padding: 3px 22px 4px;
 
-  &:hover { &, &:focus { border-image: url("Buttons/button-hover.png") 5; } }
+  &:hover { &, &:focus { border-image: url("Buttons/button-hover.png") 6 6 4 4; } }
 
-  &:focus { border-image: url("Buttons/button-focus.png") 5; }
+  &:focus { border-image: url("Buttons/button-focus.png") 6 6 4 4; }
 
   &:active, &:checked {
-    &:focus { border-image: url("Buttons/button-pressed.png") 4; }
+    &:focus { border-image: url("Buttons/button-pressed.png") 6 6 4 4; }
   }
 
   &:disabled {
-    border-image: url("Buttons/button-insensitive.png") 4;
+    border-image: url("Buttons/button-insensitive.png") 6 6 4 4;
     color: $insensitive_fg_color;
     text-shadow: 1px 1px white;
   }
