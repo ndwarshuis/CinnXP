@@ -1142,7 +1142,7 @@ style "button"
 			function	= BOX
 			state		= NORMAL
 			file		= "Button/button-default.png"
-			border		= {4,4,4,4}
+			border		= {6,6,4,4}
 			stretch		= TRUE
 		}
 		image
@@ -1150,7 +1150,7 @@ style "button"
 			function	= BOX
 			state		= PRELIGHT
 			file		= "Button/button-prelight.png"
-			border		= {4,4,4,4}
+			border		= {6,6,4,4}
 			stretch		= TRUE
 		}
 		image
@@ -1158,7 +1158,7 @@ style "button"
 			function	= BOX
 			state		= ACTIVE
 			file		= "Button/button-pressed.png"
-			border		= {4,4,4,4}
+			border		= {6,6,4,4}
 			stretch		= TRUE
 		}	
 		image 
@@ -1166,7 +1166,7 @@ style "button"
 			function	= BOX
 			state		= INSENSITIVE
 			file		= "Button/button-insensitive.png"
-			border		= {4,4,4,4}
+			border		= {6,6,4,4}
 			stretch		= TRUE
 		}
 	}
@@ -1184,7 +1184,7 @@ style "pathbar_button"
 			function	= BOX
 			state		= NORMAL
 			file		= "Button/pathbar-button-default.png"
-			border		= {4,3,4,4}
+			border		= {6,5,4,4}
 			stretch		= TRUE
 		}
 		image
@@ -1192,7 +1192,7 @@ style "pathbar_button"
 			function	= BOX
 			state		= PRELIGHT
 			file		= "Button/pathbar-button-prelight.png"
-			border		= {4,3,4,4}
+			border		= {6,5,4,4}
 			stretch		= TRUE
 		}
 		image
@@ -1200,7 +1200,7 @@ style "pathbar_button"
 			function	= BOX
 			state		= ACTIVE
 			file		= "Button/pathbar-button-pressed.png"
-			border		= {4,3,4,4}
+			border		= {6,5,4,4}
 			stretch		= TRUE
 		}	
 		image 
@@ -1208,7 +1208,7 @@ style "pathbar_button"
 			function	= BOX
 			state		= INSENSITIVE
 			file		= "Button/pathbar-button-insensitive.png"
-			border		= {4,3,4,4}
+			border		= {6,5,4,4}
 			stretch		= TRUE
 		}
 	}
@@ -1226,7 +1226,7 @@ style "pathbar_toggle_button"
 			function	= BOX
 			state		= NORMAL
 			file		= "Button/pathbar-toggle-button-default.png"
-			border		= {3,3,4,4}
+			border		= {4,5,4,4}
 			stretch		= TRUE
 		}
 		image
@@ -1234,7 +1234,7 @@ style "pathbar_toggle_button"
 			function	= BOX
 			state		= PRELIGHT
 			file		= "Button/pathbar-toggle-button-prelight.png"
-			border		= {3,3,4,4}
+			border		= {4,5,4,4}
 			stretch		= TRUE
 		}
 		image
@@ -1242,7 +1242,7 @@ style "pathbar_toggle_button"
 			function	= BOX
 			state		= ACTIVE
 			file		= "Button/pathbar-toggle-button-pressed.png"
-			border		= {3,3,4,4}
+			border		= {4,5,4,4}
 			stretch		= TRUE
 		}	
 		image 
@@ -1250,7 +1250,7 @@ style "pathbar_toggle_button"
 			function	= BOX
 			state		= INSENSITIVE
 			file		= "Button/pathbar-toggle-button-insensitive.png"
-			border		= {3,3,4,4}
+			border		= {4,5,4,4}
 			stretch		= TRUE
 		}
 	}

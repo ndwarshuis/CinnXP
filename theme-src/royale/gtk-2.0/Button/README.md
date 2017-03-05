@@ -1,1 +1,1 @@
-TODO: fix shading
+../../../common/gtk-2.0/Button/README.md
