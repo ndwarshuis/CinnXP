@@ -21,54 +21,6 @@
 
 $button_radius: 3.5px;
 
-@function _border_color ($c) { @return darken($c,25%); } // colored buttons want
-                                                         // the border form the
-                                                         // base color
-
-@function _text_shadow_color ($tc:$fg_color, $bg:$bg_color) {
-//
-// calculate the color of text shadows
-//
-// $tc is the text color
-// $bg is the background color
-//
-  $_lbg: lightness($bg)/100%;
-  @if lightness($tc)<50% { @return transparentize(white,1-$_lbg/($_lbg*1.3)); }
-  @else { @return transparentize(black,$_lbg*0.8); }
-}
-
-@function _button_hilight_color($c) {
-//
-// calculate the right top hilight color for buttons
-//
-// $c: base color;
-//
-  @if lightness($c)>90% { @return white; }
-  @else if lightness($c)>80% { @return transparentize(white, 0.3); }
-  @else if lightness($c)>50% { @return transparentize(white, 0.5); }
-  @else if lightness($c)>40% { @return transparentize(white, 0.7); }
-  @else { @return transparentize(white, 0.9); }
-}
-
-@mixin _button_text_shadow ($tc:$fg_color, $bg:$bg_color) {
-//
-// helper function for the text emboss effect
-//
-// $tc is the optional text color, not the shadow color
-//
-// TODO: this functions needs a way to deal with special cases
-//
-
-  $_shadow: _text_shadow_color($tc, $bg);
-
-  @if lightness($tc)<50% {
-    text-shadow: 0px 1px $_shadow;
-  }
-  @else {
-    text-shadow: 0px -1px $_shadow;
-  }
-}
-
 @mixin button($t, $c:$button_color, $tc:$fg_color, $edge: $borders_edge) {
 //
 // Button drawing function
@@ -89,36 +41,12 @@ $button_radius: 3.5px;
 
   //ugly hack to "switch" bottom edge on/off to integrate with adwaita code
   $_bottom_edge_transparency: if($edge==none, 1.0, 0.4);
+  
   $_button_edge: 0px 1px transparentize(white, $_bottom_edge_transparency),
                  1px 0px transparentize(white, 0.70),
 				 0px -1px transparentize(black, 0.96),
 				-1px 0px transparentize(black, 0.97);
 
-  $_default_bg: linear-gradient(to bottom,
-                                #CEE7FF 1px,
-                                #BCD4F6 1px,
-                                #BCD4F6 2px,
-                                transparent 2px
-                                ),
-                linear-gradient(to top,
-                                #6982EE 1px,
-                                #89ADE4 1px,
-                                #89ADE4 2px,
-                                transparent 2px
-                                ),
-                linear-gradient(to right,
-                                transparentize(#A1BEEC, 0.1) 1px,
-                                white 1px,
-                                white 2px,
-                                transparent 2px
-                                ),
-                linear-gradient(to left,
-                                transparentize(#A1BEEC, 0.1) 1px,
-                                white 1px,
-                                white 2px,
-                                transparent 2px
-                                );
-  
   $_button_bg: linear-gradient(to right,
                                white,
                                white 1px,
@@ -149,7 +77,41 @@ $button_radius: 3.5px;
                                       darken(mix($c, black, 95%), 2%) 75%,
                                       mix($c, black, 80%) 95%
                                       );
-                               
+
+  $_button_default_mask: linear-gradient(to bottom,
+                                         #cee7ff 1px,
+                                         #bcd4f6 1px,
+                                         #bcd4f6 2px,
+                                         transparent 2px
+                                         ),
+                         linear-gradient(to top,
+                                         #6982ee 1px,
+                                         #89ade4 1px,
+                                         #89ade4 2px,
+                                         transparent 2px
+                                         ),
+                         url('Button/default-mask-left.png') no-repeat left center/2px 100%,
+                         url('Button/default-mask-right.png') no-repeat right center/2px 100%;
+
+  $_button_hover_mask: linear-gradient(to bottom,
+                                       #fff0cf 1px,
+                                       transparent 1px
+                                       ),
+                       linear-gradient(to top,
+                                       #e59700 1px,
+                                       transparent 1px
+                                       ),
+                       url('Button/hover-mask-left.png') no-repeat left center/2px 100%,
+                       url('Button/hover-mask-right.png') no-repeat right center/2px 100%,
+                       linear-gradient(to bottom,
+                                       #fdd889 2px,
+                                       transparent 2px
+                                       ),
+                       linear-gradient(to top,
+                                       #f8b230 2px,
+                                       transparent 2px
+                                       );
+
   $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
 
   @if $t==normal {
@@ -159,7 +121,7 @@ $button_radius: 3.5px;
     color: $tc;
     outline-color: transparentize($tc, 0.5);
     border-color: $button_borders;
-    background-image: $_button_bg;
+    background: $_button_bg;
     box-shadow: $_button_edge;
   }
 
@@ -170,15 +132,8 @@ $button_radius: 3.5px;
     color: $tc;
     outline-color: transparentize($tc, 0.5);
     border-color: $button_borders;
-    background-image: $_default_bg, $_button_bg;
-    //box-shadow: $_button_edge,
-    //            inset 2px 0px white,
-    //            inset -2px 0px white,
-    //            inset 0px 0px 1px 2px #A1BEEC,
-    //            inset 0px 2px #BCD4F6,
-    //            inset 0px 1px #CEE7FF,
-    //            inset 0px -2px #89ADE4,
-    //            inset 0px -1px #6982EE;
+    background: $_button_default_mask, $_button_bg;
+    box-shadow: $_button_edge;
   }
 
   @else if $t==hover {
@@ -188,11 +143,8 @@ $button_radius: 3.5px;
     color: $tc;
     outline-color: transparentize($tc, 0.5);
     border-color: $button_borders;
-    background-image: $_button_bg;
-    box-shadow: $_button_edge,
-                inset 0px 0px 1px 2px transparentize(#FFBB00, 0.3),
-                inset 0px 1px #fff0cf,
-                inset 0px -1px #e59700;
+    background: $_button_hover_mask, $_button_bg;
+    box-shadow: $_button_edge;
     -gtk-icon-shadow: none;
   }
 
@@ -203,7 +155,7 @@ $button_radius: 3.5px;
     color: $tc;
     outline-color: transparentize($tc, 0.5);
     border-color: $button_borders;
-    background-image: $_button_bg_active;
+    background: $_button_bg_active;
     box-shadow: $_button_edge,
                 inset 0px 0px 0px 1px white;
   }
