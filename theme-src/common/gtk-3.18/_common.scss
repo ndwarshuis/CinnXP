@@ -359,20 +359,21 @@ $_dot_color: $selected_bg_color;
     &:hover { @include button(osd-hover); }
     &:active { @include button(active); }
   }
-  &.default {
-    @include button(default);
-  }
   &:hover {
     @include button(hover);
   }
   &:active, &:checked {
     @include button(active);
   }
-  &.flat:insensitive {
-    @include button(undecorated);
-  }
   &.default {
     @include button(default);
+    
+    &:hover { @include button(hover); }
+    
+    &:active { @include button(active); }
+  }
+  &.flat:insensitive {
+    @include button(undecorated);
   }
   &:insensitive {
     @include button(insensitive);
@@ -565,6 +566,8 @@ $_dot_color: $selected_bg_color;
   //flat toolbar buttons
   .toolbar &.flat {
     color: $fg_color;
+    padding: 2px;
+    
     background-image: none;
     background-clip: padding-box;
     background-color: transparent;
@@ -580,8 +583,8 @@ $_dot_color: $selected_bg_color;
     icon-shadow: none;
     
     &:hover {
-      background-image: url('Buttons/flat-button-hover-bg.png');
-      border-image: url('Buttons/flat-button-hover.png');
+      background-image: url('Button/flat-button-hover-bg.png');
+      border-image: url('Button/flat-button-hover.png');
       border-image-slice: 4 4 4 4;
     }
     
@@ -589,21 +592,21 @@ $_dot_color: $selected_bg_color;
     &:checked {
       background-image: none;
       background-color: white; //the exception because bg is solid white
-      border-image: url('Buttons/flat-button-checked.png');
+      border-image: url('Button/flat-button-checked.png');
       border-image-slice: 4 4 4 4;
     }
     
     &:checked:hover {
-      background-image: url('Buttons/flat-button-checked-hover-bg.png');
-      border-image: url('Buttons/flat-button-checked-hover.png');
+      background-image: url('Button/flat-button-checked-hover-bg.png');
+      border-image: url('Button/flat-button-checked-hover.png');
       border-image-slice: 4 4 4 4;
     }
     
     &:active:hover {
       color: white;
       box-shadow: none;
-      background-image: url('Buttons/flat-button-active-hover-bg.png');
-      border-image: url('Buttons/flat-button-active-hover.png');
+      background-image: url('Button/flat-button-active-hover-bg.png');
+      border-image: url('Button/flat-button-active-hover.png');
       border-image-slice: 4 4 4 4;
     }
   }
@@ -647,13 +650,32 @@ $_dot_color: $selected_bg_color;
 // should really be deprecated...
 .inline-toolbar GtkToolButton > .button.flat { // redefining the button look is
                                           // needed since those are flat...
+  border-width: 1px;
+  border-image: none;
+  padding: 5px 8px 6px;
+
   @include button(normal);
-  &:hover { @include button(hover); }
+  
+  &:hover {
+    border-width: 1px;
+    border-image: none;
+    @include button(hover);
+  }
+  
   &:active,
   &:active:hover,
   &:checked,
-  &:checked:hover { @include button(active); }
-  &:insensitive { @include button(insensitive); }
+  &:checked:hover {
+    border-width: 1px;
+    border-image: none;
+    @include button(active);
+  }
+
+  &:insensitive {
+    border-width: 1px;
+    border-image: none;
+    @include button(insensitive);
+  }
 }
 
 // More inline toolbar buttons
