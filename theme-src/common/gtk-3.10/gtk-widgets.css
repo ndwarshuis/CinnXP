@@ -186,6 +186,7 @@ GtkHandleBox.dock .toolbar .button:insensitive:active {
     border-radius: 0px;
     border-image: none;
     box-shadow: none;
+    background: none;
 }
 
 .primary-toolbar .button:hover,
@@ -194,6 +195,7 @@ GtkHandleBox.dock .toolbar .button:hover {
 	border-image: url('Button/flat-button-hover.png');
 	border-image-slice: 4 4 4 4;
 	box-shadow: none;
+	background: url('Button/flat-button-hover-bg.png') no-repeat center center/100% 100%;
 }
 
 .primary-toolbar .button:active,
@@ -204,6 +206,7 @@ GtkHandleBox.dock .toolbar .button:active:hover {
 	border-image: url('Button/flat-button-active-hover.png');
 	border-image-slice: 4 4 4 4;
 	box-shadow: none;
+	background: url('Button/flat-button-active-hover-bg.png') no-repeat center center/100% 100%;
 }
 
 /**:link,

@@ -278,39 +278,6 @@ GtkScaleButton.button:insensitive:active,
 	background-color: @theme_bg_color;
 }
 
-/**************************
-* Primary toolbar buttons *
-**************************/
-.primary-toolbar .button,
-.primary-toolbar .button:insensitive,
-.primary-toolbar .button:insensitive:active,
-GtkHandleBox.dock .toolbar .button,
-GtkHandleBox.dock .toolbar .button:insensitive,
-GtkHandleBox.dock .toolbar .button:insensitive:active {
-    background-color: transparent;
-    background-image: none;
-}
-
-.primary-toolbar .button:hover,
-GtkHandleBox.dock .toolbar .button:hover {
-	background-color: transparent;
-    background-image: linear-gradient(to bottom,
-                                      #f9f8fc 5px,
-                                      #f0eff3 95%
-                                      );
-}
-
-.primary-toolbar .button:active,
-.primary-toolbar .button:active:hover,
-GtkHandleBox.dock .toolbar .button:active,
-GtkHandleBox.dock .toolbar .button:active:hover {
-	background-color: transparent;
-	background-image: linear-gradient(to bottom,
-                                      #e5e4e8 5px,
-                                      #dedde1 95%
-                                      );
-}
-
 /****************
  * Flat Buttons *
  ****************/
@@ -327,43 +294,8 @@ GtkScaleButton.button:hover,
 .notebook tab .button:hover,
 .floating-bar .button:hover,
 #gtk-scalebutton-popup-window .button:hover {
-    background-image: linear-gradient(to bottom, shade(alpha(@button_bg, 0.7), 1.08));
+    background: linear-gradient(to bottom, shade(alpha(@button_bg, 0.7), 1.08));
     background-clip: padding-box;
-}
-GtkLinkButton.button:active,
-GtkLinkButton.button:active:hover,
-GtkScaleButton.button:active,
-GtkScaleButton.button:active:hover,
-.notebook tab .button:active,
-.notebook tab .button:active:hover,
-.floating-bar .button:active,
-.floating-bar .button:active:hover,
-#gtk-scalebutton-popup-window .button:active,
-#gtk-scalebutton-popup-window .button:active:hover {
-    background-image: linear-gradient(to bottom,
-                                      #d4deec 1px,
-                                      #7792ba 1px,
-                                      #7792ba 2px,
-                                      transparent 2px
-                                      ),
-                      linear-gradient(to right,
-                                      #7792ba 1px,
-                                      transparent 1px
-                                      ),
-                      linear-gradient(to left,
-                                      #7792ba 1px,
-                                      transparent 1px
-                                      ),
-                      linear-gradient(to top,
-                                      #f9fdff 2px,
-                                      #f3f8ff 2px,
-                                      #f3f8ff 3px,
-                                      #fdfefe 3px,
-                                      #e3ebf3 48%,
-                                      #d0dceb 55%,
-                                      #a6b8cf 95%
-                                      );
-	background-clip: padding-box;
 }
 
 /*****************
