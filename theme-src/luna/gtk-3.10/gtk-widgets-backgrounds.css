@@ -3,38 +3,74 @@
  **********/
 
 .button,
-.button:hover,
 .toolbar .button.raised,
 .toolbar .raised .button,
-.toolbar .button.raised:hover,
-.toolbar .raised .button:hover,
 .primary-toolbar .raised .button,
 .primary-toolbar .button.raised,
-.primary-toolbar .raised .button:hover,
-.primary-toolbar .button.raised:hover,
 .toolbar GtkComboBox .button,
-.toolbar GtkComboBox .button:hover,
 .spinbutton.vertical .button,
-.spinbutton.vertical .button:hover,
 GtkSwitch.slider,
 GtkSwitch.slider:active {
-    background-color: transparent;
-    background-image: linear-gradient(to left,
-                                      rgba(0, 0, 0, 0.045) 2px,
-                                      rgba(0, 0, 0, 0.006) 3px,
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to top,
-                                      rgba(0, 0, 0, 0.13) 1px,
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to bottom,
-                                      shade(@button_bg, 1.15) 1px,
-                                      shade(@button_bg, 1.035) 4px,
-                                      shade(@button_bg, 1.01) 8px,
-                                      @button_bg 50%,
-                                      shade(@button_bg, 1.02)
-                                      );
+    background: linear-gradient(to left,
+                                rgba(0, 0, 0, 0.045) 1px,
+                                rgba(0, 0, 0, 0.006) 2px,
+                                transparent 3px
+                                ),
+                linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
+}
+
+.button:hover,
+.button.default:hover,
+.toolbar .button.raised:hover,
+.toolbar .raised .button:hover,
+.primary-toolbar .raised .button:hover,
+.primary-toolbar .button.raised:hover,
+.toolbar GtkComboBox .button:hover,
+.spinbutton.vertical .button:hover {
+    background: linear-gradient(to bottom,
+                                #fff0cf 1px,
+                                transparent 1px
+                                ),
+                linear-gradient(to top,
+                                #e59700 1px,
+                                transparent 1px
+                                ),
+                url('Button/hover-mask-left.png') no-repeat left center/2px 100%,
+                url('Button/hover-mask-right.png') no-repeat right center/2px 100%,
+                linear-gradient(to bottom,
+                                #fdd889 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                #f8b230 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to left,
+                                rgba(0, 0, 0, 0.045) 1px,
+                                rgba(0, 0, 0, 0.006) 2px,
+                                transparent 3px
+                                ),
+                linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
 }
 
 .button:active,
@@ -63,21 +99,20 @@ GtkScaleButton.button:active:hover,
 .floating-bar .button:active:hover,
 #gtk-scalebutton-popup-window .button:active,
 #gtk-scalebutton-popup-window .button:active:hover {
-    background-color: transparent;
-    background-image: linear-gradient(to left,
-                                      alpha(white, 0.2) 2px,
-                                      alpha(white, 0.05) 3px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to bottom,
-                                      alpha(black, 0.15) 1px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to top,
-                                      shade(@button_bg, 1.01) 1px,
-                                      shade(@button_bg, 0.96) 3px,
-                                      shade(@button_bg, 0.94)
-                                      );
+    background: linear-gradient(to left,
+                                alpha(white, 0.2) 1px,
+                                alpha(white, 0.05) 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to bottom,
+                                alpha(black, 0.15),
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                shade(@button_bg, 1.01),
+                                shade(@button_bg, 0.96) 2px,
+                                shade(@button_bg, 0.94)
+                                );
 }
 
 .button:insensitive,
@@ -106,6 +141,34 @@ GtkScaleButton.button:insensitive:active,
 #gtk-scalebutton-popup-window .button:insensitive:active {
     background-color: @insensitive_inner_box;
     background-image: none;
+}
+
+.button.default {
+    background: linear-gradient(to bottom,
+                                #cee7ff 1px,
+                                #bcd4f6 1px,
+                                #bcd4f6 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                #6982ee 1px,
+                                #89ade4 1px,
+                                #89ade4 2px,
+                                transparent 2px
+                                ),
+                url('Button/default-mask-left.png') no-repeat left center/2px 100%,
+                url('Button/default-mask-right.png') no-repeat right center/2px 100%,
+                linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
 }
 
 /***********
@@ -261,105 +324,188 @@ column-header.button:active:hover {
     background-image: none;
 }
 
-/*******************************************
- * Linked Button Backgrounds - Nomal/Hover *
- *******************************************/
+/*************************************
+ * Linked Button Backgrounds - Nomal *
+ *************************************/
  
 .linked .button:last-child,
-.linked .button:last-child:hover,
 
 .toolbar .button.raised.linked:last-child,
 .toolbar .raised.linked .button:last-child,
-.toolbar .button.raised.linked:last-child:hover,
-.toolbar .raised.linked .button:last-child:hover,
 
 .primary-toolbar .linked .button:last-child,
-.primary-toolbar .linked .button:last-child:hover,
 
 .primary-toolbar .raised .linked .button:last-child,
-.primary-toolbar .raised .linked .button:last-child:hover,
 
 .primary-toolbar .button.raised.linked:last-child,
 .primary-toolbar .raised.linked .button:last-child,
-.primary-toolbar .button.raised.linked:last-child:hover,
-.primary-toolbar .raised.linked .button:last-child:hover,
 
 .inline-toolbar.toolbar .button:last-child,
-.inline-toolbar.toolbar .button:hover:last-child,
 
-.inline-toolbar.toolbar GtkToolButton:last-child > .button,
-.inline-toolbar.toolbar GtkToolButton:last-child > .button:hover {
-	background-image: linear-gradient(to left,
-                                      rgba(0, 0, 0, 0.045) 2px,
-                                      rgba(0, 0, 0, 0.006) 3px,
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to top,
-                                      rgba(0, 0, 0, 0.13) 1px,
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to bottom,
-                                      shade(@button_bg, 1.15) 1px,
-                                      shade(@button_bg, 1.035) 4px,
-                                      shade(@button_bg, 1.01) 8px,
-                                      @button_bg 50%,
-                                      shade(@button_bg, 1.02)
-                                      );
+.inline-toolbar.toolbar GtkToolButton:last-child > .button {
+	background: linear-gradient(to left,
+                                rgba(0, 0, 0, 0.045) 1px,
+                                rgba(0, 0, 0, 0.006) 2px,
+                                transparent 3px
+                                ),
+                linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
 }
 
 .linked .button,
-.linked .button:hover,
 .linked .button:first-child,
-.linked .button:first-child:hover,
 
 .toolbar .button.raised.linked,
 .toolbar .raised.linked .button,
-.toolbar .button.raised.linked:hover,
-.toolbar .raised.linked .button:hover,
 .toolbar .button.raised.linked:first-child,
 .toolbar .raised.linked .button:first-child,
-.toolbar .button.raised.linked:first-child:hover,
-.toolbar .raised.linked .button:first-child:hover,
 
 .primary-toolbar .linked .button,
-.primary-toolbar .linked .button:hover,
 .primary-toolbar .linked .button:first-child,
-.primary-toolbar .linked .button:first-child:hover,
 
 .primary-toolbar .raised .linked .button,
-.primary-toolbar .raised .linked .button:hover,
 .primary-toolbar .raised .linked .button:first-child,
-.primary-toolbar .raised .linked .button:first-child:hover,
 
 .primary-toolbar .button.raised.linked,
 .primary-toolbar .raised.linked .button,
-.primary-toolbar .button.raised.linked:hover,
-.primary-toolbar .raised.linked .button:hover,
 .primary-toolbar .button.raised.linked:first-child,
 .primary-toolbar .raised.linked .button:first-child,
+
+.inline-toolbar.toolbar .button,
+.inline-toolbar.toolbar .button:first-child,
+
+.inline-toolbar.toolbar GtkToolButton > .button,
+.inline-toolbar.toolbar GtkToolButton:first-child > .button {
+	background: linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
+}
+
+/*************************************
+ * Linked Button Backgrounds - Hover *
+ *************************************/
+ 
+.linked .button:last-child:hover,
+
+.toolbar .button.raised.linked:last-child:hover,
+.toolbar .raised.linked .button:last-child:hover,
+
+.primary-toolbar .linked .button:last-child:hover,
+
+.primary-toolbar .raised .linked .button:last-child:hover,
+
+.primary-toolbar .button.raised.linked:last-child:hover,
+.primary-toolbar .raised.linked .button:last-child:hover,
+
+.inline-toolbar.toolbar .button:hover:last-child,
+
+.inline-toolbar.toolbar GtkToolButton:last-child > .button:hover {
+	background: linear-gradient(to bottom,
+                                #fff0cf 1px,
+                                transparent 1px
+                                ),
+                linear-gradient(to top,
+                                #e59700 1px,
+                                transparent 1px
+                                ),
+                url('Button/hover-mask-left.png') no-repeat left center/2px 100%,
+                url('Button/hover-mask-right.png') no-repeat right center/2px 100%,
+                linear-gradient(to bottom,
+                                #fdd889 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                #f8b230 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to left,
+                                rgba(0, 0, 0, 0.045) 1px,
+                                rgba(0, 0, 0, 0.006) 2px,
+                                transparent 3px
+                                ),
+                linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
+}
+
+.linked .button:hover,
+.linked .button:first-child:hover,
+
+.toolbar .button.raised.linked:hover,
+.toolbar .raised.linked .button:hover,
+.toolbar .button.raised.linked:first-child:hover,
+.toolbar .raised.linked .button:first-child:hover,
+
+.primary-toolbar .linked .button:hover,
+.primary-toolbar .linked .button:first-child:hover,
+
+.primary-toolbar .raised .linked .button:hover,
+.primary-toolbar .raised .linked .button:first-child:hover,
+
+.primary-toolbar .button.raised.linked:hover,
+.primary-toolbar .raised.linked .button:hover,
 .primary-toolbar .button.raised.linked:first-child:hover,
 .primary-toolbar .raised.linked .button:first-child:hover,
 
-.inline-toolbar.toolbar .button,
 .inline-toolbar.toolbar .button:hover,
-.inline-toolbar.toolbar .button:first-child,
 .inline-toolbar.toolbar .button:hover:first-child,
 
-.inline-toolbar.toolbar GtkToolButton > .button,
 .inline-toolbar.toolbar GtkToolButton > .button:hover,
-.inline-toolbar.toolbar GtkToolButton:first-child > .button,
 .inline-toolbar.toolbar GtkToolButton:first-child > .button:hover {
-	background-image: linear-gradient(to top,
-                                      rgba(0, 0, 0, 0.13) 1px,
-                                      transparent 4px
-                                      ),
-                      linear-gradient(to bottom,
-                                      shade(@button_bg, 1.15) 1px,
-                                      shade(@button_bg, 1.035) 4px,
-                                      shade(@button_bg, 1.01) 8px,
-                                      @button_bg 50%,
-                                      shade(@button_bg, 1.02)
-                                      );
+	background: linear-gradient(to bottom,
+                                #fff0cf 1px,
+                                transparent 1px
+                                ),
+                linear-gradient(to top,
+                                #e59700 1px,
+                                transparent 1px
+                                ),
+                url('Button/hover-mask-left.png') no-repeat left center/2px 100%,
+                url('Button/hover-mask-right.png') no-repeat right center/2px 100%,
+                linear-gradient(to bottom,
+                                #fdd889 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                #f8b230 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                rgba(0, 0, 0, 0.13),
+                                transparent 3px
+                                ),
+                linear-gradient(to bottom,
+                                shade(@button_bg, 1.15),
+                                shade(@button_bg, 1.035) 3px,
+                                shade(@button_bg, 1.01) 7px,
+                                @button_bg 50%,
+                                shade(@button_bg, 1.02)
+                                );
 }
 
 /*************************************
@@ -390,20 +536,20 @@ column-header.button:active:hover {
 
 .inline-toolbar.toolbar GtkToolButton:last-child > .button:active,
 .inline-toolbar.toolbar GtkToolButton:last-child > .button:active:hover {
-    background-image: linear-gradient(to left,
-                                      alpha(white, 0.2) 2px,
-                                      alpha(white, 0.05) 3px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to bottom,
-                                      alpha(black, 0.15) 1px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to top,
-                                      shade(@button_bg, 1.01) 1px,
-                                      shade(@button_bg, 0.96) 3px,
-                                      shade(@button_bg, 0.94)
-                                      );
+    background: linear-gradient(to left,
+                                alpha(white, 0.2) 1px,
+                                alpha(white, 0.05) 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to bottom,
+                                alpha(black, 0.15),
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                shade(@button_bg, 1.01),
+                                shade(@button_bg, 0.96) 2px,
+                                shade(@button_bg, 0.94)
+                                );
 }
 
 .linked .button:active,
@@ -448,15 +594,15 @@ column-header.button:active:hover {
 .inline-toolbar.toolbar GtkToolButton > .button:active:hover,
 .inline-toolbar.toolbar GtkToolButton:first-child > .button:active,
 .inline-toolbar.toolbar GtkToolButton:first-child > .button:active:hover {
-    background-image: linear-gradient(to bottom,
-                                      alpha(black, 0.15) 1px,
-                                      transparent 3px
-                                      ),
-                      linear-gradient(to top,
-                                      shade(@button_bg, 1.01) 1px,
-                                      shade(@button_bg, 0.96) 3px,
-                                      shade(@button_bg, 0.94)
-                                      );
+    background: linear-gradient(to bottom,
+                                alpha(black, 0.15),
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                shade(@button_bg, 1.01),
+                                shade(@button_bg, 0.96) 2px,
+                                shade(@button_bg, 0.94)
+                                );
 }
 
 /*******************************************

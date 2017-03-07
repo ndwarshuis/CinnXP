@@ -25,9 +25,7 @@ GtkSwitch.slider {
     border: 1px solid @button_borders;
     border-radius: 3.5px;
     border-image: none;
-    box-shadow: inset 0px 0px 0px 2px alpha(#fab221, 0.5),
-                inset 0px 1px #fff0cf,
-                inset 0px -1px #e59700;
+    box-shadow: none;
 }
 
 .button:active,
@@ -100,9 +98,7 @@ GtkScaleButton.button:insensitive:active,
     border: 1px solid @button_borders;
     border-radius: 3.5px;
     border-image: none;
-    box-shadow: inset 0px 0px 0px 2px alpha(#006FFF, 0.3),
-                inset 0px 1px #c8e1f8,
-                inset 0px -1px #6982ee;
+    box-shadow: none;
 }
 
 /****************
