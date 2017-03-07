@@ -398,22 +398,21 @@ GtkComboBox.combobox-entry .button  {
     border-color: transparent;
     border-radius: 0;
     box-shadow: none;
-    background-image: url('Entry/entry-button-bg.png');
-    background-size: 100% 100%;
+    background: url('Entry/entry-button-bg.png') no-repeat center center/100% 100%;
     padding: 0;
 }
 
 GtkComboBox.combobox-entry .button:hover  {
-    background-image: url('Entry/entry-button-bg-hover.png');
+    background: url('Entry/entry-button-bg-hover.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:active  {
-    background-image: url('Entry/entry-button-bg-active.png');
+    background: url('Entry/entry-button-bg-active.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:insensitive  {
     color: @arrow_insensitive;
-    background-image: url('Entry/entry-button-bg-insensitive.png');
+    background: url('Entry/entry-button-bg-insensitive.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:last-child {
@@ -1714,9 +1713,7 @@ GtkMenuButton .menuitem.separator {
     box-shadow: none;
 	border-image: url('Entry/borderless-entry-button-border.png');
 	border-image-slice: 3 3 3 3;
-	background-image: url('Entry/entry-button-bg.png');
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
+	background: url('Entry/entry-button-bg.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton .button:hover {
@@ -1725,7 +1722,7 @@ GtkMenuButton .menuitem.separator {
 	box-shadow: none;
 	border-image: url('Entry/borderless-entry-button-border-hover.png');
 	border-image-slice: 3 3 3 3;
-	background-image: url('Entry/entry-button-bg-hover.png');
+	background: url('Entry/entry-button-bg-hover.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton .button:active {
@@ -1734,7 +1731,7 @@ GtkMenuButton .menuitem.separator {
 	box-shadow: none;
 	border-image: url('Entry/borderless-entry-button-border-active.png');
 	border-image-slice: 3 3 3 3;
-	background-image: url('Entry/entry-button-bg-active.png');
+	background: url('Entry/entry-button-bg-active.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton .button:insensitive {
@@ -1744,7 +1741,7 @@ GtkMenuButton .menuitem.separator {
 	box-shadow: none;
 	border-image: url('Entry/borderless-entry-button-border-insensitive.png');
 	border-image-slice: 3 3 3 3;
-	background-image: url('Entry/entry-button-bg-insensitive.png');
+	background: url('Entry/entry-button-bg-insensitive.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton.vertical .button {
