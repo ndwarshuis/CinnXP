@@ -101,39 +101,6 @@ GtkScaleButton.button:insensitive:active,
     box-shadow: none;
 }
 
-/****************
- * Flat Buttons *
- ****************/
-
-GtkLinkButton.button,
-GtkScaleButton.button,
-.notebook tab .button,
-.floating-bar .button,
-#gtk-scalebutton-popup-window .button {
-	border: 1px solid transparent;
-	box-shadow: none;
-}
- 
-GtkLinkButton.button:hover,
-GtkScaleButton.button:hover,
-.notebook tab .button:hover,
-.floating-bar .button:hover,
-#gtk-scalebutton-popup-window .button:hover {
-	border: 1px solid @button_borders;
-	box-shadow: none;
-}
-
-.floating-bar .button,
-.floating-bar .button:hover,
-.floating-bar .button:active,
-.floating-bar .button:active:hover,
-#gtk-scalebutton-popup-window .button,
-#gtk-scalebutton-popup-window .button:hover,
-#gtk-scalebutton-popup-window .button:active,
-#gtk-scalebutton-popup-window .button:active:hover {
-	border-radius: 0;
-}
-
 /*****************
  * column-header *
  *****************/
