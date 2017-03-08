@@ -286,59 +286,6 @@ column-header.button:active:hover {
     background-image: none;
 }
 
-/************
- * notebook *
- ************/
-
-.notebook tab {
-	background-clip: padding-box;
-    background-image: linear-gradient(to bottom,
-                                      #f1f1fd 47%,
-                                      #eaeaf9 53%,
-                                      #eaeaf8 59%,
-                                      #e5e6f4 65%,
-                                      #dfdff1 71%,
-                                      #dbdded 77%,
-                                      #d5d7e9 82%,
-                                      #cccde2 88%,
-                                      #c6c8dd 94%
-                                      );
-}
-
-.notebook tab.bottom {
-    background-image: linear-gradient(to bottom,
-                                      #ffffff 19%,
-                                      #ffffff 25%,
-                                      #faf9fe 30%,
-                                      #f6f4fd 37%,
-                                      #f1f1fd 43%,
-                                      #eaeaf9 50%,
-                                      #eaeaf8 57%,
-                                      #e5e6f4 63%,
-                                      #dfdff1 70%
-                                      );
-}
-
-.notebook tab.left,
-.notebook tab.right {
-    background-image: linear-gradient(to bottom,
-                                      #faf9fe 33%,
-                                      #f6f4fd 39%,
-                                      #f1f1fd 44%,
-                                      #eaeaf9 50%,
-                                      #eaeaf8 56%,
-                                      #e5e6f4 61%,
-                                      #dfdff1 67%,
-                                      #dbdded 72%,
-                                      #d5d7e9 78%
-                                      );
-}
-
-.notebook tab:active {
-    background-color: @notebook_bg;
-    background-image: none;
-}
-
 /**************************************
  * Linked Button Backgrounds - Normal *
  **************************************/

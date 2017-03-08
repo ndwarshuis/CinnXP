@@ -277,20 +277,6 @@ column-header.button:active:hover {
     background-image: none;
 }
 
-/************
- * notebook *
- ************/
-
-.notebook tab {
-	background-clip: padding-box;
-	background-image: linear-gradient(to bottom, #f6f6f3, #f0f0ea);
-}
-
-.notebook tab:active {
-    background-color: @notebook_bg;
-    background-image: none;
-}
-
 /*************************************
  * Linked Button Backgrounds - Nomal *
  *************************************/

@@ -1219,24 +1219,34 @@ GtkModelMenuItem GtkBox GtkImage {
     border-width: 8px 5px 0 5px;
     border-image: url("Notebook/tab-top.png");
     border-image-slice: 8 5 0 5;
+    background: url("Notebook/tab-top-bg.png") no-repeat center center/100% 100%;
 }
 
 .notebook tab.bottom {
     border-width: 0 5px 5px 5px;
     border-image: url("Notebook/tab-bottom.png");
     border-image-slice: 0 5 5 5;
+    background: url("Notebook/tab-bottom-bg.png") no-repeat center center/100% 100%;
 }
 
 .notebook tab.left {
     border-width: 6px 0 3px 5px;
     border-image: url("Notebook/tab-left.png");
     border-image-slice: 6 0 3 5;
+    background: url("Notebook/tab-left-bg.png") no-repeat center center/100% 100%;
 }
 
 .notebook tab.right {
     border-width: 6px 5px 3px 0;
     border-image: url("Notebook/tab-right.png");
     border-image-slice: 6 5 3 0;
+    background: url("Notebook/tab-right-bg.png") no-repeat center center/100% 100%;
+}
+
+.notebook tab:active {
+    background-color: @notebook_bg;
+    background-image: none;
+    background-clip: padding-box;
 }
 
 .notebook tab.top:active {

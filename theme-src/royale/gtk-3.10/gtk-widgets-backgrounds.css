@@ -340,62 +340,6 @@ column-header.button:active:hover {
     background-image: none;
 }
 
-/************
- * notebook *
- ************/
-
-.notebook tab {
-	background-clip: padding-box;
-}
-
-.notebook tab.top {
-    background-image: linear-gradient(to bottom,
-                                      #eaf3ff 47%,
-                                      #e1eeff 53%,
-                                      #e1eeff 59%,
-                                      #d8e9ff 65%,
-                                      #d0e4fc 71%,
-                                      #cde1f9 77%,
-                                      #c7dbf3 82%,
-                                      #bed2ea 88%,
-                                      #b9cde5 94%
-                                      );
-}
-
-.notebook tab.bottom {
-    background-image: linear-gradient(to bottom,
-                                      #ffffff 19%,
-                                      #f7faff 25%,
-                                      #eff6ff 30%,
-                                      #eaf3ff 37%,
-                                      #e1eeff 43%,
-                                      #e1eeff 50%,
-                                      #d8e9ff 57%,
-                                      #d0e4fc 63%,
-                                      #cde1f9 70%
-                                      );
-}
-
-.notebook tab.left,
-.notebook tab.right {
-    background-image: linear-gradient(to bottom,
-                                      #f7faff 33%,
-                                      #f1f7ff 39%,
-                                      #eaf3ff 44%,
-                                      #e1eeff 50%,
-                                      #e1eeff 56%,
-                                      #d8e9ff 61%,
-                                      #d0e4fc 67%,
-                                      #cde1f9 72%,
-                                      #c7dbf3 78%
-                                      );
-}
-
-.notebook tab:active {
-    background-color: @notebook_bg;
-    background-image: none;
-}
-
 /**************************************
  * Linked Button Backgrounds - Normal *
  **************************************/
