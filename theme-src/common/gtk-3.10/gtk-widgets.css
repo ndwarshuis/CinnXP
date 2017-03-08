@@ -698,6 +698,19 @@ GtkComboBox.combobox-entry .button {
     border-color: @insensitive_entry_borders_color;
 }
 
+.entry,
+.spinbutton.vertical.entry {
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
+.entry:insensitive,
+.spinbutton.vertical.entry:insensitive {
+    background-color: @theme_bg_color;
+    box-shadow: inset 0px 0px 0px 2px @insensitive_inner_box;
+    background-image: none;
+}
+
 /************
  * expander *
  ************/
