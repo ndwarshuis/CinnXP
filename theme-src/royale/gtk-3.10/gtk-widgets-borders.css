@@ -101,20 +101,6 @@ GtkScaleButton.button:insensitive:active,
     box-shadow: none;
 }
 
-/*********
- * entry *
- *********/
-
-.entry,
-GtkComboBox.combobox-entry .button {
-    border: 1px solid @entry_borders;
-    border-radius: 0;
-}
-
-.entry:insensitive {
-    border-color: @insensitive_entry_borders_color;
-}
-
 /**************
  * Spinbutton *
  **************/
