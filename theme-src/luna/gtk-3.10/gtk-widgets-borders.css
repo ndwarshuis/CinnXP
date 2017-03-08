@@ -101,41 +101,6 @@ GtkScaleButton.button:insensitive:active,
     box-shadow: none;
 }
 
-/*****************
- * column-header *
- *****************/
-
-column-header.button,
-column-header .button,
-column-header.button:insensitive,
-column-header .button:insensitive {
-    border: 3px solid transparent;
-    border-radius: 0;
-    border-image: url("Treeview/tree_header.png");
-    border-image-slice: 3 3 3 3;
-    box-shadow: none;
-}
-
-column-header.button:hover,
-column-header .button:hover {
-    border: 3px solid transparent;
-    border-radius: 0;
-    border-image: url("Treeview/tree_header-hover.png");
-    border-image-slice: 3 3 3 3;
-    box-shadow: none;
-}
-
-column-header.button:active,
-column-header .button:active,
-column-header.button:active:hover,
-column-header .button:active:hover {
-    border: 3px solid transparent;
-    border-radius: 0;
-    border-image: url("Treeview/tree_header-active.png");
-    border-image-slice: 3 3 3 3;
-    box-shadow: none;
-}
-
 /*********
  * entry *
  *********/
