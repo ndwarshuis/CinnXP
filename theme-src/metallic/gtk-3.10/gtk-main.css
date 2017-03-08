@@ -52,6 +52,11 @@
 @define-color notebook_bg_b #f4f3ee;
 @define-color notebook_borders_color #919b9c;
 
+/* Column Headers */
+@define-color column_header_bg #f9fafd;
+@define-color hover_column_header_bg #fefefe;
+@define-color active_column_header_bg #f1f1f5;
+
 /* Views */
 
 @define-color sidebar_bg @theme_base_color;

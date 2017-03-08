@@ -233,33 +233,6 @@ GtkScaleButton.button:hover,
     background-clip: padding-box;
 }
 
-
-/*****************
- * column-header *
- *****************/
-
-column-header .button,
-column-header.button,
-column-header .button:insensitive,
-column-header.button:insensitive {
-    background-color: @theme_bg_color;
-    background-image: none;
-}
-
-column-header .button:hover,
-column-header.button:hover {
-    background-color: #faf9f4;
-    background-image: none;
-}
-
-column-header .button:active,
-column-header.button:active,
-column-header .button:active:hover,
-column-header.button:active:hover {
-    background-color: #dedfd8;
-    background-image: none;
-}
-
 /*********
  * entry *
  *********/
