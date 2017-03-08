@@ -447,8 +447,7 @@ GtkScaleButton.button:hover,
 .inline-toolbar.toolbar GtkToolButton:first-child > .button:insensitive:hover,
 .inline-toolbar.toolbar GtkToolButton:last-child > .button:insensitive,
 .inline-toolbar.toolbar GtkToolButton:last-child > .button:insensitive:hover {
-	background-color: @insensitive_inner_box;
-    background-image: none;
+
 }
 
 /* and this is why scss exists :( */
