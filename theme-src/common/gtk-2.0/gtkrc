@@ -1951,21 +1951,12 @@ style "notebook"
 
 	engine "pixmap" 
 	{
-		image 
-		{
-			function	= EXTENSION
-			state		= ACTIVE
-			file		= "Notebook/tab-bottom.png"
-			border		= {4,4,5,1}
-			stretch		= TRUE
-			gap_side	= TOP
-		}
-		image 
+		image
 		{
 			function	= EXTENSION
 			state		= ACTIVE
 			file		= "Notebook/tab-top.png"
-			border		= {4,4,6,1}
+			border		= {4,4,8,1}
 			stretch		= TRUE
 			gap_side	= BOTTOM
 		}
@@ -1973,8 +1964,17 @@ style "notebook"
 		{
 			function	= EXTENSION
 			state		= ACTIVE
+			file		= "Notebook/tab-bottom.png"
+			border		= {4,4,5,5}
+			stretch		= TRUE
+			gap_side	= TOP
+		}
+		image 
+		{
+			function	= EXTENSION
+			state		= ACTIVE
 			file		= "Notebook/tab-left.png"
-			border		= {3,0,6,3}
+			border		= {4,0,6,3}
 			stretch		= TRUE
 			gap_side	= RIGHT
 		}
@@ -1983,7 +1983,7 @@ style "notebook"
 			function	= EXTENSION
 			state		= ACTIVE
 			file		= "Notebook/tab-right.png"
-			border		= {0,3,6,3}
+			border		= {0,4,6,3}
 			stretch		= TRUE
 			gap_side	= LEFT
 		}	
@@ -1991,7 +1991,7 @@ style "notebook"
 		{
 			function	= EXTENSION
 			file		= "Notebook/tab-top-active.png"
-			border		= {3,3,3,0}
+			border		= {4,4,8,1}
 			stretch		= TRUE
 			gap_side	= BOTTOM
 		}
@@ -1999,7 +1999,7 @@ style "notebook"
 		{
 			function	= EXTENSION
 			file		= "Notebook/tab-bottom-active.png"
-			border		= {3,3,0,3}
+			border		= {4,4,5,5}
 			stretch		= TRUE
 			gap_side	= TOP
 		}
@@ -2007,7 +2007,7 @@ style "notebook"
 		{
 			function	= EXTENSION
 			file		= "Notebook/tab-left-active.png"
-			border		= {3,0,3,3}
+			border		= {4,0,6,3}
 			stretch		= TRUE
 			gap_side	= RIGHT
 		}
@@ -2015,7 +2015,7 @@ style "notebook"
 		{
 			function	= EXTENSION
 			file		= "Notebook/tab-right-active.png"
-			border		= {0,3,3,3}
+			border		= {0,4,6,3}
 			stretch		= TRUE
 			gap_side	= LEFT
 		}
