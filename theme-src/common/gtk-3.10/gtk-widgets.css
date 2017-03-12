@@ -2063,6 +2063,34 @@ GtkTextView {
 .inline-toolbar .toolbar {
     -GtkToolbar-button-relief: normal;
     padding: 3px;
+    border: 1px solid @borders_color;
+    border-radius: 0;
+    box-shadow: inset 0px 2px 3px -1px mix(black, @theme_bg_color, 0.6);
+	background-color: transparent;
+    background-image: linear-gradient(to bottom, @theme_bg_color);
+}
+
+.inline-toolbar.toolbar:last-child,
+.inline-toolbar .toolbar:last-child {
+    border-width: 0 1px 1px;
+}
+
+.inline-toolbar.toolbar.vertical:last-child,
+.inline-toolbar .toolbar.vertical:last-child {
+    border-width: 1px 1px 1px 0;
+}
+
+.titlebar,
+.header-bar,
+.cs-header,
+.primary-toolbar .toolbar,
+.primary-toolbar.toolbar {
+	border-radius: 0;
+	border-style: solid;
+	border-width: 1px 0px 1px 0px;
+	border-top-color: white;
+	border-bottom-color: @separator_color;
+	background: @theme_bg_color;
 }
 
 /***********
