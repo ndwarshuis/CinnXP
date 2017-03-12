@@ -1617,7 +1617,7 @@ style "spinbutton"
 			state 			= NORMAL
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-ltr.png"
-			border			= {2,3,3,0}
+			border			= {3,4,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small.png"
 			overlay_stretch	= FALSE
@@ -1629,7 +1629,7 @@ style "spinbutton"
 			state 			= PRELIGHT
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-ltr-prelight.png"
-			border			= {2,3,3,0}
+			border			= {3,4,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small.png"
 			overlay_stretch	= FALSE
@@ -1641,7 +1641,7 @@ style "spinbutton"
 			state 			= INSENSITIVE
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-ltr-disable.png"
-			border			= {2,3,3,0}
+			border			= {3,4,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small-insens.png"
 			overlay_stretch	= FALSE
@@ -1653,7 +1653,7 @@ style "spinbutton"
 			state 			= ACTIVE
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-ltr-active.png"
-			border			= {2,3,3,0}
+			border			= {3,4,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small.png"
 			overlay_stretch	= FALSE
@@ -1668,7 +1668,7 @@ style "spinbutton"
 			state 			= NORMAL
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-rtl.png"
-			border			= {3,2,3,0}
+			border			= {4,3,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small.png"
 			overlay_stretch	= FALSE
@@ -1680,7 +1680,7 @@ style "spinbutton"
 			state 			= PRELIGHT
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-rtl-prelight.png"
-			border			= {3,2,3,0}
+			border			= {4,3,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small.png"
 			overlay_stretch	= FALSE
@@ -1692,7 +1692,7 @@ style "spinbutton"
 			state 			= INSENSITIVE
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-rtl-disable.png"
-			border			= {3,2,3,0}
+			border			= {4,3,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small-insens.png"
 			overlay_stretch	= FALSE
@@ -1704,7 +1704,7 @@ style "spinbutton"
 			state 			= ACTIVE
 			detail			= "spinbutton_up"
 			file			= "Spin/up-background-rtl-active.png"
-			border			= {3,2,3,0}
+			border			= {4,3,4,1}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-up-small.png"
 			overlay_stretch	= FALSE
@@ -1719,7 +1719,7 @@ style "spinbutton"
 			state 			= NORMAL
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-ltr.png"
-			border			= {2,3,0,3}
+			border			= {3,4,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small.png"
 			overlay_stretch	= FALSE
@@ -1731,7 +1731,7 @@ style "spinbutton"
 			state 			= PRELIGHT
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-ltr-prelight.png"
-			border			= {2,3,0,3}
+			border			= {3,4,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small.png"
 			overlay_stretch	= FALSE
@@ -1743,7 +1743,7 @@ style "spinbutton"
 			state 			= INSENSITIVE
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-ltr-disable.png"
-			border			= {2,3,0,3}
+			border			= {3,4,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small-insens.png"
 			overlay_stretch	= FALSE
@@ -1755,7 +1755,7 @@ style "spinbutton"
 			state 			= ACTIVE
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-ltr-active.png"
-			border			= {2,3,0,3}
+			border			= {3,4,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small.png"
 			overlay_stretch	= FALSE
@@ -1770,7 +1770,7 @@ style "spinbutton"
 			state 			= NORMAL
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-rtl.png"
-			border			= {3,2,0,3}
+			border			= {4,3,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small.png"
 			overlay_stretch	= FALSE
@@ -1782,7 +1782,7 @@ style "spinbutton"
 			state 			= PRELIGHT
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-rtl-prelight.png"
-			border			= {3,2,0,3}
+			border			= {4,3,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small.png"
 			overlay_stretch	= FALSE
@@ -1794,7 +1794,7 @@ style "spinbutton"
 			state 			= INSENSITIVE
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-rtl-disable.png"
-			border			= {3,2,0,3}
+			border			= {4,3,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small-insens.png"
 			overlay_stretch	= FALSE
@@ -1806,7 +1806,7 @@ style "spinbutton"
 			state 			= ACTIVE
 			detail			= "spinbutton_down"
 			file			= "Spin/down-background-rtl-active.png"
-			border			= {3,2,0,3}
+			border			= {4,3,1,4}
 			stretch			= TRUE
 			overlay_file	= "Arrows/arrow-down-small.png"
 			overlay_stretch	= FALSE
