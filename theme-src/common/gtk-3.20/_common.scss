@@ -51,7 +51,7 @@
    Everytime a wildcard is used a kitten dies, painfully.
 */
 
-*:disabled { -gtk-icon-filter: opacity(0.5); }
+*:disabled { -gtk-icon-effect: dim; }
 
 //this ugly creature is needed to make the cinnamon curser locator look pretty (not black)
 *:selected { background-color: $selected_bg_color; }
