@@ -2755,15 +2755,15 @@ printdialog {
 /**********
  * Frames *
  **********/
-frame,
+frame > border,
 .frame {
-  border: 1px solid $frame_color;
-  &.flat { border-style: none; }
+  box-shadow: none;
+  margin: 0;
   padding: 0;
-  &.action-bar {
-    padding: 6px;
-    border-width: 1px 0 0;
-  }
+  border-radius: 2px;
+  border: 1px solid $frame_color;
+  
+  &.flat { border-style: none; }
 }
 
 actionbar > revealer >  box {
