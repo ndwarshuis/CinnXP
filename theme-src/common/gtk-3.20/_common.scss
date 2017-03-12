@@ -51,7 +51,7 @@
    Everytime a wildcard is used a kitten dies, painfully.
 */
 
-*:disabled { -gtk-icon-effect: dim; }
+*:disabled { -gtk-icon-filter: opacity(0.5); }
 
 //this ugly creature is needed to make the cinnamon curser locator look pretty (not black)
 *:selected { background-color: $selected_bg_color; }
@@ -119,7 +119,6 @@ flowbox {
 
   flowboxchild {
     padding: 3px;
-    border-radius: 3px;
 
     &:selected {
       @extend %selected_items;
@@ -127,6 +126,17 @@ flowbox {
       outline-offset: -2px;
     }
   }
+}
+
+.content-view .tile {
+  margin: 2px;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+
+  &:backdrop { background-color: transparent; }
+  &:active, &:selected { background-color: transparent; }
+  &:disabled { background-color: transparent; }
 }
 
 label {
@@ -378,21 +388,9 @@ treeview entry {
 $_dot_color: $selected_bg_color;
 
 @keyframes needs_attention {
-  from {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.01,
-                                    to($_dot_color),
-                                    to(transparent));
-  }
+  from { background-image: radial-gradient(farthest-side, $_dot_color 0%, transparentize($_dot_color, 1) 0%); }
 
-  to {
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center center, 0.5,
-                                    to($selected_bg_color),
-                                    to(transparent));
-  }
+  to { background-image: radial-gradient(farthest-side, $_dot_color 95%, transparentize($_dot_color, 1)); }
 }
 
 %button,
@@ -739,23 +737,14 @@ button {
 
 %needs_attention {
   $_dot_shadow: _text_shadow_color();
-  $_dot_shadow_r: 0.5;
-  background-image: -gtk-gradient(radial,
-                                  center center, 0,
-                                  center center, 0.5,
-                                  to($_dot_color),
-                                  to(transparent)),
-                    -gtk-gradient(radial,
-                                  center center, 0,
-                                  center center, $_dot_shadow_r,
-                                  to($_dot_shadow),
-                                  to(transparent));
+
+  background-image: radial-gradient(farthest-side, $_dot_color 96%, transparentize($_dot_color,1 )),
+                    radial-gradient(farthest-side, $_dot_shadow 95%, transparentize($_dot_shadow, 1));
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
   background-position: right 3px, right 4px;
-  &:dir(rtl) {
-    background-position: left 3px, left 4px;
-  }
+  
+  &:dir(rtl) { background-position: left 3px, left 4px; }
 }
 
 
@@ -1751,6 +1740,8 @@ popover.background {
   list separator { margin: 0px; }
 }
 
+popover.menu { padding: 8px; }
+
 /*************
  * Notebooks *
  *************/
@@ -2227,10 +2218,17 @@ switch {
                   (':checked', '-checked-selectionmode'),
                   (':checked:hover', '-checked-hover-selectionmode'),
                   (':checked:active', '-checked-active-selectionmode') {
-  .view.content-view.check#{$s}:not(list) {
+  .view.content-view.check#{$s}:not(list),
+  .content-view .tile check#{$s}:not(list) {
     -gtk-icon-shadow: none;
     -gtk-icon-source: -gtk-scaled(url("Check-Radio/checkbox#{$as}.png"));
     background-color: transparent;
+    min-width: 41px;
+    min-height: 41px;
+    background-image: none;
+    transition: none;
+    box-shadow: none;
+    border-width: 0;
   }
 }
 
@@ -2680,6 +2678,8 @@ progressbar {
       border-radius: 0;
     }
   }
+
+  trough.empty progress { all: unset; } // makes the progress indicator disappear, when the fraction is 0
 }
 
 
@@ -2755,7 +2755,7 @@ printdialog {
 /**********
  * Frames *
  **********/
-frame > border,
+frame,
 .frame {
   border: 1px solid $frame_color;
   &.flat { border-style: none; }
@@ -3362,7 +3362,7 @@ colorchooser .popover.osd { border-radius: 0px; }
 //content view (grid/list)
 .content-view {
   background-color: darken($bg_color,7%);
-  rubberband { @extend rubberband; }
+  rubberband, .rubberband { @extend rubberband; }
 }
 
 .scale-popup {
