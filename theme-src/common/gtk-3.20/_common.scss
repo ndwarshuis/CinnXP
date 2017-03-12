@@ -2766,6 +2766,11 @@ frame,
   }
 }
 
+actionbar > revealer >  box {
+  padding: 6px;
+  border-top: 1px solid $separator_color;
+}
+
 scrolledwindow {
   &.frame {
     border-color: $borders_color;
