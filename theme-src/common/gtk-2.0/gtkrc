@@ -891,7 +891,7 @@ style "menu"
 		{
 			function	= BOX
 			file		= "Menu-Menubar/menu.png"
-			border		= {1,1,1,1}
+			border		= {3,3,3,3}
 			stretch		= TRUE
 		}
 	}
@@ -1124,10 +1124,24 @@ style "menu_item"
 
 style "menubar_item"
 {
-	xthickness	= 2
-	ythickness	= 3
+	xthickness	= 1
+	ythickness	= 4
 	bg[PRELIGHT]	= @selected_bg_color
-	fg[PRELIGHT]	= @selected_fg_color
+	fg[PRELIGHT]	= @menubar_item_prelight_fg_color
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state		= PRELIGHT
+			recolorable	= TRUE
+			file		= "Menu-Menubar/menubar_item.png"
+			border		= {1,1,1,1}
+			stretch		= TRUE
+		}
+	}
+
 }
 
 style "button"
