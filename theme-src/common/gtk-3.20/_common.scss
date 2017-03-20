@@ -1545,23 +1545,25 @@ treeview.view {
       @extend %column_header_button;
 
       background-color: $tree_header_bg;
-      border: 3px solid transparent;
+      border-style: solid;
+      border-color: transparent;
+      border-width: 4px 8px 4px 8px;
       border-image: url("Treeview/tree_header.png");
-      border-image-slice: 3 3 3 3;
+      border-image-slice: 4 8 4 8;
 
       &:hover {
         @extend %column_header_button;
 
         background-color: $tree_header_hover_bg;
         border-image: url("Treeview/tree_header-hover.png");
-        border-image-slice: 3 3 3 3;
+        border-image-slice: 4 8 4 8;
       }
 
       &:active {
         @extend %column_header_button;
         background-color: $tree_header_active_bg;
         border-image: url("Treeview/tree_header-active.png");
-        border-image-slice: 3 3 3 3;
+        border-image-slice: 4 8 4 8;
       }
     }
   }

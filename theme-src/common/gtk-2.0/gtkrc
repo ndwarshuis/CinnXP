@@ -2324,7 +2324,7 @@ style "treeview_header"
         	function	= BOX
 			file       	= "Treeview/tree_header.png"
 			state		= NORMAL
-			border     	= {1,1,1,3}
+			border     	= {8,8,4,4}
 			stretch   	= TRUE
 		}
 		image 
@@ -2332,7 +2332,7 @@ style "treeview_header"
         	function	= BOX
 			file       	= "Treeview/tree_header-hover.png"
 			state		= PRELIGHT
-			border     	= {6,6,0,3}
+			border     	= {8,8,4,4}
 			stretch   	= TRUE
 		}
 		image
@@ -2340,7 +2340,7 @@ style "treeview_header"
         	function	= BOX
 			file       	= "Treeview/tree_header-active.png"
 			state		= ACTIVE
-			border     	= {3,3,2,2}
+			border     	= {8,8,4,4}
 			stretch   	= TRUE
 		}
 		image 
@@ -2348,7 +2348,7 @@ style "treeview_header"
         	function	= BOX
 			file       	= "Treeview/tree_header.png"
 			state		= INSENSITIVE
-			border     	= {1,1,1,3}
+			border     	= {8,8,4,4}
 			stretch   	= TRUE
 		}
     }
