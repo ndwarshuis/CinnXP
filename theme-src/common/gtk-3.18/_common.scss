@@ -1267,20 +1267,22 @@ column-header {
   .button {
     @extend %column_header_button;
     background-color: $tree_header_bg;
-    border: 3px solid transparent;
+    border-width: 4px 8px 4px 8px;
+    border-style: solid;
+    border-color: transparent;
     border-image: url("Treeview/tree_header.png");
-    border-image-slice: 3 3 3 3;
+    border-image-slice: 4 8 4 8;
     &:hover {
       @extend %column_header_button;
       background-color: $tree_header_hover_bg;
       border-image: url("Treeview/tree_header-hover.png");
-      border-image-slice: 3 3 3 3;
+      border-image-slice: 4 8 4 8;
     }
     &:active {
       @extend %column_header_button;
       background-color: $tree_header_active_bg;
       border-image: url("Treeview/tree_header-active.png");
-      border-image-slice: 3 3 3 3;
+      border-image-slice: 4 8 4 8;
     }
     &.dnd {
       @extend column-header.button.dnd;
@@ -1301,7 +1303,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 %column_header_button {
   color: $text_color;
   outline-style: none;
-  padding: 3px 6px;
+  padding: 1px 6px;
   border-radius: 0;
   background-image: none;
   border-image-repeat: stretch;
@@ -1322,9 +1324,13 @@ column-header.button.dnd { // for treeview-like derive widgets
               inset 0px -1px $menubar_bottom_edge;
   & > .menuitem {
     padding: 4px 8px;
+    border: 1px solid transparent;
+    
     &:hover { //Seems like it :hover even with keyboard focus
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
+      color: $menubar_item_hover_fg_color;
+      border-image: url('Menu-Menubar/menubar_item.png');
+      border-image-slice: 1 1 1 1;
+      background-color: $menubar_item_hover_bg_color;
     }
     &:insensitive {
       color: $insensitive_fg_color;
@@ -1338,9 +1344,11 @@ column-header.button.dnd { // for treeview-like derive widgets
 
 .menu {
   margin: 4px;
-  padding: 2px;
+  padding: 0px;
   background-color: $base_color;
-  border: 1px solid $menu_borders; // adds borders in a non composited env
+  border: 3px solid transparent; // adds borders in a non composited env
+  border-image: url('Menu-Menubar/menu.png');
+  border-image-slice: 3 3 3 3;
   .csd & { border: none; }  // axes borders in a composited env
   .menuitem {
     text-shadow: none;
@@ -2654,9 +2662,8 @@ GtkVolumeButton.button {
   }
   &.csd {
     &.popup {
-      border-radius: 0px;
-      box-shadow: 0px 0px 0px 1px $menu_borders,
-                  3px 3px 2px transparentize(black, 0.75);
+      box-shadow: 3px 3px 3px transparentize(black, 0.75),
+                  $menu_border_shadow;
     }
     &.tooltip {
       border-radius: 8px;
