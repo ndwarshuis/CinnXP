@@ -381,7 +381,8 @@ GtkColorChooserWidget #add-color-button:hover {
  *****************/
 column-header.button,
 column-header .button {
-    padding: 1px 4px;
+    -GtkWidget-focus-padding: 0;
+    padding: 0px 4px;
     color: @theme_fg_color;
     text-shadow: none;
     icon-shadow: none;
@@ -399,10 +400,12 @@ column-header.button,
 column-header .button,
 column-header.button:insensitive,
 column-header .button:insensitive {
-    border: 3px solid transparent;
+    border-width: 4px 8px 4px 8px;
+    border-style: solid;
+    border-color: transparent;
     border-radius: 0;
     border-image: url("Treeview/tree_header.png");
-    border-image-slice: 3 3 3 3;
+    border-image-slice: 4 8 4 8;
     box-shadow: none;
     background-color: @column_header_bg;
     background-image: none;
@@ -410,10 +413,12 @@ column-header .button:insensitive {
 
 column-header.button:hover,
 column-header .button:hover {
-    border: 3px solid transparent;
+    border-width: 4px 8px 4px 8px;
+    border-style: solid;
+    border-color: transparent;
     border-radius: 0;
     border-image: url("Treeview/tree_header-hover.png");
-    border-image-slice: 3 3 3 3;
+    border-image-slice: 4 8 4 8;
     box-shadow: none;
     background-color: @hover_column_header_bg;
     background-image: none;
@@ -423,10 +428,12 @@ column-header.button:active,
 column-header .button:active,
 column-header.button:active:hover,
 column-header .button:active:hover {
-    border: 3px solid transparent;
+    border-width: 4px 8px 4px 8px;
+    border-style: solid;
+    border-color: transparent;
     border-radius: 0;
     border-image: url("Treeview/tree_header-active.png");
-    border-image-slice: 3 3 3 3;
+    border-image-slice: 4 8 4 8;
     box-shadow: none;
     background-color: @active_column_header_bg;
     background-image: none;
@@ -1135,7 +1142,9 @@ GtkMenuButton .menu {
 .menu {
     margin: 4px;
     padding: 3px;
-    border: 1px solid @menu_borders;
+    border: 3px solid transparent;
+    border-image: url('Menu-Menubar/menu.png');
+    border-image-slice: 3 3 3 3;
     border-radius: 0;
     background-color: @menu_bg;
 }
@@ -1177,7 +1186,7 @@ GtkMenuButton .menu {
 
 .menubar .menuitem {
     padding: 4px 8px;
-    border: none;
+    border: 1px solid transparent;
     text-shadow: none;
 }
 
@@ -1186,11 +1195,11 @@ GtkMenuButton .menu {
 }
 
 .menubar .menuitem:hover {
-    border: none;
     border-radius: 0;
-    background-color: transparent;
-    background-image: linear-gradient(to bottom, @theme_selected_bg_color);
-    color: @theme_selected_fg_color;
+    color: @menubar_item_hover_fg_color;
+    border-image: url('Menu-Menubar/menubar_item.png');
+    border-image-slice: 1 1 1 1;
+    background-color: @menubar_item_hover_bg_color;
     text-shadow: none;
 }
 

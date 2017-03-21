@@ -44,6 +44,8 @@
 @define-color menu_borders #a1a192;
 @define-color menu_bg @theme_base_color;
 @define-color menu_fg @theme_fg_color;
+@define-color menubar_item_hover_fg_color #fff;
+@define-color menubar_item_hover_bg_color #316ac5;
 
 /* Notebooks */
 
@@ -53,8 +55,8 @@
 @define-color notebook_borders_color #919b9c;
 
 /* Column Headers */
-@define-color column_header_bg @theme_bg_color;
-@define-color hover_column_header_bg #faf9f4;
+@define-color column_header_bg #ebeadb;
+@define-color hover_column_header_bg #faf8f3;
 @define-color active_column_header_bg #dedfd8;
 
 /* Views */

@@ -44,6 +44,8 @@
 @define-color menu_borders @insensitive_fg_color;
 @define-color menu_bg @theme_base_color;
 @define-color menu_fg @theme_fg_color;
+@define-color menubar_item_hover_fg_color #000;
+@define-color menubar_item_hover_bg_color transparent;
 
 /* Notebooks */
 
