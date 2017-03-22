@@ -2405,6 +2405,11 @@ style "frame"
 	}
 }
 
+style "frame_label"
+{
+	fg[NORMAL] = @frame_label
+}
+
 style "color_frame"
 {
 	xthickness      = 1
@@ -2899,6 +2904,8 @@ widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"  	style "noteboo
 
 widget_class "*<GtkColorButton>*<GtkFrame>"  						style "color_frame"
 widget_class "*<GtkColorSelection>*<GtkFrame>" 						style "color_frame"
+
+widget_class "*<GtkFrame>.<GtkLabel>" 								style "frame_label"
 
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"				style "entry"
 
