@@ -1334,8 +1334,8 @@ style "entry"
 			detail		= "entry"
 			state		= NORMAL
 			shadow		= IN
-			file		= "Entry/entry-border-bg.png"
-			border		= {2,2,2,2}
+			file		= "Entry/entry-border.png"
+			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
 		image
@@ -1344,8 +1344,8 @@ style "entry"
 			detail		= "entry"
 			state		= INSENSITIVE
 			shadow		= IN
-			file		= "Entry/entry-border-disabled-bg.png"
-			border		= {2,2,2,2}
+			file		= "Entry/entry-border.png"
+			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
 		image
@@ -1353,8 +1353,8 @@ style "entry"
 			function	= SHADOW
 			detail		= "entry"
 			state		= ACTIVE
-			file		= "Entry/entry-border-bg.png"
-			border		= {2,2,2,2}
+			file		= "Entry/entry-border.png"
+			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
 		image
@@ -1618,7 +1618,7 @@ style "spinbutton"
 			function		= SHADOW
 			detail			= "entry"
 			shadow			= IN
-			file			= "Entry/entry-border-bg.png"
+			file			= "Entry/entry-border.png"
 			border			= {1,1,1,1}
 			stretch			= TRUE
 		}
@@ -2370,7 +2370,7 @@ style "scrolled_window"
         image
         {
 			function	= SHADOW
-			file		= "Entry/entry-border-bg.png"				
+			file		= "Frames/view-border.png"				
 			border		= {1,1,1,1}
 			stretch		= TRUE
         }
