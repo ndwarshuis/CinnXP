@@ -442,7 +442,6 @@ column-header .button:active:hover {
 /**************
  * ComboBoxes *
  **************/
-/* TODO: the bg is slightly off for these :( */
 GtkComboBox {
     -GtkComboBox-arrow-scaling: 0.5;
     -GtkComboBox-shadow-type: none;
@@ -701,8 +700,13 @@ GtkComboBox.combobox-entry .button {
     border-color: @entry_borders;
 }
 
-.entry:insensitive {
-    border-color: @insensitive_entry_borders_color;
+GtkComboBox.combobox-entry .entry {
+    border-color: @combo_border_color;
+}
+
+GtkComboBox.combobox-entry .entry:insensitive {
+    box-shadow: inset 0px 0px 0px 2px @insensitive_combo_edge_color;
+    border-color: @insensitive_combo_border_color;
 }
 
 .entry,
@@ -712,9 +716,9 @@ GtkComboBox.combobox-entry .button {
 }
 
 .entry:insensitive,
-.spinbutton.vertical.entry:insensitive {
+.spinbutton.vertical.entry:insensitive,
+GtkComboBox.combobox-entry .entry:insensitive {
     background-color: @theme_bg_color;
-    box-shadow: inset 0px 0px 0px 2px @insensitive_inner_box;
     background-image: none;
 }
 
@@ -856,6 +860,10 @@ GsmFailWhaleDialog .button:active {
     padding: 0;
     border: 1px solid @frame_color;
     border-radius: 0;
+}
+
+.frame > GtkLabel {
+    color: @frame_label;
 }
 
 GtkScrolledWindow.frame {

@@ -17,8 +17,8 @@
 @define-color internal_element_color shade(@theme_fg_color, 0.7);
 @define-color internal_element_prelight shade(@theme_fg_color, 0.9);
 @define-color insensitive_borders_color #c6c5c9;
-@define-color insensitive_inner_box #f5f4ea;
 @define-color frame_color #d6d5d9;
+@define-color frame_label #335ea8;
 @define-color backdrop_text_color #aca899;
 @define-color borders_color @insensitive_fg_color;
 @define-color separator_color @frame_color;
@@ -36,8 +36,11 @@
 
 /* Entry */
 
-@define-color entry_borders @borders_color;
-@define-color insensitive_entry_borders_color #c9c7ba;
+@define-color entry_borders #a7a6aa;
+
+@define-color combo_border_color #a7a6aa;
+@define-color insensitive_combo_border_color #c9c7ba;
+@define-color insensitive_combo_edge_color #f5f4ea;
 
 /* Menus */
 
