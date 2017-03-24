@@ -217,11 +217,18 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   }
 
   &:insensitive {
-    //@include entry(insensitive);
     background-color: $bg_color;
-    box-shadow: inset 0px 0px 0px 2px $insensitive_entry_edge_color;
-    border-color: $insensitive_entry_border_color;
+    box-shadow: none;
     color: $insensitive_fg_color;
+  }
+  
+  .combobox-entry & {
+    border-color: $combo_border_color;
+
+    &:insensitive { 
+      box-shadow: inset 0px 0px 0px 2px $insensitive_combo_edge_color;
+      border-color: $insensitive_combo_border_color;
+    }
   }
 
   &:selected,
@@ -2134,6 +2141,8 @@ GtkProgressBar {
     border-width: 1px 0 0;
   }
 }
+
+.frame > .label { color: $frame_label; }
 
 GtkScrolledWindow {
   &.frame {
