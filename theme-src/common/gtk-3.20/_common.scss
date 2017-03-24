@@ -2773,6 +2773,8 @@ frame > border,
   &.flat { border-style: none; }
 }
 
+frame > label { color: $frame_label; }
+
 actionbar > revealer >  box {
   padding: 6px;
   border-top: 1px solid $separator_color;
