@@ -58,8 +58,11 @@ $separator_color: $menubar_bottom_edge;
 $frame_color: $separator_color;
 $frame_label:#335ea8;
 
-$insensitive_entry_border_color: #c9c7ba;
-$insensitive_entry_edge_color: #f5f4ea;
+$entry_border_color: #a7a6aa;
+
+$combo_border_color: #a7a6aa;
+$insensitive_combo_border_color: #c9c7ba;
+$insensitive_combo_edge_color: #f5f4ea;
 
 $notebook_bg: #fafaf9;
 $notebook_bg_a: #fbfcff;
