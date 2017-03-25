@@ -26,13 +26,16 @@
 /* Buttons */
 
 @define-color button_bg #d0dceb;
+@define-color button_bg_insensitive #fff;
 @define-color button_fg @theme_fg_color;
 @define-color button_borders #2d5082;
 
 /* Arrow */
 
 @define-color arrow #5b6473;
+@define-color arrow_active #6b7b84;
 @define-color arrow_insensitive #b7cbe3;
+@define-color arrow_spin_insensitive #b7cbe3;
 
 /* Entry */
 

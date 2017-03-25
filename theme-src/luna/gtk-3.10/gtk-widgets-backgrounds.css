@@ -139,7 +139,7 @@ GtkScaleButton.button:insensitive:active,
 .floating-bar .button:insensitive:active,
 #gtk-scalebutton-popup-window .button:insensitive,
 #gtk-scalebutton-popup-window .button:insensitive:active {
-    background-color: @insensitive_inner_box;
+    background-color: @button_bg_insensitive;
     background-image: none;
 }
 

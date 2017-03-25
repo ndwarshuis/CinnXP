@@ -65,13 +65,12 @@
 
 *:insensitive {
     color: @insensitive_fg_color;
-    text-shadow: 0 1px alpha(white, 0.4);
 }
 
 /* Apply Effects to insensitive and Prelit Images */
 
 *:insensitive {
-    -gtk-image-effect: dim;
+    -gtk-image-effect: none;
 }
 
 /*************
@@ -152,6 +151,10 @@ GtkComboBox .button {
 .button:insensitive {
     color: @insensitive_fg_color;
     icon-shadow: none;
+}
+
+.button > GtkLabel:insensitive {
+	text-shadow: none;
 }
 
 .primary-toolbar.toolbar .button.image-button {
@@ -478,14 +481,16 @@ GtkComboBox.combobox-entry .button  {
 }
 
 GtkComboBox.combobox-entry .button:hover  {
+    color: @arrow_active;
     background: url('Entry/entry-button-bg-hover.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:active  {
+    color: @arrow_active;
     background: url('Entry/entry-button-bg-active.png') no-repeat center center/100% 100%;
 }
 
-GtkComboBox.combobox-entry .button:insensitive  {
+GtkComboBox.combobox-entry .button:insensitive {
     color: @arrow_insensitive;
     background: url('Entry/entry-button-bg-insensitive.png') no-repeat center center/100% 100%;
 }
@@ -1838,6 +1843,7 @@ GtkMenuButton .menuitem.separator {
 }
 
 .spinbutton .button:hover {
+    color: @arrow_active;
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
@@ -1847,6 +1853,7 @@ GtkMenuButton .menuitem.separator {
 }
 
 .spinbutton .button:active {
+    color: @arrow_active;
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
@@ -1856,7 +1863,7 @@ GtkMenuButton .menuitem.separator {
 }
 
 .spinbutton .button:insensitive {
-	color: @arrow_insensitive;
+	color: @arrow_spin_insensitive;
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
