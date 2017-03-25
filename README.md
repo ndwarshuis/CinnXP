@@ -1,66 +1,66 @@
-#CinnXP
+# CinnXP
 
 make Cinnamon look and feel like the venerable Windows XP interface
 
 based on Mint-XP (fmcgorenc) and Adwaita
 
-##Current Flavors
-####Luna
+## Current Flavors
+#### Luna
 
 ![luna theme](luna.png?raw=true)
 
-####Metallic
+#### Metallic
 
 ![metallic theme](metallic.png?raw=true)
 
-####Royale
+#### Royale
 
 ![royale theme](royale.png?raw=true)
 
-####Theme contents
+#### Theme contents
 * cinnamon
 * gtk-2.0
 * gtk-3.0
 * metacity-1
 * cursor
 
-##Fonts
+## Fonts
 * Tahoma (Default, Desktop, Document)
 * Trebuchet MS Bold (Window Title)
 * Franklin Gothic Medium (Start Button)
 
-####Suggested Settings
+#### Suggested Settings
 * Antialiasing: Greyscale
 * Hinting: Full
 
 > These are required for full XP look, but not for theme to function. Fonts must be installed seperately.
 
-##Tips
+## Tips
 * QT apps have a few unavoidable bugs. If something "less buggy" is desired, open terminal, run `qtconfig-qt4` and select "Windows" under GUI style (this will look Win98-ish but at least it won't have bugs)
 * LibreOffice 5.0 and above may use gtk3 by default (sorta)...to get the gtk2 theme add "export SAL\_USE_VCLPLUGIN=gtk" to `~/.bashrc` 
 
-##Requirements
+## Requirements
 
-####General Users (Arch Linux and other bleeding edge distros)
+#### General Users (Arch Linux and other bleeding edge distros)
 * Cinnamon 3.x
 * Gtk 3.20+
 
-####Linux Mint 17.x users
+#### Linux Mint 17.x users
 * Cinnamon 2.x
 * Gtk 3.10
 
-####Linux Mint 18.x users
+#### Linux Mint 18.x users
 * Cinnamon 3.x
 * Gtk 3.18
 
-####All Users
+#### All Users
 * Pixmap and Adwaita gtk2 engines
 
-####Make depends (all users)
+#### Make depends (all users)
 * Ruby with Bundler and SASS Gems (to build css from scss)
 * xcursorgen (to build the cursor theme)
 
-##Obtaining Ruby and Gems
+## Obtaining Ruby and Gems
 Ruby must be installed via distro repositories
 * Mint: default package should work (depreciation warning can be ignored)
 * Arch et al: `sudo pacman -S ruby`
@@ -73,7 +73,7 @@ Install gems before running `compile-theme`
 
 > The `ruby-sass` package in Mint 17.x does not appear to work.
 
-##Manual installation
+## Manual installation
 
 1. Run `./compile-theme` in theme root directory. The result will be a file called "pkg"
   * Pass the `-f` parameter to specify the desired flavor
@@ -83,12 +83,12 @@ Install gems before running `compile-theme`
 
 > To compile for lower gtk versions, use the `-g` parameter. Pass `./compile-theme -h` for details. This is necessary for Linux Mint.
 
-##Notes for testing
+## Notes for testing
 Run `./test-theme` in the top-level directory to generate a directory of links to the appropriate gtk, cinnamon, and metacity files; the resulting file can be moved to `~/.themes` or `/usr/share/themes`. This is to allow faster/easier live testing of these components without compiling the entire package as above. Note that cursor themes will need to be compiled during testing. 
 
 > Command line args are analogous to `compile-theme`
 
-##ToDo List
+## ToDo List
 * Bug fixes
 * Prompt for root access in `compile-theme`
 * Automatic installation in `compile-theme`
