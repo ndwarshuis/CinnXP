@@ -436,7 +436,11 @@ button {
       &:active { @include button(active); }
     }
 
-    &:disabled { @include button(insensitive); }
+    &:disabled {
+      @include button(insensitive);
+
+      & > label { text-shadow: none; }
+    }
 
     &.image-button {
       min-width: 24px;
@@ -1010,16 +1014,18 @@ spinbutton {
       &:dir(rtl) { border-style: none solid none none; }
 
       &:hover {
+        color: $arrow_active;
         @include entry_button(hover, '', true);
       }
 
-      &:disabled {
-        color: $arrow_insensitive;
-        @include entry_button(insensitive, '', true);
+      &:active {
+        color: $arrow_active;
+        @include entry_button(active, '', true);
       }
 
-      &:active {
-        @include entry_button(active, '', true);
+      &:disabled {
+        color: $arrow_spin_insensitive;
+        @include entry_button(insensitive, '', true);
       }
     }
   }
@@ -1169,6 +1175,28 @@ combobox {
 .linked:not(.vertical) > combobox:first-child > box > button.combo { @extend %linked:first-child; }
 .linked:not(.vertical) > combobox:last-child > box > button.combo { @extend %linked:last-child; }
 .linked:not(.vertical) > combobox:only-child > box > button.combo { @extend %linked:only-child; }
+
+combobox > .linked:not(.vertical) > entry.combo ~ button.combo {
+  @include entry_button(normal, ltr);
+  padding: 0px 4px;
+  color: $arrow;
+
+  &:hover {
+    @include entry_button(hover, ltr);
+    color: $arrow_active;
+  }
+
+  &:active,
+  &:checked {
+    @include entry_button(active, ltr);
+    color: $arrow_active;
+  }
+  
+  &:disabled {
+    @include entry_button(insensitive, ltr);
+    color: $arrow_insensitive;
+  }
+}
 
 .linked.vertical > combobox > box > button.combo { @extend %linked_vertical_middle; }
 .linked.vertical > combobox:first-child > box > button.combo { @extend %linked_vertical:first-child;}
