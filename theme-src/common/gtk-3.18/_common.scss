@@ -1282,6 +1282,7 @@ column-header {
       border-image: url("Treeview/tree_header-active.png");
       border-image-slice: 4 8 4 8;
     }
+    &:insensitive { background-color: $tree_header_bg_color; }
     &.dnd {
       @extend column-header.button.dnd;
     }
