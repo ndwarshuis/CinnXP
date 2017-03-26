@@ -42,7 +42,7 @@
 @define-color toolbar_bottom_edge @insensitive_fg_color;
 
 /* Menu */
-@define-color menu_borders @insensitive_fg_color; /* TODO: NEED TO ADD THIS */
+@define-color menu_borders @insensitive_fg_color;
 @define-color menu_insensitive_fg_color @entry_insensitive_fg_color;
 @define-color menu_separator_color @menu_borders; /* TODO: NEED TO ADD THIS */
 @define-color menu_menuitem_selected_borders_color @selected_bg_color;

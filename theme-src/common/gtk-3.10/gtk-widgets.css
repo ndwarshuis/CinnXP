@@ -1171,9 +1171,9 @@ GtkMenuButton .menu {
     border: 1px solid @menu_borders;
     border-radius: 0;
     border-image: none;
-    background-color: @menu_bg;
+    background-color: @base_color;
     background-image: none;
-    color: @base_color;
+    color: @fg_color;
 }
 
 .menu.button:insensitive {
@@ -1182,7 +1182,7 @@ GtkMenuButton .menu {
     border-image: none;
     background-color: @base_color;
     background-image: none;
-    color: @insensitive_fg_color;
+    color: @menu_insensitive_fg_color;
 }
 
 /***********
