@@ -1,19 +1,17 @@
-gtk-color-scheme = "base_color:#fff"
-
-gtk-color-scheme = "fg_color:#000000"
 gtk-color-scheme = "bg_color:#ECE9D8"
 
-gtk-color-scheme = "selected_bg_color:#1466C9"
-gtk-color-scheme = "selected_fg_color:#fff"
-
-gtk-color-scheme = "text_color:#000"
-
-gtk-color-scheme = "insensitive_bg_color:#f4f4f2"
 gtk-color-scheme = "insensitive_fg_color:#a1a192"
 
-gtk-color-scheme = "tooltip_fg_color:#000"
-gtk-color-scheme = "tooltip_bg_color:#FFFFE2"
+gtk-color-scheme = "selected_bg_color:#316ac5"
+gtk-color-scheme = "selected_fg_color:#fff"
 
-gtk-color-scheme = "menubar_item_prelight_fg_color:#fff"
+gtk-color-scheme = "entry_insensitive_fg_color:#aca899"
 
-gtk-color-scheme = "frame_label:#0046d5"
+gtk-color-scheme = "button_insensitive_fg_color:#a1a192"
+
+gtk-color-scheme = "menu_insensitive_fg_color:#aca899"
+
+gtk-color-scheme = "menubar_menuitem_prelight_fg_color:#fff"
+gtk-color-scheme = "menubar_menuitem_insensitive_fg_color:#aca899"
+
+gtk-color-scheme = "frame_header_color:#0046d5"

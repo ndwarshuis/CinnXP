@@ -1,4 +1,5 @@
 include "color"
+include "color_common"
 
 gtk-auto-mnemonics              = 1
 gtk-primary-button-warps-slider = 1
@@ -71,12 +72,12 @@ style "default"
 # Colors
 
 	bg[NORMAL]			= @bg_color
-	bg[PRELIGHT]		= shade (1.02, @bg_color)
+	bg[PRELIGHT]		= @bg_color
 	bg[SELECTED]		= @selected_bg_color
 	bg[INSENSITIVE] 	= @bg_color
-	bg[ACTIVE]			= shade (0.9, @bg_color)
+	bg[ACTIVE]			= @bg_color
 
-	fg[NORMAL]			= @text_color
+	fg[NORMAL]			= @fg_color
 	fg[PRELIGHT]		= @fg_color
 	fg[SELECTED]		= @selected_fg_color
 	fg[INSENSITIVE]		= @insensitive_fg_color
@@ -89,7 +90,7 @@ style "default"
 	text[ACTIVE]		= @selected_fg_color
 
 	base[NORMAL]		= @base_color
-	base[PRELIGHT]		= shade (0.95, @bg_color)
+	base[PRELIGHT]		= @bg_color
 	base[SELECTED]		= @selected_bg_color
 	base[INSENSITIVE]	= @bg_color
 	base[ACTIVE]		= @selected_bg_color
@@ -873,6 +874,8 @@ style "menu"
 
 	GtkMenuItem::arrow-scaling = 0.4
 
+	fg[INSENSITIVE] = @menu_insensitive_fg_color
+
 	bg[NORMAL]		= @base_color
 	bg[INSENSITIVE] = @base_color
 	bg[PRELIGHT]    = @base_color
@@ -1127,7 +1130,8 @@ style "menubar_item"
 	xthickness	= 1
 	ythickness	= 4
 	bg[PRELIGHT]	= @selected_bg_color
-	fg[PRELIGHT]	= @menubar_item_prelight_fg_color
+	fg[PRELIGHT]	= @menubar_menuitem_prelight_fg_color
+	fg[INSENSITIVE]	= @menubar_menuitem_insensitive_fg_color
 
 	engine "pixmap"
 	{
@@ -1184,6 +1188,12 @@ style "button"
 			stretch		= TRUE
 		}
 	}
+}
+
+style "button_label"
+{
+	fg[NORMAL] 		= @fg_color
+	fg[INSENSITIVE]	= @button_insensitive_fg_color
 }
 
 style "pathbar_button"
@@ -1314,8 +1324,9 @@ style "button_toolbar"
 
 style "checkbutton"
 {
-	fg[PRELIGHT] = @text_color
-	fg[ACTIVE]   = @text_color
+	fg[PRELIGHT] 	= @text_color
+	fg[ACTIVE]   	= @text_color
+	fg[INSENSITIVE]	= @insensitive_fg_color
 }
 
 style "entry"
@@ -1325,6 +1336,8 @@ style "entry"
 
 	base[NORMAL] 		= @base_color
 	base[INSENSITIVE]	= @bg_color
+
+	text[INSENSITIVE] 	= @entry_insensitive_fg_color
 
 	engine "pixmap"
 	{
@@ -2405,9 +2418,9 @@ style "frame"
 	}
 }
 
-style "frame_label"
+style "frame_header_color"
 {
-	fg[NORMAL] = @frame_label
+	fg[NORMAL] = @frame_header_color
 }
 
 style "color_frame"
@@ -2905,7 +2918,9 @@ widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"  	style "noteboo
 widget_class "*<GtkColorButton>*<GtkFrame>"  						style "color_frame"
 widget_class "*<GtkColorSelection>*<GtkFrame>" 						style "color_frame"
 
-widget_class "*<GtkFrame>.<GtkLabel>" 								style "frame_label"
+widget_class "*<GtkFrame>.<GtkLabel>" 								style "frame_header_color"
+widget_class "*<GtkButton>.<GtkLabel>" 								style "button_label"
+widget_class "*<GtkCheckButton>.<GtkLabel>" 						style "checkbutton" #redundancy
 
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"				style "entry"
 
