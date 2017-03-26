@@ -20,8 +20,9 @@
 // buttons
 
 $button_radius: 2px;
+$button_bg_color: #d0dceb;
 
-@mixin button($t, $c:$button_color, $tc:$fg_color, $edge: $borders_edge) {
+@mixin button($t, $c:$button_bg_color, $tc:$fg_color, $edge: $borders_edge) {
 //
 // Button drawing function
 //
@@ -150,7 +151,7 @@ $button_radius: 2px;
   //
     color: $tc;
     outline-color: transparentize($tc, 0.5);
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background: $_button_bg;
     box-shadow: $_button_edge;
   }
@@ -161,7 +162,7 @@ $button_radius: 2px;
   //
     color: $tc;
     outline-color: transparentize($tc, 0.5);
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background: $_button_default_mask, $_button_bg;
     box-shadow: $_button_edge;
   }
@@ -172,7 +173,7 @@ $button_radius: 2px;
   //
     color: $tc;
     outline-color: transparentize($tc, 0.5);
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background: $_button_hover_mask, $_button_bg;
     box-shadow: $_button_edge;
   }
@@ -183,7 +184,7 @@ $button_radius: 2px;
   //
     color: $tc;
     outline-color: transparentize($tc, 0.5);
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background: $_button_bg_active;
     box-shadow: $_button_edge;
   }
@@ -194,7 +195,7 @@ $button_radius: 2px;
     color: $insensitive_fg_color;
     border-color: $insensitive_borders_color;
     background-image: none;
-    background-color: $base_color;
+    background-color: $button_insensitive_bg_color;
     text-shadow: none;
     -gtk-icon-shadow: none;
     box-shadow: none;
@@ -208,7 +209,7 @@ $button_radius: 2px;
                             $osd_bg_color);
 
     color: $osd_fg_color;
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background-color: $_bg;
     background-image: none;
     background-clip: padding-box;
@@ -222,7 +223,7 @@ $button_radius: 2px;
     $_bg: if($c!=$bg_color, transparentize(lighten($c, 8%), 0.3), lighten($osd_bg_color, 12%));
 
     //color: white;
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background-color: $_bg;
     background-image: none;
     background-clip: padding-box;
@@ -237,7 +238,7 @@ $button_radius: 2px;
     $_bg: if($c!=$bg_color, $c, $osd_borders_color);
 
     //color: white;
-    border-color: $button_borders;
+    border-color: $button_borders_color;
     background-color: $_bg;
     background-image: none;
     background-clip: padding-box;
@@ -259,22 +260,6 @@ $button_radius: 2px;
     text-shadow: none;
     -gtk-icon-shadow: none;
   }
-  @else if $t==osd-backdrop {
-  //
-  // backdrop osd button
-  //
-    $_bg: if($c!=$bg_color, transparentize($c, 0.5),
-                            $osd_bg_color);
-
-    color: $osd_fg_color;
-    border-color: $osd_borders_color;
-    background-color: $_bg;
-    background-image: none;
-    background-clip: padding-box;
-    box-shadow: none;
-    text-shadow: none;
-    -gtk-icon-shadow: none;
-  }
   @else if $t==undecorated {
   //
   // reset
@@ -290,3 +275,8 @@ $button_radius: 2px;
     -gtk-icon-shadow: none;
   }
 }
+
+$inset_shadow: inset 2px 2px black,
+               inset -2px -2px #eceaee,
+               inset 1px 1px #a7a6aa,
+               inset -1px -1px white;

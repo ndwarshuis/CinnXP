@@ -43,7 +43,7 @@ insensitive text widgets and the like base background color */
 
 /*
 widget text/foreground color on backdrop windows */
-@define-color theme_unfocused_fg_color #{"" +$backdrop_fg_color};
+@define-color theme_unfocused_fg_color #{"" +$fg_color};
 
 /*
 text color for entries, views and content in general on backdrop windows */
@@ -51,11 +51,11 @@ text color for entries, views and content in general on backdrop windows */
 
 /*
 widget base background color on backdrop windows */
-@define-color theme_unfocused_bg_color #{"" +$backdrop_bg_color};
+@define-color theme_unfocused_bg_color #{"" +$bg_color};
 
 /*
 text widgets and the like base background color on backdrop windows */
-@define-color theme_unfocused_base_color #{"" +$backdrop_base_color};
+@define-color theme_unfocused_base_color #{"" +$base_color};
 
 /*
 base background color of selections on backdrop windows */
@@ -71,7 +71,7 @@ widgets main borders color */
 
 /*
 widgets main borders color on backdrop windows */
-@define-color unfocused_borders #{"" +$backdrop_borders_color};
+@define-color unfocused_borders #{"" +$borders_color};
 
 /*
 these are pretty self explicative */
@@ -82,13 +82,13 @@ these are pretty self explicative */
 
 //WM
 
-$_wm_highlight: $top_hilight;
+$_wm_highlight: white;
 
 /*
 these colors are exported for the window manager and shouldn't be used in applications,
 read if you used those and something break with a version upgrade you're on your own... */
 @define-color wm_title shade(#{"" + $fg_color}, 1.8);
-@define-color wm_unfocused_title #{$backdrop_fg_color};
+@define-color wm_unfocused_title #{"" + $fg_color};
 @define-color wm_highlight #{"" + $_wm_highlight};
 @define-color wm_borders_edge #{"" + $borders_edge};
 

@@ -41,7 +41,7 @@
  ***************/
 .background {
   color: $fg_color;
-  background-color: darken($bg_color, 1.5%);
+  background-color: $bg_color;
 }
 
 /*
@@ -172,8 +172,7 @@ label {
 assistant {
   .sidebar {
     background-color: $base_color;
-    border-top: 1px solid $borders_color;
-
+    border-top: 1px solid $view_borders_color;
   }
 
   &.csd .sidebar { border-top-style: none; }
@@ -225,7 +224,7 @@ entry {
   %entry_basic, & {
     min-height: 18px;
     padding: 5px 8px 6px;
-    border: 1px solid $entry_border_color;
+    border: 1px solid $entry_borders_color;
     border-radius: 0px;
 
     background-color: $base_color;
@@ -245,17 +244,17 @@ entry {
     }
 
     &:disabled {
-      background-color: $bg_color;
+      background-color: $entry_insensitive_bg_color;
       box-shadow: none;
-      color: $insensitive_fg_color;
+      color: $entry_insensitive_fg_color;
     }
 
     &.combo {
-      border-color: $combo_border_color;
+      border-color: $combo_borders_color;
       
 	  &:disabled {
-        box-shadow: inset 0px 0px 0px 2px $insensitive_combo_edge_color;
-        border-color: $insensitive_combo_border_color;
+        box-shadow: inset 0px 0px 0px 2px $combo_insensitive_edge_color;
+        border-color: $combo_insensitive_borders_color;
 	  }
 	}
 
@@ -477,8 +476,6 @@ button {
       &.flat:not(:active):not(:checked):not(:hover):not(disabled) {
         color: $selected_fg_color;
         border-color: transparent;
-
-        &:backdrop { color: $backdrop_base_color; }
       }
     }
   }
@@ -1005,7 +1002,7 @@ spinbutton {
       min-width: 26px;
       margin: 0;
       padding: 0;
-      color: $arrow;
+      color: $arrow_color;
       
       @include entry_button(normal, '', true);
 
@@ -1014,17 +1011,17 @@ spinbutton {
       &:dir(rtl) { border-style: none solid none none; }
 
       &:hover {
-        color: $arrow_active;
+        color: $arrow_active_color;
         @include entry_button(hover, '', true);
       }
 
       &:active {
-        color: $arrow_active;
+        color: $arrow_active_color;
         @include entry_button(active, '', true);
       }
 
       &:disabled {
-        color: $arrow_spin_insensitive;
+        color: $arrow_spin_insensitive_color;
         @include entry_button(insensitive, '', true);
       }
     }
@@ -1075,7 +1072,7 @@ spinbutton {
 
     // FIXME: this should not be set at all, but otherwise it gets the wrong
     // color
-    &:disabled { color: $insensitive_fg_color; }
+    &:disabled { color: $button_insensitive_fg_color; }
 
 //    &:drop(active) {
 //      border-color: transparent;
@@ -1087,8 +1084,11 @@ spinbutton {
       min-width: 42px;
       padding: 0;
       border-radius: 0;
-      border-color: $button_borders;
-      &:disabled { border-color: $insensitive_borders_color; }
+      border-color: $button_borders_color;
+      &:disabled {
+        color: $entry_insensitive_fg_color;
+        border-color: $button_insensitive_borders_color;
+      }
     }
 
     button {
@@ -1179,22 +1179,22 @@ combobox {
 combobox > .linked:not(.vertical) > entry.combo ~ button.combo {
   @include entry_button(normal, ltr);
   padding: 0px 4px;
-  color: $arrow;
+  color: $arrow_color;
 
   &:hover {
     @include entry_button(hover, ltr);
-    color: $arrow_active;
+    color: $arrow_active_color;
   }
 
   &:active,
   &:checked {
     @include entry_button(active, ltr);
-    color: $arrow_active;
+    color: $arrow_active_color;
   }
   
   &:disabled {
     @include entry_button(insensitive, ltr);
-    color: $arrow_insensitive;
+    color: $arrow_insensitive_color;
   }
 }
 
@@ -1238,10 +1238,10 @@ toolbar {
     border: none;
     background: none;
     background-color: $bg_color;
-    box-shadow: inset 0px 1px $menubar_top_edge,
-                inset 0px -1px $menubar_bottom_edge,
-                inset 1px 0px $menubar_top_edge,
-                inset -1px 0px $menubar_bottom_edge;
+    box-shadow: inset 0px 1px $toolbar_top_edge,
+                inset 0px -1px $toolbar_bottom_edge,
+                inset 1px 0px $toolbar_top_edge,
+                inset -1px 0px $toolbar_bottom_edge;
   }
 
   // toolbar separators
@@ -1281,7 +1281,7 @@ EvAnnotationsToolbar.toolbar.inline-toolbar {
 
   border-width: 0 0 1px;
   box-shadow: inset 0px 2px 3px -1px mix(black, $bg_color, 60%),
-              inset 0 -1px $separator_color;
+              inset 0 -1px $toolbar_bottom_edge;
               
   padding: 3px;
 }
@@ -1318,8 +1318,6 @@ headerbar {
   }
 
   &.selection-mode {
-    $_hc: mix($top_hilight,$selected_bg_color, 50%); // hilight color
-
     color: $selected_fg_color;
     border-color: $selected_borders_color;
     text-shadow: 0 -1px transparentize(black, 0.5);
@@ -1327,8 +1325,6 @@ headerbar {
     background-image: linear-gradient(to bottom,
                                       lighten($selected_bg_color,5%),
                                       $selected_bg_color);
-    box-shadow: inset 0 -1px mix($selected_borders_color, $selected_bg_color, 35%), //bottom shade
-                inset 0 1px $_hc;
 
     .subtitle:link { @extend *:link:selected;  }
 
@@ -1351,25 +1347,11 @@ headerbar {
       &.suggested-action {
         @include button(normal);
 
-        border-color: $selected_borders_color;
+        &:hover { @include button(hover); }
 
-        &:hover {
-          @include button(hover);
+        &:active { @include button(active); }
 
-          border-color: $selected_borders_color;
-        }
-
-        &:active {
-          @include button(active);
-
-          border-color: $selected_borders_color;
-        }
-
-        &:disabled {
-          @include button(insensitive);
-
-          border-color: $selected_borders_color;
-        }
+        &:disabled { @include button(insensitive); }
       }
     }
 
@@ -1580,7 +1562,7 @@ treeview.view {
     button {
       @extend %column_header_button;
 
-      background-color: $tree_header_bg;
+      background-color: $tree_header_bg_color;
       border-style: solid;
       border-color: transparent;
       border-width: 4px 8px 4px 8px;
@@ -1590,14 +1572,14 @@ treeview.view {
       &:hover {
         @extend %column_header_button;
 
-        background-color: $tree_header_hover_bg;
+        background-color: $tree_header_hover_bg_color;
         border-image: url("Treeview/tree_header-hover.png");
         border-image-slice: 4 8 4 8;
       }
 
       &:active {
         @extend %column_header_button;
-        background-color: $tree_header_active_bg;
+        background-color: $tree_header_active_bg_color;
         border-image: url("Treeview/tree_header-active.png");
         border-image-slice: 4 8 4 8;
       }
@@ -1651,18 +1633,18 @@ menubar,
     border: 1px solid transparent;
 
     &:hover { //Seems like it :hover even with keyboard focus
-      color: $menubar_item_hover_fg_color;
+      color: $menubar_menuitem_hover_fg_color;
       border-image: url('Menu-Menubar/menubar_item.png');
       border-image-slice: 1 1 1 1;
-      background-color: $menubar_item_hover_bg_color;
+      background-color: $menubar_menuitem_hover_bg_color;
     }
 
     &:disabled {
-      color: $insensitive_fg_color;
+      color: $menubar_menuitem_insensitive_fg_color;
       box-shadow: none;
     }
     &:backdrop {
-      color: $backdrop_text_color;
+      color: $menubar_menuitem_backdrop_fg_color;
 	}
   }
 }
@@ -1690,7 +1672,7 @@ menu,
       background-color: $selected_bg_color;
     }
 
-    &:disabled { color: $insensitive_fg_color; }
+    &:disabled { color: $menu_insensitive_fg_color; }
 
     // submenu indicators
     arrow {
@@ -1940,7 +1922,7 @@ notebook {
 
         &:hover {
           color:  $fg_color;
-          border: 1px solid $button_borders;
+          border: 1px solid $button_borders_color;
           background-image: none;
           box-shadow: none;
           -gtk-icon-shadow: none;
@@ -2057,34 +2039,34 @@ notebook {
 
 
     &.top tab,
-    &.left tab, { background-color: $notebook_bg_a; }
+    &.left tab, { background-color: $notebook_bg_a_color; }
 
     &.bottom tab,
-    &.right tab, { background-color: $notebook_bg; }
+    &.right tab, { background-color: $notebook_bg_color; }
 
     &.top + stack {
       background-image: linear-gradient(to bottom,
-                                        $notebook_bg_a,
-                                        $notebook_bg_b
+                                        $notebook_bg_a_color,
+                                        $notebook_bg_b_color
                                         );
-      box-shadow: inset 1px 0px $notebook_bg_a,
-                  inset -1px 0px $notebook_bg_a,
-                  inset 0px -1px $notebook_bg_a;
+      box-shadow: inset 1px 0px $notebook_bg_a_color,
+                  inset -1px 0px $notebook_bg_a_color,
+                  inset 0px -1px $notebook_bg_a_color;
     }
     &.left + stack {
       background-image: linear-gradient(to right,
-                                        $notebook_bg_a,
-                                        $notebook_bg_b
+                                        $notebook_bg_a_color,
+                                        $notebook_bg_b_color
                                         );
-      box-shadow: inset -1px 0px $notebook_bg_a,
-                  inset 0px 1px $notebook_bg_a,
-                  inset 0px -1px $notebook_bg_a;
+      box-shadow: inset -1px 0px $notebook_bg_a_color,
+                  inset 0px 1px $notebook_bg_a_color,
+                  inset 0px -1px $notebook_bg_a_color;
     }
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    background-color: $notebook_bg;
-    border: 1px solid $notebook_borders;
+    background-color: $notebook_bg_color;
+    border: 1px solid $notebook_borders_color;
     box-shadow: none;
   }
 }
@@ -2216,7 +2198,7 @@ switch {
   outline-offset: -4px;
 
   // similar to the .scale
-  border: 1px solid $button_borders;
+  border: 1px solid $button_borders_color;
   color: $fg_color;
   border-radius: $button_radius;
   @include button(active);
@@ -2239,8 +2221,8 @@ switch {
     box-shadow: none;
     border-color: $selected_borders_color;
 
-    &.slider:dir(rtl) { border-left-color: $borders_color; }
-    &.slider:dir(ltr) { border-right-color: $borders_color; }
+    &.slider:dir(rtl) { border-left-color: $view_borders_color; }
+    &.slider:dir(ltr) { border-right-color: $view_borders_color; }
 
     &.slider { &:checked, & { border-color: $selected_borders_color; }}
   }
@@ -2488,7 +2470,7 @@ scale {
   value { color: gtkalpha(currentColor, 0.4); }
 
   marks {
-    color: gtkalpha(currentColor, 0.4);
+    color: $range_marks_color;
 
     @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
                                                      (bottom, bottom, top),
@@ -2809,7 +2791,7 @@ frame > border,
   &.flat { border-style: none; }
 }
 
-frame > label { color: $frame_label; }
+frame > label { color: $frame_header_color; }
 
 actionbar > revealer >  box {
   padding: 6px;
@@ -2818,7 +2800,7 @@ actionbar > revealer >  box {
 
 scrolledwindow {
   &.frame {
-    border-color: $borders_color;
+    border-color: $view_borders_color;
     border-radius: 0px;
   }
   viewport.frame { // avoid double borders when viewport inside scrolled window
@@ -2841,7 +2823,7 @@ scrolledwindow {
   junction { // the small square between two scrollbars
     border-color: transparent;
     // the border image is used to add the missing dot between the borders, details, details, details...
-    border-image: linear-gradient(to bottom, $borders_color 1px, transparent 1px) 0 0 0 1 / 0 1px stretch;
+    border-image: linear-gradient(to bottom, $view_borders_color 1px, transparent 1px) 0 0 0 1 / 0 1px stretch;
     background-color: $scrollbar_bg_color;
 
     &:dir(rtl) { border-image-slice: 0 1 0 0; }
@@ -2862,7 +2844,7 @@ separator {
 list {
   color: $text_color;
   background-color: $base_color;
-  border-color: $borders_color;
+  border-color: $view_borders_color;
 
   row {
     padding: 2px;
@@ -2946,7 +2928,9 @@ calendar {
   outline-offset: -1px;
 
   &:selected {
-    @extend %selected_items;
+    outline-color: $selected_outline_color;
+    color: $calendar_selected_fg_color;
+    background-color: $calendar_selected_bg_color;
   }
 
   &.header {
@@ -3276,7 +3260,7 @@ infobar {
       &:checked { @include button(active, $selected_bg_color, $selected_fg_color, none); }
 
       &:disabled {
-        @include button(insensitive,$selected_bg_color, $insensitive_fg_color, none);
+        @include button(insensitive,$selected_bg_color, $button_insensitive_fg_color, none);
 
         & label { color: $insensitive_fg_color; }
       }
@@ -3377,7 +3361,7 @@ colorswatch {
     border-radius: 0;
 
     overlay {
-      border: 1px solid $button_borders;
+      border: 1px solid $button_borders_color;
 
       @include button(normal);
 

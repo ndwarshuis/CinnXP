@@ -1,91 +1,62 @@
-$base_color: #ffffff;
-$text_color: black;
+// GENERIC
 $bg_color: #e0dfe3;
-$fg_color: black;
 
-$insensitive_fg_color: #a1a192;
+$insensitive_fg_color: #9d9da1;
 $insensitive_bg_color: #f1f1ed;
-$insensitive_borders_color: #c9c7ba;
-
-$tooltip_bg_color: #FFFFE2;
-$tooltip_fg_color: $fg_color;
-$tooltip_borders_color: black;
+$insensitive_borders_color: #c4c3bf;
 
 $selected_fg_color: #000;
 $selected_bg_color: #b2b4bf;
-$selected_borders_color: darken($selected_bg_color, 30%);
 $selected_outline_color: #4d4b40;
 
-$borders_color: #a5acb2;
-$borders_edge: white;
-$link_color: darken($selected_bg_color,10%);
-$link_visited_color: darken($selected_bg_color,20%);
-$top_hilight: $borders_edge;
+$borders_color: #7f9db9;
 
-$menu_borders: #9d9da1;
-$menubar_item_hover_fg_color: #000;
-$menubar_item_hover_bg_color: #bbb7c7;
-$menubar_top_edge: white;
-$menubar_bottom_edge: #bfbfc5; //this isn't the real color but it looks way better
+// LINK
+$link_color: #648bcb;
+$link_visited_color: #CB64C0;
 
-$scrollbar_bg_color: darken($bg_color, 7%);
-$sidebar_bg_color: $base_color;
+// ENTRIES
+$entry_borders_color: #a5acb2;
+$entry_insensitive_fg_color: #aca899;
 
-$warning_color: #f57900;
-$error_color: #cc0000;
-$success_color: #73d216;
-$destructive_color: #ef2929;
+// BUTTONS
+$button_borders_color: #003c74;
+$button_insensitive_fg_color: #a1a192;
 
-$backdrop_base_color: darken($base_color, 1%);
-$backdrop_text_color: #aca899;
-$backdrop_bg_color: $bg_color;
-$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
-$backdrop_insensitive_color: darken($backdrop_bg_color, 15%);
-$backdrop_borders_color: mix($borders_color, $bg_color, 90%);
-$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
+// MENUBAR-MENUITEM
+$menubar_menuitem_insensitive_fg_color: #aca899;
+$menubar_menuitem_hover_fg_color: #000;
+$menubar_menuitem_hover_bg_color: #bbb7c7;
 
-$osd_fg_color: $fg_color;
-$osd_text_color: $text_color;
-$osd_bg_color: mix($bg_color, $base_color, 50%);
-$osd_insensitive_bg_color: $insensitive_bg_color;
-$osd_insensitive_fg_color: $insensitive_fg_color;
-$osd_borders_color: $menu_borders;
-
-$button_color: #dedfec;
-$button_borders: #003C74;
-
-$separator_color: $menubar_bottom_edge;
+// FRAMES
 $frame_color: #bfb8bf;
-$frame_label: #0046d5;
+$frame_header_color: #0046d5;
+$separator_color: #cac6b5;
 
-$entry_border_color: #a5acb2;
+// NOTEBOOKS
+$notebook_bg_color: #fafaf9;
+$notebook_bg_a_color: #fcfcfe;
+$notebook_bg_b_color: #f4f3ee;
+$notebook_borders_color: #919b9c;
 
-$combo_border_color: #7f9db9;
-$insensitive_combo_border_color: #c9c7ba;
-$insensitive_combo_edge_color: #f5f4ea;
+// COLUMN HEADERS
+$tree_header_bg_color: #f9fafd;
+$tree_header_hover_bg_color: #fefefe;
+$tree_header_active_bg_color: #ececf3;
 
-$notebook_bg: #fafaf9;
-$notebook_bg_a: #fcfcfe;
-$notebook_bg_b: #f4f3ee;
-$notebook_borders: #919b9c;
+// ARROWS
+$arrow_color: #3f3d3d;
+$arrow_active_color: #202020;
+$arrow_insensitive_color: #c9c9c2;
+$arrow_spin_insensitive_color: #c9c9c2;
 
-$tree_header_bg: #f9fafd;
-$tree_header_hover_bg: #fefefe;
-$tree_header_active_bg: #ececf3;
-
-$arrow: #3f3d3d;
-$arrow_active: #202020;
-$arrow_insensitive: #c9c9c2;
-$arrow_spin_insensitive: #c9c9c2;
-
+// CALENDAR
 $calendar_header_bg_color: #fff;
 $calendar_header_fg_color: #a2a1a1;
+$calendar_selected_fg_color: #0e1010;
+$calendar_selected_bg_color: #c0c0c0;
 
+// NEMO
 $nemo_searchbar_bg_color: #d6dff7;
 $nemo_places_bg_color: #8A8D99;
 $nemo_sidebar_hover_color: #000080;
-
-$inset_shadow: inset 2px 2px #716f64,
-               inset -2px -2px #f1efe2,
-               inset 1px 1px #9d9da1,
-               inset -1px -1px white;
