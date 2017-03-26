@@ -164,8 +164,8 @@ $button_bg_color: #dedfec;
   //
   // insensitive button
   //
-    color: $insensitive_fg_color;
-    border-color: $insensitive_borders_color;
+    color: $button_insensitive_fg_color;
+    border-color: $button_insensitive_borders_color;
     background-image: none;
     background-color: $button_insensitive_bg_color;
     text-shadow: none;
