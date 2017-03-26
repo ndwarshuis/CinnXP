@@ -1166,9 +1166,8 @@ GtkMenuButton .menu {
     background-color: @base_color;
 }
 
-.menu.button,
-.menu.button:hover {
-    border: 1px solid @menu_borders;
+.menu.button {
+    border: 1px solid transparent;
     border-radius: 0;
     border-image: none;
     background-color: @base_color;
@@ -1176,10 +1175,19 @@ GtkMenuButton .menu {
     color: @fg_color;
 }
 
-.menu.button:insensitive {
-    border: 1px solid @menu_borders;
-    border-radius: 0;
+.menu.button:hover {
+    border: 1px solid @menu_menuitem_selected_borders_color;
     border-image: none;
+    border-radius: 0px;
+    background-color: @menu_menuitem_selected_bg_color;
+    background-image: none;
+    color: @selected_fg_color;
+}
+
+.menu.button:insensitive {
+    border: 1px solid transparent;
+    border-image: none;
+    border-radius: 0px;
     background-color: @base_color;
     background-image: none;
     color: @menu_insensitive_fg_color;
