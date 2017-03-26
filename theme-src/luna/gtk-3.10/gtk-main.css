@@ -1,77 +1,65 @@
-/* Default Color Scheme */
-
-@define-color theme_bg_color #ECE9D8;
-@define-color theme_fg_color #000000;
-@define-color theme_base_color #ffffff;
-@define-color theme_text_color #000000;
-@define-color theme_selected_bg_color #1466C9;
-@define-color theme_selected_fg_color #ffffff;
-@define-color theme_tooltip_bg_color #FFFFE2;
-@define-color theme_tooltip_fg_color @theme_text_color;
-@define-color theme_tooltip_borders black;
-
-/* Misc Colors */
+/* Generic */
+@define-color bg_color #ece9d8;
 
 @define-color insensitive_fg_color #a1a192;
-@define-color border shade(@theme_bg_color, 0.7);
-@define-color internal_element_color shade(@theme_fg_color, 0.7);
-@define-color internal_element_prelight shade(@theme_fg_color, 0.9);
+@define-color insensitive_bg_color #f5f4ea;
 @define-color insensitive_borders_color #c9c7ba;
-@define-color frame_color #d0d0bf;
-@define-color frame_label #0046d5;
-@define-color backdrop_text_color #aca899;
-@define-color borders_color #7b9ebd;
-@define-color separator_color #cac6af;
+
+@define-color selected_fg_color #fff;
+@define-color selected_bg_color #316ac5;
+@define-color selected_outline_color #ffab1c;
+
+@define-color borders_color #7f9db9;
+
+/* Link */
+@define-color link_color #000080;
+@define-color link_visited_color #800080;
+
+/* Entries */
+@define-color entry_borders_color #7f9db9;
+@define-color entry_insensitive_fg_color #aca899;
 
 /* Buttons */
+@define-color button_borders_color #003c74;
+@define-color button_insensitive_fg_color #a1a192;
 
-@define-color button_bg #f4f4f0;
-@define-color button_bg_insensitive #f5f4ea;
-@define-color button_fg @theme_fg_color;
-@define-color button_borders #003c74;
-
-/* Arrow */
-
-@define-color arrow #4d6185;
-@define-color arrow_active #4d6185;
-@define-color arrow_insensitive #c9c9c2;
-@define-color arrow_spin_insensitive #c9c9c2;
-
-/* Entry */
-
-@define-color entry_borders #7b9ebd;
-
-@define-color combo_border_color #7b9ebd;
-@define-color insensitive_combo_border_color #c9c7ba;
-@define-color insensitive_combo_edge_color #f5f4ea;
-
-/* Menus */
-
-@define-color menu_borders #a1a192;
-@define-color menu_bg @theme_base_color;
-@define-color menu_fg @theme_fg_color;
+/* Menubar-Menuitem */
+@define-color menubar_menuitem_insensitive_fg_color #aca899;
 @define-color menubar_item_hover_fg_color #fff;
 @define-color menubar_item_hover_bg_color #316ac5;
 
-/* Notebooks */
+/* Frames */
+@define-color frame_color #d0d0bf;
+@define-color frame_header_color #0046d5;
+@define-color separator_color #cac6af;
 
-@define-color notebook_bg #fafaf9;
-@define-color notebook_bg_a #fcfcfe;
-@define-color notebook_bg_b #f4f3ee;
+/* Notebooks */
+@define-color notebook_bg_color #fafaf9;
+@define-color notebook_bg_a_color #fcfcfe;
+@define-color notebook_bg_b_color #f4f3ee;
 @define-color notebook_borders_color #919b9c;
 
 /* Column Headers */
-@define-color column_header_bg #ebeadb;
-@define-color hover_column_header_bg #faf8f3;
-@define-color active_column_header_bg #dedfd8;
+@define-color tree_header_bg_color #ebeadb;
+@define-color tree_header_hover_bg_color #faf8f3;
+@define-color tree_header_active_bg_color #dedfd8;
 
-/* Views */
+/* Arrow */
+@define-color arrow_color #4d6185;
+@define-color arrow_active_color #4d6185;
+@define-color arrow_insensitive_color #c9c9c2;
+@define-color arrow_spin_insensitive_color #c9c9c2;
 
-@define-color sidebar_bg @theme_base_color;
+/* Calendar */
+@define-color calendar_header_fg_color #d8e4f8;
+@define-color calendar_header_bg_color #7a96df;
+@define-color calendar_selected_fg_color #fff;
+@define-color calendar_selected_bg_color #0054e3;
 
 /* Nemo */
 @define-color nemo_searchbar_bg_color #d6dff7;
 @define-color nemo_places_bg_color #687FD9;
+@define-color nemo_sidebar_hover_color #000080;
 
 @import url("gtk-main-common.css");
 @import url("gtk-widgets.css");

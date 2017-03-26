@@ -1,29 +1,63 @@
-/*****************
- * Desktop Items *
- *****************/
+/* Generic */
+@define-color base_color #fff;
+@define-color text_color #000;
+@define-color fg_color @text_color;
 
- @define-color desktop_item_fg white;
- @define-color desktop_item_selected_fg @theme_selected_fg_color;
- @define-color desktop_item_text_shadow black;
+@define-color osd_fg @fg_color;
+@define-color osd_bg mix(@bg_color, @base_color, 0.5);
 
-/*********************
- * Error/Warning/... *
- *********************/
-@define-color link_color #4a90d9;
+/* Desktop Items */
+@define-color desktop_item_fg #fff;
+@define-color desktop_item_selected_fg @selected_fg_color;
+@define-color desktop_item_text_shadow #000;
+
+/* Tooltips */
+@define-color theme_tooltip_bg_color #FFFFE2;
+@define-color theme_tooltip_fg_color @text_color;
+@define-color theme_tooltip_borders #000;
+
+/* Warning */
 @define-color info_color #fafafa;
 @define-color question_color #55c1ec;
-@define-color warning_color #fdde76;
-@define-color error_color #e35d4f;
-@define-color success_color #4e9a06;
+@define-color warning_color #f57900;
+@define-color error_color #cc0000;
+@define-color success_color #73d216;
 
-@define-color infobar_fg_color white;
-@define-color infobar_text_shadow alpha(black, 0.3);
+/* Buttons */
+@define-color button_insensitive_bg_color @insensitive_bg_color;
+@define-color button_insensitive_borders_color @insensitive_borders_color;
 
-/*******
- * OSD *
- *******/
+/* Entries */
+@define-color entry_insensitive_bg_color @bg_color;
 
-@define-color osd_base #212526;
-@define-color osd_fg @theme_fg_color;
-@define-color osd_bg mix(@theme_bg_color, @theme_base_color, 0.5);
-@define-color osd_trough_bg shade(@osd_fg, 0.1);
+/* Combos */
+@define-color combo_borders_color @borders_color;
+@define-color combo_insensitive_fg_color @entry_insensitive_fg_color;
+@define-color combo_insensitive_bg_color @bg_color;
+@define-color combo_insensitive_borders_color #c9c7ba;
+@define-color combo_insensitive_edge_color #f5f4ea;
+
+/* Toolbars */
+@define-color toolbar_top_edge #fff;
+@define-color toolbar_bottom_edge @insensitive_fg_color;
+
+/* Menu */
+@define-color menu_borders @insensitive_fg_color; /* TODO: NEED TO ADD THIS */
+@define-color menu_insensitive_fg_color @entry_insensitive_fg_color;
+@define-color menu_separator_color @menu_borders; /* TODO: NEED TO ADD THIS */
+
+/* Menubar */
+@define-color menubar_top_edge #fff;
+@define-color menubar_bottom_edge @insensitive_fg_color;
+
+/* Menubar-Menuitem */
+@define-color menubar_menuitem_backdrop_fg_color @insensitive_fg_color;
+
+/* Frames */
+@define-color view_borders_color @borders_color;
+
+/* Sidebar */
+@define-color sidebar_bg @base_color;
+
+/* Range */
+@define-color range_marks_color @button_insensitive_fg_color;

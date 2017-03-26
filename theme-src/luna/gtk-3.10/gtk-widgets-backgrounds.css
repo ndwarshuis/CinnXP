@@ -1,3 +1,5 @@
+@define-color button_bg_color #f4f4f0;
+
 /**********
  * button *
  **********/
@@ -21,11 +23,11 @@ GtkSwitch.slider:active {
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -65,11 +67,11 @@ GtkSwitch.slider:active {
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -109,9 +111,9 @@ GtkScaleButton.button:active:hover,
                                 transparent 2px
                                 ),
                 linear-gradient(to top,
-                                shade(@button_bg, 1.01),
-                                shade(@button_bg, 0.96) 2px,
-                                shade(@button_bg, 0.94)
+                                shade(@button_bg_color, 1.01),
+                                shade(@button_bg_color, 0.96) 2px,
+                                shade(@button_bg_color, 0.94)
                                 );
 }
 
@@ -139,7 +141,7 @@ GtkScaleButton.button:insensitive:active,
 .floating-bar .button:insensitive:active,
 #gtk-scalebutton-popup-window .button:insensitive,
 #gtk-scalebutton-popup-window .button:insensitive:active {
-    background-color: @button_bg_insensitive;
+    background-color: @button_insensitive_bg_color;
     background-image: none;
 }
 
@@ -163,11 +165,11 @@ GtkScaleButton.button:insensitive:active,
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -187,7 +189,7 @@ GtkScaleButton.button:hover,
 .notebook tab .button:hover,
 .floating-bar .button:hover,
 #gtk-scalebutton-popup-window .button:hover {
-    background: linear-gradient(to bottom, alpha(@button_bg, 0.7));
+    background: linear-gradient(to bottom, alpha(@button_bg_color, 0.7));
     background-clip: padding-box;
 }
 
@@ -220,11 +222,11 @@ GtkScaleButton.button:hover,
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -257,11 +259,11 @@ GtkScaleButton.button:hover,
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -312,11 +314,11 @@ GtkScaleButton.button:hover,
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -367,11 +369,11 @@ GtkScaleButton.button:hover,
                                 transparent 3px
                                 ),
                 linear-gradient(to bottom,
-                                shade(@button_bg, 1.15),
-                                shade(@button_bg, 1.035) 3px,
-                                shade(@button_bg, 1.01) 7px,
-                                @button_bg 50%,
-                                shade(@button_bg, 1.02)
+                                shade(@button_bg_color, 1.15),
+                                shade(@button_bg_color, 1.035) 3px,
+                                shade(@button_bg_color, 1.01) 7px,
+                                @button_bg_color 50%,
+                                shade(@button_bg_color, 1.02)
                                 );
 }
 
@@ -413,9 +415,9 @@ GtkScaleButton.button:hover,
                                 transparent 2px
                                 ),
                 linear-gradient(to top,
-                                shade(@button_bg, 1.01),
-                                shade(@button_bg, 0.96) 2px,
-                                shade(@button_bg, 0.94)
+                                shade(@button_bg_color, 1.01),
+                                shade(@button_bg_color, 0.96) 2px,
+                                shade(@button_bg_color, 0.94)
                                 );
 }
 
@@ -466,9 +468,9 @@ GtkScaleButton.button:hover,
                                 transparent 2px
                                 ),
                 linear-gradient(to top,
-                                shade(@button_bg, 1.01),
-                                shade(@button_bg, 0.96) 2px,
-                                shade(@button_bg, 0.94)
+                                shade(@button_bg_color, 1.01),
+                                shade(@button_bg_color, 0.96) 2px,
+                                shade(@button_bg_color, 0.94)
                                 );
 }
 
@@ -536,7 +538,7 @@ GtkScaleButton.button:hover,
 .inline-toolbar.toolbar GtkToolButton:first-child > .button:insensitive:hover,
 .inline-toolbar.toolbar GtkToolButton:last-child > .button:insensitive,
 .inline-toolbar.toolbar GtkToolButton:last-child > .button:insensitive:hover {
-	background-color: @insensitive_inner_box;
+	background-color: @button_insensitive_bg_color;
     background-image: none;
 }
 

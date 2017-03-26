@@ -5,7 +5,7 @@ $insensitive_fg_color: #a7a6aa;
 $insensitive_bg_color: #fff;
 $insensitive_borders_color: #c6c5c9;
 
-$selected_fg_color: #ffffff;
+$selected_fg_color: #fff;
 $selected_bg_color: #335ea8;
 $selected_outline_color: #cca157;
 
@@ -41,8 +41,8 @@ $notebook_borders_color: #879bb3;
 
 // COLUMN HEADERS
 $tree_header_bg_color: #fff;
-$tree_header_hover_bg_color: $tree_header_bg_color;
-$tree_header_active_bg_color: $tree_header_bg_color;
+$tree_header_hover_bg_color: #fff;
+$tree_header_active_bg_color: #fff;
 
 // ARROWS
 $arrow_color: #5b6473;
@@ -52,7 +52,7 @@ $arrow_spin_insensitive_color: #b7cbe3;
 
 // CALENDARS
 $calendar_header_bg_color: #6fa1d9;
-$calendar_header_fg_color: white;
+$calendar_header_fg_color: #fff;
 $calendar_selected_fg_color: #fff;
 $calendar_selected_bg_color: #335ea8;
 

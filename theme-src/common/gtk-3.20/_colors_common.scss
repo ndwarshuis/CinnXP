@@ -32,13 +32,13 @@ $entry_insensitive_bg_color: $bg_color;
 
 // COMBOS
 $combo_borders_color: $borders_color;
-$insensitive_combo_fg_color: $entry_insensitive_fg_color;
-$insensitive_combo_bg_color: $bg_color;
+$combo_insensitive_fg_color: $entry_insensitive_fg_color;
+$combo_insensitive_bg_color: $bg_color;
 $combo_insensitive_borders_color: #c9c7ba;
 $combo_insensitive_edge_color: #f5f4ea;
 
 // TOOLBARS
-$toolbar_top_edge: white;
+$toolbar_top_edge: #fff;
 $toolbar_bottom_edge: $insensitive_fg_color;
 
 // MENU
