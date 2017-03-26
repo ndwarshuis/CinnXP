@@ -1351,10 +1351,12 @@ column-header.button.dnd { // for treeview-like derive widgets
   .csd & { border: none; }  // axes borders in a composited env
   .menuitem {
     text-shadow: none;
-    padding: 4px;
+    padding: 3px 5px;
+    border: 1px solid transparent;
     &:hover {
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      background-color: $menu_menuitem_selected_bg_color;
+      border-color: $menu_menuitem_selected_borders_color;
     }
     &:insensitive { color: $menu_insensitive_fg_color; }
     //submenu indicators

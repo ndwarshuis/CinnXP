@@ -66,8 +66,8 @@
 @mixin toolbar_bg {
   border-style: solid;
   border-width: 1px 0px 1px 0px;
-  border-top-color: white;
-  border-bottom-color: $separator_color;
+  border-top-color: $toolbar_top_edge;
+  border-bottom-color: $toolbar_bottom_edge;
   background: $bg_color;
 }
 

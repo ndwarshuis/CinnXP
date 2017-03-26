@@ -1666,12 +1666,14 @@ menu,
   menuitem {
     min-height: 16px;
     min-width: 40px;
-    padding: 4px 6px;
+    padding: 3px 5px;
     text-shadow: none;
+    border: 1px solid transparent;
 
     &:hover {
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      background-color: $menu_menuitem_selected_bg_color;
+      border-color: $menu_menuitem_selected_borders_color;
     }
 
     &:disabled { color: $menu_insensitive_fg_color; }
