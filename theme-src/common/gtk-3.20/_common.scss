@@ -2053,18 +2053,14 @@ notebook {
                                         $notebook_bg_a_color,
                                         $notebook_bg_b_color
                                         );
-      box-shadow: inset 1px 0px $notebook_bg_a_color,
-                  inset -1px 0px $notebook_bg_a_color,
-                  inset 0px -1px $notebook_bg_a_color;
+      box-shadow: notebook_inset_shadow(top);
     }
     &.left + stack {
       background-image: linear-gradient(to right,
                                         $notebook_bg_a_color,
                                         $notebook_bg_b_color
                                         );
-      box-shadow: inset -1px 0px $notebook_bg_a_color,
-                  inset 0px 1px $notebook_bg_a_color,
-                  inset 0px -1px $notebook_bg_a_color;
+      box-shadow: notebook_inset_shadow(left);
     }
   }
 
