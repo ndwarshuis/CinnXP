@@ -1798,7 +1798,7 @@ GtkTreeView.separator {
 GtkMenuButton .menuitem.separator {
     -GtkWidget-wide-separators: true;
     -GtkWidget-separator-height: 1;
-    border: 1px solid @separator_color;
+    border: 1px solid @menu_separator_color;
 }
 
 .primary-toolbar GtkSeparatorToolItem,
