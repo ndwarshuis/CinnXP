@@ -23,6 +23,9 @@
 @define-color button_borders_color #003c74;
 @define-color button_insensitive_fg_color #a1a192;
 
+/* Menu */
+@define-color menu_menuitem_selected_bg_color #316ac5;
+
 /* Menubar-Menuitem */
 @define-color menubar_menuitem_insensitive_fg_color #aca899;
 @define-color menubar_item_hover_fg_color #fff;
