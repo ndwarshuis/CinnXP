@@ -936,21 +936,24 @@ style "menu_item"
 			function		= BOX
 			state			= ACTIVE
 			file			= "Others/null.png"
-			stretch			= FALSE
+			border			= {1,1,1,1}
+			stretch			= TRUE
 		}
 		image
 		{
 			function		= BOX
 			state			= INSENSITIVE
 			file			= "Others/null.png"
-			stretch			= FALSE
+			border			= {1,1,1,1}
+			stretch			= TRUE
 		}
 		image
 		{
 			function		= BOX
 			state			= PRELIGHT
 			file			= "Menu-Menubar/menuitem.png"
-			stretch			= FALSE
+			border			= {1,1,1,1}
+			stretch			= TRUE
 		}
 
 # Check Buttons
