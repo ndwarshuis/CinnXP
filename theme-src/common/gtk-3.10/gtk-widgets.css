@@ -1454,7 +1454,7 @@ GtkProgressBar {
 }
 
 .progressbar {
-	background-image: url('Progressbar/progressbar_horizontal_full.png');
+	background: url('Progressbar/progressbar_horizontal.png') repeat-x left center/8px 16px;
 }
 
 .progressbar row,
@@ -1470,15 +1470,9 @@ GtkProgressBar {
 	                             );
 }
 
-.progressbar,
-.progressbar row {
-	background-size: 8px 100%, auto;
-}
-
 .progressbar.vertical {
 	border-width: 4px 0px;
-	background-size: 100% 8px, auto;
-	background-image: url('Progressbar/progressbar_vertical_full.png');
+	background: url('Progressbar/progressbar_vertical.png') repeat-y center center/16px 8px;
 }
 
 .trough,
