@@ -698,8 +698,7 @@ $panel_slice: 12 26 0 0;
  * ===================================================================*/
 
 .magnifier-zoom-region {
-  border: 3px solid rgba(0,0,0,0);
-  border-image: url('Shadows/etched-shadow.png') 4;
+  border: 2px solid rgba(128, 0, 0, 255);
 
   &.full-screen { border-width: 0; }
 }
