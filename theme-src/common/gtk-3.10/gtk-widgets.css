@@ -536,7 +536,7 @@ GtkComboBox.combobox-entry .button:first-child:active {
 }
 
 GtkComboBox.combobox-entry .button:first-child:insensitive  {
-    border-image: url('Entry/entry-button-border-ltr-insensitive.png');
+    border-image: url('Entry/entry-button-border-rtl-insensitive.png');
     border-image-slice: 4 3 4 4;
 }
 
