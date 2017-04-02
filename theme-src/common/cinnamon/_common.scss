@@ -942,9 +942,12 @@ $panel_slice: 12 26 0 0;
  * Window list (windowList.js)
  * ===================================================================*/
 
-$window_list_slice: 6 6 0 0;
+$window_list_slice: 17 5 0 0;
 
-@if $flavor == 'luna' { $window_list_slice: 18 6 0 0; }
+@if $flavor == 'royale' or
+    $flavor == 'noir' or
+    $flavor == 'embedded' or
+    $flavor == 'zune' { $window_list_slice: 12 11 0 0; }
 
 .window-list-box {
   spacing: 0;
