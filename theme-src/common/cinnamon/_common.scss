@@ -1054,18 +1054,15 @@ $window_list_slice: 17 5 0 0;
 .workspace-button {
   width: 20px;
   height: 6px;
-  color: $workspace_switcher_fg_color;
   padding: 5px 3px 3px 3px;
 
-  &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
+  @if $flavor == 'metallic' { padding: 5px 3px 3px 4px; }
 
-  &:outlined {
-    border-image: url('Panel/applet-button-active.png') $window_list_slice;
+  color: $panel_left_fg_color;
 
-    &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
-  }
+  #panelRight & { color: $panel_right_fg_color; }
 
-  @if $flavor == 'royale' or $flavor == 'metallic' {
+  @if $flavor == 'royale' {
     #panelRight & {
       color: $panel_right_fg_color;
       border-image: none;
@@ -1076,10 +1073,24 @@ $window_list_slice: 17 5 0 0;
       border-color: rgba(0,0,0,0);
 
       &:outlined, &:hover {
-        $c: #666;
-        @if $flavor == 'royale' { $c: #2a4dab;	}
-        border-color: $c;
-        background-color: transparentize($c, 0.85);
+        border-color: #2a4dab;
+        background-color: transparentize(#2a4dab, 0.85);
+      }
+    }
+  } @else {
+    &:hover {
+      #panelRight & {
+        color: $window_list_fg_color;
+        border-image: url('Panel/applet-button-hover.png') $window_list_slice;		
+	  }
+    }
+
+    &:outlined {
+      #panelRight & {
+        color: $window_list_active_fg_color;
+        border-image: url('Panel/applet-button-active.png') $window_list_slice;
+
+        &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
       }
     }
   }
