@@ -920,8 +920,7 @@ $panel_slice: 12 26 0 0;
  
 .menu-selected-app {
   &-box {
-    @if $flavor == 'luna' or $flavor == 'metallic' { padding: 6px 30px 0 28px; }
-    @else if $flavor == 'royale' { padding: 16px 30px 0 28px; }
+    padding: 6px 30px 0 28px;
   
     text-align: right;
     color: $start_menu_bottom_fg_color;
