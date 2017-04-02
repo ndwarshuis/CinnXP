@@ -1,44 +1,44 @@
-$base_color: #fff;
+$flavor: luna;
+
+// GENERIC
 $bg_color: #ece9d8;
-$fg_color: #000;
 
 $insensitive_fg_color: #a1a192;
 
-$tooltip_bg_color: #ffffe2;
-$tooltip_fg_color: $fg_color;
-$tooltip_borders_color: #000;
-
 $selected_fg_color: #fff;
-$selected_bg_color: #1466C9;
+$selected_bg_color: #316ac5;
 
-$panel_left_fg_color: #7bb6e8;
-$panel_right_fg_color: #fff;
+// LINKS
+$link_color: #000080;
 
-$notification_bg: $tooltip_bg_color;
-$notification_button: #aa9c87;
-$notification_button_hover: white;
-$notification_button_active: white;
+// ENTRIES
+$entry_borders_color: #7f9db9;
 
-$start_menu_icon_color: #fff;
-$start_menu_insensitive_fg_color: $insensitive_fg_color;
+// BUTTONS
+$button_insensitive_fg_color: #a1a192;
+
+// START MENU
 $start_menu_fg_color: #373738;
-
-$start_menu_box_bg_color: #d3e5fa;
+$start_menu_insensitive_fg_color: #808080;
+$start_menu_selected_fg_color: #fff;
+$start_menu_selected_bg_color: #316ac5;
 $start_menu_box_fg_color: #0a246a;
-$start_menu_box_selected_bg_color: #316ac5;
-$start_menu_box_selected_fg_color: $selected_fg_color;
+$start_menu_box_bg_color: #d3e5fa;
 $start_menu_box_borders_color: #95bdee;
+$start_menu_bottom_fg_color: #fff;
 
-$borders_color: #7b9ebd;
-$menu_borders: $insensitive_fg_color;
-
+// FRAMES
 $separator_color: #cac6af;
 
+// PANEL
+$panel_left_fg_color: #fff;
+$panel_right_fg_color: #fff;
+
+// WINDOW LIST
 $window_list_fg_color: #fff;
-$window_list_active_fg_color: $window_list_fg_color;
 
-$workspace_switcher_fg_color: $window_list_active_fg_color;
+// WORKSPACE SWITCHER
+$workspace_switcher_fg_color: #fff;
 
-$desklet_color: #fff;
-
-$link_color: lighten($selected_bg_color,20%);
+// DESKLETS
+$desklet_fg_color: #fff;

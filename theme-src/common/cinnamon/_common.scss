@@ -111,7 +111,7 @@ StScrollBar {
 
 /* this thing pops up if you go into overview and right click */
 .popup-combo-menu {
-  border: 1px solid $menu_borders;
+  border: 1px solid $menu_borders; // DEPRECIATED
   background-color: $base_color;
   color: $fg_color;
   padding: 1px;
@@ -437,10 +437,10 @@ $panel_slice: 12 26 0 0;
   width: 34em;
   border: 1px solid black;
   border-radius: 8px;
-  background-color: $notification_bg;
+  background-color: $notification_bg_color;
 
   /* hacky thing to cover up inset border... */
-  &, &.multi-line-notification { StLabel { background-color: $notification_bg; } }
+  &, &.multi-line-notification { StLabel { background-color: $notification_bg_color; } }
 
   &.multi-line-notification { padding-bottom: 8px; }
 
@@ -481,17 +481,17 @@ $panel_slice: 12 26 0 0;
     font-size: 11pt;
     font-weight: normal;
     padding: 4px 42px 5px;
-    color: $notification_button;
+    color: $notification_button_fg_color;
     text-align: center;
     
     &:hover {
       border-image: url('Notifications/notification-button-hover.png') 4 5 4 5;
-      color: $notification_button_hover;
+      color: $notification_button_hover_fg_color;
     }
 
     &:active {
       border-image: url('Notifications/notification-button-active.png') 4 5 4 5;
-      color: $notification_button_active;
+      color: $notification_button_active_fg_color;
     }
   }
 }
@@ -586,7 +586,7 @@ $panel_slice: 12 26 0 0;
 
   &:disabled {
     border-image: url("Buttons/button-insensitive.png") 6 6 4 4;
-    color: $insensitive_fg_color;
+    color: $button_insensitive_fg_color;
     text-shadow: 1px 1px white;
   }
 }
@@ -809,7 +809,7 @@ $panel_slice: 12 26 0 0;
   border: 1px solid $start_menu_box_borders_color;
   border-radius: 0;
   padding: 0.5em;
-  color: $start_menu_box_selected_fg_color;
+  color: $start_menu_selected_fg_color;
 
   .popup-separator-menu-item { background-color: $start_menu_box_borders_color; }
 }
@@ -819,8 +819,8 @@ $panel_slice: 12 26 0 0;
   border-radius: 0;
 
   &:hover {
-    background-color: $start_menu_box_selected_bg_color;
-    color: $start_menu_box_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
+    color: $start_menu_selected_fg_color;
   }
 }
 
@@ -880,8 +880,8 @@ $panel_slice: 12 26 0 0;
 
   &-selected {
     padding: 7px;
-    color: $start_menu_box_selected_fg_color;
-    background-color: $start_menu_box_selected_bg_color;
+    color: $start_menu_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
   }
 
   &-label {
@@ -905,8 +905,8 @@ $panel_slice: 12 26 0 0;
 
   &-selected {
     padding: 7px;
-    color: $start_menu_box_selected_fg_color;
-    background-color: $start_menu_box_selected_bg_color;
+    color: $start_menu_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
   }
 
   &-label {
@@ -924,7 +924,7 @@ $panel_slice: 12 26 0 0;
     @else if $flavor == 'royale' { padding: 16px 30px 0 28px; }
   
     text-align: right;
-    color: $start_menu_box_selected_fg_color;
+    color: $start_menu_bottom_fg_color;
   }
 
   &-title { font-weight: bold; }
@@ -1196,14 +1196,14 @@ $desklet_slice: 6;
 
 .desklet-with-borders {
   border-image: url("Frames/bg-1.png") $desklet_slice;
-  color: $desklet_color;
+  color: $desklet_fg_color;
   font-weight: bold;
   padding: 8px;
 }
 
 .desklet-with-borders-and-header {
   border-image: url("Frames/bg-1.png") $desklet_slice;
-  color: $desklet_color;
+  color: $desklet_fg_color;
   padding: 8px;
 }
 
@@ -1211,7 +1211,7 @@ $desklet_slice: 6;
   border-image: url("Frames/bg-1.png") $desklet_slice;
   font-size: 9pt;
   font-weight: bold;
-  color: $desklet_color;
+  color: $desklet_fg_color;
   padding: 8px;
 }
 
@@ -1534,7 +1534,7 @@ $desklet_slice: 6;
   background-color: $base_color;
   padding: 4px 12px;
   color: $fg_color;
-  border: 1px solid $borders_color;
+  border: 1px solid $entry_borders_color;
   border-radius: 0;
   width: 250px;
   height: 16px;
