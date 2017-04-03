@@ -193,9 +193,14 @@ StScrollBar {
  * Panel (panel.js)
  * ===================================================================*/
 
-$panel_slice: 12 26 0 0;
+$panel_slice: 1 0 0 0; //royale, embedded, zune
 
-//@if $flavor == 'royale' { $panel_slice: 1 0 1 1; }
+@if $flavor == 'noir' { $panel_slice: 2 0 0 0; }
+
+@if $flavor == 'homestead' { $panel_slice: 3 0 0 0; }
+
+@if $flavor == 'luna'
+ or $flavor == 'metallic' { $panel_slice: 50 50 0 0; }
 
 #panel {
   color: $panel_left_fg_color;
