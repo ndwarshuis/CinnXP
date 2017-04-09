@@ -1163,7 +1163,7 @@ GtkMenuButton .menu {
     margin: 4px;
     padding: 3px;
     border: 3px solid transparent;
-    border-image: url('Menu-Menubar/menu.png');
+    border-image: url('Menu/menu.png');
     border-image-slice: 3 3 3 3;
     border-radius: 0;
     background-color: @base_color;
@@ -1225,7 +1225,7 @@ GtkMenuButton .menu {
 .menubar .menuitem:hover {
     border-radius: 0;
     color: @menubar_item_hover_fg_color;
-    border-image: url('Menu-Menubar/menubar_item.png');
+    border-image: url('Menu/menubar-menuitem.png');
     border-image-slice: 1 1 1 1;
     background-color: @menubar_item_hover_bg_color;
     text-shadow: none;
