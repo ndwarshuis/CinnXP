@@ -10,6 +10,7 @@ gtk-color-scheme = "entry_insensitive_fg_color:#aca899"
 gtk-color-scheme = "button_insensitive_fg_color:#a1a192"
 
 gtk-color-scheme = "menu_insensitive_fg_color:#aca899"
+gtk-color-scheme = "menu_separator_color:#9d9da1"
 
 gtk-color-scheme = "menubar_menuitem_prelight_fg_color:#000"
 gtk-color-scheme = "menubar_menuitem_insensitive_fg_color:#aca899"
