@@ -4,10 +4,7 @@
   $_slice: 3 3 3 3;
 
   @if $bor=='' {
-    @if $dir==rtl {
-      $_slice: 4 3 4 4;
-      $_border: 4px 3px 4px 4px;
-	} @else if $dir==ltr {
+    @if $dir==ltr {
       $_slice: 4 4 4 3;
       $_border: 4px 4px 4px 3px;
 	} @else {
@@ -26,20 +23,20 @@
   box-shadow: none;
 
   @if $state==normal {
-    border-image: url("Entry/#{$b}entry-button-border#{$d}.png");
-    background-image: url("Entry/entry-button-bg.png");
+    border-image: url("Combo/#{$b}combo-button-border#{$d}.png");
+    background-image: url("Combo/combo-button-bg.png");
   }
   @if $state==hover {
-    border-image: url("Entry/#{$b}entry-button-border#{$d}-hover.png");
-    background-image: url("Entry/entry-button-bg-hover.png");
+    border-image: url("Combo/#{$b}combo-button-border#{$d}-hover.png");
+    background-image: url("Combo/combo-button-bg-hover.png");
   }
   @if $state==active {
-    border-image: url("Entry/#{$b}entry-button-border#{$d}-active.png");
-    background-image: url("Entry/entry-button-bg-active.png");
+    border-image: url("Combo/#{$b}combo-button-border#{$d}-active.png");
+    background-image: url("Combo/combo-button-bg-active.png");
   }
   @if $state==insensitive {
-    border-image: url("Entry/#{$b}entry-button-border#{$d}-insensitive.png");
-    background-image: url("Entry/entry-button-bg-insensitive.png");
+    border-image: url("Combo/#{$b}combo-button-border#{$d}-insensitive.png");
+    background-image: url("Combo/combo-button-bg-insensitive.png");
   }
 
   border-image-slice: $_slice;
@@ -47,17 +44,17 @@
   background-repeat: no-repeat;
 }
 
-@mixin progressbar_trough ($d:horizontal) {
+@mixin progressbar_trough ($d:horz) {
   border-style: solid;
   border-color: transparent;
-  border-image: url('Progressbar/progressbar_trough_#{$d}.png');
+  border-image: url('Progressbar/progressbar-trough-#{$d}.png');
   background-color: $base_color;
   background-clip: padding-box;
 
-  @if $d==horizontal {
+  @if $d==horz {
     border-width: 3px 4px;
     border-image-slice: 3 4 3 4;
-  } @else if $d==vertical {
+  } @else if $d==vert {
     border-width: 4px 3px;
     border-image-slice: 4 3 4 3;
   }
@@ -73,7 +70,7 @@
 
 @mixin frame_inset {
   border: 2px solid transparent;
-  border-image: url("Shadows/frame-inset.png");
+  border-image: url("Frames/shadow-inset.png");
   border-image-slice: 2 2 2 2;
   border-image-repeat: stretch;
 }

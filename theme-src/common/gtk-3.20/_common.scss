@@ -1528,11 +1528,11 @@ treeview.view {
 
   &.progressbar { // progress bar in treeviews
     color: $fg_color;
-    background-image: url('Progressbar/progressbar_horizontal.png');
+    background-image: url('Progressbar/progressbar-fill-horz.png');
 	background-size: 8px 100%, auto;
     
     &.vertical {
-      background-image: url('Progressbar/progressbar_vertical.png');
+      background-image: url('Progressbar/progressbar-fill-vert.png');
       background-size: 100% 8px, auto;
     }
     
@@ -1540,8 +1540,8 @@ treeview.view {
       &:focus, & {
         color: $fg_color;
         background-image: cross-fade(85%
-                                     url('Progressbar/progressbar_horizontal.png'),
-                                     url('Progressbar/progressbar.png')
+                                     url('Progressbar/progressbar-fill-horz.png'),
+                                     url('Progressbar/progressbar-fill.png')
                                      );
       }
     }
@@ -1636,7 +1636,7 @@ menubar,
 
     &:hover { //Seems like it :hover even with keyboard focus
       color: $menubar_menuitem_hover_fg_color;
-      border-image: url('Menu-Menubar/menubar_item.png');
+      border-image: url('Menu/menubar_item.png');
       border-image-slice: 1 1 1 1;
       background-color: $menubar_menuitem_hover_bg_color;
     }
@@ -1658,7 +1658,7 @@ menu,
   padding: 0;
   background-color: $base_color;
   border: 3px solid transparent; // adds borders in a non composited env
-  border-image: url('Menu-Menubar/menu.png');
+  border-image: url('Menu/menu.png');
   border-image-slice: 3 3 3 3;
 
   .csd & { border: none; }  // axes borders in a composited env
@@ -2090,7 +2090,7 @@ scrollbar {
   margin: 0;
   padding: 0;
 
-  @each $w,$a in ('horizontal','horiz'),
+  @each $w,$a in ('horizontal','horz'),
                     ('vertical','vert') {
 
     &.#{$w} { background: url("Scrollbars/trough-scrollbar-#{$a}.png"); }
@@ -2102,14 +2102,14 @@ scrollbar {
       border-image-slice: 5 5 5 5;
       border-image-repeat: stretch;
       background: url("Scrollbars/handle-#{$a}.png") no-repeat center center,
-                  url("Scrollbars/slider-background-#{$a}.png");
+                  url("Scrollbars/slider-bg-#{$a}.png");
 
       &:hover {
-        border-image: url("Scrollbars/slider-#{$a}-prelight.png");
+        border-image: url("Scrollbars/slider-#{$a}-hover.png");
         border-image-slice: 5 5 5 5;
         border-image-repeat: stretch;
-        background: url("Scrollbars/handle-#{$a}-prelight.png") no-repeat center center,
-                    url("Scrollbars/slider-background-#{$a}-prelight.png");
+        background: url("Scrollbars/handle-#{$a}-hover.png") no-repeat center center,
+                    url("Scrollbars/slider-bg-#{$a}-hover.png");
       }
 
       &:hover:active {
@@ -2117,7 +2117,7 @@ scrollbar {
         border-image-slice: 5 5 5 5;
         border-image-repeat: stretch;
         background: url("Scrollbars/handle-#{$a}-active.png") no-repeat center center,
-                    url("Scrollbars/slider-background-#{$a}-active.png");
+                    url("Scrollbars/slider-bg-#{$a}-active.png");
       }
     }
   }
@@ -2318,19 +2318,19 @@ radio {
 
     &:active,
     &:checked {
-      -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked.png"));
+      -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-checked.png"));
 
-      &:hover { -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked-hover.png")); }
+      &:hover { -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-checked-hover.png")); }
 
-      &:disabled { -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked-insensitive.png")); }
+      &:disabled { -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-checked-insensitive.png")); }
     }
 
     &:indeterminate {
-      -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed.png")); 
+      -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-mixed.png")); 
       
-      &:hover { -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed-hover.png")); }
+      &:hover { -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-mixed-hover.png")); }
 
-      &:disabled { -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed-insensitive.png")); }
+      &:disabled { -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-mixed-insensitive.png")); }
     }
   }
 }
@@ -2675,17 +2675,17 @@ progressbar {
   font-size: smaller;
   color: transparentize($fg_color, 0.6);
 
-  trough { @include progressbar_trough(horizontal); }
+  trough { @include progressbar_trough(horz); }
 
-  &.vertical trough { @include progressbar_trough(vertical); }
+  &.vertical trough { @include progressbar_trough(vert); }
   
   progress {
-    background-image: url('Progressbar/progressbar_horizontal.png');
+    background-image: url('Progressbar/progressbar-fill-horz.png');
     background-size: 8px 100%, auto;
   }
 
   &.vertical progress {
-    background-image: url('Progressbar/progressbar_vertical.png');
+    background-image: url('Progressbar/progressbar-fill-vert.png');
     background-size: 100% 8px, auto;
   }
 
@@ -2726,9 +2726,9 @@ levelbar {
   }
 
   trough {
-    @include progressbar_trough(horizontal);
+    @include progressbar_trough(horz);
 
-    &.vertical { @include progressbar_trough(vertical) }
+    &.vertical { @include progressbar_trough(vert) }
   }
 
   &.horizontal.discrete block { margin: 0 1px; }
@@ -3446,7 +3446,7 @@ decoration {
   .csd.popup & {
     border-radius: 0;
     border: 3px solid transparent;
-    border-image: url('Menu-Menubar/menu.png');
+    border-image: url('Menu/menu.png');
     border-image-slice: 3 3 3 3;
     box-shadow: 3px 3px 2px transparentize(black, 0.8);
   }
