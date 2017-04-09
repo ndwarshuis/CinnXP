@@ -309,7 +309,7 @@ style "default"
 		{
 			function		= ARROW
 			state			= INSENSITIVE
-			overlay_file	= "Arrows/arrow-up-insens.png"
+			overlay_file	= "Arrows/arrow-up-insensitive.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= UP
@@ -345,7 +345,7 @@ style "default"
 		{
 			function		= ARROW
 			state			= INSENSITIVE
-			overlay_file	= "Arrows/arrow-down-insens.png"
+			overlay_file	= "Arrows/arrow-down-insensitive.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= DOWN
@@ -381,7 +381,7 @@ style "default"
 		{
 			function		= ARROW
 			state			= INSENSITIVE
-			overlay_file	= "Arrows/arrow-left-insens.png"
+			overlay_file	= "Arrows/arrow-left-insensitive.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= LEFT
@@ -417,7 +417,7 @@ style "default"
 		{
 			function		= ARROW
 			state			= INSENSITIVE
-			overlay_file	= "Arrows/arrow-right-insens.png"
+			overlay_file	= "Arrows/arrow-right-insensitive.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= RIGHT
@@ -429,7 +429,7 @@ style "default"
 		{
 			function		= TAB
 			state			= INSENSITIVE
-			overlay_file	= "Arrows/arrow-down-insens.png"
+			overlay_file	= "Arrows/arrow-down-insensitive.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -481,14 +481,14 @@ style "default"
 		image
 		{
 			function		= HANDLE
-			overlay_file	= "Handles/pane-separator-grip.png"
+			overlay_file	= "Handles/pane-separator-grip-horz.png"
 			overlay_stretch	= FALSE
 			orientation		= HORIZONTAL
 		}
 		image
 		{
 			function		= HANDLE
-			overlay_file	= "Handles/pane-separator-grip-vertical.png"
+			overlay_file	= "Handles/pane-separator-grip-vert.png"
 			overlay_stretch	= FALSE
 			orientation		= VERTICAL
 		}
@@ -571,7 +571,7 @@ style "scrollbar"
 		{
 			function		= BOX
 			detail			= "trough"
-			file			= "Scrollbars/trough-scrollbar-horiz.png"
+			file			= "Scrollbars/trough-scrollbar-horz.png"
 			border			= {0,0,0,0}
 			stretch			= TRUE
 			orientation		= HORIZONTAL
@@ -755,44 +755,44 @@ style "scrollbar"
 		{
 			function		= SLIDER
 			state       	= NORMAL
-			file			= "Scrollbars/slider-horiz.png" 
+			file			= "Scrollbars/slider-horz.png" 
 			border			= {4,4,4,4}
 			stretch			= TRUE
 			orientation		= HORIZONTAL
-			overlay_file    = "Scrollbars/handle-horiz.png"
+			overlay_file    = "Scrollbars/handle-horz.png"
 			overlay_stretch = FALSE
 		}
 		image 
 		{
 			function		= SLIDER
 			state       	= ACTIVE
-			file			= "Scrollbars/slider-horiz-active.png" 
+			file			= "Scrollbars/slider-horz-active.png" 
 			border			= {5,4,4,4}
 			stretch			= TRUE
 			orientation		= HORIZONTAL
-			overlay_file    = "Scrollbars/handle-horiz-active.png"
+			overlay_file    = "Scrollbars/handle-horz-active.png"
 			overlay_stretch = FALSE
 		}
 		image 
 		{
 			function		= SLIDER
 			state       	= PRELIGHT
-			file			= "Scrollbars/slider-horiz-prelight.png" 
+			file			= "Scrollbars/slider-horz-prelight.png" 
 			border			= {3,3,3,3}
 			stretch			= TRUE
 			orientation		= HORIZONTAL
-			overlay_file    = "Scrollbars/handle-horiz-prelight.png"
+			overlay_file    = "Scrollbars/handle-horz-prelight.png"
 			overlay_stretch = FALSE
 		}
 		image 
 		{
 			function		= SLIDER
 			state       	= INSENSITIVE
-			file			= "Scrollbars/slider-horiz.png"
+			file			= "Scrollbars/slider-horz.png"
 			border			= {4,4,4,4}
 			stretch			= TRUE
 			orientation		= HORIZONTAL
-			overlay_file    = "Scrollbars/handle-horiz.png"
+			overlay_file    = "Scrollbars/handle-horz.png"
 			overlay_stretch = FALSE
 		}
 
@@ -860,7 +860,7 @@ style "menubar"
 		{
 			function	= SHADOW
 			recolorable	= TRUE
-			file		= "Menu-Menubar/menubar.png"
+			file		= "Menu/menubar.png"
 			border		= {0,0,1,1}
 			stretch		= TRUE
 		}
@@ -886,14 +886,14 @@ style "menu"
 		image
 		{
 			function	= HLINE
-			file		= "Lines/menu_line_h.png"
+			file		= "Menu/separator.png"
 			border		= {0,0,1,0}
 			stretch		= TRUE
 		}
 		image
 		{
 			function	= BOX
-			file		= "Menu-Menubar/menu.png"
+			file		= "Menu/menu.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 		}
@@ -951,7 +951,7 @@ style "menu_item"
 		{
 			function		= BOX
 			state			= PRELIGHT
-			file			= "Menu-Menubar/menuitem.png"
+			file			= "Menu/menuitem.png"
 			border			= {1,1,1,1}
 			stretch			= TRUE
 		}
@@ -1000,7 +1000,7 @@ style "menu_item"
 			recolorable     = TRUE
 			state	 		= NORMAL
 			shadow          = IN
-			overlay_file    = "Check-Radio/menucheck.png"
+			overlay_file    = "Menu/menu-check-checked.png"
 			overlay_stretch	= FALSE
 		}
 		image 
@@ -1009,7 +1009,7 @@ style "menu_item"
 			recolorable     = TRUE
 			state			= PRELIGHT
 			shadow			= IN
-			overlay_file	= "Check-Radio/menucheck_prelight.png"
+			overlay_file	= "Menu/menu-check-checked-prelight.png"
 			overlay_stretch	= FALSE
 		}
 		image 
@@ -1018,7 +1018,7 @@ style "menu_item"
 			recolorable		= TRUE
 			state			= ACTIVE
 			shadow			= IN
-			overlay_file	= "Check-Radio/menucheck.png"
+			overlay_file	= "Menu/menu-check-checked.png"
 			overlay_stretch	= FALSE
 		}
 		image 
@@ -1027,7 +1027,7 @@ style "menu_item"
 			recolorable		= TRUE
 			state			= INSENSITIVE
 			shadow			= IN
-			overlay_file	= "Others/null.png"
+			overlay_file	= "Menu/menu-check-checked-insensitive.png"
 			overlay_stretch	= FALSE
 		}
 
@@ -1070,7 +1070,7 @@ style "menu_item"
 			function        = OPTION
 			state 			= NORMAL
 			shadow          = IN
-			overlay_file    = "Check-Radio/menuoption.png"
+			overlay_file    = "Menu/menu-radio-checked.png"
 			overlay_stretch = FALSE
 		}
 		image 
@@ -1078,7 +1078,7 @@ style "menu_item"
 			function        = OPTION
 			state			= PRELIGHT
 			shadow          = IN
-			overlay_file    = "Check-Radio/menuoption_prelight.png"
+			overlay_file    = "Menu/menu-radio-checked-prelight.png"
 			overlay_stretch = FALSE
 		}
 		image 
@@ -1086,7 +1086,7 @@ style "menu_item"
 			function        = OPTION
 			state			= ACTIVE
 			shadow          = IN
-			overlay_file    = "Check-Radio/menuoption.png"
+			overlay_file    = "Menu/menu-radio-checked.png"
 			overlay_stretch	= FALSE
 		}
 		image 
@@ -1094,7 +1094,7 @@ style "menu_item"
 			function        = OPTION
 			state 			= INSENSITIVE
 			shadow          = IN
-			overlay_file    = "Others/null.png"
+			overlay_file    = "Menu/menu-radio-checked-insensitive.png"
 			overlay_stretch = FALSE
 		}
 		image 
@@ -1111,7 +1111,7 @@ style "menu_item"
 		{
 			function		= ARROW
 			state			= NORMAL
-			overlay_file	= "Arrows/menu-arrow.png"
+			overlay_file	= "Menu/menu-arrow.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= RIGHT
@@ -1120,7 +1120,16 @@ style "menu_item"
 		{
 			function		= ARROW
 			state			= PRELIGHT
-			overlay_file	= "Arrows/menu-arrow-prelight.png"
+			overlay_file	= "Menu/menu-arrow-prelight.png"
+			overlay_border	= {0,0,0,0}
+			overlay_stretch	= FALSE
+			arrow_direction	= RIGHT
+		}
+		image
+		{
+			function		= ARROW
+			state			= INSENSITIVE
+			overlay_file	= "Menu/menu-arrow-insensitive.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= RIGHT
@@ -1143,7 +1152,7 @@ style "menubar_item"
 			function	= BOX
 			state		= PRELIGHT
 			recolorable	= TRUE
-			file		= "Menu-Menubar/menubar_item.png"
+			file		= "Menu/menubar-menuitem.png"
 			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
@@ -1162,7 +1171,7 @@ style "button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Button/button-default.png"
+			file		= "Button/button.png"
 			border		= {6,6,4,4}
 			stretch		= TRUE
 		}
@@ -1178,7 +1187,7 @@ style "button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Button/button-pressed.png"
+			file		= "Button/button-active.png"
 			border		= {6,6,4,4}
 			stretch		= TRUE
 		}	
@@ -1210,7 +1219,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Button/pathbar-button-default.png"
+			file		= "Button/pathbar-root-button.png"
 			border		= {6,5,4,4}
 			stretch		= TRUE
 		}
@@ -1218,7 +1227,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Button/pathbar-button-prelight.png"
+			file		= "Button/pathbar-root-button-prelight.png"
 			border		= {6,5,4,4}
 			stretch		= TRUE
 		}
@@ -1226,7 +1235,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Button/pathbar-button-pressed.png"
+			file		= "Button/pathbar-root-button-active.png"
 			border		= {6,5,4,4}
 			stretch		= TRUE
 		}	
@@ -1234,7 +1243,7 @@ style "pathbar_button"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Button/pathbar-button-insensitive.png"
+			file		= "Button/pathbar-root-button-insensitive.png"
 			border		= {6,5,4,4}
 			stretch		= TRUE
 		}
@@ -1252,7 +1261,7 @@ style "pathbar_toggle_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Button/pathbar-toggle-button-default.png"
+			file		= "Button/pathbar-toggle-button.png"
 			border		= {4,5,4,4}
 			stretch		= TRUE
 		}
@@ -1268,7 +1277,7 @@ style "pathbar_toggle_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Button/pathbar-toggle-button-pressed.png"
+			file		= "Button/pathbar-toggle-button-active.png"
 			border		= {4,5,4,4}
 			stretch		= TRUE
 		}	
@@ -1310,7 +1319,7 @@ style "button_toolbar"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Button/toolbar-button-pressed.png"
+			file		= "Button/toolbar-button-active.png"
 			border		= {4,4,4,4}
 			stretch		= TRUE
 		}	
@@ -1415,7 +1424,7 @@ style "combobox_entry"
 			detail		= "entry"
 			state		= NORMAL
 			shadow		= IN
-			file		= "Entry/combo-entry-border-bg-ltr.png"
+			file		= "Combo/combo-entry-border-bg-ltr.png"
 			border		= {2,0,2,2}
 			stretch		= TRUE
 			direction	= LTR
@@ -1426,7 +1435,7 @@ style "combobox_entry"
 			detail		= "entry"
 			state		= INSENSITIVE
 			shadow		= IN
-			file		= "Entry/combo-entry-border-bg-ltr-insensitive.png"
+			file		= "Combo/combo-entry-border-bg-ltr-insensitive.png"
 			border		= {2,0,2,2}
 			stretch		= TRUE
 			direction	= LTR
@@ -1436,7 +1445,7 @@ style "combobox_entry"
 			function	= SHADOW
 			detail		= "entry"
 			state		= ACTIVE
-			file		= "Entry/combo-entry-border-bg-ltr.png"
+			file		= "Combo/combo-entry-border-bg-ltr.png"
 			border		= {2,0,2,2}
 			stretch		= TRUE
 			direction	= LTR
@@ -1450,7 +1459,7 @@ style "combobox_entry"
 			detail		= "entry"
 			state		= NORMAL
 			shadow		= IN
-			file		= "Entry/combo-entry-border-bg-rtl.png"
+			file		= "Combo/combo-entry-border-bg-rtl.png"
 			border		= {0,2,2,2}
 			stretch		= TRUE
 			direction	= RTL
@@ -1461,7 +1470,7 @@ style "combobox_entry"
 			detail		= "entry"
 			state		= INSENSITIVE
 			shadow		= IN
-			file		= "Entry/combo-entry-border-bg-rtl-insensitive.png"
+			file		= "Combo/combo-entry-border-bg-rtl-insensitive.png"
 			border		= {0,2,2,2}
 			stretch		= TRUE
 			direction	= RTL
@@ -1471,7 +1480,7 @@ style "combobox_entry"
 			function	= SHADOW
 			detail		= "entry"
 			state		= ACTIVE
-			file		= "Entry/combo-entry-border-bg-rtl.png"
+			file		= "Combo/combo-entry-border-bg-rtl.png"
 			border		= {0,2,2,2}
 			stretch		= TRUE
 			direction	= RTL
@@ -1499,7 +1508,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Entry/combo-entry-button-ltr.png"
+			file		= "Combo/combo-entry-button-ltr.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -1508,7 +1517,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Entry/combo-entry-button-ltr-prelight.png"
+			file		= "Combo/combo-entry-button-ltr-prelight.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -1517,7 +1526,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Entry/combo-entry-button-ltr-insensitive.png"
+			file		= "Combo/combo-entry-button-ltr-insensitive.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -1526,7 +1535,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Entry/combo-entry-button-ltr-active.png"
+			file		= "Combo/combo-entry-button-ltr-active.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -1538,7 +1547,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state       = NORMAL
-			file		= "Entry/combo-entry-button-rtl.png"
+			file		= "Combo/combo-entry-button-rtl.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction   = RTL
@@ -1547,7 +1556,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Entry/combo-entry-button-rtl-prelight.png"
+			file		= "Combo/combo-entry-button-rtl-prelight.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= RTL
@@ -1556,7 +1565,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state       = INSENSITIVE
-			file		= "Entry/combo-entry-button-rtl-insensitive.png"
+			file		= "Combo/combo-entry-button-rtl-insensitive.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= RTL
@@ -1565,7 +1574,7 @@ style "combobox_entry_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Entry/combo-entry-button-rtl-active.png"
+			file		= "Combo/combo-entry-button-rtl-active.png"
 			border		= {3,3,3,3}
 			stretch		= TRUE
 			direction	= RTL
@@ -1581,7 +1590,7 @@ style "combobox_entry_arrow"
 		{
 			function		= ARROW
 			state			= NORMAL
-			overlay_file	= "Arrows/arrow-down-combo.png"
+			overlay_file	= "Combo/arrow-down-combo.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= DOWN
@@ -1590,7 +1599,7 @@ style "combobox_entry_arrow"
 		{
 			function		= ARROW
 			state			= ACTIVE
-			overlay_file	= "Arrows/arrow-down-combo.png"
+			overlay_file	= "Combo/arrow-down-combo-prelight.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= DOWN
@@ -1599,7 +1608,7 @@ style "combobox_entry_arrow"
 		{
 			function		= ARROW
 			state			= PRELIGHT
-			overlay_file	= "Arrows/arrow-down-combo.png"
+			overlay_file	= "Combo/arrow-down-combo-prelight.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= DOWN
@@ -1608,7 +1617,7 @@ style "combobox_entry_arrow"
 		{
 			function		= ARROW
 			state			= INSENSITIVE
-			overlay_file	= "Arrows/arrow-down-combo-insens.png"
+			overlay_file	= "Combo/arrow-down-combo-insensitive.png"
 			overlay_border	= {0,0,0,0}
 			overlay_stretch	= FALSE
 			arrow_direction	= DOWN
@@ -1649,7 +1658,7 @@ style "spinbutton"
 			file			= "Spin/up-background-ltr.png"
 			border			= {3,4,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1661,7 +1670,7 @@ style "spinbutton"
 			file			= "Spin/up-background-ltr-prelight.png"
 			border			= {3,4,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1673,7 +1682,7 @@ style "spinbutton"
 			file			= "Spin/up-background-ltr-disable.png"
 			border			= {3,4,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small-insens.png"
+			overlay_file	= "Spin/arrow-up-spin-insensitive.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1685,7 +1694,7 @@ style "spinbutton"
 			file			= "Spin/up-background-ltr-active.png"
 			border			= {3,4,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1700,7 +1709,7 @@ style "spinbutton"
 			file			= "Spin/up-background-rtl.png"
 			border			= {4,3,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 			direction		= RTL
 		}
@@ -1712,7 +1721,7 @@ style "spinbutton"
 			file			= "Spin/up-background-rtl-prelight.png"
 			border			= {4,3,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 			direction		= RTL
 		}
@@ -1724,7 +1733,7 @@ style "spinbutton"
 			file			= "Spin/up-background-rtl-disable.png"
 			border			= {4,3,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small-insens.png"
+			overlay_file	= "Spin/arrow-up-spin-insensitive.png"
 			overlay_stretch	= FALSE
 			direction		= RTL
 		}
@@ -1736,7 +1745,7 @@ style "spinbutton"
 			file			= "Spin/up-background-rtl-active.png"
 			border			= {4,3,4,1}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 			direction		= RTL
 		}
@@ -1751,7 +1760,7 @@ style "spinbutton"
 			file			= "Spin/down-background-ltr.png"
 			border			= {3,4,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1763,7 +1772,7 @@ style "spinbutton"
 			file			= "Spin/down-background-ltr-prelight.png"
 			border			= {3,4,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1775,7 +1784,7 @@ style "spinbutton"
 			file			= "Spin/down-background-ltr-disable.png"
 			border			= {3,4,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small-insens.png"
+			overlay_file	= "Spin/arrow-down-spin-insensitive.png"
 			overlay_stretch	= FALSE
 			direction       = LTR
 		}
@@ -1787,7 +1796,7 @@ style "spinbutton"
 			file			= "Spin/down-background-ltr-active.png"
 			border			= {3,4,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 			direction		= LTR
 		}
@@ -1802,7 +1811,7 @@ style "spinbutton"
 			file			= "Spin/down-background-rtl.png"
 			border			= {4,3,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 			direction       = RTL
 		}
@@ -1814,7 +1823,7 @@ style "spinbutton"
 			file			= "Spin/down-background-rtl-prelight.png"
 			border			= {4,3,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 			direction		= RTL
 		}
@@ -1826,7 +1835,7 @@ style "spinbutton"
 			file			= "Spin/down-background-rtl-disable.png"
 			border			= {4,3,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small-insens.png"
+			overlay_file	= "Spin/arrow-down-spin-insensitive.png"
 			overlay_stretch	= FALSE
 			direction		= RTL
 		}
@@ -1838,7 +1847,7 @@ style "spinbutton"
 			file			= "Spin/down-background-rtl-active.png"
 			border			= {4,3,1,4}
 			stretch			= TRUE
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 			direction       = RTL
 		}
@@ -1868,7 +1877,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= NORMAL
 			detail			= "spinbutton_up"
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1876,7 +1885,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= PRELIGHT
 			detail			= "spinbutton_up"
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1884,7 +1893,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= ACTIVE
 			detail			= "spinbutton_up"
-			overlay_file	= "Arrows/arrow-up-small.png"
+			overlay_file	= "Spin/arrow-up-spin.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1892,7 +1901,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= INSENSITIVE
 			detail			= "spinbutton_up"
-			overlay_file	= "Arrows/arrow-up-small-insens.png"
+			overlay_file	= "Spin/arrow-up-spin-insensitive.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1900,7 +1909,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= NORMAL
 			detail			= "spinbutton_down"
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1908,7 +1917,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= PRELIGHT
 			detail			= "spinbutton_down"
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1916,7 +1925,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= ACTIVE
 			detail			= "spinbutton_down"
-			overlay_file	= "Arrows/arrow-down-small.png"
+			overlay_file	= "Spin/arrow-down-spin.png"
 			overlay_stretch	= FALSE
 		}
 		image
@@ -1924,7 +1933,7 @@ style "gimp_spin_scale"
 			function		= BOX
 			state 			= INSENSITIVE
 			detail			= "spinbutton_down"
-			overlay_file	= "Arrows/arrow-down-small-insens.png"
+			overlay_file	= "Spin/arrow-down-spin-insensitive.png"
 			overlay_stretch	= FALSE
 		}
 	}
@@ -2157,7 +2166,7 @@ style "range"
 		{
 			function		= BOX
 			detail			= "trough"
-			file			= "Range/trough-horizontal.png"
+			file			= "Range/trough-horz.png"
 			border			= {4,4,0,0}
 			stretch			= TRUE
 			orientation		= HORIZONTAL
@@ -2166,7 +2175,7 @@ style "range"
 		{
 			function		= BOX
 			detail			= "trough"
-			file			= "Range/trough-vertical.png"
+			file			= "Range/trough-vert.png"
 			border			= {0,0,4,4}
 			stretch			= TRUE
 			orientation		= VERTICAL
@@ -2297,7 +2306,7 @@ style "progressbar"
 		{
 			function	= BOX
 			detail		= "bar"
-			file		= "Progressbar/progressbar.png"
+			file		= "Progressbar/progressbar-fill.png"
 			stretch		= FALSE
 			border		= {0,0,0,0}
 		}
@@ -2306,14 +2315,14 @@ style "progressbar"
 
 style "separator_menu_item" 
 {
-	bg[NORMAL] = "#00ff00"
+	bg[NORMAL] = @menu_separator_color
 	
 	engine "pixmap"
 	{
 		image 
 		{
             function	= BOX
-			file        = "Lines/menu_line_h.png"
+			file        = "Menu/separator.png"
 			border      = {0,0,1,0}
 			stretch     = TRUE
 		}
@@ -2436,34 +2445,27 @@ style "color_frame"
         image
         {
 			function                = SHADOW
-			file                    = "Shadows/frame-inset.png"
+			file                    = "Frames/color-frame.png"
+			border                  = {1,1,1,1}
+			stretch                 = TRUE
+        }
+	}
+}
+
+style "color_selection_frame"
+{
+	xthickness      = 2
+	ythickness      = 2
+
+    engine "pixmap"
+	{
+        image
+        {
+			function                = SHADOW
+			file                    = "Frames/shadow-inset-color.png"
 			border                  = {2,2,2,2}
 			stretch                 = TRUE
 			shadow                  = IN
-        }
-        image
-        {
-			function                = SHADOW
-			file                    = "Frames/color-frame.png"
-			border                  = {1,1,1,1}
-			stretch                 = TRUE
-			shadow                  = OUT
-        }
-        image
-        {
-			function                = SHADOW
-			file                    = "Frames/color-frame.png"
-			border					= {1,1,1,1}
-			stretch                 = TRUE
-			shadow                  = ETCHED_IN
-        }
-        image
-        {
-			function                = SHADOW
-			file                    = "Frames/color-frame.png"
-			border                  = {1,1,1,1}
-			stretch                 = TRUE
-			shadow                  = ETCHED_OUT
         }
 	}
 }
@@ -2586,7 +2588,7 @@ style "libreoffice_toggle_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Button/lo-button-default.png"
+			file		= "Button/lo-button.png"
 			border		= {1,1,1,1}
 			stretch		= TRUE
 		}
@@ -2650,7 +2652,7 @@ style "libreoffice_combobox_entry"
 			function		= SHADOW
 			detail			= "entry"
 			shadow			= IN
-			file			= "Entry/lo-combo-border-bg-solid-ltr.png"
+			file			= "Combo/lo-combo-border-bg-solid-ltr.png"
 			border			= {4,4,4,4}
 			stretch			= TRUE
 			direction		= LTR
@@ -2663,7 +2665,7 @@ style "libreoffice_combobox_entry"
 			function		= SHADOW
 			detail			= "entry"
 			shadow			= IN
-			file			= "Entry/lo-combo-border-bg-solid-rtl.png"
+			file			= "Combo/lo-combo-border-bg-solid-rtl.png"
 			border			= {4,4,4,4}
 			stretch			= TRUE
 			direction		= RTL
@@ -2691,7 +2693,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state		= NORMAL
-			file		= "Entry/lo-combo-entry-button-ltr.png"
+			file		= "Combo/lo-combo-entry-button-ltr.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -2700,7 +2702,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Entry/lo-combo-entry-button-ltr-prelight.png"
+			file		= "Combo/lo-combo-entry-button-ltr-prelight.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -2709,7 +2711,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state		= INSENSITIVE
-			file		= "Entry/lo-combo-entry-button-ltr-insensitive.png"
+			file		= "Combo/lo-combo-entry-button-ltr-insensitive.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -2718,7 +2720,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Entry/lo-combo-entry-button-ltr-active.png"
+			file		= "Combo/lo-combo-entry-button-ltr-active.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= LTR
@@ -2730,7 +2732,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state       = NORMAL
-			file		= "Entry/lo-combo-entry-button-rtl.png"
+			file		= "Combo/lo-combo-entry-button-rtl.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction   = RTL
@@ -2739,7 +2741,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state		= PRELIGHT
-			file		= "Entry/lo-combo-entry-button-rtl-prelight.png"
+			file		= "Combo/lo-combo-entry-button-rtl-prelight.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= RTL
@@ -2748,7 +2750,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state       = INSENSITIVE
-			file		= "Entry/lo-combo-entry-button-rtl-insensitive.png"
+			file		= "Combo/lo-combo-entry-button-rtl-insensitive.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= RTL
@@ -2757,7 +2759,7 @@ style "libreoffice_combobox_entry_button"
 		{
 			function	= BOX
 			state		= ACTIVE
-			file		= "Entry/lo-combo-entry-button-rtl-active.png"
+			file		= "Combo/lo-combo-entry-button-rtl-active.png"
 			border		= {4,4,3,3}
 			stretch		= TRUE
 			direction	= RTL
@@ -2774,7 +2776,7 @@ style "libreoffice_spinbutton_entry"
 			function		= SHADOW
 			detail			= "entry"
 			shadow			= IN
-			file			= "Entry/entry-border-bg-solid-spin.png"
+			file			= "Spin/spin-border-bg-solid.png"
 			border			= {4,4,4,4}
 			stretch			= TRUE
 		}
@@ -2919,7 +2921,7 @@ widget_class "*<GtkInfoBar>*<GtkButton>"        					style "button"
 widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"  	style "notebook_viewport"
 
 widget_class "*<GtkColorButton>*<GtkFrame>"  						style "color_frame"
-widget_class "*<GtkColorSelection>*<GtkFrame>" 						style "color_frame"
+widget_class "*<GtkColorSelection>*<GtkFrame>" 						style "color_selection_frame"
 
 widget_class "*<GtkFrame>.<GtkLabel>" 								style "frame_header_color"
 widget_class "*<GtkButton>.<GtkLabel>" 								style "button_label"
