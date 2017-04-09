@@ -26,7 +26,7 @@ StScrollBar {
   
   StBin#trough { background-color: rgba(0,0,0,0.2); }
 
-  StButton { &#hhandle, &#vhandle { &, &:hover { border-image: url('Shadows/outset-shadow.png') 3; } } }
+  StButton { &#hhandle, &#vhandle { &, &:hover { border-image: url('Shadows/shadow-outset.png') 3; } } }
 }
 
 .separator {
@@ -79,13 +79,13 @@ StScrollBar {
   min-width: 100px;
   padding-left: 5px;
   padding-right: 5px;
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   
   StEntry { @extend %entry; }
 
   StScrollView {
     border: 0 solid rgba(0,0,0,0);
-    border-image: url('Shadows/inset-shadow.png') 3;
+    border-image: url('Shadows/shadow-inset-thin.png') 3;
     background-color: $bg_color;
     
     &.vfade { -st-vfade-offset: 0; }
@@ -99,7 +99,7 @@ StScrollBar {
 .popup-submenu-menu-item:open { background-color: rgba(0,0,0,0); }
 
 .popup-sub-menu {
-  border-image: url('Shadows/inset-shadow.png') 3;
+  border-image: url('Shadows/shadow-inset-thin.png') 3;
   background-color: $bg_color;
   padding: 0.2em 0.2em;
 
@@ -152,7 +152,7 @@ StScrollBar {
 }
 
 .popup-slider-menu-item {
-  border-image: url("Range/trough-horizontal.png") 2 2 10 11 stretch; 
+  border-image: url("Range/trough-horz.png") 4 4 10 11 stretch; 
   height: 21px;
   min-width: 15em;
   -slider-height: 4px;
@@ -262,18 +262,21 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 #overview {	spacing: 12px; }
 
 .window-caption {
-  color: $insensitive_fg_color;
+  color: $borderless_entry_fg_color;
   text-shadow: 1px 1px white;
-  border-image: url('Entry/entry_shadow_insensitive.png') 6;
-  padding: 6px 8px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 4px 6px 6px 4px;
+  border-image: url('Entry/borderless_entry.png') 4 6 4 6;
+  padding: 4px 10px 6px 8px;
   spacing: 25px;
   font-size: 9pt;
   -cinnamon-caption-spacing: 10px;
 
   &#selected {
-    color: $fg_color;
+    color: $borderless_entry_selected_fg_color;
     text-shadow: none;
-    border-image: url('Entry/entry_shadow.png') 6;
+    border-image: url('Entry/borderless_entry_selected.png') 4 6 4 6;
   }
 }
 
@@ -335,7 +338,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
  * ===================================================================*/
 
 #LookingGlassDialog {
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   padding: 8px;
   color: $fg_color;
 
@@ -513,7 +516,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 }
 
 .switcher-list {
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   padding: 20px;
   font-size: 9pt;
   font-weight: bold;
@@ -565,7 +568,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 
 .modal-dialog {
   font-size: 10pt;
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   padding: 30px 42px;
   color: $fg_color;
 }
@@ -581,16 +584,16 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
   margin-right: 10px;
   padding: 3px 22px 4px;
 
-  &:hover { &, &:focus { border-image: url("Buttons/button-hover.png") 6 6 4 4; } }
+  &:hover { &, &:focus { border-image: url("Button/button-hover.png") 6 6 4 4; } }
 
-  &:focus { border-image: url("Buttons/button-focus.png") 6 6 4 4; }
+  &:focus { border-image: url("Button/button-focus.png") 6 6 4 4; }
 
   &:active, &:checked {
-    &:focus { border-image: url("Buttons/button-pressed.png") 6 6 4 4; }
+    &:focus { border-image: url("Button/button-active.png") 6 6 4 4; }
   }
 
   &:disabled {
-    border-image: url("Buttons/button-insensitive.png") 6 6 4 4;
+    border-image: url("Button/button-insensitive.png") 6 6 4 4;
     color: $button_insensitive_fg_color;
     text-shadow: 1px 1px white;
   }
@@ -600,7 +603,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 .info-osd {
   font-size: 18pt;
   font-weight: bold;
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   color: $fg_color;
   padding: 20px;
   text-align: center;
@@ -727,23 +730,28 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 .keyboard-key {
   min-height: 30px;
   min-width: 30px;
-  border-image: url('Keyboard/key.png') 3;
+  border: 2px solid transparent;
+  border-radius: 1px;
+  background-color: white;
   font-size: 18pt;
-  color: $fg_color;
+  color: black;
 
   &:grayed {
-    color: $insensitive_fg_color;
-    text-shadow: 1px 1px white;
+    color: $button_insensitive_fg_color;
+    background-color: $button_insensitive_bg_color;
   }
 
   &:checked, &:hover, &:active {
-    border-image: url('Keyboard/key-active.png') 3;
-    color: $selected_fg_color;
+    border-color: #f00;
+    background-color: #000080;
+    color: white;
   }
 }
 
 .keyboard-subkeys {
-  border-image: url('Keyboard/key-sub.png') 3;
+  background-color: #7a96df;
+  border: 2px solid transparent;
+  border-radius: 1px;
   color: #d8e4f8;
   padding: 5px;
   -arrow-border-radius: 4px;
@@ -1283,25 +1291,28 @@ $desklet_slice: 6;
 
 .workspace-osd {
   color: $fg_color;
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   padding: 9px 15px;
   font-weight: bold;
   font-size: 26pt;
 }
 
 .expo-workspaces-name-entry {
-  color: $insensitive_fg_color;
+  color: $borderless_entry_fg_color;
   text-shadow: 1px 1px white;
-  border-image: url('Entry/entry_shadow_insensitive.png') 6;
-  padding: 10px 15px;
-  height: 15px;	
+  border-color: transparent;
+  border-style: solid;
+  border-width: 4px 6px 6px 4px;
+  border-image: url('Entry/borderless_entry.png') 4 6 4 6;
+  padding: 8px 12px 10px 10px;
+  height: 15px;
   text-align: center;
 
   &#selected {
     &:focus, & {
-      color: $fg_color;
-      border-image: url('Entry/entry_shadow.png') 6;
-      caret-color: $fg_color;
+      color: $borderless_entry_selected_fg_color;
+      border-image: url('Entry/borderless_entry_selected.png') 4 6 4 6;
+      caret-color: $borderless_entry_selected_fg_color;
       caret-size: 1px;
       selected-color: $selected_fg_color;
       selection-background-color: $selected_bg_color;
@@ -1331,10 +1342,10 @@ $desklet_slice: 6;
 	StBin {
       width: 22px;
       height: 22px;
-      background-image: url('Check-Radio/checkbox-off.png');
+      background-image: url('Check-Radio/checkbox-unchecked.png');
     }
     
-    &:checked StBin { background-image: url('Check-Radio/checkbox.png'); }
+    &:checked StBin { background-image: url('Check-Radio/checkbox-checked.png'); }
   }
 }
 
@@ -1355,10 +1366,10 @@ $desklet_slice: 6;
     StBin {
       width: 16px;
       height: 16px;
-      background-image: url('Check-Radio/radio-unselected.png');
+      background-image: url('Check-Radio/radio-unchecked.png');
     }
 
-    &:checked StBin { background-image: url('Check-Radio/radio-selected.png'); }
+    &:checked StBin { background-image: url('Check-Radio/radio-checked.png'); }
   }
 }
 
@@ -1367,7 +1378,7 @@ $desklet_slice: 6;
 /* Media keys OSD popup */
 
 .osd-window {
-  border-image: url('Shadows/outset-shadow.png') 3;
+  border-image: url('Shadows/shadow-outset.png') 3;
   padding: 20px;
   color: $fg_color;
   spacing: 1em;

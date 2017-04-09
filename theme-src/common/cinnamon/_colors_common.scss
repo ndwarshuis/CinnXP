@@ -7,6 +7,13 @@ $tooltip_bg_color: #ffffe2;
 $tooltip_fg_color: $fg_color;
 $tooltip_borders_color: #000;
 
+// BORDERLESS ENTRIES
+$borderless_entry_fg_color: $button_insensitive_fg_color;
+$borderless_entry_selected_fg_color: $fg_color;
+
+// BUTTONS
+$button_insensitive_bg_color: $insensitive_bg_color;
+
 // MENUS
 $menu_borders: $insensitive_fg_color;
 
