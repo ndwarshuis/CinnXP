@@ -1226,24 +1226,24 @@ GtkTreeView.view {
   &.progressbar {
     color: $fg_color;
     border: none;
-    background-image: url('Progressbar/progressbar_horizontal.png');
+    background-image: url('Progressbar/progressbar-fill-horz.png');
 	background-size: 8px 100%, auto;
     
     &.vertical {
-      background-image: url('Progressbar/progressbar_vertical.png');
+      background-image: url('Progressbar/progressbar-fill-vert.png');
       background-size: 100% 8px, auto;
     }
     
     &:selected {
       color: $fg_color;
       background-image: cross-fade(15%
-                                   url('Progressbar/progressbar_horizontal.png'),
-                                   url('Progressbar/progressbar.png')
+                                   url('Progressbar/progressbar-fill-horz.png'),
+                                   url('Progressbar/progressbar-fill.png')
                                    );
       &.vertical {
         background-image: cross-fade(15%
-                                     url('Progressbar/progressbar_vertical.png'),
-                                     url('Progressbar/progressbar.png')
+                                     url('Progressbar/progressbar-fill-vert.png'),
+                                     url('Progressbar/progressbar-fill.png')
                                      );
       }
     }
@@ -1327,7 +1327,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     
     &:hover { //Seems like it :hover even with keyboard focus
       color: $menubar_menuitem_hover_fg_color;
-      border-image: url('Menu-Menubar/menubar_item.png');
+      border-image: url('Menu/menubar-menuitem.png');
       border-image-slice: 1 1 1 1;
       background-color: $menubar_menuitem_hover_bg_color;
     }
@@ -1346,7 +1346,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   padding: 0px;
   background-color: $base_color;
   border: 3px solid transparent; // adds borders in a non composited env
-  border-image: url('Menu-Menubar/menu.png');
+  border-image: url('Menu/menu.png');
   border-image-slice: 3 3 3 3;
   .csd & { border: none; }  // axes borders in a composited env
   .menuitem {
@@ -1728,13 +1728,13 @@ column-header.button.dnd { // for treeview-like derive widgets
 	.button.#{$w} {
 	  background: url("Scrollbars/#{$w}-stepper.png");
 
-	  &:hover { background: url("Scrollbars/#{$w}-stepper-prelight.png"); }
+	  &:hover { background: url("Scrollbars/#{$w}-stepper-hover.png"); }
 		
 	  &:hover:active { background: url("Scrollbars/#{$w}-stepper-active.png"); }
 	}
   }
 
-  @each $w,$a,$g in ('horizontal','horiz','to bottom'),
+  @each $w,$a,$g in ('horizontal','horz','to bottom'),
                ('vertical','vert','to right') {
 
     .trough.#{$w} {
@@ -1749,14 +1749,14 @@ column-header.button.dnd { // for treeview-like derive widgets
 	  border-image-slice: 5 5 5 5;
 	  border-image-repeat: stretch;
 	  background: url("Scrollbars/handle-#{$a}.png") no-repeat center center,
-	    url("Scrollbars/slider-background-#{$a}.png");
+	    url("Scrollbars/slider-bg-#{$a}.png");
 
 	  &:hover {
-		border-image: url("Scrollbars/slider-#{$a}-prelight.png");
+		border-image: url("Scrollbars/slider-#{$a}-hover.png");
 		border-image-slice: 5 5 5 5;
 		border-image-repeat: stretch;
-		background: url("Scrollbars/handle-#{$a}-prelight.png") no-repeat center center,
-	      url("Scrollbars/slider-background-#{$a}-prelight.png");
+		background: url("Scrollbars/handle-#{$a}-hover.png") no-repeat center center,
+	      url("Scrollbars/slider-bg-#{$a}-hover.png");
       }
 
       &:prelight:active {
@@ -1764,7 +1764,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 		border-image-slice: 5 5 5 5;
 		border-image-repeat: stretch;
 		background: url("Scrollbars/handle-#{$a}-active.png") no-repeat center center,
-	      url("Scrollbars/slider-background-#{$a}-active.png");
+	      url("Scrollbars/slider-bg-#{$a}-active.png");
 	  }
 	}
   }
@@ -1845,7 +1845,7 @@ GtkSwitch {
     }
     .view.#{$w}#{$s}:selected,
     .list-row:selected .#{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(cross-fade(15% url("Check-Radio/#{$a}#{$as}.png"), url("Check-Radio/selected_mask.png")));
+      -gtk-icon-source: -gtk-scaled(cross-fade(15% url("Check-Radio/#{$a}#{$as}.png"), url("Check-Radio/selected-mask.png")));
       &:backdrop { -gtk-icon-source: -gtk-scaled(url("Check-Radio/#{$a}#{$as}.png")); }
     }
   }
@@ -1855,25 +1855,25 @@ GtkSwitch {
     -gtk-icon-source: none;
     icon-shadow: none;
      &:active, &:checked {
-      -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked.png"));
+      -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-checked.png"));
 
       &:hover {
-        -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked-hover.png"));
+        -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-checked-hover.png"));
       }
 
       &:insensitive {
-        -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-checked-insensitive.png"));
+        -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-checked-insensitive.png"));
       }
     }
     &:inconsistent {
-      -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed.png"));
+      -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-mixed.png"));
 
       &:hover {
-        -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed-hover.png"));
+        -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-mixed-hover.png"));
       }
 
       &:insensitive {
-        -gtk-icon-source: -gtk-scaled(url("Check-Radio/menu-#{$w}-mixed-insensitive.png"));
+        -gtk-icon-source: -gtk-scaled(url("Menu/menu-#{$w}-mixed-insensitive.png"));
       }
     }
   }
@@ -2042,8 +2042,8 @@ GtkProgressBar {
     -GtkProgressBar-min-horizontal-bar-height: 3;
   }
   &.trough {  // background
-	@include progressbar_trough(horizontal);
-	&.vertical { @include progressbar_trough(vertical); }
+	@include progressbar_trough(horz);
+	&.vertical { @include progressbar_trough(vert); }
     &.osd {
       border-style: none;
       background-color: transparent;
@@ -2054,7 +2054,7 @@ GtkProgressBar {
 
 // moving bit
 .progressbar {
-  background-image: url('Progressbar/progressbar_horizontal.png');
+  background-image: url('Progressbar/progressbar-fill-horz.png');
   background-size: 8px 100%, auto;
   border-width: 3px 4px;
   border-color: transparent;
@@ -2062,7 +2062,7 @@ GtkProgressBar {
   border-radius: 0px;
   box-shadow: none; //needed for clipping
   &.vertical {
-    background-image: url('Progressbar/progressbar_vertical.png');
+    background-image: url('Progressbar/progressbar-fill-vert.png');
     background-size: 100% 8px, auto;
     border-width: 4px 3px;
   }
@@ -2088,8 +2088,8 @@ GtkProgressBar {
     -GtkLevelBar-min-block-height: 34;
   }
   &.trough {
-    @include progressbar_trough(horizontal);
-    &.vertical { @include progressbar_trough(vertical) }
+    @include progressbar_trough(horz);
+    &.vertical { @include progressbar_trough(vert) }
   }
   &.fill-block {
     // FIXME: it would be nice to set make fill blocks bigger, but we'd need
