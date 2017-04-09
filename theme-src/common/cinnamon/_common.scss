@@ -111,7 +111,7 @@ StScrollBar {
 
 /* this thing pops up if you go into overview and right click */
 .popup-combo-menu {
-  border: 1px solid $menu_borders;
+  border: 1px solid $menu_borders; // DEPRECIATED
   background-color: $base_color;
   color: $fg_color;
   padding: 1px;
@@ -193,9 +193,14 @@ StScrollBar {
  * Panel (panel.js)
  * ===================================================================*/
 
-$panel_slice: 12 26 0 0;
+$panel_slice: 1 0 0 0; //royale, embedded, zune
 
-//@if $flavor == 'royale' { $panel_slice: 1 0 1 1; }
+@if $flavor == 'noir' { $panel_slice: 2 0 0 0; }
+
+@if $flavor == 'homestead' { $panel_slice: 3 0 0 0; }
+
+@if $flavor == 'luna'
+ or $flavor == 'metallic' { $panel_slice: 50 50 0 0; }
 
 #panel {
   color: $panel_left_fg_color;
@@ -437,10 +442,10 @@ $panel_slice: 12 26 0 0;
   width: 34em;
   border: 1px solid black;
   border-radius: 8px;
-  background-color: $notification_bg;
+  background-color: $notification_bg_color;
 
   /* hacky thing to cover up inset border... */
-  &, &.multi-line-notification { StLabel { background-color: $notification_bg; } }
+  &, &.multi-line-notification { StLabel { background-color: $notification_bg_color; } }
 
   &.multi-line-notification { padding-bottom: 8px; }
 
@@ -481,17 +486,17 @@ $panel_slice: 12 26 0 0;
     font-size: 11pt;
     font-weight: normal;
     padding: 4px 42px 5px;
-    color: $notification_button;
+    color: $notification_button_fg_color;
     text-align: center;
     
     &:hover {
       border-image: url('Notifications/notification-button-hover.png') 4 5 4 5;
-      color: $notification_button_hover;
+      color: $notification_button_hover_fg_color;
     }
 
     &:active {
       border-image: url('Notifications/notification-button-active.png') 4 5 4 5;
-      color: $notification_button_active;
+      color: $notification_button_active_fg_color;
     }
   }
 }
@@ -586,7 +591,7 @@ $panel_slice: 12 26 0 0;
 
   &:disabled {
     border-image: url("Buttons/button-insensitive.png") 6 6 4 4;
-    color: $insensitive_fg_color;
+    color: $button_insensitive_fg_color;
     text-shadow: 1px 1px white;
   }
 }
@@ -698,8 +703,7 @@ $panel_slice: 12 26 0 0;
  * ===================================================================*/
 
 .magnifier-zoom-region {
-  border: 3px solid rgba(0,0,0,0);
-  border-image: url('Shadows/etched-shadow.png') 4;
+  border: 2px solid rgba(128, 0, 0, 255);
 
   &.full-screen { border-width: 0; }
 }
@@ -810,7 +814,7 @@ $panel_slice: 12 26 0 0;
   border: 1px solid $start_menu_box_borders_color;
   border-radius: 0;
   padding: 0.5em;
-  color: $start_menu_box_selected_fg_color;
+  color: $start_menu_selected_fg_color;
 
   .popup-separator-menu-item { background-color: $start_menu_box_borders_color; }
 }
@@ -820,8 +824,8 @@ $panel_slice: 12 26 0 0;
   border-radius: 0;
 
   &:hover {
-    background-color: $start_menu_box_selected_bg_color;
-    color: $start_menu_box_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
+    color: $start_menu_selected_fg_color;
   }
 }
 
@@ -881,8 +885,8 @@ $panel_slice: 12 26 0 0;
 
   &-selected {
     padding: 7px;
-    color: $start_menu_box_selected_fg_color;
-    background-color: $start_menu_box_selected_bg_color;
+    color: $start_menu_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
   }
 
   &-label {
@@ -906,8 +910,8 @@ $panel_slice: 12 26 0 0;
 
   &-selected {
     padding: 7px;
-    color: $start_menu_box_selected_fg_color;
-    background-color: $start_menu_box_selected_bg_color;
+    color: $start_menu_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
   }
 
   &-label {
@@ -921,11 +925,10 @@ $panel_slice: 12 26 0 0;
  
 .menu-selected-app {
   &-box {
-    @if $flavor == 'luna' or $flavor == 'metallic' { padding: 6px 30px 0 28px; }
-    @else if $flavor == 'royale' { padding: 16px 30px 0 28px; }
+    padding: 6px 30px 0 28px;
   
     text-align: right;
-    color: $start_menu_box_selected_fg_color;
+    color: $start_menu_bottom_fg_color;
   }
 
   &-title { font-weight: bold; }
@@ -944,9 +947,12 @@ $panel_slice: 12 26 0 0;
  * Window list (windowList.js)
  * ===================================================================*/
 
-$window_list_slice: 6 6 0 0;
+$window_list_slice: 17 5 0 0;
 
-@if $flavor == 'luna' { $window_list_slice: 18 6 0 0; }
+@if $flavor == 'royale' or
+    $flavor == 'noir' or
+    $flavor == 'embedded' or
+    $flavor == 'zune' { $window_list_slice: 12 11 0 0; }
 
 .window-list-box {
   spacing: 0;
@@ -1053,18 +1059,15 @@ $window_list_slice: 6 6 0 0;
 .workspace-button {
   width: 20px;
   height: 6px;
-  color: $workspace_switcher_fg_color;
   padding: 5px 3px 3px 3px;
 
-  &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
+  @if $flavor == 'metallic' { padding: 5px 3px 3px 4px; }
 
-  &:outlined {
-    border-image: url('Panel/applet-button-active.png') $window_list_slice;
+  color: $panel_left_fg_color;
 
-    &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
-  }
+  #panelRight & { color: $panel_right_fg_color; }
 
-  @if $flavor == 'royale' or $flavor == 'metallic' {
+  @if $flavor == 'royale' {
     #panelRight & {
       color: $panel_right_fg_color;
       border-image: none;
@@ -1075,10 +1078,24 @@ $window_list_slice: 6 6 0 0;
       border-color: rgba(0,0,0,0);
 
       &:outlined, &:hover {
-        $c: #666;
-        @if $flavor == 'royale' { $c: #2a4dab;	}
-        border-color: $c;
-        background-color: transparentize($c, 0.85);
+        border-color: #2a4dab;
+        background-color: transparentize(#2a4dab, 0.85);
+      }
+    }
+  } @else {
+    &:hover {
+      #panelRight & {
+        color: $window_list_fg_color;
+        border-image: url('Panel/applet-button-hover.png') $window_list_slice;		
+	  }
+    }
+
+    &:outlined {
+      #panelRight & {
+        color: $window_list_active_fg_color;
+        border-image: url('Panel/applet-button-active.png') $window_list_slice;
+
+        &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
       }
     }
   }
@@ -1197,14 +1214,14 @@ $desklet_slice: 6;
 
 .desklet-with-borders {
   border-image: url("Frames/bg-1.png") $desklet_slice;
-  color: $desklet_color;
+  color: $desklet_fg_color;
   font-weight: bold;
   padding: 8px;
 }
 
 .desklet-with-borders-and-header {
   border-image: url("Frames/bg-1.png") $desklet_slice;
-  color: $desklet_color;
+  color: $desklet_fg_color;
   padding: 8px;
 }
 
@@ -1212,7 +1229,7 @@ $desklet_slice: 6;
   border-image: url("Frames/bg-1.png") $desklet_slice;
   font-size: 9pt;
   font-weight: bold;
-  color: $desklet_color;
+  color: $desklet_fg_color;
   padding: 8px;
 }
 
@@ -1535,7 +1552,7 @@ $desklet_slice: 6;
   background-color: $base_color;
   padding: 4px 12px;
   color: $fg_color;
-  border: 1px solid $borders_color;
+  border: 1px solid $entry_borders_color;
   border-radius: 0;
   width: 250px;
   height: 16px;

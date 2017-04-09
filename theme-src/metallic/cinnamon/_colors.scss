@@ -1,44 +1,41 @@
-$base_color: #fff;
+$flavor: metallic;
+
+// GENERIC
 $bg_color: #e0dfe3;
-$fg_color: #000;
 
 $insensitive_fg_color: #a1a192;
-
-$tooltip_bg_color: #ffffe2;
-$tooltip_fg_color: $fg_color;
-$tooltip_borders_color: #000;
 
 $selected_fg_color: #000;
 $selected_bg_color: #b2b4bf;
 
+// LINKS
+$link_color: #648bcb;
+
+// ENTRIES
+$entry_borders_color: #a5acb2;
+
+// BUTTONS
+$button_insensitive_fg_color: #a1a192;
+
+// START MENU
+$start_menu_fg_color: #373738;
+$start_menu_insensitive_fg_color: #808080;
+$start_menu_selected_fg_color: #000;
+$start_menu_selected_bg_color: #bbb7c7;
+$start_menu_box_fg_color: #0a246a;
+$start_menu_box_bg_color: #e4e7ec;
+$start_menu_box_borders_color: #b4bdc7;
+$start_menu_bottom_fg_color: #000;
+
+// FRAMES
+$separator_color: #cac6b5;
+
+// PANEL
 $panel_left_fg_color: #000;
 $panel_right_fg_color: #000;
 
-$notification_bg: $tooltip_bg_color;
-$notification_button: #aa9c87;
-$notification_button_hover: white;
-$notification_button_active: white;
-
-$start_menu_icon_color: #fff;
-$start_menu_insensitive_fg_color: $insensitive_fg_color;
-$start_menu_fg_color: #373738;
-
-$start_menu_box_bg_color: #e4e7ec;
-$start_menu_box_fg_color: #0a246a;
-$start_menu_box_selected_bg_color: #bbb7c7;
-$start_menu_box_selected_fg_color: $selected_fg_color;
-$start_menu_box_borders_color: #b4bdc7;
-
-$borders_color: #a5acb2;
-$menu_borders: $insensitive_fg_color;
-
-$separator_color: #bfbfc5;
-
+// WINDOW LIST
 $window_list_fg_color: #404040;
-$window_list_active_fg_color: #fff;
 
-$workspace_switcher_fg_color: $panel_right_fg_color;
-
-$desklet_color: #fff;
-
-$link_color: lighten($selected_bg_color,20%);
+// DESKLETS
+$desklet_fg_color: #000;

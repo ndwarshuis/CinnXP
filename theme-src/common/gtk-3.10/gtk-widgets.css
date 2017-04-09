@@ -190,6 +190,7 @@ GtkHandleBox.dock .toolbar .button:insensitive:active {
     border-image: none;
     box-shadow: none;
     background: none;
+    padding: 0;
 }
 
 .primary-toolbar .button:hover,
@@ -199,6 +200,7 @@ GtkHandleBox.dock .toolbar .button:hover {
 	border-image-slice: 4 4 4 4;
 	box-shadow: none;
 	background: url('Button/flat-button-hover-bg.png') no-repeat center center/100% 100%;
+	padding: 0;
 }
 
 .primary-toolbar .button:active,
@@ -210,6 +212,7 @@ GtkHandleBox.dock .toolbar .button:active:hover {
 	border-image-slice: 4 4 4 4;
 	box-shadow: none;
 	background: url('Button/flat-button-active-hover-bg.png') no-repeat center center/100% 100%;
+	padding: 0;
 }
 
 GtkLinkButton.button,
@@ -533,7 +536,7 @@ GtkComboBox.combobox-entry .button:first-child:active {
 }
 
 GtkComboBox.combobox-entry .button:first-child:insensitive  {
-    border-image: url('Entry/entry-button-border-ltr-insensitive.png');
+    border-image: url('Entry/entry-button-border-rtl-insensitive.png');
     border-image-slice: 4 3 4 4;
 }
 
@@ -1454,7 +1457,7 @@ GtkProgressBar {
 }
 
 .progressbar {
-	background-image: url('Progressbar/progressbar_horizontal_full.png');
+	background: url('Progressbar/progressbar_horizontal.png') repeat-x left center/8px 16px;
 }
 
 .progressbar row,
@@ -1470,15 +1473,9 @@ GtkProgressBar {
 	                             );
 }
 
-.progressbar,
-.progressbar row {
-	background-size: 8px 100%, auto;
-}
-
 .progressbar.vertical {
 	border-width: 4px 0px;
-	background-size: 100% 8px, auto;
-	background-image: url('Progressbar/progressbar_vertical_full.png');
+	background: url('Progressbar/progressbar_vertical.png') repeat-y center center/16px 8px;
 }
 
 .trough,
