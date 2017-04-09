@@ -2069,8 +2069,9 @@ notebook {
     border: 1px solid $notebook_borders_color;
     box-shadow: none;
 
-    // fix borders in GNOME terminal
-    terminal-window & { border-width: 1px 0px 0px 0px; }
+    // fix borders in GNOME terminal and terminator
+    terminal-window &,
+    .terminator-terminal-window & { border-width: 1px 0px 0px 0px; }
   }
 }
 
