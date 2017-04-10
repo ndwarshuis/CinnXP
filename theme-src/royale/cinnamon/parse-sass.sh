@@ -1,1 +1,0 @@
-../../common/cinnamon/parse-sass.sh
