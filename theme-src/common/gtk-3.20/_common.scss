@@ -1636,7 +1636,7 @@ menubar,
 
     &:hover { //Seems like it :hover even with keyboard focus
       color: $menubar_menuitem_hover_fg_color;
-      border-image: url('Menu/menubar_item.png');
+      border-image: url('Menu/menubar-menuitem.png');
       border-image-slice: 1 1 1 1;
       background-color: $menubar_menuitem_hover_bg_color;
     }

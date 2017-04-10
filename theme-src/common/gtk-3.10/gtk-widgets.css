@@ -479,64 +479,64 @@ GtkComboBox.combobox-entry .button  {
     border-color: transparent;
     border-radius: 0;
     box-shadow: none;
-    background: url('Entry/entry-button-bg.png') no-repeat center center/100% 100%;
+    background: url('Combo/combo-button-bg.png') no-repeat center center/100% 100%;
     padding: 0;
 }
 
 GtkComboBox.combobox-entry .button:hover  {
     color: @arrow_active_color;
-    background: url('Entry/entry-button-bg-hover.png') no-repeat center center/100% 100%;
+    background: url('Combo/combo-button-bg-hover.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:active  {
     color: @arrow_active_color;
-    background: url('Entry/entry-button-bg-active.png') no-repeat center center/100% 100%;
+    background: url('Combo/combo-button-bg-active.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:insensitive {
     color: @arrow_insensitive_color;
-    background: url('Entry/entry-button-bg-insensitive.png') no-repeat center center/100% 100%;
+    background: url('Combo/combo-button-bg-insensitive.png') no-repeat center center/100% 100%;
 }
 
 GtkComboBox.combobox-entry .button:last-child {
 	border-width: 4px 4px 4px 3px;
-    border-image: url('Entry/entry-button-border-ltr.png');
+    border-image: url('Combo/combo-button-border-ltr.png');
     border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:last-child:hover {
-    border-image: url('Entry/entry-button-border-ltr-hover.png');
+    border-image: url('Combo/combo-button-border-ltr-hover.png');
     border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:last-child:active {
-    border-image: url('Entry/entry-button-border-ltr-active.png');
+    border-image: url('Combo/combo-button-border-ltr-active.png');
     border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:last-child:insensitive  {
-    border-image: url('Entry/entry-button-border-ltr-insensitive.png');
+    border-image: url('Combo/combo-button-border-ltr-insensitive.png');
     border-image-slice: 4 4 4 3;
 }
 
 GtkComboBox.combobox-entry .button:first-child {
 	border-width: 4px 3px 4px 4px;
-    border-image: url('Entry/entry-button-border-rtl.png');
+    border-image: url('Combo/combo-button-border-rtl.png');
     border-image-slice: 4 3 4 4;
 }
 
 GtkComboBox.combobox-entry .button:first-child:hover {
-    border-image: url('Entry/entry-button-border-rtl-hover.png');
+    border-image: url('Combo/combo-button-border-rtl-hover.png');
     border-image-slice: 4 3 4 4;
 }
 
 GtkComboBox.combobox-entry .button:first-child:active {
-    border-image: url('Entry/entry-button-border-rtl-active.png');
+    border-image: url('Combo/combo-button-border-rtl-active.png');
     border-image-slice: 4 3 4 4;
 }
 
 GtkComboBox.combobox-entry .button:first-child:insensitive  {
-    border-image: url('Entry/entry-button-border-rtl-insensitive.png');
+    border-image: url('Combo/combo-button-border-rtl-insensitive.png');
     border-image-slice: 4 3 4 4;
 }
 
@@ -1457,25 +1457,25 @@ GtkProgressBar {
 }
 
 .progressbar {
-	background: url('Progressbar/progressbar_horizontal.png') repeat-x left center/8px 16px;
+	background: url('Progressbar/progressbar-fill-horz.png') repeat-x left center/8px 16px;
 }
 
 .progressbar row,
 .progressbar row:hover {
-	background-image: url('Progressbar/progressbar_horizontal.png');
+	background-image: url('Progressbar/progressbar-fill-horz.png');
 }
 
 .progressbar row:selected,
 .progressbar row:selected:focus {
 	background-image: cross-fade(15%
-	                             url('Progressbar/progressbar_horizontal.png'),
-	                             url('Progressbar/progressbar.png')
+	                             url('Progressbar/progressbar-fill-horz.png'),
+	                             url('Progressbar/progressbar-fill.png')
 	                             );
 }
 
 .progressbar.vertical {
 	border-width: 4px 0px;
-	background: url('Progressbar/progressbar_vertical.png') repeat-y center center/16px 8px;
+	background: url('Progressbar/progressbar-fill-vert.png') repeat-y center center/16px 8px;
 }
 
 .trough,
@@ -1501,14 +1501,14 @@ GtkProgressBar {
 .trough {
 	border-width: 3px 4px;
     border-radius: 0px;
-    border-image: url('Progressbar/progressbar_trough_horizontal.png');
+    border-image: url('Progressbar/progressbar-trough-horz.png');
     border-image-slice: 3 4 3 4;
 }
 
 .trough.vertical {
 	border-width: 4px 3px;
     border-radius: 0px;
-    border-image: url('Progressbar/progressbar_trough_vertical.png');
+    border-image: url('Progressbar/progressbar-trough-vert.png');
     border-image-slice: 4 3 4 3;
 }
 
@@ -1714,7 +1714,7 @@ GtkProgressBar {
 }
 
 .scrollbar.trough.horizontal {
-    background-image: url("Scrollbars/trough-scrollbar-horiz.png");;
+    background-image: url("Scrollbars/trough-scrollbar-horz.png");;
 }
 
 .scrollbar.slider,
@@ -1732,15 +1732,15 @@ GtkProgressBar {
 	border-image: url("Scrollbars/slider-vert.png");
 	border-image-slice: 5 5 5 5;
 	background: url("Scrollbars/handle-vert.png") no-repeat center center,
-				url("Scrollbars/slider-background-vert.png");
+				url("Scrollbars/slider-bg-vert.png");
 }
 
 .scrollbar.slider:hover,
 .scrollbar.slider.vertical:hover {
-	border-image: url("Scrollbars/slider-vert-prelight.png");
+	border-image: url("Scrollbars/slider-vert-hover.png");
 	border-image-slice: 5 5 5 5;
-	background: url("Scrollbars/handle-vert-prelight.png") no-repeat center center,
-				url("Scrollbars/slider-background-vert-prelight.png");
+	background: url("Scrollbars/handle-vert-hover.png") no-repeat center center,
+				url("Scrollbars/slider-bg-vert-hover.png");
 }
 
 .scrollbar.slider:active,
@@ -1748,28 +1748,28 @@ GtkProgressBar {
 	border-image: url("Scrollbars/slider-vert-active.png");
 	border-image-slice: 5 5 5 5;
 	background: url("Scrollbars/handle-vert-active.png") no-repeat center center,
-				url("Scrollbars/slider-background-vert-active.png");
+				url("Scrollbars/slider-bg-vert-active.png");
 }
 
 .scrollbar.slider.horizontal {
-	border-image: url("Scrollbars/slider-horiz.png");
+	border-image: url("Scrollbars/slider-horz.png");
 	border-image-slice: 5 5 5 5;
-	background: url("Scrollbars/handle-horiz.png") no-repeat center center,
-				url("Scrollbars/slider-background-horiz.png");
+	background: url("Scrollbars/handle-horz.png") no-repeat center center,
+				url("Scrollbars/slider-bg-horz.png");
 }
 
 .scrollbar.slider.horizontal:hover {
-	border-image: url("Scrollbars/slider-horiz-prelight.png");
+	border-image: url("Scrollbars/slider-horz-hover.png");
 	border-image-slice: 5 5 5 5;
-	background: url("Scrollbars/handle-horiz-prelight.png") no-repeat center center,
-	            url("Scrollbars/slider-background-horiz-prelight.png");
+	background: url("Scrollbars/handle-horz-hover.png") no-repeat center center,
+	            url("Scrollbars/slider-bg-horz-hover.png");
 }
 
 .scrollbar.slider.horizontal:active {
-	border-image: url("Scrollbars/slider-horiz-active.png");
+	border-image: url("Scrollbars/slider-horz-active.png");
 	border-image-slice: 5 5 5 5;
-	background: url("Scrollbars/handle-horiz-active.png") no-repeat center center,
-	            url("Scrollbars/slider-background-horiz-active.png");
+	background: url("Scrollbars/handle-horz-active.png") no-repeat center center,
+	            url("Scrollbars/slider-bg-horz-active.png");
 }
 
 .scrollbar.slider.fine-tune {
@@ -1843,9 +1843,9 @@ GtkMenuButton .menuitem.separator {
     border-width: 3px;
     border-radius: 0;
     box-shadow: none;
-	border-image: url('Entry/borderless-entry-button-border.png');
+	border-image: url('Combo/borderless-combo-button-border.png');
 	border-image-slice: 3 3 3 3;
-	background: url('Entry/entry-button-bg.png') no-repeat center center/100% 100%;
+	background: url('Combo/combo-button-bg.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton .button:hover {
@@ -1853,9 +1853,9 @@ GtkMenuButton .menuitem.separator {
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
-	border-image: url('Entry/borderless-entry-button-border-hover.png');
+	border-image: url('Combo/borderless-combo-button-border-hover.png');
 	border-image-slice: 3 3 3 3;
-	background: url('Entry/entry-button-bg-hover.png') no-repeat center center/100% 100%;
+	background: url('Combo/combo-button-bg-hover.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton .button:active {
@@ -1863,9 +1863,9 @@ GtkMenuButton .menuitem.separator {
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
-	border-image: url('Entry/borderless-entry-button-border-active.png');
+	border-image: url('Combo/borderless-combo-button-border-active.png');
 	border-image-slice: 3 3 3 3;
-	background: url('Entry/entry-button-bg-active.png') no-repeat center center/100% 100%;
+	background: url('Combo/combo-button-bg-active.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton .button:insensitive {
@@ -1873,9 +1873,9 @@ GtkMenuButton .menuitem.separator {
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
-	border-image: url('Entry/borderless-entry-button-border-insensitive.png');
+	border-image: url('Combo/borderless-combo-button-border-insensitive.png');
 	border-image-slice: 3 3 3 3;
-	background: url('Entry/entry-button-bg-insensitive.png') no-repeat center center/100% 100%;
+	background: url('Combo/combo-button-bg-insensitive.png') no-repeat center center/100% 100%;
 }
 
 .spinbutton.vertical .button {
