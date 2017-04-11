@@ -14,6 +14,16 @@ border slices (not gaps): 1 1 1 1
 * greige: luna, homestead
 * grey: royale, noir, embedded, zune
 
+# shadows
+
+currenty only color-shadow: used around color swatches
+
+border-image: 2 2 2 2
+
+#### mapping
+* blue: royale, noir
+* greige: luna, homestead
+
 # view
 
 color from view_borders_color
