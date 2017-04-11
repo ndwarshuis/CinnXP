@@ -73,9 +73,9 @@ test_dir="cinnxp_""$flavor""_testing"
 
 mkdir "$test_dir"
 
-ln -s "$PWD/theme-src/$flavor/cinnamon" "$test_dir/cinnamon"
-ln -s "$PWD/theme-src/$flavor/gtk-2.0" "$test_dir/gtk-2.0"
-ln -s "$PWD/theme-src/$flavor/gtk-3.$gtk3_minor_revision" "$test_dir/gtk-3.0"
-ln -s "$PWD/theme-src/$flavor/metacity-1" "$test_dir/metacity-1"
+ln -s "$PWD/theme-src/flavors/$flavor/cinnamon" "$test_dir/cinnamon"
+ln -s "$PWD/theme-src/flavors/$flavor/gtk-2.0" "$test_dir/gtk-2.0"
+ln -s "$PWD/theme-src/flavors/$flavor/gtk-3.$gtk3_minor_revision" "$test_dir/gtk-3.0"
+ln -s "$PWD/theme-src/flavors/$flavor/metacity-1" "$test_dir/metacity-1"
 
 ln -s "$PWD/icon-src" "$test_dir"_icons
