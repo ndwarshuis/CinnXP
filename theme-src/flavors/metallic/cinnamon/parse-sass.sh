@@ -1,1 +1,1 @@
-../../common/cinnamon/parse-sass.sh
+../../../common/textfiles/cinnamon/parse-sass.sh

@@ -1,1 +1,1 @@
-../../common/gtk-3.18/parse-sass.sh
+../../../common/textfiles/gtk-3.18/parse-sass.sh
