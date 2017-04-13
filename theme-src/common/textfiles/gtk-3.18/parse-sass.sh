@@ -1,1 +1,3 @@
-../gtk-3.20/parse-sass.sh
+#!/bin/sh
+
+bundle exec sass --update --sourcemap=none .

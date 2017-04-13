@@ -1,1 +1,65 @@
-../gtk-3.20/_colors_common.scss
+// GENERIC
+$base_color: #ffffff;
+$text_color: #000;
+$fg_color: $text_color;
+
+$selected_borders_color: darken($selected_bg_color, 30%);
+
+$osd_fg_color: $fg_color;
+$osd_bg_color: mix($bg_color, $base_color, 50%);
+$osd_insensitive_bg_color: $insensitive_bg_color;
+$osd_insensitive_fg_color: $insensitive_fg_color;
+$osd_borders_color: $insensitive_fg_color;
+
+// TOOLTIP
+$tooltip_bg_color: #FFFFE2;
+$tooltip_fg_color: $text_color;
+$tooltip_borders_color: #000;
+
+// WARNING
+$warning_color: #f57900;
+$error_color: #cc0000;
+$success_color: #73d216;
+$destructive_color: #ef2929;
+
+// BUTTONS
+$borders_edge: white;
+$button_insensitive_bg_color: $insensitive_bg_color;
+$button_insensitive_borders_color: $insensitive_borders_color;
+
+// ENTRIES
+$entry_insensitive_bg_color: $bg_color;
+
+// COMBOS
+$combo_borders_color: $borders_color;
+$combo_insensitive_fg_color: $entry_insensitive_fg_color;
+$combo_insensitive_bg_color: $bg_color;
+$combo_insensitive_borders_color: #c9c7ba;
+$combo_insensitive_edge_color: #f5f4ea;
+
+// TOOLBARS
+$toolbar_top_edge: #fff;
+$toolbar_bottom_edge: $insensitive_fg_color;
+
+// MENU
+$menu_borders: $insensitive_fg_color; //TODO: THIS IS DEPRECIATED
+$menu_insensitive_fg_color: $entry_insensitive_fg_color;
+$menu_separator_color: $menu_borders; //TODO: NEED TO ADD THIS
+$menu_menuitem_selected_borders_color: $selected_bg_color;
+
+// MENUBAR
+$menubar_top_edge: white;
+$menubar_bottom_edge: $insensitive_fg_color;
+
+// MENUBAR-MENUITEM
+$menubar_menuitem_backdrop_fg_color: $insensitive_fg_color;
+
+// FRAMES
+$view_borders_color: $borders_color;
+
+// SCROLLBARS
+$scrollbar_bg_color: darken($bg_color, 7%);
+$sidebar_bg_color: $base_color;
+
+// RANGE
+$range_marks_color: $button_insensitive_fg_color;
