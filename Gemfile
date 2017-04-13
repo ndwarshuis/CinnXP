@@ -1,1 +1,1 @@
-theme-src/common/gtk-3.20/Gemfile
+theme-src/common/textfiles/gtk-3.20/Gemfile
