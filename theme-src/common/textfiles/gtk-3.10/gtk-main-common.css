@@ -57,6 +57,9 @@
 /* Frames */
 @define-color view_borders_color @borders_color;
 
+/* column headers */
+@define-color tree_header_arrow_color @entry_insensitive_fg_color;
+
 /* Sidebar */
 @define-color sidebar_bg @base_color;
 

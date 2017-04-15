@@ -394,6 +394,11 @@ column-header .button {
     icon-shadow: none;
 }
 
+column-header.button GtkArrow,
+column-header .button GtkArrow {
+    color: @tree_header_arrow_color;
+}
+
 column-header.button:insensitive,
 column-header .button:insensitive {
 	color: @button_insensitive_fg_color;
