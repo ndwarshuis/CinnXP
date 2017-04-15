@@ -321,7 +321,7 @@ build_flavor() {
 	
 	theme_folder_name="CinnXP-${flavor^}"
 	
-	theme_src="$THEME_ROOT/theme-src/$flavor"
+	theme_src="$THEME_ROOT/theme-src/flavors/$flavor"
 	theme_dest="$pkg_path/$theme_folder_name"
 
 	echo "Building flavor: $flavor (gtk3.$gtk3_minor_revision)"
