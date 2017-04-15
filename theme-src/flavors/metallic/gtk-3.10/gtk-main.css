@@ -51,6 +51,10 @@
 @define-color arrow_color #3f3d3d;
 @define-color arrow_active_color #202020;
 @define-color arrow_insensitive_color #c9c9c2;
+
+/* Arrow Spin */
+@define-color arrow_spin_color #3f3d3d;
+@define-color arrow_spin_active_color #202020;
 @define-color arrow_spin_insensitive_color #c9c9c2;
 
 /* Calendar */

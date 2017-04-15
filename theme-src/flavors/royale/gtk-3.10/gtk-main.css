@@ -51,7 +51,11 @@
 @define-color arrow_color #5b6473;
 @define-color arrow_active_color #6b7b84;
 @define-color arrow_insensitive_color #c9c9c2;
-@define-color arrow_spin_insensitive_color #b7cbe3;
+
+/* Arrow Spin */
+@define-color arrow_spin_color #5b6473;
+@define-color arrow_spin_active_color #6b7b84;
+@define-color arrow_spin_insensitive_color #c9c9c2;
 
 /* Calendar */
 @define-color calendar_header_fg_color #6fa1d9;

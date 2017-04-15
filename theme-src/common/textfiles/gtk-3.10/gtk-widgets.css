@@ -1843,7 +1843,7 @@ GtkMenuButton .menuitem.separator {
  **************/
 
 .spinbutton .button {
-	color: @arrow_color;
+	color: @arrow_spin_color;
     padding: 3px;
     border-width: 3px;
     border-radius: 0;
@@ -1854,7 +1854,7 @@ GtkMenuButton .menuitem.separator {
 }
 
 .spinbutton .button:hover {
-    color: @arrow_active_color;
+    color: @arrow_spin_active_color;
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
@@ -1864,7 +1864,7 @@ GtkMenuButton .menuitem.separator {
 }
 
 .spinbutton .button:active {
-    color: @arrow_active_color;
+    color: @arrow_spin_active_color;
 	border-width: 3px;
 	border-radius: 0;
 	box-shadow: none;
