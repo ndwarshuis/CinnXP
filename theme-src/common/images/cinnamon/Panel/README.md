@@ -38,11 +38,11 @@
 * 3x30: noir
 * 4x30: homestead
 
-transformations (from top):
+#### transformations (from top):
 * copy row 13 and 15 directly below themselves
 * applies to luna and metallic. remainder just take screenshots
 
-border-image-slice (top right bottom left):
+#### border-image-slice (top right bottom left):
 * 0 50 0 50: luna, metallic
 * 0 0 0 1: royale, embedded, zune
 * 0 0 0 2: noir
