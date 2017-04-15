@@ -1286,6 +1286,7 @@ column-header {
     &.dnd {
       @extend column-header.button.dnd;
     }
+    GtkImage { color: $tree_header_arrow_color; }
   }
 }
 
