@@ -1002,7 +1002,7 @@ spinbutton {
       min-width: 26px;
       margin: 0;
       padding: 0;
-      color: $arrow_color;
+      color: $arrow_spin_color;
       
       @include entry_button(normal, '', true);
 
@@ -1011,12 +1011,12 @@ spinbutton {
       &:dir(rtl) { border-style: none solid none none; }
 
       &:hover {
-        color: $arrow_active_color;
+        color: $arrow_spin_active_color;
         @include entry_button(hover, '', true);
       }
 
       &:active {
-        color: $arrow_active_color;
+        color: $arrow_spin_active_color;
         @include entry_button(active, '', true);
       }
 
