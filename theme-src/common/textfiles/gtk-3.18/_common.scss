@@ -824,15 +824,15 @@ GtkColorButton.button {
 
 .spinbutton {
   .button {
-    color: $arrow_color;
+    color: $arrow_spin_color;
     padding: 3px;
     @include entry_button(normal, '', true);
     &:hover {
-      color: $arrow_active_color;
+      color: $arrow_spin_active_color;
       @include entry_button(hover, '', true);
     }
     &:active {
-      color: $arrow_active_color;
+      color: $arrow_spin_active_color;
       @include entry_button(active, '', true);
     }
     &:insensitive {
