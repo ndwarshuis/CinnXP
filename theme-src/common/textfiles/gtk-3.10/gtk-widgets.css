@@ -410,7 +410,7 @@ column-header .button:insensitive {
     border-style: solid;
     border-color: transparent;
     border-radius: 0;
-    border-image: url("Treeview/tree_header.png");
+    border-image: url("Treeview/treeview-header.png");
     border-image-slice: 4 8 4 8;
     box-shadow: none;
     background-color: @tree_header_bg_color;
@@ -423,7 +423,7 @@ column-header .button:hover {
     border-style: solid;
     border-color: transparent;
     border-radius: 0;
-    border-image: url("Treeview/tree_header-hover.png");
+    border-image: url("Treeview/treeview-header-hover.png");
     border-image-slice: 4 8 4 8;
     box-shadow: none;
     background-color: @tree_header_hover_bg_color;
@@ -438,7 +438,7 @@ column-header .button:active:hover {
     border-style: solid;
     border-color: transparent;
     border-radius: 0;
-    border-image: url("Treeview/tree_header-active.png");
+    border-image: url("Treeview/treeview-header-active.png");
     border-image-slice: 4 8 4 8;
     box-shadow: none;
     background-color: @tree_header_active_bg_color;

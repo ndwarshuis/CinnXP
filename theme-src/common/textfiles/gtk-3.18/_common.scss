@@ -1268,18 +1268,18 @@ column-header {
     border-width: 4px 8px 4px 8px;
     border-style: solid;
     border-color: transparent;
-    border-image: url("Treeview/tree_header.png");
+    border-image: url("Treeview/treeview-header.png");
     border-image-slice: 4 8 4 8;
     &:hover {
       @extend %column_header_button;
       background-color: $tree_header_hover_bg_color;
-      border-image: url("Treeview/tree_header-hover.png");
+      border-image: url("Treeview/treeview-header-hover.png");
       border-image-slice: 4 8 4 8;
     }
     &:active {
       @extend %column_header_button;
       background-color: $tree_header_active_bg_color;
-      border-image: url("Treeview/tree_header-active.png");
+      border-image: url("Treeview/treeview-header-active.png");
       border-image-slice: 4 8 4 8;
     }
     &:insensitive { background-color: $tree_header_bg_color; }

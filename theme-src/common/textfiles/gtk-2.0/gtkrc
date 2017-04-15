@@ -2341,42 +2341,58 @@ style "treeview_header"
 	{
 		image 
 		{
-			function	= FOCUS
-			file		= "Others/null.png"
-			border		= {1,1,1,1}
-			stretch		= TRUE
+			function		= FOCUS
+			file			= "Others/null.png"
+			border			= {1,1,1,1}
+			stretch			= TRUE
 		}
 		image 
-      	{
-        	function	= BOX
-			file       	= "Treeview/tree_header.png"
-			state		= NORMAL
-			border     	= {8,8,4,4}
-			stretch   	= TRUE
+		{
+			function		= BOX
+			file       		= "Treeview/treeview-header.png"
+			state			= NORMAL
+			border     		= {8,8,4,4}
+			stretch   		= TRUE
 		}
 		image 
-      	{
-        	function	= BOX
-			file       	= "Treeview/tree_header-hover.png"
-			state		= PRELIGHT
-			border     	= {8,8,4,4}
-			stretch   	= TRUE
+		{
+			function		= BOX
+			file       		= "Treeview/treeview-header-hover.png"
+			state			= PRELIGHT
+			border     		= {8,8,4,4}
+			stretch   		= TRUE
 		}
 		image
-      	{
-        	function	= BOX
-			file       	= "Treeview/tree_header-active.png"
-			state		= ACTIVE
-			border     	= {8,8,4,4}
-			stretch   	= TRUE
+		{
+			function		= BOX
+			file       		= "Treeview/treeview-header-active.png"
+			state			= ACTIVE
+			border     		= {8,8,4,4}
+			stretch   		= TRUE
 		}
 		image 
-      	{
-        	function	= BOX
-			file       	= "Treeview/tree_header.png"
-			state		= INSENSITIVE
-			border     	= {8,8,4,4}
-			stretch   	= TRUE
+		{
+			function		= BOX
+			file       		= "Treeview/treeview-header.png"
+			state			= INSENSITIVE
+			border     		= {8,8,4,4}
+			stretch   		= TRUE
+		}
+		image
+		{
+			function		= ARROW
+			overlay_file    = "Treeview/treeview-header-arrow-up.png"
+			overlay_border	= {0,0,0,0}
+			overlay_stretch	= FALSE
+			arrow_direction	= UP
+		}
+		image
+		{
+			function		= ARROW
+			overlay_file    = "Treeview/treeview-header-arrow-down.png"
+			overlay_border	= {0,0,0,0}
+			overlay_stretch	= FALSE
+			arrow_direction	= DOWN
 		}
     }
 }

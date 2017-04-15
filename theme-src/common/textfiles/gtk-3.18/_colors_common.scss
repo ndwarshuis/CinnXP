@@ -57,6 +57,9 @@ $menubar_menuitem_backdrop_fg_color: $insensitive_fg_color;
 // FRAMES
 $view_borders_color: $borders_color;
 
+// COLUMN HEADERS
+$tree_header_arrow_color: $entry_insensitive_fg_color;
+
 // SCROLLBARS
 $scrollbar_bg_color: darken($bg_color, 7%);
 $sidebar_bg_color: $base_color;
