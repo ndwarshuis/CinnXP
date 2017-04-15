@@ -272,13 +272,13 @@
  ******************/
 
 .pane-separator {
-    background-image: -gtk-scaled(url('Handles/pane-separator-grip-vertical.png'));
+    background-image: -gtk-scaled(url('Handles/pane-separator-grip-horz.png'));
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .pane-separator.vertical {
-    background-image: -gtk-scaled(url('Handles/pane-separator-grip.png'));
+    background-image: -gtk-scaled(url('Handles/pane-separator-grip-vert.png'));
 }
 
 /****************
