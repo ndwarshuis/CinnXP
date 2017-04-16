@@ -1316,9 +1316,12 @@ GtkModelMenuItem GtkBox GtkImage {
     background-color: @notebook_bg_color;
 }
 
-.notebook tab.top,
+.notebook tab.top {
+    padding: 5px 12px 3px;
+}
+
 .notebook tab.bottom {
-    padding: 5px 12px;
+    padding: 3px 12px 5px;
 }
 
 .notebook tab.left,
@@ -1326,9 +1329,12 @@ GtkModelMenuItem GtkBox GtkImage {
     padding: 7px 10px;
 }
 
-.notebook tab.top:active,
+.notebook tab.top:active {
+    padding: 6px 12px 4px;
+}
+
 .notebook tab.bottom:active {
-    padding: 6px 12px;
+    padding: 4px 12px 6px;
 }
 
 .notebook tab.left:active {
@@ -1397,6 +1403,10 @@ GtkModelMenuItem GtkBox GtkImage {
 .notebook tab.right:active {
     border-image: url("Notebook/tab-right-active.png");
     border-image-slice: 6 4 3 0;
+}
+
+.notebook tab .button {
+    padding: 0px;
 }
 
 /******
