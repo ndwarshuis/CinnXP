@@ -60,7 +60,7 @@ case "$gtk3_minor_revision" in
 esac
 
 case "$flavor" in
-  "luna"|"royale"|"metallic")
+  "luna"|"homestead"|"metallic"|"royale")
     ;;
   *)
     echo "Invalid flavor requested."
