@@ -3,7 +3,7 @@
 THEME_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 declare -a VALID_GTK_VERSIONS=(10 18 20)
-declare -a VALID_FLAVORS=('luna' 'metallic' 'royale')
+declare -a VALID_FLAVORS=('luna' 'homestead' 'metallic' 'royale')
 
 help() {
 cat << EOF
@@ -22,7 +22,7 @@ OPTIONS:
             For Linux Mint 17.x and 18.x pass "10" or "18" respectively
 
    -f       Flavor to compile (full string name) Defaults to "luna"
-            Current valid options are "luna", "royale," and "metallic"
+            Current valid options are "luna," "homestead," "metallic," and "royale"
 
    -n       Alternative root name for output file (default is "pkg")
 

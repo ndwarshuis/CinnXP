@@ -9,6 +9,10 @@ based on Mint-XP (fmcgorenc) and Adwaita
 
 ![luna theme](luna.png?raw=true)
 
+#### Homestead
+
+![homestead theme](homestead.png?raw=true)
+
 #### Metallic
 
 ![metallic theme](metallic.png?raw=true)
