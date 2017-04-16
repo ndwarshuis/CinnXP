@@ -2189,7 +2189,7 @@ scrollbar {
 	&.#{$scroll_orient} button.#{$step_end} {
 	  background: url("Scrollbars/#{$step_orient}-stepper.png");
 
-      &:hover { background: url("Scrollbars/#{$step_orient}-stepper-prelight.png"); }
+      &:hover { background: url("Scrollbars/#{$step_orient}-stepper-hover.png"); }
 
       &:hover:active { background: url("Scrollbars/#{$step_orient}-stepper-active.png"); }
 	}
