@@ -2293,9 +2293,9 @@ NemoQueryEditor.toolbar.primary-toolbar {
 }
 
 NemoSearchBar.info {
-  color: white;
-  background-color: @nemo_searchbar_bg_color;
-  border: 1px solid @entry_borders_color;
+  color: @fg_color;
+  background-color: @bg_color;
+  border: 1px solid @menubar_bottom_edge;
   border-width: 0px 0px 1px 0px;
 }
 
