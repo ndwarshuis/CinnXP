@@ -24,7 +24,7 @@ left and right identical to gtk3.10, with exception of adding hover
 * left: see gtk3.10
 * right: see gtk3.10
 
-#### border slices
+#### border slices (top right bottom left)
 * top: 8 6 1 6
 * bottom: 5 6 5 6
 * left: 6 0 3 4

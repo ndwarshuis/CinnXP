@@ -11,7 +11,7 @@ Used in spin buttons. Have no border (as in the entry border)
 border slice: 3 3 3 3
 
 transformations:
-* copy row 5 towards middle (from left and right sides)
+* copy column 5 towards middle (from left and right sides)
 * copy row 5 immediately below
 * copy row 8 immediately below
 * copy row 12 immediately below

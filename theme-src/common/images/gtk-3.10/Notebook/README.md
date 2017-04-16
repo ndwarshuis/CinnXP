@@ -4,7 +4,7 @@ Bitmap_123 (middle)
 
 border slices identical to tabs-normal
 
-colors
+#### colors
 * background: notebook_bg_color
 * borders: notebook_borders_color
 

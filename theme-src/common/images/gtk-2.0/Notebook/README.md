@@ -25,7 +25,7 @@ subtract background color using color-to-alpha for the corners
 #### mapping
 * blue: royale, noir
 * griege: luna, metallic
-* grey: homestead, zune
+* grey: zune
 
 #### border slices (left right top bottom)
 * top: 4,4,8,1
