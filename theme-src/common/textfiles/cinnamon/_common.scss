@@ -810,7 +810,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
     padding: 55px 1px 0px 1px;
   }
 
-  @else if $flavor == 'royale' {
+  @else if $flavor == 'royale' or if $flavor == 'noir' {
     border-image: url("Frames/menu-bg.png") 83 36 66 44;
     padding: 55px 1px 0px 1px;
   }
@@ -854,6 +854,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
     padding: 5px;
     background-color: $start_menu_box_bg_color;
     @if $flavor == 'royale' { box-shadow: inset 1px 1px #10377c; }
+    @if $flavor == 'noir' { box-shadow: inset 1px 1px #353f4d; }
   }
 
   StScrollBar { padding: 0; }
