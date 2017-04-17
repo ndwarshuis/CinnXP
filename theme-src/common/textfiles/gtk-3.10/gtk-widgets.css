@@ -244,6 +244,100 @@ GtkScaleButton.button:hover,
 	border-radius: 0;
 }
 
+.button,
+.spinbutton.vertical .button,
+.inline-toolbar.toolbar .button,
+.primary-toolbar .button.raised,
+.primary-toolbar .raised .button,
+.primary-toolbar GtkComboBox .button,
+GtkSwitch.slider {
+    border: 1px solid @button_borders_color;
+    border-image: none;
+    box-shadow: none;
+}
+
+.button:hover,
+.button.default:hover,
+.spinbutton.vertical .button:hover,
+.inline-toolbar.toolbar .button:hover,
+.primary-toolbar .button.raised:hover,
+.primary-toolbar .raised .button:hover,
+.primary-toolbar GtkComboBox .button:hover {
+    border: 1px solid @button_borders_color;
+    border-image: none;
+    box-shadow: none;
+}
+
+.button:active,
+.button:active:hover,
+.button.default:active,
+.button.default:active:hover,
+.spinbutton.vertical .button:active,
+.spinbutton.vertical .button:active:hover,
+.inline-toolbar.toolbar .button:active,
+.inline-toolbar.toolbar .button:active:hover,
+.primary-toolbar .button.raised:active,
+.primary-toolbar .button.raised:active:hover,
+.primary-toolbar .raised .button:active,
+.primary-toolbar .raised .button:active:hover,
+.primary-toolbar GtkComboBox .button:active,
+.primary-toolbar GtkComboBox .button:active:hover,
+GtkSwitch.trough,
+GtkSwitch.trough:active,
+GtkLinkButton.button:active,
+GtkLinkButton.button:active:hover,
+GtkScaleButton.button:active,
+GtkScaleButton.button:active:hover,
+.notebook tab .button:active,
+.notebook tab .button:active:hover,
+.floating-bar .button:active,
+.floating-bar .button:active:hover,
+#gtk-scalebutton-popup-window .button:active,
+#gtk-scalebutton-popup-window .button:active:hover {
+    border: 1px solid @button_borders_color;
+    border-image: none;
+    box-shadow: none;
+}
+
+.button:insensitive,
+.button:insensitive:active,
+.button.default:insensitive,
+.button.default:insensitive:active,
+.spinbutton.vertical .button:insensitive,
+.spinbutton.vertical .button:insensitive:active,
+.inline-toolbar.toolbar .button:insensitive,
+.inline-toolbar.toolbar .button:insensitive:active,
+.primary-toolbar .button.raised:insensitive,
+.primary-toolbar .raised .button:insensitive,
+.primary-toolbar .button.raised:insensitive:active,
+.primary-toolbar .raised .button:insensitive:active,
+.primary-toolbar GtkComboBox .button:insensitive,
+.primary-toolbar GtkComboBox .button:insensitive:active,
+GtkSwitch.slider:insensitive,
+GtkSwitch.slider:insensitive:active,
+GtkSwitch.trough:insensitive,
+GtkSwitch.trough:insensitive:active,
+GtkLinkButton.button:insensitive,
+GtkLinkButton.button:insensitive:active,
+GtkScaleButton.button:insensitive,
+GtkScaleButton.button:insensitive:active,
+.notebook tab .button:insensitive,
+.notebook tab .button:insensitive:active,
+.floating-bar .button:insensitive,
+.floating-bar .button:insensitive:active,
+#gtk-scalebutton-popup-window .button:insensitive,
+#gtk-scalebutton-popup-window .button:insensitive:active {
+    border: 1px solid @button_insensitive_borders_color;
+    border-image: none;
+    box-shadow: none;
+}
+
+.button.default {
+    border: 1px solid @button_borders_color;
+    border-image: none;
+    box-shadow: none;
+}
+
 /**:link,
 *:visited {
     color: @link_color;
@@ -347,7 +441,7 @@ GtkColorSwatch,
 GtkColorSwatch:selected {
     border-radius: 0;
     border: 2px solid transparent;
-    border-image: url("Shadows/frame-inset.png");
+    border-image: url("Frames/shadow-inset.png"); /* TODO: this should be a color frame */
     border-image-slice: 2 2 2 2;
     background-color: transparent;
 }
@@ -1900,6 +1994,19 @@ GtkMenuButton .menuitem.separator {
 .spinbutton.vertical .button:insensitive,
 .spinbutton.vertical.entry:insensitive {
 	color: @button_insensitive_fg_color;
+}
+
+.spinbutton.vertical.entry {
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: @button_borders_color;
+    border-radius: 0;
+    border-image: none;
+    box-shadow: none;
+}
+
+.spinbutton.vertical.entry:insensitive {
+    border-color: @entry_insensitive_borders_color;
 }
 
 /***********

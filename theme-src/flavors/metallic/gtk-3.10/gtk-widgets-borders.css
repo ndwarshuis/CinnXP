@@ -9,10 +9,7 @@
 .primary-toolbar .raised .button,
 .primary-toolbar GtkComboBox .button,
 GtkSwitch.slider {
-    border: 1px solid @button_borders_color;
     border-radius: 3.5px;
-    border-image: none;
-    box-shadow: none;
 }
 
 .button:hover,
@@ -22,10 +19,7 @@ GtkSwitch.slider {
 .primary-toolbar .button.raised:hover,
 .primary-toolbar .raised .button:hover,
 .primary-toolbar GtkComboBox .button:hover {
-    border: 1px solid @button_borders_color;
     border-radius: 3.5px;
-    border-image: none;
-    box-shadow: none;
 }
 
 .button:active,
@@ -54,10 +48,7 @@ GtkScaleButton.button:active:hover,
 .floating-bar .button:active:hover,
 #gtk-scalebutton-popup-window .button:active,
 #gtk-scalebutton-popup-window .button:active:hover {
-    border: 1px solid @button_borders_color;
     border-radius: 3.5px;
-    border-image: none;
-    box-shadow: none;
 }
 
 .button:insensitive,
@@ -88,17 +79,11 @@ GtkScaleButton.button:insensitive:active,
 .floating-bar .button:insensitive:active,
 #gtk-scalebutton-popup-window .button:insensitive,
 #gtk-scalebutton-popup-window .button:insensitive:active {
-    border: 1px solid @button_insensitive_borders_color;
     border-radius: 3.5px;
-    border-image: none;
-    box-shadow: none;
 }
 
 .button.default {
-    border: 1px solid @button_borders_color;
     border-radius: 3.5px;
-    border-image: none;
-    box-shadow: none;
 }
 
 /**************
@@ -113,19 +98,6 @@ GtkScaleButton.button:insensitive:active,
     border-radius: 0 0 3.5px 3.5px;
 }
 
-.spinbutton.vertical.entry {
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: @button_borders_color;
-    border-radius: 0;
-    border-image: none;
-    box-shadow: none;
-}
-
-.spinbutton.vertical.entry:insensitive {
-    border-color: @button_insensitive_borders_color;
-}
-
 /******************
  * Linked Entries *
  ******************/
@@ -136,7 +108,6 @@ GtkScaleButton.button:insensitive:active,
 .primary-toolbar .linked .entry:only-child {
     border-width: 1px;
 }
-
 
 .linked .entry,
 .linked .entry:last-child,
