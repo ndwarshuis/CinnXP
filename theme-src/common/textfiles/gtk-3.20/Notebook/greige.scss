@@ -1,0 +1,16 @@
+//luna and homestead
+
+@function notebook_inset_shadow($dir) {
+  $_shadow_color: #fcfcfe;
+  
+  @if $dir==top {
+    @return inset 1px 0px $_shadow_color,
+            inset -1px 0px $_shadow_color,
+            inset 0px -1px $_shadow_color;
+  }
+  @else if $dir==left {
+    @return inset -1px 0px $_shadow_color,
+            inset 0px 1px $_shadow_color,
+            inset 0px -1px $_shadow_color;
+  }
+}

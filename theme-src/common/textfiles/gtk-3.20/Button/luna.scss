@@ -89,23 +89,3 @@ $_hover_mask: linear-gradient(to bottom,
           0px -1px transparentize(black, 0.96),
           -1px 0px transparentize(black, 0.97);
 }
-
-@function notebook_inset_shadow($dir) {
-  $_shadow_color: #fcfcfe;
-  
-  @if $dir==top {
-    @return inset 1px 0px $_shadow_color,
-            inset -1px 0px $_shadow_color,
-            inset 0px -1px $_shadow_color;
-  }
-  @else if $dir==left {
-    @return inset -1px 0px $_shadow_color,
-            inset 0px 1px $_shadow_color,
-            inset 0px -1px $_shadow_color;
-  }
-}
-
-$inset_shadow: inset 2px 2px #716f64,
-               inset -2px -2px #f1efe2,
-               inset 1px 1px #aca899,
-               inset -1px -1px white;
