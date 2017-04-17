@@ -291,7 +291,7 @@ entry {
 
 //      &:focus { @include entry(osd-focus); }
 
-//      &:disabled { @include entry(osd-insensitive); }
+//      &:disabled { @include entry(osd-disabled); }
 //    }
   }
 
@@ -436,7 +436,7 @@ button {
     }
 
     &:disabled {
-      @include button(insensitive);
+      @include button(disabled);
 
       & > label { text-shadow: none; }
     }
@@ -512,7 +512,7 @@ button {
     }
 
     &:disabled {
-      @include button(osd-insensitive);
+      @include button(osd-disabled);
       border: none;
     }
   }
@@ -527,7 +527,7 @@ button {
     &:active,
     &:checked { @include button(osd-active); }
 
-    &:disabled { @include button(osd-insensitive); }
+    &:disabled { @include button(osd-disabled); }
 
     &.flat {
       @include button(undecorated);
@@ -536,7 +536,7 @@ button {
       &:hover { @include button(osd-hover); }
 
       &:disabled {
-        @include button(osd-insensitive);
+        @include button(osd-disabled);
         background-image: none;
         border-color: transparent;
         box-shadow: none;
@@ -573,7 +573,7 @@ button {
       }
 
       &:disabled {
-        @include button(insensitive);
+        @include button(disabled);
       }
 
       .osd & {
@@ -584,7 +584,7 @@ button {
         &:active,
         &:checked { @include button(osd-active, $b_color); }
 
-        &:disabled { @include button(osd-insensitive, $b_color); }
+        &:disabled { @include button(osd-disabled, $b_color); }
       }
     }
   }
@@ -785,7 +785,7 @@ button {
   &:disabled {
     border-width: 1px;
     border-image: none;
-    @include button(insensitive);
+    @include button(disabled);
   }
 }
 
@@ -1022,7 +1022,7 @@ spinbutton {
 
       &:disabled {
         color: $arrow_spin_insensitive_color;
-        @include entry_button(insensitive, '', true);
+        @include entry_button(disabled, '', true);
       }
     }
   }
@@ -1122,7 +1122,7 @@ spinbutton {
 
 //    &:active { @include button(osd-active); }
 
-//    &:disabled { @include button(osd-insensitive); }
+//    &:disabled { @include button(osd-disabled); }
 //  }
 
   // Misc
@@ -1193,7 +1193,7 @@ combobox > .linked:not(.vertical) > entry.combo ~ button.combo {
   }
   
   &:disabled {
-    @include entry_button(insensitive, ltr);
+    @include entry_button(disabled, ltr);
     color: $arrow_insensitive_color;
   }
 }
@@ -1340,9 +1340,7 @@ headerbar {
 
       &.flat { &:disabled { @include button(undecorated); } }
 
-      &:disabled {
-        @include button(insensitive, $selected_bg_color, $selected_fg_color);
-      }
+      &:disabled { @include button(disabled, $selected_bg_color, $selected_fg_color); }
 
       &.suggested-action {
         @include button(normal);
@@ -1351,7 +1349,7 @@ headerbar {
 
         &:active { @include button(active); }
 
-        &:disabled { @include button(insensitive); }
+        &:disabled { @include button(disabled); }
       }
     }
 
@@ -2210,7 +2208,7 @@ switch {
   border-radius: $button_radius;
   @include button(active);
 
-  &:disabled { @include button(insensitive); }
+  &:disabled { @include button(disabled); }
 
   slider {
     margin: -1px;
@@ -2222,7 +2220,7 @@ switch {
     @include button(normal);
   }
 
-  &:disabled slider { @include button(insensitive); }
+  &:disabled slider { @include button(disabled); }
 
   row:selected & {
     box-shadow: none;
@@ -2898,7 +2896,7 @@ row { &:selected { @extend %selected_items; } }
     &:active,
     &:checked { @include button(active); }
 
-    &:disabled { @include button(osd-insensitive); }
+    &:disabled { @include button(osd-disabled); }
   }
 
   button { @extend %osd_button; }
@@ -3267,7 +3265,7 @@ infobar {
       &:checked { @include button(active, $selected_bg_color, $selected_fg_color, none); }
 
       &:disabled {
-        @include button(insensitive,$selected_bg_color, $button_insensitive_fg_color, none);
+        @include button(disabled, $selected_bg_color, $button_insensitive_fg_color, none);
 
         & label { color: $insensitive_fg_color; }
       }

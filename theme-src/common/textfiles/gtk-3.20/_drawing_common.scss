@@ -1,3 +1,79 @@
+@mixin button($type, $bg:$button_bg_color, $fg:$fg_color, $edge:$borders_edge, $r_shadow:true) {
+
+  outline-color: $fg_color;
+  -gtk-icon-shadow: none;
+  text-shadow: none;
+
+  @if $type==normal {
+    color: $fg;
+    border-color: $button_borders_color;
+    background: button_bg(normal, $bg, $r_shadow);
+    box-shadow: button_edge(normal, $edge);
+  }
+  @else if $type==default {
+    color: $fg;
+    border-color: $button_borders_color;
+    background: button_bg(default, $bg, $r_shadow);
+    box-shadow: button_edge(default, $edge);
+  }
+  @else if $type==hover {
+    color: $fg;
+    border-color: $button_borders_color;
+    background: button_bg(hover, $bg, $r_shadow);
+    box-shadow: button_edge(hover, $edge);
+  }
+  @else if $type==active {
+    color: $fg;
+    border-color: $button_borders_color;
+    background: button_bg(active, $bg, $r_shadow);
+    box-shadow: button_edge(active, $edge);
+  }
+  @else if $type==disabled {
+    color: $button_insensitive_fg_color;
+    border-color: $button_insensitive_borders_color;
+    background-image: none;
+    background-color: $button_insensitive_bg_color;
+    box-shadow: none;
+  }
+  @else if $type==osd {
+    color: $osd_fg_color;
+    border-color: $button_borders_color;
+    background-color: if($bg!=$bg_color, transparentize($bg, 0.5), $osd_bg_color);
+    background-image: none;
+    background-clip: padding-box;
+    box-shadow: inset 0 1px transparentize(white, 0.9);
+  }
+  @else if $type==osd-hover {
+    border-color: $button_borders_color;
+    background-color: if($bg!=$bg_color, transparentize($bg, 0.3), lighten($osd_bg_color, 12%));
+    background-image: none;
+    background-clip: padding-box;
+    box-shadow: inset 0 1px transparentize(white, 0.9);
+  }
+  @else if $type==osd-active {
+    border-color: $button_borders_color;
+    background-color: if($bg!=$bg_color, $bg, $osd_borders_color);;
+    background-image: none;
+    background-clip: padding-box;
+    box-shadow: none;
+  }
+  @else if $type==osd-disabled {
+    color: $osd_insensitive_fg_color;
+    border-color: $insensitive_borders_color;
+    background-color: $osd_insensitive_bg_color;
+    background-image: none;
+    background-clip: padding-box;
+    box-shadow: none;
+  }
+  @else if $type==undecorated {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: inset 0 1px transparentize(white, 1),
+                if($edge == none, '', 0px 1px transparentize($edge, 1));
+  }
+}
+
 @mixin entry_button($state, $dir:'', $bor:'') {
 
   $_border: 3px;
@@ -34,7 +110,7 @@
     border-image: url("Combo/#{$b}combo-button-border#{$d}-active.png");
     background-image: url("Combo/combo-button-bg-active.png");
   }
-  @if $state==insensitive {
+  @if $state==disabled {
     border-image: url("Combo/#{$b}combo-button-border#{$d}-insensitive.png");
     background-image: url("Combo/combo-button-bg-insensitive.png");
   }
