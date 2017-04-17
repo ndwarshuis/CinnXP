@@ -441,7 +441,7 @@ GtkColorSwatch,
 GtkColorSwatch:selected {
     border-radius: 0;
     border: 2px solid transparent;
-    border-image: url("Shadows/frame-inset.png");
+    border-image: url("Frames/shadow-inset.png"); /* TODO: this should be a color frame */
     border-image-slice: 2 2 2 2;
     background-color: transparent;
 }
