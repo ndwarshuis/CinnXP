@@ -85,12 +85,17 @@ $_hover_mask: linear-gradient(to bottom,
 @function button_edge($type, $edge) {
   //ugly hack to "switch" bottom edge on/off to integrate with adwaita code
   $_bottom_edge_transparency: if($edge==none, 1.0, 0.4);
-  
-  @return 0px 1px transparentize(white, $_bottom_edge_transparency),
-          1px 0px transparentize(white, 0.70),
-          0px -1px transparentize(black, 0.96),
-          -1px 0px transparentize(black, 0.97),
-          if($type==active, inset 0px 0px 0px 1px white, '');
+
+  $_edge_shadow: 0px 1px transparentize(white, $_bottom_edge_transparency),
+                 1px 0px transparentize(white, 0.70),
+                 0px -1px transparentize(black, 0.96),
+                 -1px 0px transparentize(black, 0.97);
+
+  @if $type==active {
+	@return $_edge_shadow, inset 0px 0px 0px 1px white;
+  } @else {
+	@return $_edge_shadow;
+  }
 }
 
 @function notebook_inset_shadow($dir) {
