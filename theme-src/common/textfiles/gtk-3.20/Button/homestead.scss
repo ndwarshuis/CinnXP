@@ -1,5 +1,11 @@
+//homestead
+
 $button_radius: 3.5px;
 $button_bg_color: #f9f6e5;
+
+@function osd_hover_bg_color($c) {
+  @return $c
+}
 
 $_right_shadow: linear-gradient(to left,
                                 transparentize(black, 0.955) 1px,

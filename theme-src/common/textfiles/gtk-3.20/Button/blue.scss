@@ -1,5 +1,11 @@
+//royale and noir
+
 $button_radius: 2px;
 $button_bg_color: #d0dceb;
+
+@function osd_hover_bg_color($c) {
+  @return lighten($c, 8%)
+}
 
 $_default_mask: url('Button/default-mask-corner-upper-left.png') no-repeat left top/2px 2px,
                 url('Button/default-mask-corner-upper-right.png') no-repeat right top/2px 2px,
