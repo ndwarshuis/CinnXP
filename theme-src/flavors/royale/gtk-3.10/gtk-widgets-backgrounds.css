@@ -258,7 +258,7 @@ GtkScaleButton.button:hover,
 .notebook tab .button:hover,
 .floating-bar .button:hover,
 #gtk-scalebutton-popup-window .button:hover {
-    background: linear-gradient(to bottom, shade(alpha(@button_bg, 0.7), 1.08));
+    background: linear-gradient(to bottom, alpha(shade(#d0dceb, 1.08), 0.7));
     background-clip: padding-box;
 }
 
