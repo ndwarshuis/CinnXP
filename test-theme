@@ -20,7 +20,8 @@ OPTIONS:
 			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
 			
    -f       Flavor to compile (full string name) Defaults to "luna"
-			Current valid options are "luna," "homestead," "metallic," "royale," and "noir"
+			Current valid options are "luna," "homestead," "metallic," "royale,"
+			and "noir"
 EOF
 }
 
