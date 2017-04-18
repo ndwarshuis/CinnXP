@@ -1150,11 +1150,12 @@ $window_list_slice: 17 5 0 0;
 
 #panel-launchers-box { padding: 0; }
 
+.launcher,
 .panel-launcher {
   margin: 0;
   padding: 0 4px;
 
-  &:hover { border-image: url('Panel/applet-button.png') $window_list_slice; }
+  &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
 
   #panelRight &:hover { border-image: none; }
 }
