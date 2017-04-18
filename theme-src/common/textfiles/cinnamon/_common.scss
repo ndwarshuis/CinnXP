@@ -1195,7 +1195,7 @@ $window_list_slice: 17 5 0 0;
 
   &:hover {
     color: $selected_fg_color;
-    border-image: url('Panel/applet-button.png') $window_list_slice;
+    border-image: url('Panel/applet-button-hover.png') $window_list_slice;
   }
 
   &:active {
