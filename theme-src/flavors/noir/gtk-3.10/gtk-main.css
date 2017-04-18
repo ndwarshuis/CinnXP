@@ -64,7 +64,7 @@
 @define-color calendar_selected_bg_color #5e81bc;
 
 /* Nemo */
-@define-color nemo_places_bg_color #5b8bd5;
+@define-color nemo_places_bg_color #747d85;
 @define-color nemo_sidebar_hover_color #000080;
 
 @import url("gtk-main-common.css");
