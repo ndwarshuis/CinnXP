@@ -800,21 +800,23 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 .menu-background {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 
+  @if $flavor == 'luna' or $flavor == 'royale' or $flavor == 'noir' {
+    padding: 55px 1px 0px 1px;
+  } @else {
+    padding: 55px 0px 0px 1px;
+  }
+  
   @if $flavor == 'luna' or $flavor == 'homestead' {
 	border-image: url("Frames/menu-bg.png") 59 60 68 44;
-    padding: 55px 1px 0px 1px;
     
   } @else if $flavor == 'metallic' {
 	border-image: url("Frames/menu-bg.png") 8 8 66 44;
-    padding: 55px 1px 0px 1px;
     
   } @else if $flavor == 'royale' or if $flavor == 'noir' {
     border-image: url("Frames/menu-bg.png") 83 36 66 44;
-    padding: 55px 1px 0px 1px;
     
   } @else if $flavor == 'embedded' or if $flavor == 'zune' {
     border-image: url("Frames/menu-bg.png") 6 6 66 44;
-    padding: 55px 1px 0px 1px;
   }
 }
 
