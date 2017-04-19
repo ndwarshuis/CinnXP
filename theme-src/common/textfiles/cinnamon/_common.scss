@@ -803,15 +803,17 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
   @if $flavor == 'luna' or $flavor == 'homestead' {
 	border-image: url("Frames/menu-bg.png") 59 60 68 44;
     padding: 55px 1px 0px 1px;
-  }
-  
-  @if $flavor == 'metallic' {
+    
+  } @else if $flavor == 'metallic' {
 	border-image: url("Frames/menu-bg.png") 8 8 66 44;
     padding: 55px 1px 0px 1px;
-  }
-
-  @else if $flavor == 'royale' or if $flavor == 'noir' {
+    
+  } @else if $flavor == 'royale' or if $flavor == 'noir' {
     border-image: url("Frames/menu-bg.png") 83 36 66 44;
+    padding: 55px 1px 0px 1px;
+    
+  } @else if $flavor == 'embedded' or if $flavor == 'zune' {
+    border-image: url("Frames/menu-bg.png") 6 6 66 44;
     padding: 55px 1px 0px 1px;
   }
 }
@@ -855,6 +857,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
     background-color: $start_menu_box_bg_color;
     @if $flavor == 'royale' { box-shadow: inset 1px 1px #10377c; }
     @if $flavor == 'noir' { box-shadow: inset 1px 1px #353f4d; }
+    @if $flavor == 'embedded' { box-shadow: inset 1px 1px #013c6b; }
   }
 
   StScrollBar { padding: 0; }
