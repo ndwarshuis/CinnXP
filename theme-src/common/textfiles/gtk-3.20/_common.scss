@@ -412,31 +412,57 @@ button {
     -gtk-outline-radius: 3px;
 
     @include button(normal);
+    @include button_edge(normal);
 
     &.flat {
       @include button(undecorated);
-      &:hover { @include button(osd-hover); }
+      @include button_edge(undecorated);
+      
+      &:hover {
+        @include button(osd-hover);
+        @include button_edge(osd-hover);
+      }
 
-      &:active { @include button(active); }
+      &:active {
+        @include button(active);
+        @include button_edge(active);
+      }
     }
 
-    &:hover { @include button(hover); }
+    &:hover {
+      @include button(hover);
+      @include button_edge(hover);
+    }
 
     &:active,
-    &:checked { @include button(active); }
+    &:checked {
+      @include button(active);
+      @include button_edge(active);
+    }
 
-    &.flat:disabled { @include button(undecorated); }
+    &.flat:disabled {
+      @include button(undecorated);
+      @include button_edge(undecorated);
+    }
 
     &.default {
       @include button(default);
+      @include button_edge(default);
 
-      &:hover { @include button(hover); }
+      &:hover {
+        @include button(hover);
+        @include button_edge(hover);
+      }
 
-      &:active { @include button(active); }
+      &:active {
+        @include button(active);
+        @include button_edge(active);
+      }
     }
 
     &:disabled {
       @include button(disabled);
+      @include button_edge(disabled);
 
       & > label { text-shadow: none; }
     }
@@ -492,12 +518,14 @@ button {
     border-radius: 5px;
 
     @include button(osd);
+    @include button_edge(osd);
 
     border: none;
     box-shadow: none;
 
     &:hover {
       @include button(osd-hover);
+      @include button_edge(osd-hover);
 
       border: none;
       box-shadow: none;
@@ -506,6 +534,7 @@ button {
     &:active,
     &:checked {
       @include button(osd-active);
+      @include button_edge(osd-active);
 
       border: none;
       box-shadow: none;
@@ -513,6 +542,7 @@ button {
 
     &:disabled {
       @include button(osd-disabled);
+      @include button_edge(osd-disabled);
       border: none;
     }
   }
@@ -521,29 +551,47 @@ button {
   @at-root %osd_button,
   .osd & {
     @include button(osd);
+    @include button_edge(osd);
 
-    &:hover { @include button(osd-hover); }
+    &:hover {
+      @include button(osd-hover);
+      @include button_edge(osd-hover);
+    }
 
     &:active,
-    &:checked { @include button(osd-active); }
+    &:checked {
+      @include button(osd-active);
+      @include button_edge(osd-active);
+    }
 
-    &:disabled { @include button(osd-disabled); }
+    &:disabled {
+      @include button(osd-disabled);
+      @include button_edge(osd-disabled);
+    }
 
     &.flat {
       @include button(undecorated);
+      @include button_edge(undecorated);
 
       box-shadow: none; //FIXME respect no edge on the button mixin
-      &:hover { @include button(osd-hover); }
+      &:hover {
+        @include button(osd-hover);
+        @include button_edge(osd-hover);
+      }
 
       &:disabled {
         @include button(osd-disabled);
+        @include button_edge(osd-disabled);
         background-image: none;
         border-color: transparent;
         box-shadow: none;
       }
 
       &:active,
-      &:checked { @include button(osd-active); }
+      &:checked {
+        @include button(osd-active);
+        @include button_edge(osd-active);
+      }
     }
   }
 
@@ -552,21 +600,30 @@ button {
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
       @include button(normal, $b_color, white);
+      @include button_edge(normal);
 
       &.flat {
         @include button(undecorated);
+        @include button_edge(undecorated);
 
         color: $b_color; //FIXME: does it work on the dark variant?
       }
 
-      &:hover { @include button(hover, $b_color, white); }
+      &:hover {
+        @include button(hover, $b_color, white);
+        @include button_edge(hover);
+      }
 
       &:active,
-      &:checked { @include button(active, $b_color, white); }
+      &:checked {
+        @include button(active, $b_color, white);
+        @include button_edge(active);
+      }
 
       &.flat {
         &:disabled {
           @include button(undecorated);
+          @include button_edge(undecorated);
 
           color: transparentize($b_color, 0.2);
         }
@@ -574,17 +631,28 @@ button {
 
       &:disabled {
         @include button(disabled);
+        @include button_edge(disabled);
       }
 
       .osd & {
         @include button(osd, $b_color);
+        @include button_edge(osd);
 
-        &:hover { @include button(osd-hover, $b_color); }
+        &:hover {
+          @include button(osd-hover, $b_color);
+          @include button_edge(osd-hover);
+        }
 
         &:active,
-        &:checked { @include button(osd-active, $b_color); }
+        &:checked {
+          @include button(osd-active, $b_color);
+          @include button_edge(osd-active);
+        }
 
-        &:disabled { @include button(osd-disabled, $b_color); }
+        &:disabled {
+          @include button(osd-disabled, $b_color);
+          @include button_edge(osd-disabled);
+        }
       }
     }
   }
@@ -766,11 +834,13 @@ button {
   padding: 5px 8px 6px;
   
   @include button(normal);
+  @include button_edge(normal);
 
   &:hover {
     border-width: 1px;
     border-image: none;
     @include button(hover);
+    @include button_edge(hover);
   }
 
   &:active,
@@ -780,12 +850,14 @@ button {
     border-width: 1px;
     border-image: none;
     @include button(active);
+    @include button_edge(active);
   }
 
   &:disabled {
     border-width: 1px;
     border-image: none;
     @include button(disabled);
+    @include button_edge(disabled);
   }
 }
 
@@ -804,6 +876,8 @@ toolbar.inline-toolbar toolbutton {
   border-radius: 0;
   -gtk-outline-radius: 0;
   border-right-style: none;
+  
+  @include linked_button_edge(true, false, true, false);
 }
 
 %linked {
@@ -814,6 +888,8 @@ toolbar.inline-toolbar toolbutton {
     border-bottom-left-radius: $button_radius;
     -gtk-outline-top-left-radius: 3;
     -gtk-outline-bottom-left-radius: 3;
+    
+    @include linked_button_edge(true, false, true, true);
   }
 
   &:last-child {
@@ -822,12 +898,16 @@ toolbar.inline-toolbar toolbutton {
     -gtk-outline-top-right-radius: 3;
     -gtk-outline-bottom-right-radius: 3;
     border-right-style: solid;
+
+    @include linked_button_edge(true, true, true, false);
   }
 
   &:only-child {
     border-radius: $button_radius;
     -gtk-outline-radius: 3px;
     border-style: solid;
+    
+    @include linked_button_edge(true, true, true, true);
   }
 }
 
@@ -835,9 +915,11 @@ toolbar.inline-toolbar toolbutton {
   border-style: solid solid none solid;
   border-radius: 0;
   -gtk-outline-radius: 0;
+
+  @include linked_button_edge(false, true, false, true);
 }
 
-%linked_vertical{
+%linked_vertical {
   @extend %linked_vertical_middle;
 
   &:first-child {
@@ -845,6 +927,8 @@ toolbar.inline-toolbar toolbutton {
     border-top-right-radius: $button_radius;
     -gtk-outline-top-left-radius: 3px;
     -gtk-outline-top-right-radius: 3px;
+
+    @include linked_button_edge(true, true, false, true);
   }
 
   &:last-child {
@@ -853,12 +937,16 @@ toolbar.inline-toolbar toolbutton {
     -gtk-outline-bottom-left-radius: 3px;
     -gtk-outline-bottom-right-radius: 3px;
     border-style: solid;
+    
+    @include linked_button_edge(false, true, true, true);
   }
 
   &:only-child {
     border-radius: $button_radius;
     -gtk-outline-radius: 3px;
     border-style: solid;
+
+    @include linked_button_edge(true, true, true, true);
   }
 }
 
@@ -1103,14 +1191,17 @@ spinbutton {
       &.down { @extend %bottom_button; }
     }
 
+    //yes this has to be like this...don't know why...
     %top_button {
       border-radius: $button_radius $button_radius 0 0;
       border-style: solid solid none solid;
+      @extend %linked_vertical:first-child;
     }
 
     %bottom_button {
       border-radius: 0 0 $button_radius $button_radius;
       border-style: none solid solid solid;
+      @extend %linked_vertical:last-child;
     }
   }
 
@@ -1330,26 +1421,54 @@ headerbar {
 
     button {
       @include button(normal, $selected_bg_color, $selected_fg_color);
+      @include button_edge(normal);
 
-      &.flat { @include button(undecorated); }
+      &.flat {
+        @include button(undecorated);
+        @include button_edge(undecorated);
+      }
 
-      &:hover { @include button(hover, $selected_bg_color, $selected_fg_color); }
+      &:hover {
+        @include button(hover, $selected_bg_color, $selected_fg_color);
+        @include button_edge(hover);
+      }
 
       &:active,
-      &:checked { @include button(active, $selected_bg_color, $selected_fg_color); }
+      &:checked {
+        @include button(active, $selected_bg_color, $selected_fg_color);
+        @include button_edge(active);
+      }
 
-      &.flat { &:disabled { @include button(undecorated); } }
+      &.flat {
+        &:disabled {
+          @include button(undecorated);
+          @include button_edge(undecorated);
+        }
+      }
 
-      &:disabled { @include button(disabled, $selected_bg_color, $selected_fg_color); }
+      &:disabled {
+        @include button(disabled, $selected_bg_color, $selected_fg_color);
+        @include button_edge(disabled);
+      }
 
       &.suggested-action {
         @include button(normal);
+        @include button_edge(normal);
 
-        &:hover { @include button(hover); }
+        &:hover {
+          @include button(hover);
+          @include button_edge(hover);
+        }
 
-        &:active { @include button(active); }
+        &:active {
+          @include button(active);
+          @include button_edge(active);
+        }
 
-        &:disabled { @include button(disabled); }
+        &:disabled {
+          @include button(disabled);
+          @include button_edge(disabled);
+        }
       }
     }
 
@@ -1702,6 +1821,7 @@ menu,
   // overflow arrows
   > arrow {
     @include button(undecorated);
+    @include button_edge(undecorated);
 
     min-height: 16px;
     min-width: 16px;
@@ -1907,7 +2027,10 @@ notebook {
         box-shadow: none;
       }
 
-      &:disabled { @include button(undecorated); }
+      &:disabled {
+        @include button(undecorated);
+        @include button_edge(undecorated);
+      }
     }
 
     tab {
@@ -1935,7 +2058,8 @@ notebook {
         }
 
         &:active {
-          @include button(active, $edge:none);
+          @include button(active);
+          @include button_edge(active, $edge:none);
         }
 
         padding: 0;
@@ -2207,8 +2331,12 @@ switch {
   color: $fg_color;
   border-radius: $button_radius;
   @include button(active);
+  @include button_edge(active);
 
-  &:disabled { @include button(disabled); }
+  &:disabled {
+    @include button(disabled);
+    @include button_edge(disabled);
+  }
 
   slider {
     margin: -1px;
@@ -2218,9 +2346,13 @@ switch {
     border-radius: $button_radius;
 
     @include button(normal);
+    @include button_edge(normal);
   }
 
-  &:disabled slider { @include button(disabled); }
+  &:disabled slider {
+    @include button(disabled);
+    @include button_edge(disabled);
+  }
 
   row:selected & {
     box-shadow: none;
@@ -2879,24 +3011,40 @@ row { &:selected { @extend %selected_items; } }
 
   button {
     @include button(normal);
+    @include button_edge(normal);
 
     &.flat {
       @extend %undecorated_button;
 
-      &:hover { @include button(osd-hover); }
+      &:hover {
+        @include button(osd-hover);
+        @include button_edge(osd-hover);
+      }
 
       &:active,
-      &:checked { @include button(active); }
+      &:checked {
+        @include button(active);
+        @include button_edge(active);
+      }
 
       &:disabled { @extend %undecorated_button; }
     }
 
-    &:hover { @include button(hover); }
+    &:hover {
+      @include button(hover);
+      @include button_edge(hover);
+    }
 
     &:active,
-    &:checked { @include button(active); }
+    &:checked {
+      @include button(active);
+      @include button_edge(active);
+    }
 
-    &:disabled { @include button(osd-disabled); }
+    &:disabled {
+      @include button(osd-disabled);
+      @include button_edge(osd-disabled);
+    }
   }
 
   button { @extend %osd_button; }
@@ -3257,15 +3405,23 @@ infobar {
 
     button {
       // FIXME: extend selection mode buttons
-      @include button(normal, $selected_bg_color, $selected_fg_color, none);
+      @include button(normal, $selected_bg_color, $selected_fg_color);
+      @include button_edge(normal, $edge:none);
 
-      &:hover { @include button(hover, $selected_bg_color, $selected_fg_color, none); }
+      &:hover {
+        @include button(hover, $selected_bg_color, $selected_fg_color);
+        @include button_edge(hover, $edge:none);
+      }
 
       &:active,
-      &:checked { @include button(active, $selected_bg_color, $selected_fg_color, none); }
+      &:checked {
+        @include button(active, $selected_bg_color, $selected_fg_color);
+        @include button_edge(active, $edge:none);
+      }
 
       &:disabled {
-        @include button(disabled, $selected_bg_color, $button_insensitive_fg_color, none);
+        @include button(disabled, $selected_bg_color, $button_insensitive_fg_color);
+        @include button_edge(disabled, $edge:none);
 
         & label { color: $insensitive_fg_color; }
       }
@@ -3369,8 +3525,12 @@ colorswatch {
       border: 1px solid $button_borders_color;
 
       @include button(normal);
+      @include button_edge(normal);
 
-      &:hover { @include button(hover); }
+      &:hover {
+        @include button(hover);
+        @include button_edge(hover);
+      }
     }
   }
 
@@ -3480,10 +3640,16 @@ button.titlebutton {
 
   @extend %button_basic.flat;
 
-  &:hover { @include button(osd-hover); }
+  &:hover {
+    @include button(osd-hover);
+    @include button_edge(osd-hover);
+  }
 
   &:active,
-  &:checked { @include button(active); }
+  &:checked {
+    @include button(active);
+    @include button_edge(active);
+  }
 
 //  .selection-mode & {
 //    @extend %button.flat.suggested-action;
