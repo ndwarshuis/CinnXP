@@ -964,21 +964,21 @@ GtkColorButton.button {
       &:last-child {
         @extend %bottom_button;
         @include button(normal);
-        @include button_edge(normal);
+        @include button_edge(normal, false, true, true, true);
         &:active {
           @extend %bottom_button;
           @include button(active);
-          @include button_edge(active);
+          @include button_edge(active, false, true, true, true);
         }
         &:hover {
           @extend %bottom_button;
           @include button(hover);
-          @include button_edge(hover);
+          @include button_edge(hover, false, true, true, true);
         }
         &:insensitive {
           @extend %bottom_button;
           @include button(insensitive);
-          @include button_edge(insensitive);
+          @include button_edge(insensitive, false, true, true, true);
         }
       }
     }
@@ -2640,14 +2640,17 @@ GtkInfoBar {
     @include button(normal, $selected_bg_color, $selected_fg_color);
     @include button_edge(normal, none);
     &:hover {
-      @include button(hover, $selected_bg_color, $selected_fg_color); }
-      @include button_edge(hover, none); }
+      @include button(hover, $selected_bg_color, $selected_fg_color);
+      @include button_edge(hover, none);
+    }
     &:active {
-      @include button(active, $selected_bg_color, $selected_fg_color); }
-      @include button_edge(active, none); }
+      @include button(active, $selected_bg_color, $selected_fg_color);
+      @include button_edge(active, none);
+    }
     &:insensitive {
-      @include button(insensitive, $selected_bg_color, $button_insensitive_fg_color); }
-      @include button_edge(insensitive, none); }
+      @include button(insensitive, $selected_bg_color, $button_insensitive_fg_color);
+      @include button_edge(insensitive, none);
+    }
   }
   .label:selected,
   .label:selected:focus,
