@@ -1,9 +1,6 @@
-@define-color button_bg_color #f4f4f0;
-
 /**********
  * button *
  **********/
-
 .button,
 .toolbar .button.raised,
 .toolbar .raised .button,

@@ -20,6 +20,7 @@
 @define-color entry_insensitive_fg_color #aca899;
 
 /* Buttons */
+@define-color button_bg #dedfec;
 @define-color button_borders_color #003c74;
 @define-color button_insensitive_fg_color #a1a192;
 

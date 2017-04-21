@@ -1,9 +1,6 @@
-@define-color button_bg #dedfec;
-
 /**********
  * button *
  **********/
-
 .button,
 .toolbar .button.raised,
 .toolbar .raised .button,
