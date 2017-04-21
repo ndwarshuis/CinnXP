@@ -1,3 +1,5 @@
+@define-color button_bg_color #d0dceb;
+
 /**********
  * button *
  **********/
@@ -11,38 +13,36 @@
 GtkSwitch.slider,
 GtkSwitch.slider:active {
     background: linear-gradient(to top,
-                                #90a8cd 1px,
+                                shade(@button_bg_color, 0.82) 1px,
                                 transparent 1px
                                 ),
                 linear-gradient(to right,
-                                rgba(147, 175, 209, 0.75),
-                                rgba(147, 175, 209, 0.75) 1px,
-                                rgba(249, 251, 253, 0.45) 1px,
-                                rgba(249, 251, 253, 0.45) 2px,
+                                alpha(shade(@button_bg_color, 0.83), 0.75) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to left,
-                                rgba(147, 175, 209, 0.75),
-                                rgba(147, 175, 209, 0.75) 1px,
-                                rgba(249, 251, 253, 0.45) 1px,
-                                rgba(249, 251, 253, 0.45) 2px,
+                                alpha(shade(@button_bg_color, 0.83), 0.75) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to bottom,
-                                #d4deec 1px,
-                                #f9fdff 1px,
-                                #f9fdff 2px,
-                                #f3f8ff 2px,
-                                #f3f8ff 3px,
+                                shade(@button_bg_color, 1.0125) 1px,
+                                shade(@button_bg_color, 1.115) 1px,
+                                shade(@button_bg_color, 1.115) 2px,
+                                shade(@button_bg_color, 1.0975) 2px,
+                                shade(@button_bg_color, 1.0975) 3px,
                                 transparent 3px
                                 ),
                 linear-gradient(to top,
-                                #a6b8cf 1px,
-                                #d0dceb 40%,
-                                #e3ebf3 45%,
-                                #e9f1f5 50%,
-                                #f1f8f9 60%,
-                                #fdfefe 88%
+                                shade(@button_bg_color, 0.825) 1px,
+                                @button_bg_color 40%,
+                                shade(@button_bg_color, 1.0525) 45%,
+                                shade(@button_bg_color, 1.07) 50%,
+                                shade(@button_bg_color, 1.093) 60%,
+                                shade(@button_bg_color, 1.125) 88%
                                 );
 }
 
@@ -73,38 +73,36 @@ GtkSwitch.slider:active {
                                 transparent 2px
                                 ),
                 linear-gradient(to top,
-                                #90a8cd 1px,
+                                shade(@button_bg_color, 0.82) 1px,
                                 transparent 1px
                                 ),
                 linear-gradient(to right,
-                                rgba(147, 175, 209, 0.75),
-                                rgba(147, 175, 209, 0.75) 1px,
-                                rgba(249, 251, 253, 0.45) 1px,
-                                rgba(249, 251, 253, 0.45) 2px,
+                                alpha(shade(@button_bg_color, 0.83), 0.75) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to left,
-                                rgba(147, 175, 209, 0.75),
-                                rgba(147, 175, 209, 0.75) 1px,
-                                rgba(249, 251, 253, 0.45) 1px,
-                                rgba(249, 251, 253, 0.45) 2px,
+                                alpha(shade(@button_bg_color, 0.83), 0.75) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to bottom,
-                                #d4deec 1px,
-                                #f9fdff 1px,
-                                #f9fdff 2px,
-                                #f3f8ff 2px,
-                                #f3f8ff 3px,
+                                shade(@button_bg_color, 1.0125) 1px,
+                                shade(@button_bg_color, 1.115) 1px,
+                                shade(@button_bg_color, 1.115) 2px,
+                                shade(@button_bg_color, 1.0975) 2px,
+                                shade(@button_bg_color, 1.0975) 3px,
                                 transparent 3px
                                 ),
                 linear-gradient(to top,
-                                #a6b8cf 1px,
-                                #d0dceb 40%,
-                                #e3ebf3 45%,
-                                #e9f1f5 50%,
-                                #f1f8f9 60%,
-                                #fdfefe 88%
+                                shade(@button_bg_color, 0.825) 1px,
+                                @button_bg_color 40%,
+                                shade(@button_bg_color, 1.0525) 45%,
+                                shade(@button_bg_color, 1.07) 50%,
+                                shade(@button_bg_color, 1.093) 60%,
+                                shade(@button_bg_color, 1.125) 88%
                                 );
 }
 
@@ -135,27 +133,26 @@ GtkScaleButton.button:active:hover,
 #gtk-scalebutton-popup-window .button:active,
 #gtk-scalebutton-popup-window .button:active:hover {
     background: linear-gradient(to bottom,
-                                #d4deec 1px,
-                                #7792ba 1px,
-                                #7792ba 2px,
+                                shade(@button_bg_color, 1.0125) 1px,
+                                shade(@button_bg_color, 0.73) 1px,
+                                shade(@button_bg_color, 0.73) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to right,
-                                #7792ba 1px,
+                                shade(@button_bg_color, 0.73) 1px,
                                 transparent 1px
                                 ),
                 linear-gradient(to left,
-                                #7792ba 1px,
+                                shade(@button_bg_color, 0.73) 1px,
                                 transparent 1px
                                 ),
                 linear-gradient(to top,
-                                #f9fdff 1px,
-                                #f3f8ff 1px,
-                                #f3f8ff 2px,
-                                #fdfefe 2px,
-                                #e3ebf3 48%,
-                                #d0dceb 55%,
-                                #a6b8cf 95%
+                                shade(@button_bg_color, 1.115) 1px,
+                                shade(@button_bg_color, 1.0975) 1px,
+                                shade(@button_bg_color, 1.0975) 2px,
+                                shade(@button_bg_color, 1.125) 2px,
+                                shade(@button_bg_color, 1.0525) 50%,
+                                shade(@button_bg_color, 0.825) 95%
                                 );
 }
 
@@ -207,38 +204,36 @@ GtkScaleButton.button:insensitive:active,
                 url('Button/default-mask-left.png') no-repeat left center/2px 100%,
                 url('Button/default-mask-right.png') no-repeat right center/2px 100%,
                 linear-gradient(to top,
-                                #90a8cd 1px,
+                                shade(@button_bg_color, 0.82) 1px,
                                 transparent 1px
                                 ),
                 linear-gradient(to right,
-                                rgba(147, 175, 209, 0.75),
-                                rgba(147, 175, 209, 0.75) 1px,
-                                rgba(249, 251, 253, 0.45) 1px,
-                                rgba(249, 251, 253, 0.45) 2px,
+                                alpha(shade(@button_bg_color, 0.83), 0.75) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to left,
-                                rgba(147, 175, 209, 0.75),
-                                rgba(147, 175, 209, 0.75) 1px,
-                                rgba(249, 251, 253, 0.45) 1px,
-                                rgba(249, 251, 253, 0.45) 2px,
+                                alpha(shade(@button_bg_color, 0.83), 0.75) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 1px,
+                                alpha(shade(@button_bg_color, 1.115), 0.45) 2px,
                                 transparent 2px
                                 ),
                 linear-gradient(to bottom,
-                                #d4deec 1px,
-                                #f9fdff 1px,
-                                #f9fdff 2px,
-                                #f3f8ff 2px,
-                                #f3f8ff 3px,
+                                shade(@button_bg_color, 1.0125) 1px,
+                                shade(@button_bg_color, 1.115) 1px,
+                                shade(@button_bg_color, 1.115) 2px,
+                                shade(@button_bg_color, 1.0975) 2px,
+                                shade(@button_bg_color, 1.0975) 3px,
                                 transparent 3px
                                 ),
                 linear-gradient(to top,
-                                #a6b8cf 1px,
-                                #d0dceb 40%,
-                                #e3ebf3 45%,
-                                #e9f1f5 50%,
-                                #f1f8f9 60%,
-                                #fdfefe 88%
+                                shade(@button_bg_color, 0.825) 1px,
+                                @button_bg_color 40%,
+                                shade(@button_bg_color, 1.0525) 45%,
+                                shade(@button_bg_color, 1.07) 50%,
+                                shade(@button_bg_color, 1.093) 60%,
+                                shade(@button_bg_color, 1.125) 88%
                                 );
 }
 
