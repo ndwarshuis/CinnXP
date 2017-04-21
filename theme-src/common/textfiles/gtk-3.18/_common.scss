@@ -361,29 +361,50 @@ $_dot_color: $selected_bg_color;
   outline-radius: 3px;
   padding: 5px 8px 6px;
   @include button(normal);
+  @include button_edge(normal);
   &.flat {
     @include button(undecorated);
-    &:hover { @include button(osd-hover); }
-    &:active { @include button(active); }
+    @include button_edge(undecorated);
+    
+    &:hover {
+      @include button(osd-hover);
+      @include button_edge(osd-hover);
+    }
+    
+    &:active {
+      @include button(active);
+      @include button_edge(active);
+    }
   }
   &:hover {
     @include button(hover);
+    @include button_edge(hover);
   }
   &:active, &:checked {
     @include button(active);
+    @include button_edge(active);
   }
   &.default {
     @include button(default);
+    @include button_edge(default);
     
-    &:hover { @include button(hover); }
+    &:hover {
+      @include button(hover);
+      @include button_edge(hover);
+    }
     
-    &:active { @include button(active); }
+    &:active {
+      @include button(active);
+      @include button_edge(active);
+    }
   }
   &.flat:insensitive {
     @include button(undecorated);
+    @include button_edge(undecorated);
   }
   &:insensitive {
     @include button(insensitive);
+    @include button_edge(insensitive);
     
     & > .label { text-shadow: none; }
   }
@@ -394,26 +415,31 @@ $_dot_color: $selected_bg_color;
     border-radius: 5px;
     outline-color: transparentize($osd_fg_color, 0.7);  //FIXME: define a color var?
     @include button(osd);
+    @include button_edge(osd);
     border: none;
     box-shadow: none;
     &:hover {
       @include button(osd-hover);
+      @include button_edge(osd-hover);
       border: none;
       box-shadow: none;
     }
     &:active, &:checked {
       @include button(osd-active);
+      @include button_edge(osd-active);
       border: none;
       box-shadow: none;
     }
     &:insensitive {
       @include button(osd-insensitive);
+      @include button_edge(osd-insensitive);
       border: none;
     }
   }
   //overlay / OSD style
   .osd & {
     @include button(osd);
+    @include button_edge(osd);
     // there's a problem with sass which prevents it to extend the linked
     // placeholder as expected, it should just be "@extend %linked;", the
     // placeholder is basically replicated here
@@ -441,33 +467,40 @@ $_dot_color: $selected_bg_color;
     // Workaround END
     &:hover {
       @include button(osd-hover);
+      @include button_edge(osd-hover);
       @extend %linked;
     }
     &:active, &:checked {
       @include button(osd-active);
+      @include button_edge(osd-active);
       @extend %linked;
     }
     &:insensitive {
       @include button(osd-insensitive);
+      @include button_edge(osd-insensitive);
       @extend %linked;
     }
     &.flat {
       @include button(undecorated);
+      @include button_edge(undecorated);
       box-shadow: none; //FIXME respect no edge on the button mixin
       &:hover {
         @include button(osd-hover);
+        @include button_edge(osd-hover);
         background-clip: padding-box;
         border-color: transparent;
         box-shadow: none;
       }
       &:insensitive {
         @include button(osd-insensitive);
+        @include button_edge(osd-insensitive);
         background-image: none;
         border-color: transparent;
         box-shadow: none;
       }
       &:active, &:checked {
         @include button(osd-active);
+        @include button_edge(osd-active);
         background-clip: padding-box;
         border-color: transparent;
         box-shadow: none;
@@ -480,32 +513,47 @@ $_dot_color: $selected_bg_color;
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
       @include button(normal, $b_color, white);
+      @include button_edge(normal);
       &.flat {
         @include button(undecorated);
+        @include button_edge(undecorated);
         color: $b_color; //FIXME: does it work on the dark variant?
       }
-      &:hover { @include button(hover, $b_color, white); }
-      &:active, &:checked { @include button(active, $b_color, white); }
+      &:hover {
+        @include button(hover, $b_color, white);
+        @include button_edge(hover);
+      }
+      &:active,
+      &:checked {
+        @include button(active, $b_color, white);
+        @include button_edge(active);
+      }
       &.flat:insensitive {
         @include button(undecorated);
+        @include button_edge(undecorated);
         color: transparentize($b_color, 0.2);
       }
       &:insensitive {
         @include button(insensitive);
+        @include button_edge(insensitive);
       }
       .osd & {
         @include button(osd, $b_color);
+        @include button_edge(osd);
         @extend %linked;
         &:hover {
           @include button(osd-hover, $b_color);
+          @include button_edge(osd-hover);
           @extend %linked;
         }
         &:active, &:checked {
           @include button(osd-active, $b_color);
+          @include button_edge(osd-active);
           @extend %linked;
         }
         &:insensitive {
           @include button(osd-insensitive, $b_color);
+          @include button_edge(osd-insensitive);
           @extend %linked;
         }
       }
@@ -664,11 +712,13 @@ $_dot_color: $selected_bg_color;
   padding: 5px 8px 6px;
 
   @include button(normal);
+  @include button_edge(normal);
   
   &:hover {
     border-width: 1px;
     border-image: none;
     @include button(hover);
+    @include button_edge(hover);
   }
   
   &:active,
@@ -678,12 +728,14 @@ $_dot_color: $selected_bg_color;
     border-width: 1px;
     border-image: none;
     @include button(active);
+    @include button_edge(active);
   }
 
   &:insensitive {
     border-width: 1px;
     border-image: none;
     @include button(insensitive);
+    @include button_edge(insensitive);
   }
 }
 
@@ -699,6 +751,8 @@ $_dot_color: $selected_bg_color;
   border-radius: 0;
   outline-radius: 0;
   border-right-style: none;
+
+  @include linked_button_edge(true, false, true, false);
 }
 
 %linked {
@@ -708,6 +762,8 @@ $_dot_color: $selected_bg_color;
     border-bottom-left-radius: $button_radius;
     outline-top-left-radius: 3px;
     outline-bottom-left-radius: 3px;
+
+    @include linked_button_edge(true, false, true, true);
   }
   &:last-child {
     border-top-right-radius: $button_radius;
@@ -715,11 +771,15 @@ $_dot_color: $selected_bg_color;
     outline-top-right-radius: 3px;
     outline-bottom-right-radius: 3px;
     border-right-style: solid;
+
+    @include linked_button_edge(true, true, true, false);
   }
   &:only-child {
     border-radius: $button_radius;
     outline-radius: 3px;
     border-style: solid;
+
+    @include linked_button_edge(true, true, true, true);
   }
 }
 
@@ -727,6 +787,8 @@ $_dot_color: $selected_bg_color;
   border-style: solid solid none solid;
   border-radius: 0;
   outline-radius: 0;
+
+  @include linked_button_edge(false, true, false, true);
 }
 
 %linked_vertical{
@@ -736,6 +798,8 @@ $_dot_color: $selected_bg_color;
     border-top-right-radius: $button_radius;
     outline-top-left-radius: 3px;
     outline-top-right-radius: 3px;
+
+    @include linked_button_edge(true, true, false, true);
   }
   &:last-child {
     border-bottom-left-radius: $button_radius;
@@ -743,11 +807,15 @@ $_dot_color: $selected_bg_color;
     outline-bottom-left-radius: 3px;
     outline-bottom-right-radius: 3px;
     border-style: solid;
+
+    @include linked_button_edge(false, true, true, true);
   }
   &:only-child {
     border-radius: $button_radius;
     outline-radius: 3px;
     border-style: solid;
+    
+    @include linked_button_edge(true, true, true, true);
   }
 }
 
@@ -875,34 +943,42 @@ GtkColorButton.button {
       padding-bottom: 8px; //
       &:first-child {
         @extend %top_button;
-        @include button(normal, $edge:none);
+        @include button(normal);
+        @include button_edge(normal, $edge:none);
         &:active {
           @extend %top_button;
-          @include button(active, $edge:none);
+          @include button(active);
+          @include button_edge(active, $edge:none);
         }
         &:hover {
           @extend %top_button;
-          @include button(hover, $edge:none);
+          @include button(hover);
+          @include button_edge(hover, $edge:none);
         }
         &:insensitive {
           @extend %top_button;
-          @include button(insensitive, $edge:none);
+          @include button(insensitive);
+          @include button_edge(insensitive, $edge:none);
         }
       }
       &:last-child {
         @extend %bottom_button;
         @include button(normal);
+        @include button_edge(normal);
         &:active {
           @extend %bottom_button;
           @include button(active);
+          @include button_edge(active);
         }
         &:hover {
           @extend %bottom_button;
           @include button(hover);
+          @include button_edge(hover);
         }
         &:insensitive {
           @extend %bottom_button;
           @include button(insensitive);
+          @include button_edge(insensitive);
         }
       }
     }
@@ -1110,26 +1186,52 @@ EvAnnotationsToolbar.toolbar.inline-toolbar {
 
     .button {
       @include button(normal, $selected_bg_color, $selected_fg_color);
+      @include button_edge(normal);
 
-      &.flat { @include button(undecorated); }
+      &.flat {
+        @include button(undecorated);
+        @include button_edge(undecorated);
+      }
 
-      &:hover { @include button(hover, $selected_bg_color, $selected_fg_color); }
+      &:hover {
+        @include button(hover, $selected_bg_color, $selected_fg_color);
+        @include button_edge(hover);
+      }
 
       &:active,
-      &:checked { @include button(active, $selected_bg_color, $selected_fg_color); }
+      &:checked {
+        @include button(active, $selected_bg_color, $selected_fg_color);
+        @include button_edge(active);
+      }
 
-      &.flat:insensitive { @include button(undecorated); }
+      &.flat:insensitive {
+        @include button(undecorated);
+        @include button_edge(undecorated);
+      }
 
-      &:insensitive { @include button(insensitive, $selected_bg_color, $selected_fg_color); }
+      &:insensitive {
+        @include button(insensitive, $selected_bg_color, $selected_fg_color);
+        @include button_edge(insensitive);
+      }
 
       &.suggested-action {
         @include button(normal);
+        @include button_edge(normal);
         
-        &:hover { @include button(hover); }
+        &:hover {
+          @include button(hover);
+          @include button_edge(hover);
+        }
 
-        &:active { @include button(active); }
+        &:active {
+          @include button(active);
+          @include button_edge(active);
+        }
 
-        &:insensitive { @include button(insensitive); }
+        &:insensitive {
+          @include button(insensitive);
+          @include button_edge(insensitive);
+        }
       }
     }
 
@@ -1651,7 +1753,10 @@ column-header.button.dnd { // for treeview-like derive widgets
         box-shadow: none;
         icon-shadow: none;
       }
-      &:active { @include button(active, $edge:none); }
+      &:active {
+        @include button(active);
+        @include button_edge(active, $edge:none);
+      }
       & > GtkImage { // this is a hack which makes tabs grow
         padding: 2px;
       }
@@ -1797,15 +1902,23 @@ GtkSwitch {
                                                       // clipped
   &.trough {
     @include button(active);
+    @include button_edge(active);
     border: 1px solid $button_borders_color;
     border-radius: $button_radius;
-    &:insensitive { @include button(insensitive); }
+    &:insensitive {
+      @include button(insensitive);
+      @include button_edge(insensitive);
+    }
   }
   &.slider {
     border: 1px solid;
     border-radius: $button_radius;
     @include button(normal);
-    &:insensitive { @include button(insensitive); }
+    @include button_edge(normal);
+    &:insensitive {
+      @include button(insensitive);
+      @include button_edge(insensitive);
+    }
   }
   .list-row:selected & {
     box-shadow: none;
@@ -2184,22 +2297,27 @@ GtkScrolledWindow {
 .list-row:selected {
   @extend %selected_items;
   .button {
-    @include button(normal, $edge:none);
+    @include button(normal);
+    @include button_edge(normal, $edge:none);
     border-color: $selected_borders_color;
     &.flat {
-      @include button(undecorated, $edge:none);
+      @include button(undecorated);
+      @include button_edge(undecorated, $edge:none);
       color: $selected_fg_color;
     }
     &:hover {
-      @include button(hover, $edge:none);
+      @include button(hover);
+      @include button_edge(hover, $edge:none);
       border-color: $selected_borders_color;
     }
     &:active, &:checked {
-      @include button(active, $edge:none);
+      @include button(active);
+      @include button_edge(active, $edge:none);
       border-color: $selected_borders_color;
     }
     &:insensitive {
-      @include button(insensitive, $edge:none);
+      @include button(insensitive);
+      @include button_edge(insensitive, $edge:none);
       border-color: $selected_borders_color;
     }
     //FIXME: make placeholder with buttons w/o edge to be extended around
@@ -2224,19 +2342,31 @@ GtkScrolledWindow {
   background-clip: padding-box;
   .button {
     @include button(normal);
+    @include button_edge(normal);
     &.flat {
       @extend %undecorated_button;
-      &:hover { @include button(osd-hover); }
-      &:active { @include button(active); }
+      &:hover {
+        @include button(osd-hover);
+        @include button_edge(osd-hover);
+      }
+      &:active {
+        @include button(active);
+        @include button_edge(active);
+      }
       &:insensitive { @extend %undecorated_button; }
     }
-    &:hover { @include button(hover); }
+    &:hover {
+      @include button(hover);
+      @include button_edge(hover);
+    }
     &:active,
     &:checked {
       @include button(active);
+      @include button_edge(active);
     }
     &:insensitive {
       @include button(osd-insensitive);
+      @include button_edge(osd-insensitive);
     }
   }
 }
@@ -2313,35 +2443,43 @@ GtkCalendar {
     .dialog-action-area .button {
       padding: 12px;
       border-radius: 0;
-      @include button(normal, $edge:none);
+      @include button(normal);
+      @include button_edge(normal, $edge:none);
       @extend %middle_button;
       &:hover {
-        @include button(hover, $edge:none);
+        @include button(hover);
+        @include button_edge(hover, $edge:none);
         @extend %middle_button;
       }
       &:active {
-        @include button(active, $edge:none);
+        @include button(active);
+        @include button_edge(active, $edge:none);
         @extend %middle_button;
       }
       &:insensitive {
-        @include button(insensitive, $edge:none);
+        @include button(insensitive);
+        @include button_edge(insensitive, $edge:none);
         @extend %middle_button;
       }
       @each $b_type, $b_color in (suggested-action, $selected_bg_color),
                                  (destructive-action, $destructive_color) {
         &.#{$b_type} {
-          @include button(normal, $b_color, white, $edge:none);
+          @include button(normal, $b_color, white);
+          @include button_edge(normal, $edge:none);
           @extend %middle_button;
           &:hover {
-            @include button(hover, $b_color, white, $edge:none);
+            @include button(hover, $b_color, white);
+            @include button_edge(hover, $edge:none);
             @extend %middle_button;
           }
           &:active {
-            @include button(active, $b_color, white, $edge:none);
+            @include button(active, $b_color, white);
+            @include button_edge(active, $edge:none);
             @extend %middle_button;
           }
           &:insensitive {
-            @include button(insensitive, $edge:none);
+            @include button(insensitive);
+            @include button_edge(insensitive, $edge:none);
             @extend %middle_button;
           }
         }
@@ -2499,13 +2637,17 @@ GtkInfoBar {
   border-color: darken($selected_bg_color, 10%);
   .button {
     // FIXME: extend selection mode buttons
-    @include button(normal, $selected_bg_color, $selected_fg_color, none);
+    @include button(normal, $selected_bg_color, $selected_fg_color);
+    @include button_edge(normal, none);
     &:hover {
-      @include button(hover, $selected_bg_color, $selected_fg_color, none); }
+      @include button(hover, $selected_bg_color, $selected_fg_color); }
+      @include button_edge(hover, none); }
     &:active {
-      @include button(active, $selected_bg_color, $selected_fg_color, none); }
+      @include button(active, $selected_bg_color, $selected_fg_color); }
+      @include button_edge(active, none); }
     &:insensitive {
-      @include button(insensitive,$selected_bg_color,$button_insensitive_fg_color,none); }
+      @include button(insensitive, $selected_bg_color, $button_insensitive_fg_color); }
+      @include button_edge(insensitive, none); }
   }
   .label:selected,
   .label:selected:focus,
@@ -2585,8 +2727,15 @@ GtkColorSwatch {
     border-width: 1px;   // translucent on the colored background, here it's not necessary so they need to be set
     border-radius: 0;
     @include button(normal);
-    &:hover { @include button(hover); }
-    .overlay { @include button(undecorated); } // reset the overlay to not cover the button style underneat
+    @include button_edge(normal);
+    &:hover {
+      @include button(hover);
+      @include button_edge(hover);
+    }
+    .overlay {
+      @include button(undecorated);
+      @include button_edge(undecorated);
+    } // reset the overlay to not cover the button style underneat
   }
 }
 
@@ -2697,9 +2846,15 @@ GtkVolumeButton.button {
   
   //padding: 8px;
     
-  &:hover { @include button(osd-hover); }
+  &:hover {
+    @include button(osd-hover);
+    @include button_edge(osd-hover);
+  }
    
-  &:active, &:checked { @include button(active); }
+  &:active, &:checked {
+    @include button(active);
+    @include button_edge(active);
+  }
     
   //&:checked:hover { @include button(toolbar-active-hover); }
     
