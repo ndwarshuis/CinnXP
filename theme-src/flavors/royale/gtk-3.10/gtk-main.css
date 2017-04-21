@@ -58,8 +58,8 @@
 @define-color arrow_spin_insensitive_color #b7cbe3;
 
 /* Calendar */
-@define-color calendar_header_fg_color #6fa1d9;
-@define-color calendar_header_bg_color #fff;
+@define-color calendar_header_fg_color #fff;
+@define-color calendar_header_bg_color #6fa1d9;
 @define-color calendar_selected_fg_color #fff;
 @define-color calendar_selected_bg_color #335ea8;
 
