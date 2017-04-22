@@ -10,15 +10,19 @@ Used in spin buttons. Have no border (as in the entry border)
 
 border slice: 3 3 3 3
 
-transformations:
-* copy column 5 towards middle (from left and right sides)
-* copy row 5 immediately below
-* copy row 8 immediately below
-* copy row 12 immediately below
+#### transformations
+* embedded only
+  * copy row 9 below itself (3x)
+  * copy column 5 towards middle (from left and right sides)
+* all others
+  * copy column 5 towards middle (from left and right sides)
+  * copy row 5 immediately below
+  * copy row 8 immediately below
+  * copy row 12 immediately below
 
 ## sensitive
 
-mapping
+#### mapping
 * blue: royale, noir
 * grey: embedded, zune
 
