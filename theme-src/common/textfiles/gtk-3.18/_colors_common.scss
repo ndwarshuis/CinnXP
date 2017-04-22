@@ -61,7 +61,7 @@ $view_borders_color: $borders_color;
 $tree_header_arrow_color: $entry_insensitive_fg_color;
 
 // SCROLLBARS
-$scrollbar_bg_color: darken($bg_color, 7%);
+$scrollbar_junction_bg_color: darken($bg_color, 7%);
 
 // SIDEBAR
 $sidebar_bg_color: $base_color;

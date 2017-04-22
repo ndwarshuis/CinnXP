@@ -2281,7 +2281,7 @@ scrollbar {
         min-height: 4px;
         background-image: none;
         border: 1px solid white;
-        background-color: $selected_bg_color;
+        background-color: $overlay_scrollbar_bg_color;
         background-clip: padding-box;
       }
     }
@@ -2961,7 +2961,7 @@ scrolledwindow {
     border-color: transparent;
     // the border image is used to add the missing dot between the borders, details, details, details...
     border-image: linear-gradient(to bottom, $view_borders_color 1px, transparent 1px) 0 0 0 1 / 0 1px stretch;
-    background-color: $scrollbar_bg_color;
+    background-color: $scrollbar_junction_bg_color;
 
     &:dir(rtl) { border-image-slice: 0 1 0 0; }
   }
