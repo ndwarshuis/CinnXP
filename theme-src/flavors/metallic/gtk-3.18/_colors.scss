@@ -1,1 +1,70 @@
-../gtk-3.20/_colors.scss
+// GENERIC
+$bg_color: #e0dfe3;
+
+$insensitive_fg_color: #9d9da1;
+$insensitive_bg_color: #f1f1ed;
+$insensitive_borders_color: #c4c3bf;
+
+$selected_fg_color: #000;
+$selected_bg_color: #b2b4bf;
+$selected_outline_color: #4d4b40;
+
+$borders_color: #7f9db9;
+
+// LINK
+$link_color: #648bcb;
+$link_visited_color: #CB64C0;
+
+// ENTRIES
+$entry_borders_color: #a5acb2;
+$entry_insensitive_fg_color: #aca899;
+
+// BUTTONS
+$button_borders_color: #003c74;
+$button_insensitive_fg_color: #a1a192;
+
+// MENU
+$menu_menuitem_selected_bg_color: #bbb7c7;
+
+// MENUBAR-MENUITEM
+$menubar_menuitem_insensitive_fg_color: #aca899;
+$menubar_menuitem_hover_fg_color: #000;
+$menubar_menuitem_hover_bg_color: #bbb7c7;
+
+// FRAMES
+$frame_color: #bfb8bf;
+$frame_header_color: #0046d5;
+$separator_color: #cac6b5;
+
+// NOTEBOOKS
+$notebook_bg_color: #fafaf9;
+$notebook_bg_a_color: #fcfcfe;
+$notebook_bg_b_color: #f4f3ee;
+$notebook_borders_color: #919b9c;
+
+//TODO: add overalay scrollbars color
+
+// COLUMN HEADERS
+$tree_header_bg_color: #f9fafd;
+$tree_header_hover_bg_color: #fefefe;
+$tree_header_active_bg_color: #ececf3;
+
+// ARROWS
+$arrow_color: #3f3d3d;
+$arrow_active_color: #202020;
+$arrow_insensitive_color: #c9c9c2;
+
+// ARROWS SPIN
+$arrow_spin_color: #3f3d3d;
+$arrow_spin_active_color: #202020;
+$arrow_spin_insensitive_color: #c9c9c2;
+
+// CALENDAR
+$calendar_header_fg_color: #a2a1a1;
+$calendar_header_bg_color: #fff;
+$calendar_selected_fg_color: #0e1010;
+$calendar_selected_bg_color: #c0c0c0;
+
+// NEMO
+$nemo_places_bg_color: #8A8D99;
+$nemo_sidebar_hover_color: #000080;
