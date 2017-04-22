@@ -1,0 +1,108 @@
+//embedded and zune
+
+$button_radius: 2px;
+$button_bg_color: #dddddd;
+
+@function osd_hover_bg_color($c) {
+  @return lighten($c, 8%)
+}
+
+$_hover_mask: linear-gradient(to bottom,
+                              #f5e8a1 1px,
+                              transparent 1px
+                              ),
+              linear-gradient(to top,
+                              #da7926 1px,
+                              transparent 1px
+                              ),
+              url('Button/hover-mask-left.png') no-repeat left center/2px 100%,
+              url('Button/hover-mask-right.png') no-repeat right center/2px 100%,
+              linear-gradient(to bottom,
+                              #efcf86 2px,
+                              transparent 2px
+                              ),
+              linear-gradient(to top,
+                              #f1b860 2px,
+                              transparent 2px
+                              );
+
+@function button_bg ($type, $c, $r_shadow) {
+  $_button_inner_edge: transparentize(darken($c, 17%), 0.25),
+                       transparentize(darken($c, 17%), 0.25) 1px,
+                       transparentize(lighten($c, 11.5%), 0.55) 1px,
+                       transparentize(lighten($c, 11.5%), 0.55) 2px,
+                       transparent 2px;
+
+  $_normal_bg: linear-gradient(to top,
+                               darken($c, 18%),
+                               darken($c, 18%) 1px,
+                               transparent 1px
+                               ),
+               linear-gradient(to right,
+                               $_button_inner_edge
+                               ),
+               linear-gradient(to left,
+                               $_button_inner_edge
+                               ),
+               linear-gradient(to bottom,
+                               lighten($c, 1.25%) 1px,
+                               lighten($c, 11.5%) 1px,
+                               lighten($c, 11.5%) 2px,
+                               lighten($c, 9.75%) 2px,
+                               lighten($c, 9.75%) 3px,
+                               transparent 3px
+                               ),
+               linear-gradient(to top,
+                               darken($c, 17.5%) 1px,
+                               $c 40%,
+                               lighten($c, 5.25%) 45%,
+                               lighten($c, 7%) 50%,
+                               lighten($c, 9.3%) 60%,
+                               lighten($c, 12.5%)
+                               );
+
+  $_active_bg: linear-gradient(to bottom,
+                               lighten($c, 1.25%) 1px,
+                               darken($c, 27%) 1px,
+                               darken($c, 27%) 2px,
+                               transparent 2px
+                               ),
+               linear-gradient(to right,
+                               darken($c, 27%) 1px,
+                               transparent 1px
+                               ),
+               linear-gradient(to left,
+                               darken($c, 27%) 1px,
+                               transparent 1px
+                               ),
+               linear-gradient(to top,
+                               lighten($c, 11.5%) 1px,
+                               lighten($c, 9.75%) 1px,
+                               lighten($c, 9.75%) 2px,
+                               lighten($c, 12.5%) 2px,
+                               lighten($c, 5.25%) 50%,
+                               darken($c, 17.5%) 95%
+                               );
+
+  @if $type==normal {
+    @return $_normal_bg;
+    
+  } @else if $type==default or $type==hover {
+    @return $_hover_mask, $_normal_bg;
+    
+  } @else if $type==active {
+    @return $_active_bg;
+  }
+}
+
+@function button_shadow($type, $edge, $top, $right, $bottom, $left) {
+  $_b: if($bottom==true and $edge!=none, 0.52, 1.0);
+  $_r: if($right==true, 0.52, 1.0);
+  $_t: if($top==true, 0.52, 1.0);
+  $_l: if($left==true, 0.52, 1.0);  
+
+  @return 0px 1px transparentize(white, $_b),
+          1px 0px transparentize(white, $_r),
+          0px -1px transparentize(white, $_t),
+          -1px 0px transparentize(white, $_l);     
+}
