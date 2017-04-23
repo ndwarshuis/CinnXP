@@ -14,7 +14,7 @@ Bitmap_102 (down)
 #### mapping
 * blue: royale, noir
 * greige: luna, homestead, metallic
-* embedded, zune
+* grey: embedded, zune
 
 # border-button
 

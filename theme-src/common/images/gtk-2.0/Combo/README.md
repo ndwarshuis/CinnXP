@@ -53,7 +53,6 @@ border slice: 3 3 3 3
 #### mapping
 * blue: royale, noir
 * greige: luna, homestead, metallic
-* grey: embedded, zune
 
 # lo-button (libreoffice)
 
