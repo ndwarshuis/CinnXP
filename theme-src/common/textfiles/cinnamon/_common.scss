@@ -1263,10 +1263,8 @@ $desklet_slice: 6;
 
 .photoframe-box {
   padding: 10px;
-
-  @if $flavor == 'luna' { border-image: url("Frames/desklet-borders.png") 6; }
   
-  @else if $flavor == 'royale' { border-image: url("Frames/desklet-borders.png") 4; }
+  border-image: url("Frames/desklet-borders.png") 6;
 }
 
 /* ===================================================================
