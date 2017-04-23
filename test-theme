@@ -21,7 +21,7 @@ OPTIONS:
 			
    -f       Flavor to compile (full string name) Defaults to "luna"
 			Current valid options are "luna," "homestead," "metallic," "royale,"
-			"noir," and "embedded"
+			"noir," "embedded," and "zune"
 EOF
 }
 
@@ -61,7 +61,7 @@ case "$gtk3_minor_revision" in
 esac
 
 case "$flavor" in
-  "luna"|"homestead"|"metallic"|"royale"|"noir"|"embedded")
+  "luna"|"homestead"|"metallic"|"royale"|"noir"|"embedded"|"zune")
     ;;
   *)
     echo "Invalid flavor requested."

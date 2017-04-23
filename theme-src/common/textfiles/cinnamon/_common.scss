@@ -860,6 +860,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
     @if $flavor == 'royale' { box-shadow: inset 1px 1px #10377c; }
     @if $flavor == 'noir' { box-shadow: inset 1px 1px #353f4d; }
     @if $flavor == 'embedded' { box-shadow: inset 1px 1px #013c6b; }
+    @if $flavor == 'zune' { box-shadow: inset 1px 1px #2f2f2f; }
   }
 
   StScrollBar { padding: 0; }
