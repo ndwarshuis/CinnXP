@@ -1,7 +1,3 @@
-# handles
-
-identical to gtk2
-
 # trough
 
 identical to gtk2 except without the transparent borders, and middle is shortened by 2px
