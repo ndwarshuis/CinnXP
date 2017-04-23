@@ -1,0 +1,48 @@
+#! /bin/bash
+
+set -e
+
+#ToDo...prompt for root permission here
+test_ruby() {
+	# is ruby installed?
+	ruby -v >> /dev/null
+
+	if [[ $? -ne 0 ]]; then
+		echo "Ruby not found. Please install latest version from distribution repo"
+		exit 1
+	fi
+
+	# is Bundler Gem installed?
+	if [[ $(gem list bundler -i) != "true" ]]; then
+		echo "Bundler Ruby gem not found. Attempting to install"
+		gem install bundler
+		
+		if [[ $? -ne 0 ]]; then
+			echo "Could not install bundler. Aborting"
+			exit 1
+		fi
+	fi
+
+	install_sass=0
+
+	# is SASS Gem installed?
+	if (( $(gem list sass -i) != "true" )); then
+		echo "SASS Ruby gem not found. Attempting to install"
+		install_sass=1
+	# is SASS Gem up to date?
+	elif  [[ $(gem list sass | grep -o -P '(?<=\.)[0-9]*(?=\.)') < 4 ]]; then
+		echo "SASS Ruby gem is outdated. Attempting to update"
+		install_sass=1
+	fi
+
+	if [ $install_sass == 1 ]; then
+		bundle install
+
+		if [[ $? -ne 0 ]]; then
+			echo "Could not install SASS. Aborting"
+			exit 1
+		fi
+	fi
+
+	exit 0
+}

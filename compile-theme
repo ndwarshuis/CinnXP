@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 THEME_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 declare -a VALID_GTK_VERSIONS=(10 18 20)
@@ -145,51 +147,6 @@ build_cursor_theme() {
 	ln -s ibeam xterm
 
 	cd "$THEME_ROOT"
-}
-
-#ToDo...prompt for root permission here
-test_ruby() {
-	# is ruby installed?
-	ruby -v >> /dev/null
-
-	if [[ $? -ne 0 ]]; then
-		echo "Ruby not found. Please install latest version from distribution repo"
-		return 1
-	fi
-
-	# is Bundler Gem installed?
-	if [[ $(gem list bundler -i) != "true" ]]; then
-		echo "Bundler Ruby gem not found. Attempting to install"
-		gem install bundler
-		
-		if [[ $? -ne 0 ]]; then
-			echo "Could not install bundler. Aborting"
-			exit 1
-		fi
-	fi
-
-	install_sass=0
-
-	# is SASS Gem installed?
-	if (( $(gem list sass -i) != "true" )); then
-		echo "SASS Ruby gem not found. Attempting to install"
-		install_sass=1
-	# is SASS Gem up to date?
-	elif  [[ $(gem list sass | grep -o -P '(?<=\.)[0-9]*(?=\.)') < 4 ]]; then
-		echo "SASS Ruby gem is outdated. Attempting to update"
-		install_sass=1
-	fi
-
-	if [ $install_sass == 1 ]; then
-		bundle install
-
-		if [[ $? -ne 0 ]]; then
-			echo "Could not install SASS. Aborting"
-			exit 1
-		fi
-	fi
-
-	return 0
 }
 
 clean_scss() {
@@ -345,7 +302,7 @@ build_all_flavors() {
 	validate_gtk_minor_version "$gtk3_minor_revision"
 
 	build_cursor_theme "$pkg_path/usr/share/icons"
-	test_ruby
+	./test-ruby
 
 	for flavor in "${VALID_FLAVORS[@]}"
 	do
@@ -354,7 +311,7 @@ build_all_flavors() {
 }
 
 package_all() {
-	test_ruby
+	./test-ruby
 
 	local cursor_dest="$THEME_ROOT/CinnXP_Cursors"
 	build_cursor_theme "$cursor_dest"
@@ -419,6 +376,6 @@ else
 	validate_gtk_minor_version "$gtk3_minor_revision"
 	validate_flavor "$flavor"
 	build_cursor_theme "$pkg_dir/usr/share/icons"
-	test_ruby
+	./test-ruby
 	build_flavor "$pkg_dir/usr/share/themes" "$flavor" "$gtk3_minor_revision"
 fi
