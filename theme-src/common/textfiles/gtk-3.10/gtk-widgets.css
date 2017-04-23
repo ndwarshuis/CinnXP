@@ -2006,7 +2006,7 @@ GtkMenuButton .menuitem.separator {
 }
 
 .spinbutton.vertical.entry:insensitive {
-    border-color: @entry_insensitive_borders_color;
+    border-color: @button_insensitive_borders_color;
 }
 
 /***********
