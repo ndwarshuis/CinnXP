@@ -1,4 +1,4 @@
-# CinnXP
+# CinnXP (unstable branch with new flavors)
 
 make Cinnamon look and feel like the venerable Windows XP interface
 
