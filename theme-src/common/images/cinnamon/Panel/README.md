@@ -13,8 +13,8 @@
 * 27x30: metallic (note transparent padding on left side)
 
 #### transformations (from top, including transparent pixels):
-* luna, homestead, metallic, zune: copy rows 17 and 19 directly below themselves
-* royale, noir, embedded: copy row 13 directly below itself (2x)
+* copy rows 17 and 19 directly below themselves (luna, homestead, metallic, zune)
+* copy row 13 directly below itself (2x) (royale, noir, embedded)
 
 #### border-image-slice (top right bottom left)
 * 0 5 0 17: luna, homestead, metallic
@@ -61,8 +61,8 @@ just take a screenshot and transparentize the panel bg
 Bitmap_103
 
 #### transformations (from top):
-* luna, homestead, metallic, royale, noir: delete row 17
-* embedded, zune: copy rows 14 and 16 directly delow themselves, and take top 30 rows
-* all: screenshot the rightmost 7 pixels to get the panel bg
+* delete row 17 (luna, homestead, metallic, royale, noir)
+* copy rows 14 and 16 directly delow themselves, and take top 30 rows (embedded, zune)
+* screenshot the rightmost 7 pixels to get the panel bg (all)
 
 border-image-slice: 0 0 0 0
