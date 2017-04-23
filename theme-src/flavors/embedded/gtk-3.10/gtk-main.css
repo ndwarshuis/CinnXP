@@ -16,6 +16,7 @@
 @define-color link_visited_color #800080;
 
 /* Entries */
+@define-color button_bg_color #dddddd;
 @define-color entry_borders_color #b5b4b8;
 @define-color entry_insensitive_fg_color #b5b4b8;
 
