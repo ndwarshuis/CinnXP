@@ -1,0 +1,92 @@
+#! /bin/bash
+
+set -e
+
+THEME_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+declare -a VALID_GTK_VERSIONS=(18 20)
+declare -a VALID_FLAVORS=('luna' 'homestead' 'metallic' 'royale' 'noir' 'embedded' 'zune')
+
+help() {
+cat << EOF
+help: $0 options
+
+parse all scss files for cinnamon and gtk
+
+OPTIONS:
+   -h       this...
+   
+   -g       parse only one gtk version (also skips cinnamon)
+
+   -c       parse only cinnamon
+EOF
+}
+
+elementIn () {
+	local e
+	for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+	return 1
+}
+
+validate_gtk_minor_version() {
+	if ! $(elementIn "$1" "${VALID_GTK_VERSIONS[@]}"); then
+		echo "Invalid gtk versions requested."
+		help
+		exit
+	fi
+}
+
+parse_cinnamon() {
+	for flavor in "${VALID_FLAVORS[@]}"
+	do
+		echo "now parsing cinnamon for $flavor"
+		cd "$THEME_ROOT/theme-src/flavors/$flavor/cinnamon"
+		./parse-sass.sh
+	done
+}
+
+parse_gtk() {
+	gtk_version=$1
+
+	for flavor in "${VALID_FLAVORS[@]}"
+	do
+		echo "now parsing gtk-3.$gtk_version for $flavor"
+		cd "$THEME_ROOT/theme-src/flavors/$flavor/gtk-3.$gtk_version"
+		./parse-sass.sh
+	done
+}
+
+parse_all() {
+	./test-ruby
+
+	for version in "${VALID_GTK_VERSIONS[@]}"
+	do
+		parse_gtk $version
+	done
+
+	parse_cinnamon
+}
+
+while getopts “hg:c” OPTION
+do
+	case $OPTION in
+		h | \?)
+			help
+			exit 1
+			;;
+		g)
+			validate_gtk_minor_version $OPTARG
+			parse_gtk $OPTARG
+			exit
+			;;
+		c)
+			parse_cinnamon
+			exit
+			;;
+		*)
+			break
+			;;
+	esac
+done
+
+parse_all
