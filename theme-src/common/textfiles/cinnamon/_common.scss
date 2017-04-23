@@ -1222,27 +1222,25 @@ $window_list_slice: 17 5 0 0;
  * Desklets (desklet.js) 
  * ===================================================================*/
 
-$desklet_slice: 6;
-
-@if $flavor == 'royale' { $desklet_slice: 7; }
+$desklet_slice: 7;
 
 .desklet { color: $fg_color; }
 
 .desklet-with-borders {
-  border-image: url("Frames/bg-1.png") $desklet_slice;
+  border-image: url("Frames/desklet-bg.png") $desklet_slice;
   color: $desklet_fg_color;
   font-weight: bold;
   padding: 8px;
 }
 
 .desklet-with-borders-and-header {
-  border-image: url("Frames/bg-1.png") $desklet_slice;
+  border-image: url("Frames/desklet-bg.png") $desklet_slice;
   color: $desklet_fg_color;
   padding: 8px;
 }
 
 .desklet-header { 
-  border-image: url("Frames/bg-1.png") $desklet_slice;
+  border-image: url("Frames/desklet-bg.png") $desklet_slice;
   font-size: 9pt;
   font-weight: bold;
   color: $desklet_fg_color;
