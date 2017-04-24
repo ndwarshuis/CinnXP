@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=CinnXP-Homestead
+Name=CinnXP-Noir
 Comment=
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=CinnXP-Homestead
-MetacityTheme=CinnXP-Homestead
+GtkTheme=CinnXP-Noir
+MetacityTheme=CinnXP-Noir
 IconTheme=CinnXP
 CursorTheme=default
