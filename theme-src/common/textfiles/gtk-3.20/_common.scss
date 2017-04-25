@@ -2651,15 +2651,16 @@ scale {
 
   @each $dir_class, $dir_infix in ('horizontal', 'horz'),
                                   ('vertical', 'vert') {
-    @each $marks_infix, $nth_child in ('scale-has-marks-above', ':last-child:not(:only-child)'),
-                                      ('scale-has-marks-below', ':first-child:not(:only-child)') {
+    @each $marks_infix, $marks_class in ('scale-has-marks-above', 'marks-before:not(.marks-after)'),
+                                        ('scale-has-marks-below', 'marks-after:not(.marks-before)') {
       @each $state, $state_infix in ('', ''),
-                               (':hover', '-hover'),
-                               (':active', '-active'),
-                               (':disabled', '-insensitive') {
-        &.#{$dir_class} {
-          %#{$marks_infix}-#{$dir_infix},
-          contents#{$nth_child} > trough > slider {
+                                    (':hover', '-hover'),
+                                    (':active', '-active'),
+                                    (':disabled', '-insensitive') {
+        &.#{$dir_class}.#{$marks_class} {
+
+          slider {
+            %#{$marks_infix}-#{$dir_infix},
             &#{$state} {
               // an asymmetric slider asset is used here, so the margins are uneven, the smaller
               // margin is set on the point side.
@@ -2732,11 +2733,11 @@ scale {
       }
 
       slider {
-        &:hover, &:disabled, & {
-          @extend %scale-has-marks-above-horz;
-
-          margin-bottom: -10px;
-          margin-top: 0;
+        &:dir(ltr), &:dir(rtl) { // specificity bumb
+          &:hover, & {
+            margin-bottom: -10px;
+            margin-top: 0;
+          }
         }
       }
     }
@@ -2753,9 +2754,7 @@ scale {
         }
 
         slider {
-          &:hover, &:disabled, & {
-            @extend %scale-has-marks-below-vert;
-
+          &:hover, & {
             margin-left: -10px;
             margin-right: 0;
           }
