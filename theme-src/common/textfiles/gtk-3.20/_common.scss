@@ -1367,11 +1367,9 @@ toolbar {
 searchbar,
 .location-bar {
   @extend %toolbar;
-
-  padding: 3px;
-
+  
+  padding: 4px 3px 0px;
   background-color: $inset_toolbar_bg_color;
-
   border-style: solid;
   border-color: transparent;
   border-width: 5px 0 9px;

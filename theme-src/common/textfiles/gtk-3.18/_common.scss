@@ -1122,25 +1122,24 @@ GtkComboBox {
 //searchbar, location-bar & inline-toolbar
 .inline-toolbar {
   @extend .toolbar;
-  @extend %inset-bar;
-  border-width: 0 1px 1px;
-  padding: 3px;
+  border: none;
+  padding: 5px;
   border-radius: 0px;
+  box-shadow: $inset_shadow_thin;
 }
 .search-bar,
 .location-bar,
 EvAnnotationsToolbar.toolbar.inline-toolbar {
   @extend .toolbar;
-  border-width: 0 0 1px;
-  box-shadow: inset 0px 2px 3px -1px mix(black, $bg_color, 60%);
-  padding: 3px;
-}
 
-%inset-bar {
+  padding: 4px 3px 0px;
+  background-color: $inset_toolbar_bg_color;
   border-style: solid;
-  border-color: $borders_color;
-  background-color: $bg_color;
-  box-shadow: inset 0px 2px 3px -1px mix(black, $bg_color, 60%);
+  border-color: transparent;
+  border-width: 5px 0 9px;
+  border-image: url('Toolbar/inset-toolbar.png');
+  border-image-slice: 5 0 9 0;
+  box-shadow: none;
 }
 
 /***************
