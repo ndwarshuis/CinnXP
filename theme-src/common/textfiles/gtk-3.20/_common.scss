@@ -780,7 +780,7 @@ button {
   .linked.vertical > &:active,
   .linked.vertical > &:checked { @extend %linked_vertical; }
   
-  &.circular { // The Bloody Circul Button
+  &.circular.flat { // The Bloody Circul Button
     border-radius: 9999px;
     -gtk-outline-radius: 9999px;
 
