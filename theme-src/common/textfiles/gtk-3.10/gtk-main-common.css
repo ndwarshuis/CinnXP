@@ -56,6 +56,7 @@
 
 /* Frames */
 @define-color view_borders_color @borders_color;
+@define-color shadow_inset_thin_upper_left_color @insensitive_fg_color;
 
 /* column headers */
 @define-color tree_header_arrow_color @entry_insensitive_fg_color;
