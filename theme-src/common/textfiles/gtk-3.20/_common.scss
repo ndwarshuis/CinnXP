@@ -1361,7 +1361,8 @@ toolbar {
   border: none;
   padding: 5px;
   border-radius: 0px;
-  box-shadow: $inset_shadow_thin;
+  box-shadow: inset 1px 1px $shadow_inset_thin_upper_left_color,
+              inset -1px -1px white;
 }
 
 searchbar,
