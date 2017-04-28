@@ -2393,7 +2393,7 @@ GtkCalendar {
 
   &:selected {
     @extend .view:selected;
-    outline-color: $selected_outline_color;
+    outline-color: $calendar_selected_outline_color;
     color: $calendar_selected_fg_color;
     background-color: $calendar_selected_bg_color;
   }
