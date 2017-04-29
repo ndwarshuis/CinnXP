@@ -2323,7 +2323,7 @@ GtkViewport {
 }
 
 /*************
- * evolution *
+ * Evolution *
  *************/
 
 GtkHTML {
@@ -2352,7 +2352,7 @@ GucharmapChartable:selected {
 }
 
 /************
- * terminal *
+ * Terminal *
  ************/
 
 TerminalScreen {
@@ -2366,6 +2366,10 @@ TerminalWindow GtkNotebook.notebook {
     border-right-width: 0;
     border-left-width: 0;
 }
+
+/************
+ * Nautilus *
+ ************/
 
 .nautilus-canvas-item {
     border-radius: 0;
@@ -2392,6 +2396,15 @@ TerminalWindow GtkNotebook.notebook {
 .nautilus-desktop.nautilus-canvas-item:prelight,
 .nautilus-desktop.nautilus-canvas-item:selected {
     text-shadow: none;
+}
+
+/************
+ * Ubiquity *
+ ************/
+
+.ubiquity-menubar {
+	background-color: #3F3F3F;
+	color: #EEEEEE;
 }
 
 /********
@@ -2549,13 +2562,4 @@ NemoWindow .sidebar .vertical .view row:selected:backdrop {
 
 .cs-header {
 	/* see backgrounds under toolbars */
-}
-
-/************
- * ubiquity *
- ************/
-
-.ubiquity-menubar {
-	background-color: #3F3F3F;
-	color: #EEEEEE;
 }
