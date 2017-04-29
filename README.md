@@ -21,6 +21,18 @@ based on Mint-XP (fmcgorenc) and Adwaita
 
 ![royale theme](thumbnails/royale.png?raw=true)
 
+#### Noir
+
+![noir theme](thumbnails/noir.png?raw=true)
+
+#### Embedded
+
+![embedded theme](thumbnails/embedded.png?raw=true)
+
+#### Zune
+
+![zune theme](thumbnails/zune.png?raw=true)
+
 #### Theme contents
 * cinnamon
 * gtk-2.0
@@ -97,4 +109,4 @@ Run `./test-theme` in the top-level directory to generate a directory of links t
 * Prompt for root access in `compile-theme`
 * Automatic installation in `compile-theme`
 * Full Icon Theme
-* New flavors (Zune, Embedded, Royale Noir, Classic)
+* New flavors (Classic)
