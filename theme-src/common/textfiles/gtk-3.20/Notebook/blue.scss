@@ -12,22 +12,6 @@
             inset -1px 0px $_shadow_color_a,
             inset 0px -1px $_shadow_color_a;
   }
-  @else if $dir==bottom {
-    @return inset 2px 0px $_shadow_color_b,
-            inset -2px 0px $_shadow_color_b,
-            inset 0px 2px $_shadow_color_b,
-            inset 1px 0px $_shadow_color_a,
-            inset -1px 0px $_shadow_color_a,
-            inset 0px 1px $_shadow_color_a;
-  }
-  @else if $dir==right {
-    @return inset 2px 0px $_shadow_color_b,
-            inset 0px 2px $_shadow_color_b,
-            inset 0px -2px $_shadow_color_b,
-            inset 1px 0px $_shadow_color_a,
-            inset 0px 1px $_shadow_color_a,
-            inset 0px -1px $_shadow_color_a;
-  }
   @else if $dir==left {
     @return inset -2px 0px $_shadow_color_b,
             inset 0px 2px $_shadow_color_b,

@@ -1528,26 +1528,10 @@ column-header.button.dnd { // for treeview-like derive widgets
   -GtkWidget-focus-padding: 0;
   -GtkWidget-focus-line-width: 0;
   
-  &.top {
-    box-shadow: inset 1px 0px $notebook_bg_a_color,
-                inset -1px 0px $notebook_bg_a_color,
-                inset 0px -1px $notebook_bg_a_color;
-  }
-  &.bottom {
-    box-shadow: inset 1px 0px $notebook_bg_a_color,
-                inset -1px 0px $notebook_bg_a_color,
-                inset 0px 1px $notebook_bg_a_color;
-  }
-  &.right {
-    box-shadow: inset 1px 0px $notebook_bg_a_color,
-                inset 0px 1px $notebook_bg_a_color,
-                inset 0px -1px $notebook_bg_a_color;
-  }
-  &.left {
-    box-shadow: inset -1px 0px $notebook_bg_a_color,
-                inset 0px 1px $notebook_bg_a_color,
-                inset 0px -1px $notebook_bg_a_color;
-  }
+  &.top { box-shadow: notebook_inset_shadow(top); }
+  &.bottom { box-shadow: notebook_inset_shadow(bottom); }
+  &.right { box-shadow: notebook_inset_shadow(right); }
+  &.left { box-shadow: notebook_inset_shadow(left); }
 
   &.top,
   &.bottom { background-image: linear-gradient(to bottom, $notebook_bg_a_color, $notebook_bg_b_color);}

@@ -1,8 +1,9 @@
 /******************
  * Gnome Terminal *
  ******************/
-terminal-window notebook > stack:not(:only-child) {
-  border-width: 1px 0px 0px 0px;
+notebook > stack:not(:only-child) {
+  terminal-window &,
+  .terminator-terminal-window & { border-width: 1px 0px 0px 0px; }
 }
 
 /*********
