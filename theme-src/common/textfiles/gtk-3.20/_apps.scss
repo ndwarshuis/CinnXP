@@ -1,14 +1,21 @@
+/******************
+ * Gnome Terminal *
+ ******************/
+terminal-window notebook > stack:not(:only-child) {
+  border-width: 1px 0px 0px 0px;
+}
+
 /*********
  * Gedit *
  *********/
 .gedit-search-slider {
   padding: 5px;
   background-color: mix($bg_color, $base_color, 50%);
-  box-shadow: inset 0 0 0 1px $separator_color;
+  box-shadow: inset 1px 0 $menu_borders,
+              inset -1px 0 $menu_borders,
+              inset 0 -1px $menu_borders;
 
-  & button {
-    padding: 4px 6px;
-  }
+  & button { padding: 4px 6px; }
 }
 
 .gedit-search-entry-occurrences-tag {
@@ -16,8 +23,26 @@
   padding-left: 4px;
 }
 
-.gedit-bottom-panel-paned + statusbar {
-  border-top-width: 1px;
-  border-color: $separator_color;
-  border-top-style: solid;
+.gedit-bottom-panel-paned {
+	
+  notebook > stack { border-width: 1px 0px 0px; }
+
+  & + statusbar {
+    border-width: 1px 0px 0px;
+    border-color: $insensitive_fg_color;
+    border-style: solid;
+
+    & button {
+      &:hover,
+      &:active,
+      &:checked, & {
+        box-shadow: none;
+        background: none;
+      }
+      
+      &:hover { background-color: mix($bg_color, $base_color, 50%); }
+      
+      &:active { background-color: mix($bg_color, $fg_color, 90%); }
+    }
+  }
 }

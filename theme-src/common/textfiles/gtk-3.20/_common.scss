@@ -2188,9 +2188,6 @@ notebook {
     background-color: $notebook_bg_color;
     border: 1px solid $notebook_borders_color;
     box-shadow: none;
-
-    // fix borders in GNOME terminal
-    terminal-window & { border-width: 1px 0px 0px 0px; }
   }
 }
 
