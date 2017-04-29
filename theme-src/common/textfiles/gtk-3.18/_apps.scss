@@ -1,9 +1,15 @@
+/**********
+ * Evince *
+ **********/
+EvAnnotationsToolbar.toolbar.inline-toolbar {
+  @extend .search-bar;
+}
+ 
 /*********
  * Gedit *
  *********/
-
 .gedit-headerbar-paned {
-  border-right-color: $separator_color;
+  border-right-color: $insensitive_fg_color;
 }
 
 .gedit-document-panel {
@@ -59,10 +65,24 @@
 
 GeditStatusbar {
   border-top-width: 1px;
-  border-color: $separator_color;
+  border-color: $insensitive_fg_color;
   border-top-style: solid;
 
   & .button.flat {
-    border-radius: 0px;
+    &:hover,
+    &:active,
+    &:checked, & {
+      border-radius: 0px;
+      border-style: solid;
+      border-color: $insensitive_fg_color;
+      border-width: 1px 0px 0px 0px;
+      box-shadow: none;
+      background: none;
+      outline-radius: 0px;
+    }
+      
+    &:hover { background-color: mix($bg_color, $base_color, 50%); }
+      
+    &:active { background-color: mix($bg_color, $fg_color, 90%); }
   }
 }

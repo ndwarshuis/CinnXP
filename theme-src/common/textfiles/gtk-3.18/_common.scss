@@ -1129,8 +1129,7 @@ GtkComboBox {
               inset -1px -1px white;
 }
 .search-bar,
-.location-bar,
-EvAnnotationsToolbar.toolbar.inline-toolbar {
+.location-bar {
   @extend .toolbar;
 
   padding: 4px 3px 0px;
