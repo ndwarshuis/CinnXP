@@ -7,19 +7,19 @@ based on Mint-XP (fmcgorenc) and Adwaita
 ## Current Flavors
 #### Luna
 
-![luna theme](luna.png?raw=true)
+![luna theme](thumbnails/luna.png?raw=true)
 
 #### Homestead
 
-![homestead theme](homestead.png?raw=true)
+![homestead theme](thumbnails/homestead.png?raw=true)
 
 #### Metallic
 
-![metallic theme](metallic.png?raw=true)
+![metallic theme](thumbnails/metallic.png?raw=true)
 
 #### Royale
 
-![royale theme](royale.png?raw=true)
+![royale theme](thumbnails/royale.png?raw=true)
 
 #### Theme contents
 * cinnamon
