@@ -97,13 +97,13 @@ Titlebars
 
 <draw_ops name="normal_title_focused">
   <image filename="normal-titlebar-focused-left.png" x="0" y="0" width="object_width" height="NORMAL_TITLEBAR_HEIGHT"/>
-  <image filename="normal-titlebar-focused-middle.png" x="8" y="0" width="width - 8" height="NORMAL_TITLEBAR_HEIGHT"/>
+  <image filename="normal-titlebar-focused-middle.png" x="8" y="0" width="width - 16" height="NORMAL_TITLEBAR_HEIGHT"/>
   <image filename="normal-titlebar-focused-right.png" x="width - object_width" y="0" width="object_width" height="NORMAL_TITLEBAR_HEIGHT"/>
 </draw_ops>
 
 <draw_ops name="normal_title_unfocused">
   <image filename="normal-titlebar-unfocused-left.png" x="0" y="0" width="object_width" height="NORMAL_TITLEBAR_HEIGHT"/>
-  <image filename="normal-titlebar-unfocused-middle.png" x="8" y="0" width="width - 8" height="NORMAL_TITLEBAR_HEIGHT"/>
+  <image filename="normal-titlebar-unfocused-middle.png" x="8" y="0" width="width - 16" height="NORMAL_TITLEBAR_HEIGHT"/>
   <image filename="normal-titlebar-unfocused-right.png" x="width - object_width" y="0" width="object_width" height="NORMAL_TITLEBAR_HEIGHT"/>
 </draw_ops>
 
@@ -117,13 +117,13 @@ Titlebars
 
 <draw_ops name="dialog_title_focused">
   <image filename="dialog-titlebar-focused-left.png" x="0" y="0" width="object_width" height="DIALOG_TITLEBAR_HEIGHT"/>
-  <image filename="dialog-titlebar-focused-middle.png" x="8" y="0" width="width - 8" height="DIALOG_TITLEBAR_HEIGHT"/>
+  <image filename="dialog-titlebar-focused-middle.png" x="8" y="0" width="width - 16" height="DIALOG_TITLEBAR_HEIGHT"/>
   <image filename="dialog-titlebar-focused-right.png" x="width - object_width" y="0" width="object_width" height="DIALOG_TITLEBAR_HEIGHT"/>
 </draw_ops>
 
 <draw_ops name="dialog_title_unfocused">
   <image filename="dialog-titlebar-unfocused-left.png" x="0" y="0" width="object_width" height="DIALOG_TITLEBAR_HEIGHT"/>
-  <image filename="dialog-titlebar-unfocused-middle.png" x="8" y="0" width="width - 8" height="DIALOG_TITLEBAR_HEIGHT"/>
+  <image filename="dialog-titlebar-unfocused-middle.png" x="8" y="0" width="width - 16" height="DIALOG_TITLEBAR_HEIGHT"/>
   <image filename="dialog-titlebar-unfocused-right.png" x="width - object_width" y="0" width="object_width" height="DIALOG_TITLEBAR_HEIGHT"/>
 </draw_ops>
 
