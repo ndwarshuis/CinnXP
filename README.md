@@ -43,7 +43,6 @@ based on Mint-XP (fmcgorenc) and Adwaita
 ## Fonts
 * Tahoma (Default, Desktop, Document)
 * Trebuchet MS Bold (Window Title)
-* Franklin Gothic Medium (Start Button)
 
 #### Suggested Settings
 * Antialiasing: Greyscale
@@ -95,7 +94,7 @@ Install gems before running `compile-theme`
   * Pass the `-f` parameter to specify the desired flavor
 2. Copy "CinnXP" directories in "icons" and "themes" into system wide paths (`/usr/share/icons` and `/usr/share/themes`) or user-wide paths (`~/.icons` and `~/.themes`). Create directories as necessary
 3. In `~/.icons`, make symbolic link called "default" and point it to the CinnXP cursor directory (this is required for QT apps and probably other stuff)
-4. move menu applet to the first position on the panel and open configuration; point icon to `CinnXP/cinnamon/menu.png` and change text to "start"
+4. move menu applet to the first position on the panel and open configuration; remove icon and text if present
 
 > To compile for lower gtk versions, use the `-g` parameter. Pass `./compile-theme -h` for details. This is necessary for Linux Mint.
 
