@@ -780,14 +780,18 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
  */
 
 #panelLeft .applet-box:first-child {
-  border-image: url('Panel/start-button.png') 0;
-  padding: 0px;
-  width: 99px;
-  height: 30px;
+  color: $start_menu_icon_color;
+  border-image: url('Panel/start-button.png') 0 15 0 6;
+  padding: 0 25px 0 8px;
+  text-shadow: 1px 1px 2px 1px rgba(0,0,0,0.5);
+  font-style: italic;
+  font-family: franklin gothic medium;
+  font-weight: normal;
+  font-size: 19px;
+  
+  &:hover { border-image: url('Panel/start-button-hover.png') 0 11 0 6; }
 
-  &:hover { border-image: url('Panel/start-button-hover.png') 0; }
-
-  &:active { border-image: url('Panel/start-button-active.png') 0; }
+  &:active { border-image: url('Panel/start-button-active.png') 0 11 0 6; }
 }
 
 /* Main menu title */
