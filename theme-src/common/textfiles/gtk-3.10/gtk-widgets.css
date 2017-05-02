@@ -2254,10 +2254,10 @@ GtkTextView {
 
 .tooltip {
     padding: 4px;
-    border: 1px solid @theme_tooltip_borders;
+    border: 1px solid @tooltip_borders_color;
     border-radius: 0;
-    background-color: @theme_tooltip_bg_color;
-    color: @theme_tooltip_fg_color;    
+    background-color: @tooltip_bg_color;
+    color: @tooltip_fg_color;    
 }
 
 .tooltip * {
