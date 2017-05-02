@@ -451,7 +451,7 @@ GtkColorSwatch:selected {
 GtkColorChooserWidget #add-color-button {
     background-clip: padding-box;
     background-color: @base_color;
-    color: @text_color;
+    color: @fg_color;
     box-shadow: none;
 }
 
@@ -734,7 +734,7 @@ GtkDrawingArea {
  * entry *
  *********/
 .entry {
-	color: @text_color;
+	color: @fg_color;
 }
 
 .entry,
@@ -1116,7 +1116,7 @@ GtkGrid:insensitive {
 }
 
 .info GtkLabel {
-    color: @text_color;
+    color: @fg_color;
 }
 
 .question {
@@ -1145,7 +1145,7 @@ GtkGrid:insensitive {
 
 GtkInfoBar .entry,
 GtkInfoBar .menu {
-    color: @text_color;
+    color: @fg_color;
 }
 
 /*************
@@ -1551,7 +1551,7 @@ GtkProgressBar {
 }
 
 .progressbar {
-	color: @text_color;
+	color: @fg_color;
     border-color: transparent;
     border-style: solid;
     border-width: 0px 4px;
@@ -1563,7 +1563,7 @@ GtkProgressBar {
 .progressbar row:hover,
 .progressbar row:selected,
 .progressbar row:selected:focus {
-	color: @text_color;
+	color: @fg_color;
 	border-width: 0;
 }
 
@@ -2178,7 +2178,7 @@ GtkSwitch.slider {
 
 GtkTextView {
     background-color: @base_color;
-    color: @text_color;
+    color: @fg_color;
 }
 
 /***********
@@ -2281,7 +2281,7 @@ GtkTreeView.dnd {
 
 GtkTreeView .entry {
 	padding: 3px;
-    color: @text_color;
+    color: @fg_color;
 }
 
 GtkTreeView .entry:selected,
@@ -2304,7 +2304,7 @@ GtkViewport {
 
 .view {
     background-color: @base_color;
-    color: @text_color;
+    color: @fg_color;
 }
 
 .view:selected,

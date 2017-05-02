@@ -1,7 +1,6 @@
 /* Generic */
 @define-color base_color #fff;
-@define-color text_color #000;
-@define-color fg_color @text_color;
+@define-color fg_color #000;
 
 @define-color osd_fg @fg_color;
 @define-color osd_bg mix(@bg_color, @base_color, 0.5);
@@ -13,7 +12,7 @@
 
 /* Tooltips */
 @define-color theme_tooltip_bg_color #FFFFE2;
-@define-color theme_tooltip_fg_color @text_color;
+@define-color theme_tooltip_fg_color @fg_color;
 @define-color theme_tooltip_borders #000;
 
 /* Warning */
@@ -58,7 +57,7 @@
 @define-color view_borders_color @borders_color;
 @define-color shadow_inset_thin_upper_left_color @insensitive_fg_color;
 
-/* column headers */
+/* Column Headers */
 @define-color tree_header_arrow_color @entry_insensitive_fg_color;
 
 /* Sidebar */
@@ -66,3 +65,14 @@
 
 /* Range */
 @define-color range_marks_color @button_insensitive_fg_color;
+
+/* gtk public colors - DO NOT CHANGE */
+
+@define-color theme_bg_color @bg_color;
+@define-color theme_fg_color @fg_color;
+@define-color theme_base_color @base_color;
+@define-color theme_text_color @fg_color;
+@define-color theme_selected_bg_color @selected_bg_color;
+@define-color theme_selected_fg_color @selected_fg_color;
+@define-color theme_tooltip_bg_color @tooltip_bg_color;
+@define-color theme_tooltip_fg_color @tooltip_fg_color;
