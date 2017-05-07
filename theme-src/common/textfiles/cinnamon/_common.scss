@@ -1471,19 +1471,22 @@ $desklet_slice: 7;
 .starkmenu-background {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 
-  @if $flavor == 'luna' { 
+  @if $flavor == 'luna' or $flavor == 'homestead' {
+    padding: 54px 1px 30px 1px;
+  } @else if $flavor == 'royale' {
+    padding: 51px 0px 30px 1px;
+  } @else {
+    padding: 52px 0px 30px 1px;
+  }
+
+  @if $flavor == 'luna' or $flavor == 'homestead' { 
 	border-image: url("Frames/menu-bg.png") 59 60 68 44;
-    padding: 54px 1px 30px 1px; 
-  }
-
-  @if $flavor == 'metallic' {
+  } @else if $flavor == 'metallic' {
 	border-image: url("Frames/menu-bg.png") 8 8 66 44;
-    padding: 52px 1px 30px 1px;
-  }
-
-  @else if $flavor == 'royale' { 
+  } @else if $flavor == 'royale' or $flavor == 'noir' { 
     border-image: url("Frames/menu-bg.png") 83 36 66 44;
-    padding: 52px 0 30px 0;
+  } @else if $flavor == 'embedded' or $flavor == 'zune' {
+    border-image: url("Frames/menu-bg.png") 6 6 66 44;
   }
 }
 
@@ -1493,11 +1496,9 @@ $desklet_slice: 7;
   border: 0 solid #000;
 
   .popup-separator-menu-item {
-    @if $flavor == 'luna' { background: $separator_color; }
-
-    @if $flavor == 'metallic' { background: $separator_color; }
-
-    @else if $flavor == 'royale' { background: #3d5b95; }
+    @if $flavor == 'royale' { background: #3d5b95; }
+    @else if $flavor == 'noir' or $flavor == 'zune' or $flavor == 'embedded' { background: $start_menu_box_borders_color; }
+    @else { background: $separator_color; }
   }
 }
 
@@ -1519,11 +1520,9 @@ $desklet_slice: 7;
       border-left-width: 0;
       background-clip: content-box;
 
-      @if $flavor == 'luna' { background-color: $start_menu_box_borders_color; }
+      @if $flavor == 'royale' { background-color: #6287d6; }
 
-      @if $flavor == 'metallic' { background-color: $start_menu_box_borders_color; }
-
-      @else if $flavor == 'royale' { background-color: #6287d6; }
+      @else { background-color: $start_menu_box_borders_color; }
     }
 }
 
@@ -1536,11 +1535,9 @@ $desklet_slice: 7;
   padding: 0;
     
   StScrollView {
-    @if $flavor == 'luna' { background-color: white; }
+    @if $flavor == 'royale' or $flavor == 'noir' or $flavor == 'zune' or $flavor == 'embedded' { background-color: rgba(0,0,0,0); }
 
-    @if $flavor == 'metallic' { background-color: white; }
-
-    @else if $flavor == 'royale' { background-color: rgba(0,0,0,0); }
+    @else { background-color: white; }
 
     border-width: 1px;
 
