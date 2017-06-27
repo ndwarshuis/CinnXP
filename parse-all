@@ -41,7 +41,7 @@ parse_cinnamon() {
 	do
 		echo "now parsing cinnamon for $flavor"
 		cd "$THEME_ROOT/theme-src/flavors/$flavor/cinnamon"
-		./parse-sass.sh
+		./parse-sass.sh > /dev/null
 	done
 }
 
@@ -52,7 +52,7 @@ parse_gtk() {
 	do
 		echo "now parsing gtk-3.$gtk_version for $flavor"
 		cd "$THEME_ROOT/theme-src/flavors/$flavor/gtk-3.$gtk_version"
-		./parse-sass.sh
+		./parse-sass.sh > /dev/null
 	done
 }
 
