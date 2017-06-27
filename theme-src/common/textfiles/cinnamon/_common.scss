@@ -1457,6 +1457,18 @@ $desklet_slice: 7;
 }
 
 /* ===================================================================
+ * Systray Applet
+ *
+ * .systray is for theming to be applied to the systray as a whole
+ * .applet-box is used for indicators (not tray icons) within the systray
+ * tray icons are not themed
+ * ===================================================================*/
+
+.systray {
+  spacing: 5px;
+}
+
+/* ===================================================================
  * User Applet
  * ===================================================================*/
  
