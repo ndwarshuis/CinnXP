@@ -14,22 +14,22 @@ help: $0 options
 compile CinnXP cursor, gtk, metacity, and cinnamon themes
 
 OPTIONS:
-   -h       this...
+  -h  this...
 
-   -a       Compile all available flavors with one command.
-            Only compiles one gtk3 version at a time. Defaults for gtk
-            minor verison apply here (see below)
+  -a  Compile all available flavors with one command.
+      Only compiles one gtk3 version at a time. Defaults for gtk
+      minor verison apply here (see below)
    
-   -g       Target gtk minor version. Default is "20" for gtk3.20 and higher
-            For Linux Mint 17.x and 18.x pass "10" or "18" respectively
+  -g  Target gtk minor version. Default is "20" for gtk3.20 and higher
+      For Linux Mint 17.x and 18.x pass "10" or "18" respectively
 
-   -f       Flavor to compile (full string name) Defaults to "luna"
-            Current valid options are "luna," "homestead," "metallic," "royale,"
-            "noir," "embedded," and "zune"
+  -f  Flavor to compile (full string name) Defaults to "luna."
+      Current valid options are "luna," "homestead," "metallic," "royale,"
+      "noir," "embedded," and "zune"
 
-   -n       Alternative root name for output file (default is "pkg")
+  -n  Alternative root name for output file (default is "pkg")
 
-   -p       Package all flavors/versions in tar.xz format for distribution
+  -p  Package all flavors/versions in tar.xz format for distribution
 EOF
 }
 

@@ -4,24 +4,25 @@ help() {
 cat << EOF
 help: $0 options
 
-Creates a test directory for gtk, cinnamon, metacity, and icon themes to do live testing
-This will bypass the need to compile everything for small changes to these components
+Creates a test directory for gtk, cinnamon, metacity, and icon themes to do
+live testing. This will bypass the need to compile everything for small
+changes to these components
 
-The first dir will be called "cinnxp_$flavor_testing" and will contain symlinks to the proper files
-Move this to ~/.themes or /usr/share/themes
+The first dir will be called "cinnxp_$flavor_testing" and will contain
+symlinks to the proper files. Move this to ~/.themes or /usr/share/themes
 
-The second dir will be called "cinnxp_$flavor_testing_icons" and will contain links to the icon files
-Move this to ~/.icons or /usr/share/icons
+The second dir will be called "cinnxp_$flavor_testing_icons" and will contain
+links to the icon files. Move this to ~/.icons or /usr/share/icons
 
 OPTIONS:
-   -h      	this...
+  -h  this...
    
-   -g		Target gtk minor version. Default is "20" for gtk3.20 and higher
-			For Linux Mint 17.x and 18.x pass "10" or "18" respectively
+  -g  Target gtk minor version. Default is "20" for gtk3.20 and higher
+      For Linux Mint 17.x and 18.x pass "10" or "18" respectively
 			
-   -f       Flavor to compile (full string name) Defaults to "luna"
-			Current valid options are "luna," "homestead," "metallic," "royale,"
-			"noir," "embedded," "zune," and "classic"
+  -f  Flavor to compile (full string name) Defaults to "luna"
+      Current valid options are "luna," "homestead," "metallic," "royale,"
+      "noir," "embedded," "zune," and "classic"
 EOF
 }
 
