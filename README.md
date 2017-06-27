@@ -73,21 +73,22 @@ based on Mint-XP (fmcgorenc) and Adwaita
 * Pixmap and Adwaita gtk2 engines
 
 #### Make depends (all users)
-* Ruby with Bundler and SASS Gems (to build css from scss)
+* sassc (to build css from scss)
 * xcursorgen (to build the cursor theme)
 
-## Obtaining Ruby and Gems
-Ruby must be installed via distro repositories
-* Mint: default package should work (depreciation warning can be ignored)
-* Arch et al: `sudo pacman -S ruby`
+## Building sassc
+Bleeding edge distros (Arch et al) should have `sassc` in the repo already. If not, need to compile from source. This will create a static-linked binary at `/usr/local/bin/sassc`.
 
-Install gems before running `compile-theme`
-* Mint: Run `sudo apt-get install bundler`. Manually run `bundle install` in theme root directory
-* Arch et al: Run `sudo pacman -S ruby-bundler`. The `ruby-sass` package is an AUR package
+####Install build tools and git
+1. `apt-get install build-essential`
+2. `apt-get install git`
 
-> The script is currently set up to automatically install the needed gems but only if `compile-theme` is run with root access. This is probably a bad idea and ruby will throw lots of warnings...but it will work if you don't feel like installing the gems beforehand.
-
-> The `ruby-sass` package in Mint 17.x does not appear to work.
+####Build and install sassc
+1. `git clone https://github.com/sass/sassc.git`
+2. `git clone https://github.com/sass/libsass.git`
+3. `cd sassc`
+4. `SASS_LIBSASS_PATH=../libsass make`
+5. `sudo SASS_LIBSASS_PATH=../libsass make install`
 
 ## Manual installation
 

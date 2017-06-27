@@ -150,23 +150,17 @@ build_cursor_theme() {
 }
 
 clean_scss() {
-	local ruby_dir="$1"
+	local scss_dir="$1"
 
-	declare -a files_to_clean=('Gemfile.lock' 'gtk-contained.css' 'cinnamon.css')
+	declare -a files_to_clean=('gtk-contained.css' 'cinnamon.css')
 
 	for file in "${files_to_clean[@]}"
 	do
-		if [ -e "$ruby_dir/$file" ]; then
+		if [ -e "$scss_dir/$file" ]; then
 			echo "WARNING: source dir not clean (FOUND $file)"
-			rm "$ruby_dir/$file"
+			rm "$scss_dir/$file"
 		fi
 	done
-
-	if [ -d "$ruby_dir/.sass-cache" ]; then
-		echo "WARNING: source dir not clean (FOUND .sass-cache)"
-		rm -r "$ruby_dir/.sass-cache"
-	fi
-	
 }
 
 # TODO: it's kinda strange that I forbid scss on gtk3.10...but really I don't
@@ -266,8 +260,7 @@ build_cinnamon_theme() {
 	./parse-sass.sh > /dev/null
 
 	# remove building files
-	rm -r .sass-cache
-	rm Gemfile Gemfile.lock README parse-sass.sh *.scss
+	rm README parse-sass.sh *.scss
 
 	cd "$THEME_ROOT"
 }
@@ -302,7 +295,6 @@ build_all_flavors() {
 	validate_gtk_minor_version "$gtk3_minor_revision"
 
 	build_cursor_theme "$pkg_path/usr/share/icons"
-	./test-ruby
 
 	for flavor in "${VALID_FLAVORS[@]}"
 	do
@@ -311,8 +303,6 @@ build_all_flavors() {
 }
 
 package_all() {
-	./test-ruby
-
 	local cursor_dest="$THEME_ROOT/CinnXP_Cursors"
 	build_cursor_theme "$cursor_dest"
 	tar cJPf "$cursor_dest.tar.xz" "CinnXP_Cursors"
@@ -376,6 +366,5 @@ else
 	validate_gtk_minor_version "$gtk3_minor_revision"
 	validate_flavor "$flavor"
 	build_cursor_theme "$pkg_dir/usr/share/icons"
-	./test-ruby
 	build_flavor "$pkg_dir/usr/share/themes" "$flavor" "$gtk3_minor_revision"
 fi

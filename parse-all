@@ -57,8 +57,6 @@ parse_gtk() {
 }
 
 parse_all() {
-	./test-ruby
-
 	for version in "${VALID_GTK_VERSIONS[@]}"
 	do
 		parse_gtk $version
