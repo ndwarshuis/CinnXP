@@ -1202,7 +1202,8 @@ $window_list_slice: 17 5 0 0;
 
   &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
 
-  &:active { border-image: url('Panel/applet-button-active.png') $window_list_slice; }
+  &:active,
+  &:checked { border-image: url('Panel/applet-button-active.png') $window_list_slice; }
 
   &:highlight {
     #panelRight &, & {
@@ -1213,7 +1214,9 @@ $window_list_slice: 17 5 0 0;
 	}
   }
 
-  &:hover, &:active { & .applet-label, & { color: $selected_fg_color; } }
+  &:hover,
+  &:active,
+  &:checked { & .applet-label, & { color: $selected_fg_color; } }
 
   #panelRight & {
     & .applet-label, & { color: $panel_right_fg_color; }
