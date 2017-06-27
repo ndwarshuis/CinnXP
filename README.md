@@ -79,11 +79,11 @@ based on Mint-XP (fmcgorenc) and Adwaita
 ## Building sassc
 Bleeding edge distros (Arch et al) should have `sassc` in the repo already. If not, need to compile from source. This will create a static-linked binary at `/usr/local/bin/sassc`.
 
-####Install build tools and git
+#### Install build tools and git
 1. `apt-get install build-essential`
 2. `apt-get install git`
 
-####Build and install sassc
+#### Build and install sassc
 1. `git clone https://github.com/sass/sassc.git`
 2. `git clone https://github.com/sass/libsass.git`
 3. `cd sassc`
