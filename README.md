@@ -107,7 +107,4 @@ Run `./test-theme` in the top-level directory to generate a directory of links t
 
 ## ToDo List
 * Bug fixes
-* Prompt for root access in `compile-theme`
 * Automatic installation in `compile-theme`
-* Full Icon Theme
-* New flavors (Classic)
