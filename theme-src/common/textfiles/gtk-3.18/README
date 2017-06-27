@@ -1,31 +1,46 @@
 Summary
 -------
 
-* Do not edit the CSS directly, edit the source SCSS files and process them with SASS (run 
-  `/.parse-sass.sh` when you have the required sofwtare installed, as described below)
-* To be able to use the lates/adequate version of sass, install ruby, gem, sass & bundle.
+* Do not edit the CSS directly, edit the source SCSS files
+* To be able to use the latest/adequate version of sass, install sassc
+* The configure script will detect whether or not you have sassc installed;
+  if you do, it will regenerate the CSS every time you modify the SCSS files.
 
-How to tweak the theme
+SCSS Structure
 ----------------------
 
-Each flavor of CinnXP needs its own cinnamon.css file, but these only vary by about 50 lines (maybe)
+CinnXP is a complex theme, so to keep it maintainable it's written and
+processed in SASS. The generated CSS is then transformed into a gresource file
+during gtk build and used at runtime in a non-legible or editable form.
 
-The SCSS mechanism allows all of these flavors to be represented with a few files, simplifying testing
+Each flavor is broken down into common and flavor-specific scss files. Note
+that some flavor-specific files are shared by multiple themes (but not all).
+Common files by definition are shared by all flavors. This is how we can have
+only a few files while having many different variants (think modules)
 
-Also, SCSS is the future...and thus 10000000x cooler than the "old school way"
+Common:
 
-The following files are necessary for constructing the cinnamon.css file
+_colors_common.scss  - global color definitions shared by each flavor.
 
-cinnamon.scss       - the "root" file, contains some important variables
+_colors-public.scss  - SCSS colors exported through gtk to allow for 3rd party
+                       apps color mixing.
 
-_colors.scss        - global color definitions
+_common.scss         - the backbone for the widget code
 
-_common.scss        - the backbone for the cinnamon.css file
-                      
-You can read about SASS at http://sass-lang.com/documentation/. Once you make your changes to the
-_common.scss file, you can either run the ./parse-sass.sh script or keep SASS watching for changes as you
-edit. This is done by running `bundle exec sass --watch --sourcemap=none .` If sass is out of date, or is
-missing, you can install it with `bundle install`.
+_drawing_common.scss - drawing helper mixings/functions to allow easier
+                       definition of widget drawing under specific context.
 
-Also note, this mechanism for creating the cinnamon.css file is mostly for testing purposes, the top-level
-script in CinnXP will create the entire theme in one stroke
+_apps.scss           - random apps that don't sit well in common
+
+_nemo.scss           - the nemo app
+
+_screensaver.scss    - the cinnamon screensaver
+
+Flavor-specific:
+
+_colors.scss         - global color definitions specific for each flavor
+                     
+_drawing_<X>.scss    - drawing functions for "X"
+
+You can read about SASS at http://sass-lang.com/documentation/. Once you make
+your changes to the _common.scss file, GTK+ will rebuild the CSS files.
