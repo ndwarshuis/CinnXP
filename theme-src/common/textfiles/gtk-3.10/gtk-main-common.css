@@ -11,9 +11,9 @@
 @define-color desktop_item_text_shadow #000;
 
 /* Tooltips */
-@define-color theme_tooltip_bg_color #FFFFE2;
-@define-color theme_tooltip_fg_color @fg_color;
-@define-color theme_tooltip_borders #000;
+@define-color tooltip_bg_color #FFFFE2;
+@define-color tooltip_fg_color @fg_color;
+@define-color tooltip_borders_color #000;
 
 /* Warning */
 @define-color info_color #fafafa;
