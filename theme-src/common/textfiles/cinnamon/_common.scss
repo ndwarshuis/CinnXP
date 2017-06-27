@@ -240,11 +240,15 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
 }
 
 .system-status-icon {
-	padding-left: 0;
-	padding-right: 0;
-	spacing: 0;
-	margin: 0;
-	icon-size: 1.14em;
+  padding-left: 0;
+  padding-right: 0;
+  spacing: 0;
+  margin: 0;
+  icon-size: 1.14em;
+
+  &.warning { color: #e5e887; }
+
+  &.error { color: #fb5858; }
 }
 
 #appMenu { spacing: 4px; }
