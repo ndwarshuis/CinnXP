@@ -589,7 +589,7 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
   &:focus { border-image: url("Button/button-focus.png") 6 6 4 4; }
 
   &:active, &:checked {
-    &:focus { border-image: url("Button/button-active.png") 6 6 4 4; }
+    &:focus, & { border-image: url("Button/button-active.png") 6 6 4 4; }
   }
 
   &:disabled {
