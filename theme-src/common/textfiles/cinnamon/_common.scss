@@ -1196,24 +1196,27 @@ $window_list_slice: 17 5 0 0;
 }
 
 .applet-box {
-  color: $panel_left_fg_color;
   padding: 0 4px 0 4px;
 
-  .applet-label { color: $panel_left_fg_color; }
+  & .applet-label, & { color: $panel_left_fg_color; }
 
   &:hover { border-image: url('Panel/applet-button-hover.png') $window_list_slice; }
 
   &:active { border-image: url('Panel/applet-button-active.png') $window_list_slice; }
 
-  &:hover, &:active {
-    color: $selected_fg_color;
-    .applet-label { color: $selected_fg_color; }
+  &:highlight {
+    #panelRight &, & {
+      background-color: $selected_bg_color;
+      background-image: none;
+
+      & .applet-label, & { color: $selected_fg_color; }
+	}
   }
 
-  #panelRight & {
-    color: $panel_right_fg_color;
+  &:hover, &:active { & .applet-label, & { color: $selected_fg_color; } }
 
-    .applet-label { color: $panel_right_fg_color; }
+  #panelRight & {
+    & .applet-label, & { color: $panel_right_fg_color; }
 
     &, &:hover, &:active { border-image: none; }
   }
