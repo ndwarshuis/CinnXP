@@ -1,0 +1,74 @@
+// GENERIC
+$bg_color: #d4d0c8;
+
+$insensitive_fg_color: #808080;
+$insensitive_bg_color: $bg_color;
+$insensitive_borders_color: #c9c7ba;
+
+$selected_fg_color: #fff;
+$selected_bg_color: #0a246a;
+$selected_outline_color: #f5db95;
+
+$borders_color: #7f9db9;
+
+// LINK
+$link_color: #000080;
+$link_visited_color: #800080;
+
+// ENTRIES
+$entry_borders_color: #7f9db9;
+$entry_insensitive_fg_color: $insensitive_fg_color;
+
+// BUTTONS
+$button_borders_color: $insensitive_fg_color;
+$button_insensitive_fg_color: $insensitive_fg_color;
+
+// TOOLBARS
+$inset_toolbar_bg_color: #d4d0c8;
+
+// MENU
+$menu_menuitem_selected_bg_color: #0a246a;
+
+// MENUBAR-MENUITEM
+$menubar_menuitem_insensitive_fg_color: #808080;
+$menubar_menuitem_hover_fg_color: #fff;
+$menubar_menuitem_hover_bg_color: #0a246a;
+
+// FRAMES
+$frame_color: #d0d0bf;
+$frame_header_color: #0046d5;
+$separator_color: #cac6af;
+
+// NOTEBOOKS
+$notebook_bg_color: #fafaf9;
+$notebook_bg_a_color: #fcfcfe;
+$notebook_bg_b_color: #f4f3ee;
+$notebook_borders_color: #919b9c;
+
+// SCROLLBARS
+$overlay_scrollbar_bg_color: #d4d0c8;
+
+// COLUMN HEADERS
+$tree_header_bg_color: #d4d0c8;
+$tree_header_active_bg_color: #d4d0c8;
+
+// ARROWS
+$arrow_color: #000;
+$arrow_active_color: #000;
+$arrow_insensitive_color: #808080;
+
+// ARROWS SPIN
+$arrow_spin_color: #000;
+$arrow_spin_active_color: #000;
+$arrow_spin_insensitive_color: #808080;
+
+// CALENDAR
+$calendar_header_fg_color: #d8e4f8;
+$calendar_header_bg_color: #7a96df;
+$calendar_selected_fg_color: #fff;
+$calendar_selected_bg_color: #0054e3;
+$calendar_selected_outline_color: #ffab1c;
+
+// NEMO
+$nemo_places_bg_color: #687FD9;
+$nemo_sidebar_hover_color: #000080;

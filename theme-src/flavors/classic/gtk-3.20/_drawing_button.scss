@@ -1,0 +1,115 @@
+//luna
+
+$button_radius: 3.5px;
+$button_bg_color: #d4d0c8;
+
+@function osd_hover_bg_color($c) {
+  @return $c
+}
+
+$_right_shadow: linear-gradient(to left,
+                                transparentize(black, 0.955) 1px,
+                                transparentize(black, 0.994) 2px,
+                                transparent 2px
+                                );
+
+$_default_mask: linear-gradient(to bottom,
+                                #cee7ff 1px,
+                                #bcd4f6 1px,
+                                #bcd4f6 2px,
+                                transparent 2px
+                                ),
+                linear-gradient(to top,
+                                #6982ee 1px,
+                                #89ade4 1px,
+                                #89ade4 2px,
+                                transparent 2px
+                                ),
+                url('Button/default-mask-left.png') no-repeat left center/2px 100%,
+                url('Button/default-mask-right.png') no-repeat right center/2px 100%;
+
+$_hover_mask: linear-gradient(to bottom,
+                              #fff0cf 1px,
+                              transparent 1px
+                              ),
+              linear-gradient(to top,
+                              #e59700 1px,
+                              transparent 1px
+                              ),
+              url('Button/hover-mask-left.png') no-repeat left center/2px 100%,
+              url('Button/hover-mask-right.png') no-repeat right center/2px 100%,
+              linear-gradient(to bottom,
+                              #fdd889 2px,
+                              transparent 2px
+                              ),
+              linear-gradient(to top,
+                              #f8b230 2px,
+                              transparent 2px
+                              );
+
+@function button_bg ($type, $c, $r_shadow) {
+  $_normal_bg: if($r_shadow==true, $_right_shadow, ''),
+               linear-gradient(to top,
+                               transparentize(black, 0.87),
+                               transparent 3px
+                               ),
+               linear-gradient(to bottom,
+                               lighten($c,15%),
+                               lighten($c,3.5%) 3px,
+                               lighten($c,1%) 7px,
+                               $c 50%,
+                               darken($c,2%)
+                               );
+
+  $_active_bg: linear-gradient(to bottom,
+                               transparentize(black, 0.85),
+                               transparent 2px
+                               ),
+               linear-gradient(to top,
+                               lighten($c, 1%),
+                               darken($c, 4%) 2px,
+                               darken($c, 6%)
+                               );
+
+  @if $type==normal {
+    @return $_normal_bg;
+  }
+  @else if $type==default {
+    @return $_default_mask, $_normal_bg;
+  }
+  @else if $type==hover {
+    @return $_hover_mask, $_normal_bg;
+  }
+  @else if $type==active {
+    @if $r_shadow==true {
+      @return $_right_shadow, $_active_bg;
+    }
+    @else {
+      @return $_active_bg;
+    }
+  }
+}
+
+@function button_shadow($type) {
+  @if $type==normal {
+    @return inset -2px -2px #808080,
+            inset 1px 1px white,
+            inset -1px -1px #404040;
+  }
+  @else if $type==default {
+    @return inset -3px -3px #808080,
+            inset 2px 2px white,
+            inset -2px -2px #404040,
+            inset 0px 0px 0px 1px black;            
+  }
+  @else if $type==active {
+    @return inset 0px 0px 0px 2px #808080,
+            inset 0px 0px 0px 1px black;  
+  }
+  @else if $type==osd-hover {
+    @return inset 0px 0px 0px 1px #808080;
+  }
+  @else {
+    @return none;
+  }
+}

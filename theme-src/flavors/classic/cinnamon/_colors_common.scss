@@ -1,0 +1,30 @@
+// GENERIC
+$base_color: #fff;
+$fg_color: #000;
+
+// TOOLTIP
+$tooltip_bg_color: #ffffe2;
+$tooltip_fg_color: $fg_color;
+$tooltip_borders_color: #000;
+
+// BORDERLESS ENTRIES
+$borderless_entry_fg_color: $button_insensitive_fg_color;
+$borderless_entry_selected_fg_color: $fg_color;
+
+// BUTTONS
+$button_insensitive_bg_color: $insensitive_bg_color;
+
+// MENUS
+$menu_borders: $insensitive_fg_color;
+
+// NOTIFICATIONS
+$notification_bg_color: $tooltip_bg_color;
+$notification_button_fg_color: #aa9c87;
+$notification_button_hover_fg_color: white;
+$notification_button_active_fg_color: white;
+
+// START BUTTON
+$start_menu_icon_color: #000;
+
+// WINDOW LIST
+$window_list_active_fg_color: #000;

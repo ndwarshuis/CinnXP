@@ -1,0 +1,129 @@
+@mixin button($type, $bg:$button_bg_color, $fg:$fg_color, $r_shadow:true) {
+
+  outline-color: $fg_color;
+  -gtk-icon-shadow: none;
+  text-shadow: none;
+
+  @if $type==normal {
+    color: $fg;
+    background-color: $bg;
+    box-shadow: button_shadow(normal);
+  }
+  @else if $type==default {
+    color: $fg;
+    background-color: $bg;
+    box-shadow: button_shadow(default);
+  }
+  @else if $type==active {
+    color: $fg;
+    background-color: $bg;
+    box-shadow: button_shadow(active);
+  }
+  @else if $type==disabled {
+    color: $button_insensitive_fg_color;
+    background-color: $bg;
+    box-shadow: button_shadow(normal);
+  }
+  @else if $type==osd {
+    color: $osd_fg_color;
+    border-color: $button_borders_color;
+    background-color: if($bg!=$bg_color, transparentize($bg, 0.5), $osd_bg_color);
+    background-image: none;
+    background-clip: padding-box;
+  }
+  @else if $type==osd-hover {
+    background-color: if($bg!=$bg_color, transparentize(osd_hover_bg_color($bg), 0.3), lighten($osd_bg_color, 12%));
+    box-shadow: button_shadow(osd-hover);
+  }
+  @else if $type==osd-active {
+    border-color: $button_borders_color;
+    background-color: if($bg!=$bg_color, $bg, $osd_borders_color);;
+    background-image: none;
+    background-clip: padding-box;
+  }
+  @else if $type==osd-disabled {
+    color: $osd_insensitive_fg_color;
+    border-color: $insensitive_borders_color;
+    background-color: $osd_insensitive_bg_color;
+    background-image: none;
+    background-clip: padding-box;
+  }
+  @else if $type==undecorated {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+  }
+}
+
+@mixin entry_button($state, $dir:'', $bor:'') {
+
+  $_border: 2px;
+  $_slice: 2 2 2 2;
+
+  @if $dir==ltr {
+    $_slice: 4 4 4 2;
+    $_border: 4px 4px 4px 2px;
+  }
+
+  $d: if($dir=='','',"-#{$dir}");
+  $b: if($bor=='','',"borderless-");
+
+  border-width: $_border;
+  border-style: solid;
+  border-color: transparent;
+  
+  box-shadow: none;
+
+  @if $state==normal { border-image: url("Combo/#{$b}combo-button-border#{$d}.png"); }
+  @if $state==active { border-image: url("Combo/#{$b}combo-button-border#{$d}-active.png"); }
+
+  border-image-slice: $_slice;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+@mixin progressbar_trough ($d:horz) {
+  border-style: solid;
+  border-color: transparent;
+  border-image: url('Progressbar/progressbar-trough.png');
+  background-color: $bg_color;
+  background-clip: padding-box;
+
+  border-width: 2px;
+  border-image-slice: 2 2 2 2;
+}
+
+@mixin progressbar_fill ($d:horz, $fg:$selected_bg_color, $bg:$bg_color) {
+  $dir: right;
+  
+  @if $d==vert {
+	$dir: bottom;
+	background-size: 100% 8px, auto;
+  } @else {
+	background-size: 8px 100%, auto;
+  }
+
+  background-image: linear-gradient(to $dir, $fg 6px, $bg 6px, $bg 8px);
+}
+
+@mixin toolbar_bg {
+  border-style: solid;
+  border-width: 1px 0px 1px 0px;
+  border-top-color: $toolbar_top_edge;
+  border-bottom-color: $toolbar_bottom_edge;
+  background: $bg_color;
+}
+
+@mixin frame_inset {
+  border: 2px solid transparent;
+  border-image: url("Frames/shadow-inset.png");
+  border-image-slice: 2 2 2 2;
+  border-image-repeat: stretch;
+}
+
+@function _text_shadow_color ($tc:$fg_color, $bg:$bg_color) {
+  $_lbg: lightness($bg)/100%;
+  @if lightness($tc)<50% { @return transparentize(white,1-$_lbg/($_lbg*1.3)); }
+  @else { @return transparentize(black,$_lbg*0.8); }
+}

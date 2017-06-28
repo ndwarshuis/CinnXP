@@ -1,0 +1,1470 @@
+/* ###################################################################
+ * Section common with Gnome Shell
+ * ... contains a few cinnamon specific styles (rare occurences) 
+ * ###################################################################*/
+
+stage { font-family: tahoma, dejavu sans, Droid Sans, sans-serif; }
+
+.cinnamon-link {
+  color: $link_color;
+  text-decoration: underline;
+}
+
+StScrollView {
+  &.vfade { -st-vfade-offset: 68px; }
+  
+  StScrollBar {
+    min-width: 17px;
+    min-height: 17px;
+  }
+}
+
+StScrollBar {
+  padding: 0;
+  
+  StBin#trough {
+    background-image: url('Shadows/shadow-bg.png');
+    background-repeat: repeat;
+  }
+
+  StButton { &#hhandle, &#vhandle { border-image: url('Shadows/shadow-outset.png') 3; } }
+}
+
+.separator {
+  background-color: $separator_color;
+  box-shadow: 0px 1px white;
+  -margin-horizontal: 1.5em;
+  height: 1px;
+}
+
+.slider {
+  height: 0.5em;
+  -slider-height: 0.5em;
+  -slider-background-color: transparentize($fg_color,0.65);
+  -slider-border-color: #000;
+  -slider-active-background-color: $fg_color;
+  -slider-active-border-color: #000;
+  -slider-border-width: 0;
+  -slider-handle-radius: 0;
+}
+
+#Tooltip {
+  color: $tooltip_fg_color;
+  background-color: $tooltip_bg_color;
+  border: 1px solid $tooltip_borders_color;
+  border-radius: 0;
+  padding: 2px 6px;
+  font-size: 9pt;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* ===================================================================
+ * PopupMenu (popupMenu.js) 
+ * ===================================================================*/
+
+.popup-menu-boxpointer {
+  /* radius of invisible boxpointer dictates horizontal placement
+     higher radius makes start menu go to left, unless it overshoots
+     in which case it will randomly go far right */
+     
+  -arrow-border-radius: 22px; 
+  -arrow-border-width: 0;
+  -arrow-base: 0;
+  -arrow-rise: 0;
+  -boxpointer-gap: -1.5px;
+}
+
+.menu,
+.popup-menu {
+  color: $fg_color;
+  min-width: 100px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-image: url('Shadows/shadow-outset.png') 3;
+  
+  StEntry { @extend %entry; }
+
+  StScrollView {
+    border: 0 solid rgba(0,0,0,0);
+    border-image: url('Shadows/shadow-inset-thin.png') 3;
+    background-color: $bg_color;
+    
+    &.vfade { -st-vfade-offset: 0; }
+  }
+
+  StScrollBar { padding: 2px; }
+}
+
+.popup-menu-arrow { icon-size: 1.14em; }
+
+.popup-submenu-menu-item:open { background-color: rgba(0,0,0,0); }
+
+.popup-sub-menu {
+  border-image: url('Shadows/shadow-inset-thin.png') 3;
+  background-color: $bg_color;
+  padding: 0.2em 0.2em;
+
+  .popup-menu-item {
+    &:ltr { padding-right: 1.75em; }
+    &:rtl { padding-left: 1.75em; }
+  }
+}
+
+/* this thing pops up if you go into overview and right click */
+.popup-combo-menu {
+  border: 1px solid $menu_borders; // DEPRECIATED
+  background-color: $base_color;
+  color: $fg_color;
+  padding: 1px;
+}
+
+.popup-combobox-item { spacing: 1em; }
+
+/* The remaining popup-menu sizing is all done in ems, so that if you
+ * override .popup-menu.font-size, everything else will scale with it.
+ */
+.popup-menu-content { padding: 1em 0.1em; }
+
+.popup-menu-item {
+  padding: .4em 1.75em;
+  spacing: 1em;
+  
+  &:active {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+
+  &:insensitive {
+    color: $insensitive_fg_color;
+    text-shadow: 1px 1px white;
+  }
+}
+
+.popup-inactive-menu-item { @extend .popup-menu-item:insensitive; }
+
+.popup-separator-menu-item {
+  background-color: $separator_color;
+  box-shadow: 0px 1px white;
+  height: 1px;
+}
+
+.popup-alternating-menu-item:alternate {
+  font-weight: bold;
+  color: #464646;
+}
+
+.popup-slider-menu-item {
+  border-image: url("Range/trough-horz.png") 4 4 10 11 stretch; 
+  height: 21px;
+  min-width: 15em;
+  -slider-height: 4px;
+  -slider-border-width: 1px;
+  -slider-handle-radius: 6px;
+}
+
+.popup-device-menu-item { spacing: .5em; }
+
+.popup-subtitle-menu-item {
+  font-weight: bold;
+  color: $fg_color;
+}
+
+.popup-menu-icon { icon-size: 1em; }
+
+/* Switches (to be used in menus) */
+.toggle-switch {
+  width: 70px;
+  height: 21px;
+
+  &-us {
+    border-image: url("Switches/off.png") 4;
+	
+    &:checked { border-image: url("Switches/on.png") 4; }
+  }
+  
+  &-intl {
+    border-image: url("Switches/off-intl.png") 4;
+	
+    &:checked { border-image: url("Switches/on-intl.png") 4; }
+  }
+}
+
+.nm-menu-item-icons { spacing: .5em; }
+
+/* ===================================================================
+ * Panel (panel.js)
+ * ===================================================================*/
+
+#panel {
+  color: $panel_left_fg_color;
+  font-size: 9pt;
+  height: 30px;
+  padding: 0;
+  border-image: url('Panel/panel.png');
+  spacing: 2px;
+
+  &Right {
+    color: $panel_right_fg_color;
+    padding-right: 4px;
+    border-image: url('Panel/panel-right.png') 4 4 0 0;
+    
+    &:dnd {	background-color: blue; }
+    
+    &:ltr {
+      padding-left: 5px;
+      spacing: 0;
+    }
+
+    &:rtl {
+      padding-right: 5px;
+      spacing: 0;
+    }
+  }
+  
+  &Center:dnd {	background-color: green; }
+
+  &Left {
+    &:dnd { background-color: red; }
+    
+    &:ltr { padding-right: 4px; }
+
+    &:rtl {	padding-left: 4px; }
+  }
+}
+
+.system-status-icon {
+	padding-left: 0;
+	padding-right: 0;
+	spacing: 0;
+	margin: 0;
+	icon-size: 1.14em;
+}
+
+#appMenu { spacing: 4px; }
+
+.panel-button {
+  #appMenuIcon { app-icon-bottom-clip: 1px; }
+
+  &:active, &:checked, &:focus { & #appMenuIcon { app-icon-bottom-clip: 2px; } }
+}
+
+/* ===================================================================
+ * Overview 
+ * ===================================================================*/
+
+#overview {	spacing: 12px; }
+
+.window-caption {
+  color: $insensitive_fg_color;
+  background-color: bg_color;
+  text-shadow: 1px 1px white;
+  border: 1px solid black;
+  padding: 2px 10px 4px 8px;
+  spacing: 25px;
+  font-size: 9pt;
+  -cinnamon-caption-spacing: 10px;
+
+  &#selected {
+    color: $borderless_entry_selected_fg_color;
+    background-color: base_color;
+    text-shadow: none;
+    border-image: url('Entry/borderless_entry_selected.png') 4 6 4 6;
+  }
+}
+
+.window-close, .workspace-close-button {
+  background-image: url("Overview/close.png");
+  height: 14px;
+  width: 16px;
+  -cinnamon-close-overlap: 10px;
+}
+
+.workspace-thumbnails {
+	spacing: 26px;
+	padding-left: 0.9em;
+	padding-right: 1em;
+}
+
+.workspace-add-button {
+  border: 2px solid #7895e2;
+  border-right-width: 0;
+  border-radius: 8px 0 0 8px;
+  background: url('Overview/plus.png');
+  box-shadow: inset 0 0 0 1px #0f40a6;
+  height: 200px;
+  width: 35px;
+}
+
+.workspace-thumbnail-indicator {
+  outline: 2px solid white;
+  border: 1px solid #888;
+}
+
+.window-close-area {
+  border: 2px solid #7895e2;
+  border-bottom-width: 0;
+  border-radius: 8px 8px 0 0;
+  background: url('Overview/trash.png');
+  box-shadow: inset 0 0 0 1px #0f40a6;
+  height: 150px;
+  width: 226px;
+}
+
+.expo-background { background-color: #3a6ea5; }
+
+.workspace-overview-background-shade { background-color: rgba(0,0,0,0.3); }
+
+.expo-workspace-thumbnail-frame {
+  border: 2px solid #808080;
+
+  &#active { border-color: white; }
+}
+
+/* ===================================================================
+ * Looking Glass 
+ * ===================================================================*/
+
+#LookingGlassDialog {
+  border-image: url('Shadows/shadow-outset.png') 3;
+  padding: 8px;
+  color: $fg_color;
+
+  & StLabel { padding: 6px; }
+}
+
+/* ===================================================================
+ * Date applet 
+ * ===================================================================*/
+
+.calendar {
+  padding: .4em 1.75em .8em 1.75em;
+  spacing-rows: 0;
+  spacing-columns: 0;
+}
+
+.datemenu-date-label {
+  padding: .5em 0em 1em 0em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-month-label {
+  padding-bottom: 3px;
+  padding-top: 3px;
+  font-weight: bold;
+}
+
+.calendar-change-month {
+  &-back, &-forward:rtl {
+    @extend %calendar_button;
+    background-image: url("Calendar/calendar-arrow-left.png");
+  }
+
+  &-forward, &-back:rtl {
+    @extend %calendar_button;
+    background-image: url("Calendar/calendar-arrow-right.png");
+  }
+}
+
+%calendar_button {
+   height: 20px;
+   width: 20px;
+   border: 1px rgba(0,0,0,0);
+}
+
+.calendar-day-base {
+  font-size: 9pt;
+  text-align: center;
+  width: 2.4em;
+  height: 2.4em;
+}
+
+.calendar-day-heading {
+  font-size: 9pt;
+  padding-top: 2em;
+}
+
+.calendar-week-number {
+  color: $insensitive_fg_color;
+  font-size: 9pt;
+}
+
+.calendar-day {
+  border: 1px solid $separator_color;
+  border-left-width: 0;
+  border-top-width: 0;
+  padding-left: 1px;
+  padding-top: 1px;
+  background-color: $base_color;
+}
+
+.calendar-day-top {	border-top-width: 1px; }
+
+.calendar-day-left { border-left-width: 1px; }
+
+.calendar-today {
+  background-color: $selected_bg_color;
+  box-shadow: none;
+  color: $selected_fg_color;
+}
+
+.calendar-other-month-day {
+  color: $insensitive_fg_color;
+  text-shadow: none;
+  background-color: $base_color;
+}
+
+/* ===================================================================
+ * Notifications
+ * ===================================================================*/
+
+#notification {
+  color: $fg_color;
+  font-size: 8.5pt;
+  padding: 8px;
+  spacing-rows: 10px;
+  spacing-columns: 10px;
+  margin-from-right-edge-of-screen: 20px;
+  width: 34em;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: $notification_bg_color;
+
+  /* hacky thing to cover up inset border... */
+  &, &.multi-line-notification { StLabel { background-color: $notification_bg_color; } }
+
+  &.multi-line-notification { padding-bottom: 8px; }
+
+  .cinnamon-link {
+    color: $link_color;
+    text-decoration: underline;
+  }
+
+  StEntry { @extend %entry; }
+}
+
+/* We use row-span = 2 for the image cell, which prevents its height preferences to be
+	taken into account during allocation, so its height ends up being limited by the height
+	of the content in the other rows. To avoid showing a stretched image, we set the minimum
+	height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 = 159 */
+
+.notification-with-image { min-height: 159px; }
+
+#notification-scrollview {
+  max-height: 100em;
+
+  & > .top-shadow, & > .bottom-shadow { height: 10em; }
+
+  &:ltr > StScrollBar { padding-left: 6px; }
+  &:rtl > StScrollBar { padding-right: 6px; }
+}
+
+#notification-body {
+  spacing: 5px;
+  border: none;
+}
+
+#notification-actions { spacing: 10px; }
+
+.notification-button, .notification-icon-button {
+  StScrollView & {
+    border-image: url('Notifications/notification-button.png') 4;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 4px 42px 5px;
+    color: $notification_button_fg_color;
+    text-align: center;
+    
+    &:active {
+      border-image: url('Notifications/notification-button-active.png') 4 5 4 5;
+      color: $notification_button_active_fg_color;
+    }
+  }
+}
+
+.notification-icon-button > StIcon { icon-size: 36px; }
+
+/* ===================================================================
+ * Alt Tab
+ * ===================================================================*/
+
+#altTabPopup {
+  padding: 8px;
+  spacing: 16px;
+}
+
+.switcher-list {
+  border-image: url('Shadows/shadow-outset.png') 3;
+  padding: 20px;
+  font-size: 9pt;
+  font-weight: bold;
+
+  .item-box {
+    padding: 8px;
+    border: 3px solid rgba(0,0,0,0);
+
+    &:outlined { border-color: rgba(0,0,0,0); }
+
+    &:selected { border-color: $selected_bg_color;; }
+  }
+
+  .thumbnail { width: 256px; }
+  
+  .separator {
+    width: 1px;
+    background: $separator_color;
+  }
+}
+
+.switcher-list-item-container { spacing: 8px; }
+
+.thumbnail-scroll-gradient- {
+  &right, &left {
+    background-color: rgba(51,51,51,0.5);
+    width: 20px; 
+  }
+}
+
+.ripple-box {
+  width: 250px;
+  height: 250px;
+  background-image: url("Overview/corner-ripple-xp.png");
+}
+
+.switcher-arrow {
+  border: none;
+  color: $fg_color;
+
+  &:highlighted { color: $selected_fg_color; }
+}
+
+.switcher-preview-backdrop { background-color: rgba(25,25,25,0.95); }
+
+/* ===================================================================
+ * Modal dialogs
+ * ===================================================================*/
+
+.modal-dialog {
+  font-size: 10pt;
+  border-image: url('Shadows/shadow-outset.png') 3;
+  padding: 30px 42px;
+  color: $fg_color;
+}
+
+.modal-dialog-button-box { spacing: 110px; }
+
+.modal-dialog-button {
+  height: 20px;
+  font-size: 10pt;
+  color: $fg_color;
+  border-image: url("Button/button.png") 4;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 3px 22px 4px;
+
+  &:focus { border-image: url("Button/button-focus.png") 4; }
+
+  &:active, &:checked {
+    &:focus {
+      border-image: url("Button/button-active.png") 4;
+      padding: 4px 21px 3px 23px;
+    }
+  }
+
+  &:disabled {
+    color: $button_insensitive_fg_color;
+    text-shadow: 1px 1px white;
+  }
+}
+
+/* Info OSD popup */
+.info-osd {
+  font-size: 18pt;
+  font-weight: bold;
+  border-image: url('Shadows/shadow-outset.png') 3;
+  color: $fg_color;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===================================================================
+ * Run dialog
+ * ===================================================================*/
+
+.run-dialog-label {
+  font-size: 10pt;
+  padding-bottom: 10px;
+}
+
+.run-dialog-error-label { font-size: 10pt; }
+
+.run-dialog-error-box {
+  padding-top: 15px;
+  spacing: 5px;
+}
+
+.run-dialog-completion-box { 
+  padding-top: 12px;
+  font-size: 10px;
+}
+
+.run-dialog-entry { @extend %entry; }
+
+.run-dialog { padding: 12px 16px 16px 16px; }
+
+.lightbox {	background-color: rgba(0,0,0,0.4); }
+
+/* CinnamonMountOperation Dialogs */
+
+.cinnamon-mount-operation-icon { icon-size: 48px; }
+
+.mount-password-reask {	color: red; }
+
+.show-processes-dialog,
+.mount-question-dialog { spacing: 24px; }
+
+.show-processes-dialog-subject,
+.mount-question-dialog-subject {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #666;
+  padding-top: 10px;
+  padding-left: 17px;
+  padding-bottom: 6px;
+
+  &:rtl, &:rtl {
+    padding-left: 0;
+    padding-right: 17px;
+  }
+}
+
+.show-processes-dialog-description,
+.mount-question-dialog-description {
+  font-size: 10pt;
+  color: white;
+  padding-left: 17px;
+  width: 28em;
+
+  &:rtl, &:rtl { padding-right: 17px; }
+}
+
+.show-processes-dialog-app-list {
+  font-size: 10pt;
+  max-height: 200px;
+  padding-top: 24px;
+  padding-left: 49px;
+  padding-right: 32px;
+
+  &:rtl {
+    padding-right: 49px;
+    padding-left: 32px;
+  }
+}
+
+.show-processes-dialog-app-list-item {
+  color: #ccc;
+
+  &:ltr { padding-right: 1em; }
+  
+  &:rtl { padding-left: 1em; }
+}
+
+.show-processes-dialog-app-list-item-icon {
+  &:ltr { padding-right: 17px; }
+
+  &:rtl { padding-left: 17px; }
+}
+
+.show-processes-dialog-app-list-item-name { font-size: 10pt; }
+
+/* ===================================================================
+ * Magnifier
+ * ===================================================================*/
+
+.magnifier-zoom-region {
+  border: 2px solid rgba(128, 0, 0, 255);
+
+  &.full-screen { border-width: 0; }
+}
+
+/* ===================================================================
+ * On screen keyboard
+ * ===================================================================*/
+
+#keyboard {
+  background-color: #316bc6;
+  box-shadow: inset 0 1px #d8e4f8;
+}
+
+.keyboard-layout {
+  spacing: 10px;
+  padding: 10px;
+}
+
+.keyboard-row { spacing: 15px; }
+
+.keyboard-key {
+  min-height: 30px;
+  min-width: 30px;
+  border: 2px solid transparent;
+  border-radius: 1px;
+  background-color: white;
+  font-size: 18pt;
+  color: black;
+
+  &:grayed {
+    color: $button_insensitive_fg_color;
+    background-color: $button_insensitive_bg_color;
+  }
+
+  &:checked, &:active {
+    border-color: #f00;
+    background-color: #000080;
+    color: white;
+  }
+}
+
+.keyboard-subkeys {
+  background-color: #7a96df;
+  border: 2px solid transparent;
+  border-radius: 1px;
+  color: #d8e4f8;
+  padding: 5px;
+  -arrow-border-radius: 4px;
+  -arrow-background-color: #e1e1e1;
+  -arrow-border-width: 1px;
+  -arrow-border-color: transparentize(#282828,0.6);
+  -arrow-base: 18px;
+  -arrow-rise: 10px;
+  -st-shadow: 0 -1px 2px 0 transparentize(#fff,0.1);
+  -boxpointer-gap: 2px;
+}
+
+/* ###################################################################
+ * Cinnamon Specific Section 
+ * ###################################################################*/
+/* ===================================================================
+ * Menu (menu.js)
+ * ===================================================================*/
+
+/* Start Button */
+
+/*
+ * Here we make the assumption that the menu applet is the first thing
+ * on the left panel...should be valid seeing as this is a WinXP clone
+ * and any sane user will configure their applets accordingly
+ */
+
+#panelLeft .applet-box:first-child {
+  color: $start_menu_icon_color;
+  border-image: url('Panel/start-button.png') 22 5 0 0;
+  border-width: 0px;
+  padding: 1px 8px 2px 16px;
+  font-family: tahoma;
+  font-weight: bold;
+  font-size: 12px;
+
+  &:active {
+    border-image: url('Panel/start-button-active.png') 22 5 0 0;
+    padding: 1px 7px 2px 17px;
+  }
+}
+
+/* Main menu title */
+
+.applet-box .menu,
+.menu-background {
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+
+  padding: 55px 1px 0px 1px;
+  border-image: url("Frames/menu-bg.png") 5 5 65 44;
+}
+
+.menu-favorites-box {
+  margin: auto;
+  background-color: $start_menu_box_bg_color;
+  border: 4px solid transparent;
+  border-image: url('Shadows/shadow-edge.png') 3;
+  border-radius: 0;
+  padding: 0.5em;
+  color: $start_menu_selected_fg_color;
+
+  .popup-separator-menu-item { background-color: $start_menu_box_borders_color; }
+}
+
+.menu-favorites-button {
+  padding: 10px;
+  border-radius: 0;
+
+  &:hover {
+    background-color: $start_menu_selected_bg_color;
+    color: $start_menu_selected_fg_color;
+  }
+}
+
+.menu-places-box {
+  margin: auto;
+  padding: 8px;
+  border: 0 solid rgba(0,0,0,0);
+}
+
+.menu-places-button { padding: 10px; }
+
+.menu-applications-box {
+  padding: 10px 0 0 10px;
+  background-color: rgba(0,0,0,0);
+  border: none;
+
+  .menu-applications-inner-box {
+    padding: 5px;
+    background-color: $start_menu_box_bg_color;
+    box-shadow: inset 1px 1px #fff;
+  }
+
+  StScrollBar { padding: 0; }
+
+  StScrollView {
+    border: 1px solid $start_menu_box_borders_color;
+    border-image: none;
+    border-right-width: 0;
+    background-color: $start_menu_box_bg_color;
+    color: $start_menu_box_fg_color;
+
+    border-bottom-width: 0;
+  }
+}
+
+.menu-application-button {
+  padding: 7px;
+  max-width: 10px;
+  color: $start_menu_box_fg_color;
+
+  &-selected {
+    padding: 7px;
+    color: $start_menu_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
+  }
+
+  &-label {
+    &:ltr { padding-left: 5px; }
+    &:rtl { padding-right: 5px; }
+  }
+
+  &, &-selected { &:highlighted { font-weight: bold; } }
+}
+
+.menu-categories-box { padding: 10px; }
+
+.menu-category-button {
+  padding: 7px;
+  color: $start_menu_fg_color;
+
+  &-greyed {
+    padding: 7px;
+    color: $start_menu_insensitive_fg_color;
+  }
+
+  &-selected {
+    padding: 7px;
+    color: $start_menu_selected_fg_color;
+    background-color: $start_menu_selected_bg_color;
+  }
+
+  &-label {
+    &:ltr { padding-left: 5px; }
+    &:rtl { padding-right: 5px; }  
+  }
+}
+
+/* Name and description of the currently hovered item in the menu
+ * This appears on the bottom right hand corner of the menu*/
+ 
+.menu-selected-app {
+  &-box {
+    padding: 3px 30px 3px 28px;
+  
+    text-align: right;
+    color: $start_menu_bottom_fg_color;
+  }
+
+  &-title { font-weight: bold; }
+
+  &-description { max-width: 150px; }
+}
+
+.menu-search-box { padding: 0 0 10px 30px; }
+
+.menu-search-entry-icon {
+  icon-size: 1.2em;
+  color: $fg_color;
+}
+
+/* ===================================================================
+ * Window list (windowList.js)
+ * ===================================================================*/
+
+$window_list_slice: 5 5 0 0;
+
+.window-list-box {
+  spacing: 0;
+  padding: 0 2px;
+}
+
+.window-list-item-label {
+  width: 15em;
+  min-width: 5px;
+}
+
+.window-list-item-box {
+  font-weight: normal;
+  color: $window_list_fg_color;
+  border-image: url('Panel/applet-button.png') $window_list_slice;
+
+  &:active, &:checked, &:focus {
+    color: $window_list_active_fg_color;
+    border-image: url('Panel/applet-button-active.png') $window_list_slice;
+    background-image: url('shadows/shadow-bg.png');
+    background-repeat: repeat;
+    background-color: transparent;
+  }
+}
+
+.window-list-item-demands-attention { border-image: url('Panel/applet-button-demands-attention.png') $window_list_slice; }
+
+#appMenuIcon { padding: 0 2px 0 7px; }
+
+/* ===================================================================
+ * Sound Applet (sound@cinnamon.org)
+ * ===================================================================*/
+
+.sound-player {
+  StButton {
+    width: 22px;
+    height: 13px;
+    padding: 5px;
+    color: #000;
+
+    &:active { color: #666; }
+
+    &:small {
+      width: 16px;
+      height: 8px;
+      padding: 1px;
+
+      StIcon { icon-size: 1em; }
+    }
+
+    StIcon { icon-size: 1.5em; }
+  }
+
+  .slider {
+    height: 0.5em;
+    -slider-height: 0.5em;
+    -slider-background-color: darken($bg_color, 45%);
+    -slider-border-color: rgba(0,0,0,0);
+    -slider-active-background-color: $selected_bg_color;
+    -slider-active-border-color: rgba(0,0,0,0);
+    -slider-border-width: 0px;
+    -slider-handle-radius: 0px;
+  }
+
+  StBoxLayout { spacing: 0.5em; }
+
+  > StBoxLayout { padding: 5px; }
+
+  &-overlay {
+    width: 300px;
+    height: 80px;
+    padding: 15px;
+    spacing: 0.5em;
+    background: rgba(0,0,0,0.7);
+
+    StBoxLayout {
+      padding: 3px;
+      color: #fff;
+    }
+
+    StButton { color: #fff; }
+  }
+
+  &-generic-coverart { background: rgba(0,0,0,0.2); }
+}
+
+/* ===================================================================
+ * Workspace Switcher applet (workspaceSwitcher.js)
+ * ===================================================================*/
+
+/* Controls the styling when using the "Simple buttons" option */
+.workspace-switcher {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.workspace-button {
+  width: 20px;
+  height: 6px;
+  padding: 4px 3px 4px 3px;
+
+  color: $panel_left_fg_color;
+
+  #panelRight & { color:
+    $insensitive_fg_color;
+    text-shadow: 1px 1px white;
+  }
+
+  &:outlined {
+    #panelRight & {
+      color: $window_list_active_fg_color;
+      text-shadow: 1px 1px $bg_color;
+    }
+  }
+}
+
+/* Controls the style when using the "Visual representation" option */
+.workspace-graph {
+  padding: 3px;
+  spacing: 3px;
+
+  .workspace {
+    border: 1px solid #666;
+    background-gradient-direction: vertical;
+    background-gradient-start: #222;
+    background-gradient-end: #4d4d4d;
+
+    .windows {
+      -active-window-background: #8c8c8c;
+      -active-window-border: rgba(0, 0, 0, 0.7);
+      -inactive-window-background: #8c8c8c;
+      -inactive-window-border: rgba(0, 0, 0, 0.7);
+    }
+
+    &:active {
+      border: 1px solid #ccc;
+      background-gradient-direction: vertical;
+      background-gradient-start: #111;
+      background-gradient-end: #3d3d3d;
+
+      .windows {
+        -active-window-background: #fff;
+        -active-window-border: rgba(0, 0, 0, 0.9);
+        -inactive-window-background: #8c8c8c;
+        -inactive-window-border: rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
+}
+
+/* ===================================================================
+ * Panel Launchers Applet (panelLaunchers.js)
+ * ===================================================================*/
+
+#panel-launchers-box { padding: 0; }
+
+.launcher,
+.panel-launcher {
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* ===================================================================
+ * Overview corner
+ * ===================================================================*/
+
+#overview-corner { background-image: url("Overview/overview.png"); }
+
+/* ===================================================================
+ * Applets (applet.js) 
+ * ===================================================================*/
+
+.applet-separator {
+  background: url('Panel/separator-left.png') no-repeat center center;
+  padding: 0 6px;    
+  
+  #panelRight & {
+    padding: 5px 6px;
+    background-image: none;
+    
+    .applet-separator-line {
+      width: 1px;
+      background: transparentize($panel_right_fg_color,0.3);
+    }
+  }
+}
+
+.applet-box {
+  color: $panel_left_fg_color;
+  padding: 0 4px 0 4px;
+
+  &:active {
+    color: $selected_fg_color;
+    border-image: url('Panel/applet-button-active.png') $window_list_slice;
+  }
+
+  #panelRight & {
+    color: $panel_right_fg_color;
+
+    &, &:hover, &:active { border-image: none; }
+  }
+}
+
+.applet-icon { icon-size: 22px; }
+
+/* ===================================================================
+ * Desklets (desklet.js) 
+ * ===================================================================*/
+
+$desklet_slice: 7;
+
+.desklet { color: $fg_color; }
+
+.desklet-with-borders {
+  border-image: url("Frames/desklet-bg.png") $desklet_slice;
+  color: $desklet_fg_color;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.desklet-with-borders-and-header {
+  border-image: url("Frames/desklet-bg.png") $desklet_slice;
+  color: $desklet_fg_color;
+  padding: 8px;
+}
+
+.desklet-header { 
+  border-image: url("Frames/desklet-bg.png") $desklet_slice;
+  font-size: 9pt;
+  font-weight: bold;
+  color: $desklet_fg_color;
+  padding: 8px;
+}
+
+.desklet-drag-placeholder {
+  border: 1px solid transparentize($selected_bg_color,0.2);
+  background-color: transparentize($selected_bg_color,0.5);
+}
+
+.xkcd-box {
+  padding: 6px;
+  border: 0 solid #141414;
+  background-color: rgba(0,0,0,0);
+  border-radius: 0;
+}
+
+.photoframe-box {
+  padding: 10px;
+  
+  border-image: url("Frames/desklet-borders.png") 6;
+}
+
+/* ===================================================================
+ * About Dialog (applet.js and desklet.js)
+ * ===================================================================*/
+
+.about-content {
+  width: 550px;
+  height: 200px;
+  spacing: 8px;
+  padding-bottom: 16px;
+}
+
+.about-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.about-uuid { font-size: .8em; }
+
+.about-icon { padding-right: 20px; }
+
+.about-description { padding-top: 4px; }
+
+.about-version { padding-left: 7px; }
+
+/* ===================================================================
+ * Workspace OSD
+ * ===================================================================*/
+
+.workspace-osd {
+  color: $fg_color;
+  border-image: url('Shadows/shadow-outset.png') 3;
+  padding: 9px 15px;
+  font-weight: bold;
+  font-size: 26pt;
+}
+
+.window-caption,
+.expo-workspaces-name-entry {
+  color: $insensitive_fg_color;
+  background-color: $bg_color;
+  text-shadow: 1px 1px white;
+  border: 1px solid black;
+  padding: 8px 12px 10px 10px;
+  height: 15px;
+  text-align: center;
+
+  &#selected {
+    &:focus, & {
+      color: $borderless_entry_selected_fg_color;
+      background-color: $base_color;
+      caret-color: $borderless_entry_selected_fg_color;
+      caret-size: 1px;
+      selected-color: $selected_fg_color;
+      selection-background-color: $selected_bg_color;
+	}
+  }
+}
+
+/* ===================================================================
+ * Notification Applet
+ * ===================================================================*/
+
+.notification-applet-padding { padding: .5em 1em; }
+
+.notification-applet-container { max-height: 100px; }
+
+/* Check Boxes */
+.check-box CinnamonGenericContainer {
+  spacing: .2em;
+  min-height: 30px;
+  padding-top: 2px;
+}
+
+.check-box {
+  StLabel { font-weight: normal; }
+
+  &, :focus {
+	StBin {
+      width: 22px;
+      height: 22px;
+      background-image: url('Check-Radio/checkbox-unchecked.png');
+    }
+    
+    &:checked StBin { background-image: url('Check-Radio/checkbox-checked.png'); }
+  }
+}
+
+.radiobutton {
+  StLabel {
+    padding-top: 4px;
+    font-size: 0.9em;
+    box-shadow: none;
+  }
+  
+  CinnamonGenericContainer {
+    spacing: .2em;
+    height: 26px;
+    padding-top: 2px;
+  }
+
+  &, &:focus {
+    StBin {
+      width: 16px;
+      height: 16px;
+      background-image: url('Check-Radio/radio-unchecked.png');
+    }
+
+    &:checked StBin { background-image: url('Check-Radio/radio-checked.png'); }
+  }
+}
+
+.flashspot { background-color: $base_color; }
+
+/* Media keys OSD popup */
+
+.osd-window {
+  border-image: url('Shadows/shadow-outset.png') 3;
+  padding: 20px;
+  color: $fg_color;
+  spacing: 1em;
+
+  .level {
+    height: 0.7em;
+    border-radius: 0;
+    background-color: transparentize($fg_color,0.65);
+  }
+}
+
+.tile-preview, .tile-hud {
+  &, &.snap {
+    background-color: transparentize($selected_bg_color, 0.5);
+    border: 1px solid transparentize($selected_bg_color, 0.2);
+  }
+}
+
+.tile-hud {
+  &:top {
+    border-top-width: 0;
+    border-radius: 0 0 8px 8px;
+  }
+
+  &:bottom {
+    border-bottom-width: 0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  &:left {
+    border-left-width: 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  &:right {
+    border-right-width: 0;
+    border-radius: 8px 0 0 8px;
+  }
+
+  &:top-left {
+    border-top-width: 0;
+    border-left-width: 0;
+    border-radius: 0 0 8px 0;
+  }
+
+  &:top-right {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-radius: 0 0 0 8px;
+  }
+
+  &:bottom-left {
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-radius: 0 8px 0 0;
+  }
+
+  &:bottom-right {
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-radius: 8px 0 0 0;
+  }
+}
+
+/* ===================================================================
+ * User Applet
+ * ===================================================================*/
+ 
+.user-icon {  
+  background-color: #ececec;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  padding: 0;
+}
+
+.user-label {
+  color: $fg_color;
+  font-size: 14px;
+  margin: 6px;
+}
+
+/* ===================================================================
+ * CinnXPStarkMenu 
+ * ===================================================================*/
+
+.starkmenu-background {
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+
+  @if $flavor == 'luna' { 
+	border-image: url("Frames/menu-bg.png") 59 60 68 44;
+    padding: 54px 1px 30px 1px; 
+  }
+
+  @if $flavor == 'metallic' {
+	border-image: url("Frames/menu-bg.png") 8 8 66 44;
+    padding: 52px 1px 30px 1px;
+  }
+
+  @else if $flavor == 'royale' { 
+    border-image: url("Frames/menu-bg.png") 83 36 66 44;
+    padding: 52px 0 30px 0;
+  }
+}
+
+.starkmenu-favorites-box {
+  color: $start_menu_fg_color;
+  background-color: rgba(0,0,0,0);
+  border: 0 solid #000;
+
+  .popup-separator-menu-item {
+    @if $flavor == 'luna' { background: $separator_color; }
+
+    @if $flavor == 'metallic' { background: $separator_color; }
+
+    @else if $flavor == 'royale' { background: #3d5b95; }
+  }
+}
+
+.right-buttons-box {
+    color: $start_menu_box_fg_color;
+    background-color: $start_menu_box_bg_color;
+    padding: 8px;
+    border: 0 solid $start_menu_box_borders_color;
+    border-left-width: 1px;
+
+    .hover-label { color: $start_menu_box_fg_color; }
+
+    .hover-user-icon { border-color: mix($separator_color,$start_menu_box_bg_color,80%); }
+
+    .popup-separator-menu-item {
+      height: 1px;
+      border: 4px solid $start_menu_box_bg_color;
+      border-right-width: 0;
+      border-left-width: 0;
+      background-clip: content-box;
+
+      @if $flavor == 'luna' { background-color: $start_menu_box_borders_color; }
+
+      @if $flavor == 'metallic' { background-color: $start_menu_box_borders_color; }
+
+      @else if $flavor == 'royale' { background-color: #6287d6; }
+    }
+}
+
+.starkmenu-selected-app-box {
+  color: $start_menu_fg_color;
+  padding: 3px 3px 7px 3px;
+}
+
+.starkmenu-applications-box {
+  padding: 0;
+    
+  StScrollView {
+    @if $flavor == 'luna' { background-color: white; }
+
+    @if $flavor == 'metallic' { background-color: white; }
+
+    @else if $flavor == 'royale' { background-color: rgba(0,0,0,0); }
+
+    border-width: 1px;
+
+    &:first-child {
+      border-right-width: 0;
+      @if $flavor == 'royale' { border-top-width: 0; }
+    }
+  }
+}
+
+.starkmenu-applications-inner-box {
+    background-color: white;
+}
+
+.starkmenu-search-box {
+   padding-bottom: 0px;
+}
+
+/* ===================================================================
+ * Catch all extend
+ * ===================================================================*/
+
+%entry {
+  background-color: $base_color;
+  padding: 4px 12px;
+  color: $fg_color;
+  border: 3px solid transparent;
+  border-image: url('Shadows/shadow-inset-white.png') 3;
+  border-radius: 0;
+  width: 250px;
+  height: 16px;
+  caret-color: $fg_color;
+  caret-size: 1px;
+  selected-color: $selected_fg_color;
+  selection-background-color: $selected_bg_color;
+}
