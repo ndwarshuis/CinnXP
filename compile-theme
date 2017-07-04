@@ -41,6 +41,13 @@ elementIn () {
 	return 1
 }
 
+validate_sassc() {
+	if [ ! "$(which sassc 2> /dev/null)" ]; then
+	   echo sassc not installed. See README
+	   exit 1
+	fi
+}
+
 validate_flavor() {
 	if ! $(elementIn "$1" "${VALID_FLAVORS[@]}"); then
 		echo "Invalid flavor requested."
@@ -352,6 +359,8 @@ do
 			;;
 	esac
 done
+
+validate_sassc
 
 if [ -n "$all" ] && [ -n "$package" ]; then
 	echo "ERROR: cannot set -a and -p at once"

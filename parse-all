@@ -28,6 +28,13 @@ elementIn () {
 	return 1
 }
 
+validate_sassc() {
+	if [ ! "$(which sassc 2> /dev/null)" ]; then
+	   echo sassc not installed. See README
+	   exit 1
+	fi
+}
+
 validate_gtk_minor_version() {
 	if ! $(elementIn "$1" "${VALID_GTK_VERSIONS[@]}"); then
 		echo "Invalid gtk versions requested."
@@ -86,5 +93,7 @@ do
 			;;
 	esac
 done
+
+validate_sassc
 
 parse_all
