@@ -793,7 +793,10 @@ $panel_slice: 1 0 0 0; //royale, embedded, zune
   font-weight: normal;
   font-size: 19px;
 
-  .applet-label { margin-left: 6px; }
+  .applet-label {
+    margin-left: 6px;
+    color: $start_menu_icon_color;
+  }
   
   &:hover { border-image: url('Panel/start-button-hover.png') 0 11 0 6; }
 
