@@ -997,6 +997,8 @@ $window_list_slice: 17 5 0 0;
 
     &:hover { border-image: url('Panel/applet-button-active-hover.png') $window_list_slice; }
   }
+
+  .progress { border-image: url('Panel/applet-button-demands-attention.png') $window_list_slice; }
 }
 
 .window-list-item-demands-attention { border-image: url('Panel/applet-button-demands-attention.png') $window_list_slice; }
