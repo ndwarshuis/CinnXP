@@ -1,3 +1,5 @@
+This project is dormant
+
 # CinnXP
 
 make Cinnamon look and feel like the venerable Windows XP interface
